@@ -56,15 +56,20 @@ docker compose pull
 docker compose up -d
 ```
 
-GitHub Actions 在 `master` 推送时构建并推送公开 GHCR 镜像，同时通过 SSH 更新 VPS。需要配置以下 Secrets：
+GitHub Actions 在 `master` 推送时构建并推送公开 GHCR 镜像，成功后调用 VPS 上的 Watchtower Webhook 更新容器。需要配置以下 Secrets：
 
-- `VPS_HOST`
-- `VPS_USER`
-- `VPS_SSH_KEY`
-- `VPS_KNOWN_HOSTS`
-- `VPS_APP_DIR`
+- `DEPLOY_WEBHOOK_URL`
+- `DEPLOY_WEBHOOK_TOKEN`
 
 部署所需的 Actions Variable：`PUBLIC_SITE_URL`。它用于生成 canonical、RSS 和 sitemap；本地开发未设置时使用 `http://localhost:4321`。
-`VPS_KNOWN_HOSTS` 应填写目标主机的完整 SSH 公钥记录（可在可信网络中运行 `ssh-keyscan -H your-host` 后人工核对）。
+VPS 首次部署时，在 Compose 文件所在目录创建 `.env`，设置一个足够长的随机 `WATCHTOWER_HTTP_API_TOKEN`，然后启动博客和 Webhook：
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.webhook.yml up -d
+```
+
+将 `DEPLOY_WEBHOOK_URL` 设置为 `http://your-host:8090`（或反向代理后的地址），将 `DEPLOY_WEBHOOK_TOKEN` 设置为同一个 Token。Webhook 只接受带 Bearer Token 的 `POST /v1/update`，Watchtower 通过标签只更新博客容器。未配置 HTTPS 时应至少在 VPS 防火墙中限制 `8090` 的来源；HTTPS 可在后续接入域名时补上。
+
+这里故意让 Actions 在镜像推送成功后再调用 Webhook，而不是把 GitHub 原生 `push` Webhook 直接指向 VPS：原生事件和镜像构建并行到达，服务器可能在 `latest` 还未发布时执行更新。
 
 首次发布后，需要在 GitHub Packages 设置中确认 GHCR 包继承公开仓库的可见性。仓库公开，GitHub Issues 用于文章勘误和建议。在线编辑器属于第二阶段，首版不包含登录、数据库或管理后台。

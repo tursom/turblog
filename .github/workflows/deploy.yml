@@ -4,6 +4,10 @@ on:
   push:
     branches: [master]
 
+concurrency:
+  group: publish-master
+  cancel-in-progress: false
+
 env:
   IMAGE: ghcr.io/${{ github.repository }}
   VERSION: sha-${{ github.sha }}
@@ -47,23 +51,13 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Load deployment key
-        uses: webfactory/ssh-agent@v0.9.1
-        with:
-          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
-
-      - name: Configure VPS host key
+      - name: Notify VPS deployment webhook
         env:
-          VPS_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
+          DEPLOY_WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL }}
+          DEPLOY_WEBHOOK_TOKEN: ${{ secrets.DEPLOY_WEBHOOK_TOKEN }}
         run: |
-          mkdir -p "$HOME/.ssh"
-          printf '%s\n' "$VPS_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
-
-      - name: Deploy selected image to VPS
-        env:
-          VPS_HOST: ${{ secrets.VPS_HOST }}
-          VPS_USER: ${{ secrets.VPS_USER }}
-          VPS_APP_DIR: ${{ secrets.VPS_APP_DIR }}
-        run: |
-          ssh "$VPS_USER@$VPS_HOST" \
-            "cd '$VPS_APP_DIR' && BLOG_IMAGE='$IMAGE' BLOG_VERSION='$VERSION' docker compose pull && BLOG_IMAGE='$IMAGE' BLOG_VERSION='$VERSION' docker compose up -d --remove-orphans"
+          test -n "$DEPLOY_WEBHOOK_URL"
+          test -n "$DEPLOY_WEBHOOK_TOKEN"
+          curl --fail-with-body --retry 3 --retry-delay 2 --max-time 30 \
+            -X POST "${DEPLOY_WEBHOOK_URL%/}/v1/update" \
+            -H "Authorization: Bearer $DEPLOY_WEBHOOK_TOKEN"

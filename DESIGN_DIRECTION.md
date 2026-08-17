@@ -34,14 +34,14 @@
 
 ## 第一版部署
 
-- GitHub Actions 仅在 `master` 推送时构建和发布
+- GitHub Actions 仅在 `master` 推送时构建和发布；镜像推送成功后通过 VPS Webhook 触发更新
 - 使用多阶段 Dockerfile：Node/Astro 构建阶段，轻量 Nginx 运行阶段
 - 运行镜像只包含 Nginx 和静态 `dist/` 文件，不运行 Node.js
 - VPS 使用 Docker Compose 运行博客容器
-- 镜像由 GitHub Actions 推送到 GHCR，VPS 按版本拉取
+- 镜像由 GitHub Actions 推送到 GHCR，VPS 使用 Watchtower Webhook 拉取 `latest` 并更新博客容器
 - 使用 Git commit SHA 作为不可变镜像标签，保留回滚能力
 - GitHub 仓库和 GHCR 镜像均为公开，仓库不保存私人数据
-- VPS 部署 SSH 私钥只保存在 GitHub Secrets，不进入仓库
+- VPS 不需要保存 GitHub SSH 私钥；Webhook Token 只保存在 GitHub Secrets 和 VPS `.env`
 - 未来切换 Gitea 时保留 Dockerfile 和 Compose 配置，只替换 CI 触发与镜像仓库配置
 
 GitHub Issues 首版开放，用于文章勘误和建议；Pull Request 仍由作者审核，Discussions 暂不作为首版功能。
