@@ -57,7 +57,13 @@ const latest = posts.slice(1, PAGE_SIZE);
       <a class="quiet-link" href="/archive/">查看归档 <span aria-hidden="true">→</span></a>
     </div>
     <div class="post-list">
-      {latest.map((post) => <PostCard post={post} />)}
+      {
+        posts.length === 0 ? (
+          <p class="empty-state">这里还没有文章。</p>
+        ) : (
+          latest.map((post) => <PostCard post={post} />)
+        )
+      }
     </div>
   </section>
 </SiteLayout>

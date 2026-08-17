@@ -16,14 +16,18 @@ const tags = allTags(await getPosts());
   </section>
   <div class="tag-index">
     {
-      tags.map((tag) => (
-        <a href={tagPath(tag.name)}>
-          <>
-            <span>#{tag.name}</span>
-            <small>{tag.count} 篇</small>
-          </>
-        </a>
-      ))
+      tags.length === 0 ? (
+        <p class="empty-state">还没有可用标签。</p>
+      ) : (
+        tags.map((tag) => (
+          <a href={tagPath(tag.name)}>
+            <>
+              <span>#{tag.name}</span>
+              <small>{tag.count} 篇</small>
+            </>
+          </a>
+        ))
+      )
     }
   </div>
 </SiteLayout>
