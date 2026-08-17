@@ -1,0 +1,57 @@
+---
+import { getCollection, render } from 'astro:content';
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import PostMeta from '@/components/PostMeta.astro';
+import TagLinks from '@/components/TagLinks.astro';
+import TableOfContents from '@/components/TableOfContents.astro';
+import type { Post } from '@/lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({ params: { slug: post.data.slug }, props: { post } }));
+}
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+---
+
+<SiteLayout
+  title={post.data.title}
+  description={post.data.summary}
+  ogImage={post.data.cover ?? undefined}
+  pageType="article"
+>
+  <div class="breadcrumbs">
+    <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/archive/">posts</a><span
+      aria-hidden="true">/</span
+    ><strong>{post.data.slug}</strong>
+  </div>
+  <div class="article-layout">
+    <article class="article-page">
+      <header class="article-header">
+        <PostMeta post={post} detail />
+        <h1>{post.data.title}</h1>
+        <p class="article-summary">{post.data.summary}</p>
+        <TagLinks tags={post.data.tags} />
+      </header>
+      <details class="mobile-toc">
+        <summary>本页目录</summary>
+        <TableOfContents headings={headings} />
+      </details>
+      <div class="prose"><Content /></div>
+      <footer class="article-footer">
+        <a href="/archive/">← 返回归档</a>
+        <a
+          href={`https://github.com/tursom/turblog/issues/new?title=${encodeURIComponent(`勘误：${post.data.title}`)}`}
+          target="_blank"
+          rel="noreferrer">提交勘误 ↗</a
+        >
+      </footer>
+    </article>
+    <aside class="article-aside"><TableOfContents headings={headings} /></aside>
+  </div>
+</SiteLayout>

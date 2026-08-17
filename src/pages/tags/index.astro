@@ -1,0 +1,29 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import { allTags, getPosts, tagPath } from '@/lib/posts';
+
+const tags = allTags(await getPosts());
+---
+
+<SiteLayout title="标签索引" description="按标签浏览 Tursom Log 的技术文章。">
+  <div class="breadcrumbs">
+    <a href="/">~/log</a><span aria-hidden="true">/</span><strong>tags</strong>
+  </div>
+  <section class="page-intro compact-intro">
+    <span class="eyebrow">INDEX</span>
+    <h1>标签索引</h1>
+    <p>从一个问题出发，沿着标签继续阅读。</p>
+  </section>
+  <div class="tag-index">
+    {
+      tags.map((tag) => (
+        <a href={tagPath(tag.name)}>
+          <>
+            <span>#{tag.name}</span>
+            <small>{tag.count} 篇</small>
+          </>
+        </a>
+      ))
+    }
+  </div>
+</SiteLayout>

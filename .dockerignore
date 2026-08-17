@@ -1,0 +1,7 @@
+.git
+.github
+.astro
+dist
+node_modules
+public/images/*.psd
+tmp-*.png

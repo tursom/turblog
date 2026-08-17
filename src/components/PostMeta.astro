@@ -1,0 +1,19 @@
+---
+import { formatDate, formatDateLabel, readingMinutes, type Post } from '@/lib/posts';
+
+interface Props {
+  post: Post;
+  detail?: boolean;
+}
+
+const { post, detail = false } = Astro.props;
+const updated =
+  post.data.updatedAt && post.data.updatedAt.valueOf() !== post.data.publishedAt.valueOf();
+---
+
+<div class:list={['post-meta', { detail }]}>
+  <time datetime={formatDate(post.data.publishedAt)}>{formatDateLabel(post.data.publishedAt)}</time>
+  {detail && <span aria-hidden="true">·</span>}
+  {detail && <span>{readingMinutes(post.body ?? '')} 分钟阅读</span>}
+  {updated && <span class="post-updated">更新于 {formatDateLabel(post.data.updatedAt!)}</span>}
+</div>

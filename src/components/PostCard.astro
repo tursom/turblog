@@ -1,0 +1,20 @@
+---
+import { postPath, type Post } from '@/lib/posts';
+import PostMeta from './PostMeta.astro';
+import TagLinks from './TagLinks.astro';
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+---
+
+<article class="post-card">
+  <div class="post-card-main">
+    <PostMeta post={post} />
+    <h3><a href={postPath(post)}>{post.data.title}</a></h3>
+    <p>{post.data.summary}</p>
+  </div>
+  <TagLinks tags={post.data.tags} />
+</article>

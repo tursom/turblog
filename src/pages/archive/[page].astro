@@ -1,0 +1,33 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import PostList from '@/components/PostList.astro';
+import Pagination from '@/components/Pagination.astro';
+import { getPosts, paginate, PAGE_SIZE } from '@/lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  const totalPages = Math.ceil(posts.length / PAGE_SIZE);
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) => {
+    const pageNumber = index + 2;
+    const page = paginate(posts, pageNumber);
+    return { params: { page: String(pageNumber) }, props: { page, total: posts.length } };
+  });
+}
+
+const { page, total } = Astro.props;
+---
+
+<SiteLayout title={`归档 · 第 ${page.currentPage} 页`} description="Tursom Log 的全部技术文章。">
+  <div class="breadcrumbs">
+    <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/archive/">archive</a><span
+      aria-hidden="true">/</span
+    ><strong>{page.currentPage}</strong>
+  </div>
+  <section class="page-intro compact-intro">
+    <span class="eyebrow">ARCHIVE</span>
+    <h1>文章归档</h1>
+    <p>按发布时间浏览全部文章，共 {total} 篇。</p>
+  </section>
+  <PostList posts={page.items} />
+  <Pagination currentPage={page.currentPage} totalPages={page.totalPages} basePath="/archive" />
+</SiteLayout>

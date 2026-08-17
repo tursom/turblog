@@ -1,0 +1,64 @@
+---
+import { navigationLinks } from '@/lib/navigation';
+
+const currentPath = Astro.url.pathname;
+---
+
+<aside class="site-sidebar" id="site-sidebar">
+  <div class="sidebar-brand">
+    <a class="brand-mark" href="/" aria-label="返回 Tursom Log 首页">TL</a>
+    <a class="brand-copy" href="/">
+      <strong>Tursom Log</strong>
+      <span>技术记录</span>
+    </a>
+  </div>
+
+  <nav class="sidebar-nav" aria-label="全局导航">
+    <p class="nav-label">浏览</p>
+    {
+      navigationLinks.map((link) => {
+        const active = link.href === '/' ? currentPath === '/' : currentPath.startsWith(link.href);
+        return (
+          <a
+            class:list={['nav-link', { active }]}
+            href={link.href}
+            aria-current={active ? 'page' : undefined}
+            aria-label={link.label}
+          >
+            <span class="nav-icon" aria-hidden="true">
+              {link.icon}
+            </span>
+            <span class="sidebar-label">{link.label}</span>
+          </a>
+        );
+      })
+    }
+  </nav>
+
+  <div class="sidebar-footer">
+    <a class="nav-link" href="/rss.xml" aria-label="RSS 订阅">
+      <span class="nav-icon" aria-hidden="true">↗</span>
+      <span class="sidebar-label">RSS 订阅</span>
+    </a>
+    <a
+      class="nav-link"
+      href="https://github.com/tursom"
+      rel="noreferrer"
+      target="_blank"
+      aria-label="GitHub"
+    >
+      <span class="nav-icon" aria-hidden="true">GH</span>
+      <span class="sidebar-label">GitHub</span>
+    </a>
+    <button
+      class="sidebar-collapse"
+      type="button"
+      data-sidebar-toggle
+      aria-expanded="true"
+      aria-label="收起导航"
+    >
+      <span class="nav-icon" aria-hidden="true">‹</span>
+      <span class="sidebar-label">收起导航</span>
+    </button>
+  </div>
+</aside>

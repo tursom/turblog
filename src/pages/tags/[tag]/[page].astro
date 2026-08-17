@@ -1,0 +1,47 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import PostList from '@/components/PostList.astro';
+import Pagination from '@/components/Pagination.astro';
+import { allTags, getPosts, paginate, tagSlug, tagPath, PAGE_SIZE } from '@/lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return allTags(posts).flatMap(({ name }) => {
+    const tagged = posts.filter((post) => post.data.tags.includes(name));
+    const totalPages = Math.ceil(tagged.length / PAGE_SIZE);
+    return Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) => {
+      const pageNumber = index + 2;
+      return {
+        params: { tag: tagSlug(name), page: String(pageNumber) },
+        props: { tag: name, page: paginate(tagged, pageNumber) },
+      };
+    });
+  });
+}
+
+const { tag, page } = Astro.props;
+---
+
+<SiteLayout
+  title={`#${tag} · 第 ${page.currentPage} 页`}
+  description={`浏览 Tursom Log 中标记为 ${tag} 的文章。`}
+>
+  <div class="breadcrumbs">
+    <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/tags/">tags</a><span
+      aria-hidden="true">/</span
+    ><a href={tagPath(tag)}>{tag}</a><span aria-hidden="true">/</span><strong
+      >{page.currentPage}</strong
+    >
+  </div>
+  <section class="page-intro compact-intro">
+    <span class="eyebrow">TAG</span>
+    <h1>#{tag}</h1>
+    <p>按发布时间浏览这个标签下的文章。</p>
+  </section>
+  <PostList posts={page.items} />
+  <Pagination
+    currentPage={page.currentPage}
+    totalPages={page.totalPages}
+    basePath={tagPath(tag).replace(/\/$/, '')}
+  />
+</SiteLayout>

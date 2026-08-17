@@ -1,0 +1,32 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="关于作者" description="关于 Tursom 和 Tursom Log。">
+  <div class="breadcrumbs">
+    <a href="/">~/log</a><span aria-hidden="true">/</span><strong>about</strong>
+  </div>
+  <section class="page-intro compact-intro">
+    <span class="eyebrow">ABOUT</span>
+    <h1>关于 Tursom</h1>
+    <p>关于软件、系统与长期实践的技术记录。</p>
+  </section>
+  <div class="about-content">
+    <p>
+      我是 Tursom，一名持续构建、拆解和记录软件系统的开发者。Tursom Log
+      用来保存经过实践验证的技术笔记。
+    </p>
+    <p>这里的文章以问题、证据和实现过程为主，欢迎通过 GitHub Issue 提交勘误或建议。</p>
+    <div class="about-links">
+      <a class="button-link" href="https://github.com/tursom" target="_blank" rel="noreferrer"
+        >GitHub <span aria-hidden="true">↗</span></a
+      >
+      <a
+        class="button-link secondary"
+        href="https://github.com/tursom/turblog/issues"
+        target="_blank"
+        rel="noreferrer">提交 Issue <span aria-hidden="true">↗</span></a
+      >
+    </div>
+  </div>
+</SiteLayout>

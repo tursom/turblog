@@ -1,0 +1,23 @@
+---
+import { navigationLinks } from '@/lib/navigation';
+
+const currentPath = Astro.url.pathname;
+---
+
+<details class="mobile-menu">
+  <summary aria-label="打开导航"><span aria-hidden="true">☰</span><span>导航</span></summary>
+  <nav aria-label="移动端导航">
+    {
+      navigationLinks.map((link) => {
+        const active = link.href === '/' ? currentPath === '/' : currentPath.startsWith(link.href);
+        return (
+          <a class:list={{ active }} href={link.href} aria-current={active ? 'page' : undefined}>
+            {link.label}
+          </a>
+        );
+      })
+    }
+    <a href="/rss.xml">RSS 订阅</a>
+    <a href="https://github.com/tursom" rel="noreferrer" target="_blank">GitHub</a>
+  </nav>
+</details>

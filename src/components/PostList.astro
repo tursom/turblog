@@ -1,0 +1,21 @@
+---
+import type { Post } from '@/lib/posts';
+import PostCard from './PostCard.astro';
+
+interface Props {
+  posts: Post[];
+  emptyText?: string;
+}
+
+const { posts, emptyText = '这里还没有文章。' } = Astro.props;
+---
+
+<div class="post-list">
+  {
+    posts.length === 0 ? (
+      <p class="empty-state">{emptyText}</p>
+    ) : (
+      posts.map((post) => <PostCard post={post} />)
+    )
+  }
+</div>

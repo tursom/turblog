@@ -1,0 +1,35 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import PostList from '@/components/PostList.astro';
+import Pagination from '@/components/Pagination.astro';
+import { allTags, getPosts, paginate, tagPath, tagSlug } from '@/lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return allTags(posts).map(({ name }) => {
+    const tagged = posts.filter((post) => post.data.tags.includes(name));
+    return { params: { tag: tagSlug(name) }, props: { tag: name, page: paginate(tagged, 1) } };
+  });
+}
+
+const { tag, page } = Astro.props;
+---
+
+<SiteLayout title={`#${tag}`} description={`浏览 Tursom Log 中标记为 ${tag} 的文章。`}>
+  <div class="breadcrumbs">
+    <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/tags/">tags</a><span
+      aria-hidden="true">/</span
+    ><strong>{tag}</strong>
+  </div>
+  <section class="page-intro compact-intro">
+    <span class="eyebrow">TAG</span>
+    <h1>#{tag}</h1>
+    <p>这个标签下共有 {page.totalPages === 1 ? page.items.length : '多'} 篇文章。</p>
+  </section>
+  <PostList posts={page.items} />
+  <Pagination
+    currentPage={page.currentPage}
+    totalPages={page.totalPages}
+    basePath={tagPath(tag).replace(/\/$/, '')}
+  />
+</SiteLayout>

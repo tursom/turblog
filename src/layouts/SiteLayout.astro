@@ -1,0 +1,194 @@
+---
+import Sidebar from '@/components/Sidebar.astro';
+import MobileMenu from '@/components/MobileMenu.astro';
+import ThemeToggle from '@/components/ThemeToggle.astro';
+import '@/styles/global.css';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: ImageMetadata;
+  pageType?: 'website' | 'article';
+}
+
+const {
+  title = 'Tursom Log',
+  description = '关于软件、系统与长期实践的技术记录。',
+  ogImage,
+  pageType = 'website',
+} = Astro.props;
+const fullTitle = title === 'Tursom Log' ? title : `${title} · Tursom Log`;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+const imageUrl = ogImage ? new URL(ogImage.src, Astro.site ?? Astro.url).href : undefined;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title="Tursom Log RSS" href="/rss.xml" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:site_name" content="Tursom Log" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={pageType} />
+    <meta property="og:url" content={canonical} />
+    {imageUrl && <meta property="og:image" content={imageUrl} />}
+    <meta name="twitter:card" content={imageUrl ? 'summary_large_image' : 'summary'} />
+    <title>{fullTitle}</title>
+    <script is:inline>
+      (() => {
+        try {
+          const saved = localStorage.getItem('tursom-theme');
+          const theme =
+            saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+          if (localStorage.getItem('tursom-sidebar') === 'collapsed')
+            document.documentElement.dataset.sidebar = 'collapsed';
+        } catch {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <Sidebar />
+      <div class="site-main">
+        <header class="mobile-header">
+          <a class="mobile-brand" href="/">Tursom <span>Log</span></a>
+          <div class="mobile-actions"><MobileMenu /><ThemeToggle /></div>
+        </header>
+        <div class="content-frame"><slot /></div>
+        <footer class="site-footer">
+          <span>© {new Date().getFullYear()} Tursom</span>
+          <span>以 Markdown 和 Git 维护</span>
+        </footer>
+      </div>
+    </div>
+    <div class="desktop-theme"><ThemeToggle /></div>
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        /** @param {'light' | 'dark'} theme */
+        const syncMermaidTheme = (theme) => {
+          document.querySelectorAll('.prose picture').forEach((picture) => {
+            const image = picture.querySelector('img');
+            const darkSource = picture.querySelector(
+              'source[media="(prefers-color-scheme: dark)"]',
+            );
+            if (!image || !darkSource) return;
+            if (!image.dataset.lightSrc) {
+              image.dataset.lightSrc = image.getAttribute('src') || '';
+              image.dataset.darkSrc = darkSource.getAttribute('srcset') || '';
+            }
+            image.src = (theme === 'dark' ? image.dataset.darkSrc : image.dataset.lightSrc) || '';
+          });
+        };
+        /** @param {'light' | 'dark'} theme @param {boolean} persist */
+        const setTheme = (theme, persist) => {
+          root.dataset.theme = theme;
+          document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+            button.setAttribute(
+              'aria-label',
+              theme === 'dark' ? '切换到浅色主题' : '切换到深色主题',
+            );
+            button.setAttribute('aria-pressed', String(theme === 'dark'));
+          });
+          syncMermaidTheme(theme);
+          if (persist) {
+            try {
+              localStorage.setItem('tursom-theme', theme);
+            } catch {}
+          }
+        };
+        /** @param {boolean} collapsed */
+        const setSidebar = (collapsed) => {
+          root.dataset.sidebar = collapsed ? 'collapsed' : 'expanded';
+          document.querySelectorAll('[data-sidebar-toggle]').forEach((button) => {
+            button.setAttribute('aria-expanded', String(!collapsed));
+            button.setAttribute('aria-label', collapsed ? '展开导航' : '收起导航');
+            const icon = button.querySelector('.nav-icon');
+            if (icon) icon.textContent = collapsed ? '›' : '‹';
+          });
+          try {
+            localStorage.setItem('tursom-sidebar', collapsed ? 'collapsed' : 'expanded');
+          } catch {}
+        };
+        setTheme(root.dataset.theme === 'dark' ? 'dark' : 'light', false);
+        setSidebar(root.dataset.sidebar === 'collapsed');
+        const systemTheme = matchMedia('(prefers-color-scheme: dark)');
+        systemTheme.addEventListener('change', (event) => {
+          try {
+            if (!localStorage.getItem('tursom-theme'))
+              setTheme(event.matches ? 'dark' : 'light', false);
+          } catch {}
+        });
+        document.addEventListener('click', (event) => {
+          if (!(event.target instanceof Element)) return;
+          const themeButton = event.target.closest('[data-theme-toggle]');
+          if (themeButton) setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark', true);
+          const sidebarButton = event.target.closest('[data-sidebar-toggle]');
+          if (sidebarButton) setSidebar(root.dataset.sidebar !== 'collapsed');
+          const copyButton = event.target.closest('[data-copy-code]');
+          if (copyButton) {
+            const code = copyButton.closest('pre')?.querySelector('code')?.textContent || '';
+            /** @param {string} text */
+            const copyText = async (text) => {
+              if (navigator.clipboard?.writeText) {
+                await navigator.clipboard.writeText(text);
+                return;
+              }
+              const textarea = document.createElement('textarea');
+              textarea.value = text;
+              textarea.setAttribute('readonly', '');
+              textarea.style.position = 'fixed';
+              textarea.style.opacity = '0';
+              document.body.append(textarea);
+              textarea.select();
+              let copied = false;
+              try {
+                /** @type {any} */
+                const legacyDocument = document;
+                copied = legacyDocument.execCommand('copy');
+              } finally {
+                textarea.remove();
+              }
+              if (!copied) throw new Error('Copy command failed');
+            };
+            copyText(code)
+              .then(() => {
+                copyButton.textContent = '已复制';
+                setTimeout(() => {
+                  copyButton.textContent = '复制';
+                }, 1400);
+              })
+              .catch(() => {
+                copyButton.textContent = '复制失败';
+                setTimeout(() => {
+                  copyButton.textContent = '复制';
+                }, 1400);
+              });
+          }
+        });
+        document.querySelectorAll('.prose pre code').forEach((code) => {
+          const pre = code.parentElement;
+          if (
+            !pre ||
+            pre.querySelector('[data-copy-code]') ||
+            code.classList.contains('language-mermaid')
+          )
+            return;
+          pre.insertAdjacentHTML(
+            'beforeend',
+            '<button class="copy-code" type="button" data-copy-code>复制</button>',
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>

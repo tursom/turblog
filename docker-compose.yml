@@ -1,0 +1,6 @@
+services:
+  blog:
+    image: ${BLOG_IMAGE:-ghcr.io/tursom/turblog}:${BLOG_VERSION:-latest}
+    restart: unless-stopped
+    ports:
+      - '${BLOG_PORT:-8080}:8080'
