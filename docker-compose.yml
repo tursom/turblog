@@ -6,3 +6,58 @@ services:
       - '8080'
     labels:
       com.centurylinklabs.watchtower.enable: 'true'
+
+  watchtower:
+    image: containrrr/watchtower:1.7.1
+    restart: unless-stopped
+    environment:
+      DOCKER_API_VERSION: '1.40'
+    command:
+      - --http-api-update
+      - --http-api-token=${WATCHTOWER_HTTP_API_TOKEN:?WATCHTOWER_HTTP_API_TOKEN is required}
+      - --label-enable
+      - --cleanup
+      - --interval=0
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  proxy:
+    image: nginx:1.29-alpine
+    restart: unless-stopped
+    depends_on:
+      - blog
+      - watchtower
+    ports:
+      - '${BLOG_PORT:-8080}:8080'
+    configs:
+      - source: webhook-nginx
+        target: /etc/nginx/conf.d/default.conf
+
+configs:
+  webhook-nginx:
+    content: |
+      server {
+        listen 8080;
+        listen [::]:8080;
+        server_name _;
+
+        client_max_body_size 1m;
+
+        location = /v1/update {
+          proxy_pass http://watchtower:8080/v1/update;
+          proxy_http_version 1.1;
+          proxy_set_header Host $$host;
+          proxy_set_header X-Real-IP $$remote_addr;
+          proxy_set_header X-Forwarded-For $$proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto $$scheme;
+        }
+
+        location / {
+          proxy_pass http://blog:8080;
+          proxy_http_version 1.1;
+          proxy_set_header Host $$host;
+          proxy_set_header X-Real-IP $$remote_addr;
+          proxy_set_header X-Forwarded-For $$proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto $$scheme;
+        }
+      }
