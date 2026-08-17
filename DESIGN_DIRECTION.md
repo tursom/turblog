@@ -37,8 +37,9 @@
 - GitHub Actions 仅在 `master` 推送时构建和发布；镜像推送成功后通过 VPS Webhook 触发更新
 - 使用多阶段 Dockerfile：Node/Astro 构建阶段，轻量 Nginx 运行阶段
 - 运行镜像只包含 Nginx 和静态 `dist/` 文件，不运行 Node.js
-- VPS 使用 Docker Compose 运行博客容器
+- VPS 使用 Docker Compose 运行博客容器和入口反向代理
 - 镜像由 GitHub Actions 推送到 GHCR，VPS 使用 Watchtower Webhook 拉取 `latest` 并更新博客容器
+- 博客和 Webhook 共用一个宿主机端口，由入口代理按 `/v1/update` 路径区分
 - 使用 Git commit SHA 作为不可变镜像标签，保留回滚能力
 - GitHub 仓库和 GHCR 镜像均为公开，仓库不保存私人数据
 - VPS 不需要保存 GitHub SSH 私钥；Webhook Token 只保存在 GitHub Secrets 和 VPS `.env`

@@ -52,8 +52,8 @@ cover: null
 Dockerfile 使用 Node/Astro 构建阶段和 Nginx 运行阶段。Compose 默认监听 `8080`：
 
 ```bash
-docker compose pull
-docker compose up -d
+docker compose -f docker-compose.yml -f docker-compose.local.yml pull
+docker compose -f docker-compose.yml -f docker-compose.local.yml up -d
 ```
 
 GitHub Actions 在 `master` 推送时构建并推送公开 GHCR 镜像，成功后调用 VPS 上的 Watchtower Webhook 更新容器。需要配置以下 Secrets：
@@ -62,7 +62,7 @@ GitHub Actions 在 `master` 推送时构建并推送公开 GHCR 镜像，成功�
 - `DEPLOY_WEBHOOK_TOKEN`
 
 部署所需的 Actions Variable：`PUBLIC_SITE_URL`。它用于生成 canonical、RSS 和 sitemap；本地开发未设置时使用 `http://localhost:4321`。
-VPS 首次部署时，在 Compose 文件所在目录创建 `.env`，设置一个足够长的随机 `WATCHTOWER_HTTP_API_TOKEN`，然后启动博客和 Webhook：
+VPS 首次部署时，在 Compose 文件所在目录创建 `.env`，设置一个足够长的随机 `WATCHTOWER_HTTP_API_TOKEN`，然后启动博客、入口代理和 Webhook：
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.webhook.yml up -d
@@ -70,7 +70,7 @@ docker compose -f docker-compose.yml -f docker-compose.webhook.yml up -d
 
 可以从仓库中的 `.env.example` 开始填写；真实 Token 不要提交到 Git。
 
-将 `DEPLOY_WEBHOOK_URL` 设置为 `http://your-host:8090`（或反向代理后的地址），将 `DEPLOY_WEBHOOK_TOKEN` 设置为同一个 Token。Webhook 只接受带 Bearer Token 的 `POST /v1/update`，Watchtower 通过标签只更新博客容器。未配置 HTTPS 时应至少在 VPS 防火墙中限制 `8090` 的来源；HTTPS 可在后续接入域名时补上。
+将 `DEPLOY_WEBHOOK_URL` 设置为 `http://your-host:8080`（或反向代理后的地址），将 `DEPLOY_WEBHOOK_TOKEN` 设置为同一个 Token。入口代理将 `/v1/update` 转发给 Watchtower，其余路径转发给博客。Webhook 只接受带 Bearer Token 的 `POST /v1/update`，Watchtower 通过标签只更新博客容器。未配置 HTTPS 时应至少在 VPS 防火墙中限制 `8080` 的来源；HTTPS 可在后续接入域名时补上。
 
 这里故意让 Actions 在镜像推送成功后再调用 Webhook，而不是把 GitHub 原生 `push` Webhook 直接指向 VPS：原生事件和镜像构建并行到达，服务器可能在 `latest` 还未发布时执行更新。
 
