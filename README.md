@@ -68,6 +68,8 @@ VPS 首次部署时，在 Compose 文件所在目录创建 `.env`，设置一个
 docker compose -f docker-compose.yml -f docker-compose.webhook.yml up -d
 ```
 
+可以从仓库中的 `.env.example` 开始填写；真实 Token 不要提交到 Git。
+
 将 `DEPLOY_WEBHOOK_URL` 设置为 `http://your-host:8090`（或反向代理后的地址），将 `DEPLOY_WEBHOOK_TOKEN` 设置为同一个 Token。Webhook 只接受带 Bearer Token 的 `POST /v1/update`，Watchtower 通过标签只更新博客容器。未配置 HTTPS 时应至少在 VPS 防火墙中限制 `8090` 的来源；HTTPS 可在后续接入域名时补上。
 
 这里故意让 Actions 在镜像推送成功后再调用 Webhook，而不是把 GitHub 原生 `push` Webhook 直接指向 VPS：原生事件和镜像构建并行到达，服务器可能在 `latest` 还未发布时执行更新。
