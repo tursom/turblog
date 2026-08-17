@@ -56,10 +56,12 @@ docker compose -f docker-compose.yml -f docker-compose.local.yml pull
 docker compose -f docker-compose.yml -f docker-compose.local.yml up -d
 ```
 
-GitHub Actions 在 `master` 推送时构建并推送公开 GHCR 镜像，成功后调用 VPS 上的 Watchtower Webhook 更新容器。需要配置以下 Secrets：
+GitHub Actions 在 `master` 推送时构建并推送公开 GHCR 镜像。需要 VPS 自动更新时，才配置以下 Secrets：
 
 - `DEPLOY_WEBHOOK_URL`
 - `DEPLOY_WEBHOOK_TOKEN`
+
+未配置这两个 Secrets 时，镜像仍会正常构建并推送，Workflow 会跳过 VPS 通知并给出 warning，不会因此失败。
 
 部署所需的 Actions Variable：`PUBLIC_SITE_URL`。它用于生成 canonical、RSS 和 sitemap；本地开发未设置时使用 `http://localhost:4321`。
 VPS 首次部署时，在 Compose 文件所在目录创建 `.env`，设置一个足够长的随机 `WATCHTOWER_HTTP_API_TOKEN`，然后启动博客、入口代理和 Webhook：
