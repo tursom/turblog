@@ -57,7 +57,8 @@ GitHub Issues 首版开放，用于文章勘误和建议；Pull Request 仍由�
 - 正文使用标准 Markdown，不启用 MDX，不执行文章内任意 JavaScript 或前端组件
 - Mermaid 使用 fenced code block 语法，并在构建阶段处理
 - 必填：`title`、`slug`、`summary`、`publishedAt`、`tags`
-- 可选：`updatedAt`、`cover`
+- 可选：`updatedAt`、`aiAssisted`、`cover`；`aiAssisted` 默认为 `false`
+- AI 承担主要执笔工作的文章必须设置 `aiAssisted: true`，并在文章列表和详情页显示“AI 辅助创作”
 - 不设置 `author`，当前只有一位作者
 - 不设置 `draft`，草稿由 `draft/*` Git 分支管理
 - 文章 URL 使用 `/posts/<英文slug>`

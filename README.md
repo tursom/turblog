@@ -41,9 +41,12 @@ publishedAt: 2026-08-17
 updatedAt: 2026-08-18
 tags:
   - Go
+aiAssisted: true
 cover: null
 ---
 ```
+
+由 AI 承担主要执笔工作的文章必须设置 `aiAssisted: true`，站点会在文章列表和详情页显示“AI 辅助创作”标记。未设置时默认为 `false`。
 
 草稿使用 `draft/*` 分支；合并到 `master` 才会进入正式构建。Mermaid 使用 `mermaid` fenced code block，构建阶段生成静态 SVG。
 

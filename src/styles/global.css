@@ -409,6 +409,19 @@ img {
   font-size: 12px;
 }
 
+.post-ai-assisted {
+  display: inline-flex;
+  align-items: center;
+  min-height: 19px;
+  padding: 1px 6px;
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 .post-updated {
   flex-basis: 100%;
   color: var(--muted);
