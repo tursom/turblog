@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
   <title>Tursom Log</title>
-  <rect width="64" height="64" rx="8" fill="#087f5b"/>
+  <rect width="64" height="64" rx="8" fill="#b45309"/>
   <path fill="#fff" d="M14 17h36v8H37v23h-10V25H14z"/>
 </svg>
