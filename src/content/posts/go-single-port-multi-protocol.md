@@ -7,7 +7,7 @@ tags:
   - Go
   - 网络编程
   - gRPC
-  - HTTP2
+  - HTTP/2
   - 协议复用
 aiAssisted: true
 cover: null

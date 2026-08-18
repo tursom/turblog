@@ -13,7 +13,13 @@ export function postPath(post: Pick<Post, 'data'>): string {
 }
 
 export function tagSlug(tag: string): string {
-  return tag.trim().toLowerCase().replace(/\s+/g, '-');
+  return tag
+    .trim()
+    .toLowerCase()
+    .replace(/[\\/]+/g, '-')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
 }
 
 export function tagPath(tag: string): string {
