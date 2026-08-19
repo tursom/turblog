@@ -750,11 +750,6 @@ img {
 
 .prose pre.astro-code,
 .prose pre.astro-code span {
-  color: var(--shiki-light);
-}
-
-:root[data-theme='dark'] .prose pre.astro-code,
-:root[data-theme='dark'] .prose pre.astro-code span {
   color: var(--shiki-dark);
 }
 

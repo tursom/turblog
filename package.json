@@ -8,6 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "test:code-contrast": "pnpm build && playwright test tests/code-block-contrast.spec.ts",
     "format": "prettier --write ."
   },
   "dependencies": {
