@@ -21,9 +21,9 @@ services:
     expose:
       - '8080'
     volumes:
-      - turblog-server-data:/var/lib/turblog
+      - ./data:/var/lib/turblog
     healthcheck:
-      test: ['CMD', 'wget', '-qO-', 'http://127.0.0.1:8080/healthz']
+      test: [ 'CMD', 'wget', '-qO-', 'http://127.0.0.1:8080/healthz' ]
       interval: 10s
       timeout: 3s
       retries: 5
@@ -152,6 +152,3 @@ configs:
           proxy_set_header X-Forwarded-Proto $$scheme;
         }
       }
-
-volumes:
-  turblog-server-data:
