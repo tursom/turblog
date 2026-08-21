@@ -12,7 +12,6 @@ services:
     restart: unless-stopped
     entrypoint:
       - /usr/local/bin/turblog-server
-    user: '101:101'
     depends_on:
       - blog
     environment:
