@@ -409,6 +409,12 @@ img {
   font-size: 12px;
 }
 
+.post-views {
+  min-width: 7em;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
 .post-ai-assisted {
   display: inline-flex;
   align-items: center;

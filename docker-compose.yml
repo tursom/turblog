@@ -7,6 +7,30 @@ services:
     labels:
       com.centurylinklabs.watchtower.enable: 'true'
 
+  server:
+    image: ${BLOG_IMAGE:-ghcr.io/tursom/turblog}:${BLOG_VERSION:-latest}
+    restart: unless-stopped
+    entrypoint:
+      - /usr/local/bin/turblog-server
+    user: '101:101'
+    depends_on:
+      - blog
+    environment:
+      TURBLOG_VISITOR_HASH_KEY: ${TURBLOG_VISITOR_HASH_KEY:?TURBLOG_VISITOR_HASH_KEY is required}
+      TURBLOG_TRUST_PROXY_HEADERS: 'true'
+    expose:
+      - '8080'
+    volumes:
+      - turblog-server-data:/var/lib/turblog
+    healthcheck:
+      test: ['CMD', 'wget', '-qO-', 'http://127.0.0.1:8080/healthz']
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+    labels:
+      com.centurylinklabs.watchtower.enable: 'true'
+
   watchtower:
     image: containrrr/watchtower:1.7.1
     restart: unless-stopped
@@ -25,8 +49,12 @@ services:
     image: nginx:1.29-alpine
     restart: unless-stopped
     depends_on:
-      - blog
-      - watchtower
+      blog:
+        condition: service_started
+      server:
+        condition: service_started
+      watchtower:
+        condition: service_started
     ports:
       - '${BLOG_PORT:-8080}:8080'
     configs:
@@ -41,18 +69,78 @@ configs:
         listen [::]:8080;
         server_name _;
 
+        real_ip_header CF-Connecting-IP;
+        real_ip_recursive on;
+        set_real_ip_from 173.245.48.0/20;
+        set_real_ip_from 103.21.244.0/22;
+        set_real_ip_from 103.22.200.0/22;
+        set_real_ip_from 103.31.4.0/22;
+        set_real_ip_from 141.101.64.0/18;
+        set_real_ip_from 108.162.192.0/18;
+        set_real_ip_from 190.93.240.0/20;
+        set_real_ip_from 188.114.96.0/20;
+        set_real_ip_from 197.234.240.0/22;
+        set_real_ip_from 198.41.128.0/17;
+        set_real_ip_from 162.158.0.0/15;
+        set_real_ip_from 104.16.0.0/13;
+        set_real_ip_from 104.24.0.0/14;
+        set_real_ip_from 172.64.0.0/13;
+        set_real_ip_from 131.0.72.0/22;
+        set_real_ip_from 2400:cb00::/32;
+        set_real_ip_from 2606:4700::/32;
+        set_real_ip_from 2803:f800::/32;
+        set_real_ip_from 2405:b500::/32;
+        set_real_ip_from 2405:8100::/32;
+        set_real_ip_from 2a06:98c0::/29;
+        set_real_ip_from 2c0f:f248::/32;
+
         client_max_body_size 1m;
         resolver 127.0.0.11 valid=10s ipv6=off;
         set $$watchtower_upstream http://watchtower:8080;
         set $$blog_upstream http://blog:8080;
+        set $$server_upstream http://server:8080;
 
         location = /v1/update {
           proxy_pass $$watchtower_upstream/v1/update;
           proxy_http_version 1.1;
           proxy_set_header Host $$host;
           proxy_set_header X-Real-IP $$remote_addr;
-          proxy_set_header X-Forwarded-For $$proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-For $$remote_addr;
           proxy_set_header X-Forwarded-Proto $$scheme;
+        }
+
+        location ^~ /api/v1/ {
+          proxy_pass $$server_upstream;
+          proxy_http_version 1.1;
+          proxy_set_header Host $$host;
+          proxy_set_header X-Real-IP $$remote_addr;
+          proxy_set_header X-Forwarded-For $$remote_addr;
+          proxy_set_header X-Forwarded-Proto $$scheme;
+          add_header Cache-Control "no-store" always;
+        }
+
+        location ^~ /posts/ {
+          proxy_pass $$server_upstream;
+          proxy_http_version 1.1;
+          proxy_set_header Host $$host;
+          proxy_set_header X-Real-IP $$remote_addr;
+          proxy_set_header X-Forwarded-For $$remote_addr;
+          proxy_set_header X-Forwarded-Proto $$scheme;
+          proxy_intercept_errors on;
+          error_page 502 503 504 = @blog_fallback;
+          proxy_hide_header Cache-Control;
+          add_header Cache-Control "private, no-cache, must-revalidate" always;
+        }
+
+        location @blog_fallback {
+          proxy_pass $$blog_upstream;
+          proxy_http_version 1.1;
+          proxy_set_header Host $$host;
+          proxy_set_header X-Real-IP $$remote_addr;
+          proxy_set_header X-Forwarded-For $$remote_addr;
+          proxy_set_header X-Forwarded-Proto $$scheme;
+          proxy_hide_header Cache-Control;
+          add_header Cache-Control "private, no-cache, must-revalidate" always;
         }
 
         location / {
@@ -60,7 +148,10 @@ configs:
           proxy_http_version 1.1;
           proxy_set_header Host $$host;
           proxy_set_header X-Real-IP $$remote_addr;
-          proxy_set_header X-Forwarded-For $$proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-For $$remote_addr;
           proxy_set_header X-Forwarded-Proto $$scheme;
         }
       }
+
+volumes:
+  turblog-server-data:

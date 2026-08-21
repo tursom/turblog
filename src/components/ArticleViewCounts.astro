@@ -1,0 +1,56 @@
+<script is:inline>
+  (() => {
+    const apiBasePath = document.body.dataset.apiBasePath || '/api/v1';
+    const counters = Array.from(document.querySelectorAll('[data-article-views]'));
+    if (counters.length === 0) return;
+
+    /** @type {Map<string, Element[]>} */
+    const countersBySlug = new Map();
+    counters.forEach((counter) => {
+      const slug = counter.getAttribute('data-article-views');
+      if (!slug) return;
+      const matches = countersBySlug.get(slug) || [];
+      matches.push(counter);
+      countersBySlug.set(slug, matches);
+    });
+    const subjectIds = Array.from(countersBySlug.keys());
+    if (subjectIds.length === 0) return;
+
+    fetch(`${apiBasePath}/analytics/metrics/query`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        metric: 'article_unique_views',
+        subject_type: 'article',
+        subject_ids: subjectIds,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error(`metrics request failed with ${response.status}`);
+        return response.json();
+      })
+      .then((payload) => {
+        if (
+          payload?.metric !== 'article_unique_views' ||
+          !payload.values ||
+          typeof payload.values !== 'object'
+        ) {
+          throw new Error('invalid metrics response');
+        }
+        countersBySlug.forEach((matches, slug) => {
+          const value = payload.values[slug];
+          if (!Number.isSafeInteger(value) || value < 0) {
+            matches.forEach((counter) => counter.setAttribute('data-state', 'error'));
+            return;
+          }
+          matches.forEach((counter) => {
+            counter.textContent = `${value} 次访问`;
+            counter.setAttribute('data-state', 'ready');
+          });
+        });
+      })
+      .catch(() => {
+        counters.forEach((counter) => counter.setAttribute('data-state', 'error'));
+      });
+  })();
+</script>

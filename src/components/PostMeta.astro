@@ -15,6 +15,12 @@ const updated =
   <time datetime={formatDate(post.data.publishedAt)}>{formatDateLabel(post.data.publishedAt)}</time>
   {detail && <span aria-hidden="true">·</span>}
   {detail && <span>{readingMinutes(post.body ?? '')} 分钟阅读</span>}
+  <span
+    class="post-views"
+    data-article-views={post.data.slug}
+    data-state="loading"
+    aria-live="polite">— 次访问</span
+  >
   {post.data.aiAssisted && <span class="post-ai-assisted">AI 辅助创作</span>}
   {updated && <span class="post-updated">更新于 {formatDateLabel(post.data.updatedAt!)}</span>}
 </div>
