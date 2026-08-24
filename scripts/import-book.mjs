@@ -209,34 +209,68 @@ async function main() {
     const sourcePath = resolveZipPath(join(dirname(ncxPath), item.source));
     if (!spine.includes(sourcePath)) orderedEntries.push(item);
   }
-  const chapterSlugs = new Map(
-    orderedEntries.map((item, index) => [
-      resolveZipPath(join(dirname(ncxPath), item.source)),
-      safeSlug(item.title, index + 1),
-    ]),
-  );
+
+  // The EPUB stores each front illustration as a separate spine document. Keep
+  // the images in source order, but present the consecutive set as one reading unit.
+  const groupedEntries = [];
+  for (const item of orderedEntries) {
+    const isFrontIllustration = /^书前插图(?:\s+\d+)?$/.test(normalizeWhitespace(item.title));
+    const previous = groupedEntries.at(-1);
+    if (isFrontIllustration && previous?.group === 'front-illustrations') {
+      previous.items.push(item);
+      continue;
+    }
+    groupedEntries.push({
+      title: isFrontIllustration ? '书前插图' : item.title,
+      source: item.source,
+      items: [item],
+      group: isFrontIllustration ? 'front-illustrations' : undefined,
+    });
+  }
+  const chapterSlugs = new Map();
+  groupedEntries.forEach((item, index) => {
+    const slug = safeSlug(item.title, index + 1);
+    for (const sourceItem of item.items) {
+      chapterSlugs.set(
+        resolveZipPath(join(dirname(ncxPath), sourceItem.source)),
+        slug,
+      );
+    }
+  });
 
   const chapters = [];
   const imageMap = new Map();
   const skippedEntries = [];
   const emptyEntries = [];
-  for (const [index, item] of orderedEntries.entries()) {
-    const sourcePath = resolveZipPath(join(dirname(ncxPath), item.source));
-    const source = entries[sourcePath];
-    if (!source) throw new Error(`Navigation source not found: ${item.source}`);
-    const body = extractBody(textDecoder.decode(source), sourcePath);
-    if (!body.text && !body.html.includes('<img')) {
-      skippedEntries.push({ reason: 'empty', title: item.title, sourcePath });
-      emptyEntries.push({ title: item.title, sourcePath });
-      continue;
+  for (const [index, item] of groupedEntries.entries()) {
+    const markdownParts = [];
+    const sourcePaths = [];
+    let hasImage = false;
+    const emptyItems = [];
+    for (const sourceItem of item.items) {
+      const sourcePath = resolveZipPath(join(dirname(ncxPath), sourceItem.source));
+      const source = entries[sourcePath];
+      if (!source) throw new Error(`Navigation source not found: ${sourceItem.source}`);
+      const body = extractBody(textDecoder.decode(source), sourcePath);
+      if (!body.text && !body.html.includes('<img')) {
+        emptyItems.push({ title: sourceItem.title, sourcePath });
+        continue;
+      }
+      const html = copyImageReferences(body.html, sourcePath, entries, imageMap);
+      const markdownPart = htmlToMarkdown(html, sourceItem.title, sourcePath, chapterSlugs);
+      if (markdownPart) markdownParts.push(markdownPart);
+      hasImage ||= html.includes('<img');
+      sourcePaths.push(sourcePath);
     }
-    const html = copyImageReferences(body.html, sourcePath, entries, imageMap);
-    let markdown = htmlToMarkdown(html, item.title, sourcePath, chapterSlugs);
+    const sourcePath = sourcePaths[0] || resolveZipPath(join(dirname(ncxPath), item.source));
+    let markdown = markdownParts.join('\n\n');
     if (!markdown && /^第[一二三四五六七八九十百]+部分/.test(item.title))
       markdown = `## ${item.title}`;
-    if (!markdown && !html.includes('<img')) {
-      skippedEntries.push({ reason: 'empty', title: item.title, sourcePath });
-      emptyEntries.push({ title: item.title, sourcePath });
+    if (!markdown && !hasImage) {
+      for (const emptyItem of emptyItems) {
+        skippedEntries.push({ reason: 'empty', ...emptyItem });
+        emptyEntries.push(emptyItem);
+      }
       continue;
     }
     chapters.push({
@@ -244,6 +278,7 @@ async function main() {
       slug: safeSlug(item.title, index + 1),
       title: item.title,
       sourcePath,
+      sourcePaths,
       markdown,
     });
   }
@@ -308,11 +343,12 @@ async function main() {
       sourcePath,
       outputPath: relative(repositoryRoot, image.outputName),
     })),
-    chapters: chapters.map(({ number, slug, title: chapterTitle, sourcePath }) => ({
+    chapters: chapters.map(({ number, slug, title: chapterTitle, sourcePath, sourcePaths }) => ({
       number,
       slug,
       title: chapterTitle,
       sourcePath,
+      ...(sourcePaths.length > 1 ? { sourcePaths } : {}),
     })),
   };
   await writeFile(join(contentRoot, 'import-report.json'), `${JSON.stringify(report, null, 2)}\n`);

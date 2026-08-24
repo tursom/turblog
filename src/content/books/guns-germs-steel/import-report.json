@@ -5,7 +5,7 @@
   "navigationEntries": 33,
   "spineEntries": 71,
   "orderedEntries": 71,
-  "generatedChapters": 70,
+  "generatedChapters": 39,
   "skippedEntries": 1,
   "emptyEntries": [
     {
@@ -465,395 +465,243 @@
       "number": 5,
       "slug": "front-matter-06",
       "title": "书前插图",
-      "sourcePath": "text/part0004_split_000.html"
+      "sourcePath": "text/part0004_split_000.html",
+      "sourcePaths": [
+        "text/part0004_split_000.html",
+        "text/part0004_split_001.html",
+        "text/part0004_split_002.html",
+        "text/part0004_split_003.html",
+        "text/part0004_split_004.html",
+        "text/part0004_split_005.html",
+        "text/part0004_split_006.html",
+        "text/part0004_split_007.html",
+        "text/part0004_split_008.html",
+        "text/part0004_split_009.html",
+        "text/part0004_split_010.html",
+        "text/part0004_split_011.html",
+        "text/part0004_split_012.html",
+        "text/part0004_split_013.html",
+        "text/part0004_split_014.html",
+        "text/part0004_split_015.html",
+        "text/part0004_split_016.html",
+        "text/part0004_split_017.html",
+        "text/part0004_split_018.html",
+        "text/part0004_split_019.html",
+        "text/part0004_split_020.html",
+        "text/part0004_split_021.html",
+        "text/part0004_split_022.html",
+        "text/part0004_split_023.html",
+        "text/part0004_split_024.html",
+        "text/part0004_split_025.html",
+        "text/part0004_split_026.html",
+        "text/part0004_split_027.html",
+        "text/part0004_split_028.html",
+        "text/part0004_split_029.html",
+        "text/part0004_split_030.html",
+        "text/part0004_split_031.html"
+      ]
     },
     {
       "number": 6,
       "slug": "front-matter-07",
-      "title": "书前插图 2",
-      "sourcePath": "text/part0004_split_001.html"
-    },
-    {
-      "number": 7,
-      "slug": "front-matter-08",
-      "title": "书前插图 3",
-      "sourcePath": "text/part0004_split_002.html"
-    },
-    {
-      "number": 8,
-      "slug": "front-matter-09",
-      "title": "书前插图 4",
-      "sourcePath": "text/part0004_split_003.html"
-    },
-    {
-      "number": 9,
-      "slug": "front-matter-10",
-      "title": "书前插图 5",
-      "sourcePath": "text/part0004_split_004.html"
-    },
-    {
-      "number": 10,
-      "slug": "front-matter-11",
-      "title": "书前插图 6",
-      "sourcePath": "text/part0004_split_005.html"
-    },
-    {
-      "number": 11,
-      "slug": "front-matter-12",
-      "title": "书前插图 7",
-      "sourcePath": "text/part0004_split_006.html"
-    },
-    {
-      "number": 12,
-      "slug": "front-matter-13",
-      "title": "书前插图 8",
-      "sourcePath": "text/part0004_split_007.html"
-    },
-    {
-      "number": 13,
-      "slug": "front-matter-14",
-      "title": "书前插图 9",
-      "sourcePath": "text/part0004_split_008.html"
-    },
-    {
-      "number": 14,
-      "slug": "front-matter-15",
-      "title": "书前插图 10",
-      "sourcePath": "text/part0004_split_009.html"
-    },
-    {
-      "number": 15,
-      "slug": "front-matter-16",
-      "title": "书前插图 11",
-      "sourcePath": "text/part0004_split_010.html"
-    },
-    {
-      "number": 16,
-      "slug": "front-matter-17",
-      "title": "书前插图 12",
-      "sourcePath": "text/part0004_split_011.html"
-    },
-    {
-      "number": 17,
-      "slug": "front-matter-18",
-      "title": "书前插图 13",
-      "sourcePath": "text/part0004_split_012.html"
-    },
-    {
-      "number": 18,
-      "slug": "front-matter-19",
-      "title": "书前插图 14",
-      "sourcePath": "text/part0004_split_013.html"
-    },
-    {
-      "number": 19,
-      "slug": "front-matter-20",
-      "title": "书前插图 15",
-      "sourcePath": "text/part0004_split_014.html"
-    },
-    {
-      "number": 20,
-      "slug": "front-matter-21",
-      "title": "书前插图 16",
-      "sourcePath": "text/part0004_split_015.html"
-    },
-    {
-      "number": 21,
-      "slug": "front-matter-22",
-      "title": "书前插图 17",
-      "sourcePath": "text/part0004_split_016.html"
-    },
-    {
-      "number": 22,
-      "slug": "front-matter-23",
-      "title": "书前插图 18",
-      "sourcePath": "text/part0004_split_017.html"
-    },
-    {
-      "number": 23,
-      "slug": "front-matter-24",
-      "title": "书前插图 19",
-      "sourcePath": "text/part0004_split_018.html"
-    },
-    {
-      "number": 24,
-      "slug": "front-matter-25",
-      "title": "书前插图 20",
-      "sourcePath": "text/part0004_split_019.html"
-    },
-    {
-      "number": 25,
-      "slug": "front-matter-26",
-      "title": "书前插图 21",
-      "sourcePath": "text/part0004_split_020.html"
-    },
-    {
-      "number": 26,
-      "slug": "front-matter-27",
-      "title": "书前插图 22",
-      "sourcePath": "text/part0004_split_021.html"
-    },
-    {
-      "number": 27,
-      "slug": "front-matter-28",
-      "title": "书前插图 23",
-      "sourcePath": "text/part0004_split_022.html"
-    },
-    {
-      "number": 28,
-      "slug": "front-matter-29",
-      "title": "书前插图 24",
-      "sourcePath": "text/part0004_split_023.html"
-    },
-    {
-      "number": 29,
-      "slug": "front-matter-30",
-      "title": "书前插图 25",
-      "sourcePath": "text/part0004_split_024.html"
-    },
-    {
-      "number": 30,
-      "slug": "front-matter-31",
-      "title": "书前插图 26",
-      "sourcePath": "text/part0004_split_025.html"
-    },
-    {
-      "number": 31,
-      "slug": "front-matter-32",
-      "title": "书前插图 27",
-      "sourcePath": "text/part0004_split_026.html"
-    },
-    {
-      "number": 32,
-      "slug": "front-matter-33",
-      "title": "书前插图 28",
-      "sourcePath": "text/part0004_split_027.html"
-    },
-    {
-      "number": 33,
-      "slug": "front-matter-34",
-      "title": "书前插图 29",
-      "sourcePath": "text/part0004_split_028.html"
-    },
-    {
-      "number": 34,
-      "slug": "front-matter-35",
-      "title": "书前插图 30",
-      "sourcePath": "text/part0004_split_029.html"
-    },
-    {
-      "number": 35,
-      "slug": "front-matter-36",
-      "title": "书前插图 31",
-      "sourcePath": "text/part0004_split_030.html"
-    },
-    {
-      "number": 36,
-      "slug": "front-matter-37",
-      "title": "书前插图 32",
-      "sourcePath": "text/part0004_split_031.html"
-    },
-    {
-      "number": 37,
-      "slug": "front-matter-38",
       "title": "出版说明",
       "sourcePath": "text/part0005.html"
     },
     {
-      "number": 38,
-      "slug": "section-39",
+      "number": 7,
+      "slug": "section-08",
       "title": "附录 39",
       "sourcePath": "text/part0006.html"
     },
     {
-      "number": 39,
-      "slug": "front-matter-40",
+      "number": 8,
+      "slug": "front-matter-09",
       "title": "目录",
       "sourcePath": "text/part0007.html"
     },
     {
-      "number": 40,
+      "number": 9,
       "slug": "preface-yali-question",
       "title": "前言 耶利的问题",
       "sourcePath": "text/part0008.html"
     },
     {
-      "number": 41,
+      "number": 10,
       "slug": "part-01",
       "title": "第一部分 从伊甸园到卡哈马卡",
       "sourcePath": "text/part0009.html"
     },
     {
-      "number": 42,
+      "number": 11,
       "slug": "chapter-01",
       "title": "第一章 走上起跑线",
       "sourcePath": "text/part0010.html"
     },
     {
-      "number": 43,
+      "number": 12,
       "slug": "chapter-02",
       "title": "第二章 历史的自然实验",
       "sourcePath": "text/part0011.html"
     },
     {
-      "number": 44,
+      "number": 13,
       "slug": "chapter-03",
       "title": "第三章 卡哈马卡的冲突",
       "sourcePath": "text/part0012.html"
     },
     {
-      "number": 45,
+      "number": 14,
       "slug": "part-02",
       "title": "第二部分 粮食生产的出现和传播",
       "sourcePath": "text/part0013.html"
     },
     {
-      "number": 46,
+      "number": 15,
       "slug": "chapter-04",
       "title": "第四章 农民的力量",
       "sourcePath": "text/part0014.html"
     },
     {
-      "number": 47,
+      "number": 16,
       "slug": "chapter-05",
       "title": "第五章 历史上的穷与富",
       "sourcePath": "text/part0015.html"
     },
     {
-      "number": 48,
+      "number": 17,
       "slug": "chapter-06",
       "title": "第六章 种田还是不种田",
       "sourcePath": "text/part0016.html"
     },
     {
-      "number": 49,
+      "number": 18,
       "slug": "chapter-07",
       "title": "第七章 怎样识别杏仁",
       "sourcePath": "text/part0017.html"
     },
     {
-      "number": 50,
+      "number": 19,
       "slug": "chapter-08",
       "title": "第八章 问题在苹果还是在印第安人",
       "sourcePath": "text/part0018.html"
     },
     {
-      "number": 51,
+      "number": 20,
       "slug": "chapter-09",
       "title": "第九章 斑马、不幸的婚姻和安娜·卡列尼娜原则",
       "sourcePath": "text/part0019.html"
     },
     {
-      "number": 52,
+      "number": 21,
       "slug": "chapter-10",
       "title": "第十章 辽阔的天空与偏斜的轴线",
       "sourcePath": "text/part0020.html"
     },
     {
-      "number": 53,
+      "number": 22,
       "slug": "part-03",
       "title": "第三部分 从粮食到枪炮、病菌与钢铁",
       "sourcePath": "text/part0021.html"
     },
     {
-      "number": 54,
+      "number": 23,
       "slug": "chapter-11",
       "title": "第十一章 牲畜的致命礼物",
       "sourcePath": "text/part0022.html"
     },
     {
-      "number": 55,
+      "number": 24,
       "slug": "chapter-12",
       "title": "第十二章 蓝图和借用字母",
       "sourcePath": "text/part0023.html"
     },
     {
-      "number": 56,
+      "number": 25,
       "slug": "chapter-13",
       "title": "第十三章 需要之母",
       "sourcePath": "text/part0024.html"
     },
     {
-      "number": 57,
+      "number": 26,
       "slug": "chapter-14",
       "title": "第十四章 从平等主义到盗贼统治",
       "sourcePath": "text/part0025.html"
     },
     {
-      "number": 58,
+      "number": 27,
       "slug": "part-04",
       "title": "第四部分 在5章中环游世界",
       "sourcePath": "text/part0026.html"
     },
     {
-      "number": 59,
+      "number": 28,
       "slug": "chapter-15",
       "title": "第十五章 耶利的族人",
       "sourcePath": "text/part0027.html"
     },
     {
-      "number": 60,
+      "number": 29,
       "slug": "chapter-16",
       "title": "第十六章 中国是怎样成为中国人的中国的",
       "sourcePath": "text/part0028.html"
     },
     {
-      "number": 61,
+      "number": 30,
       "slug": "chapter-17",
       "title": "第十七章 驶向波利尼西亚的快艇",
       "sourcePath": "text/part0029.html"
     },
     {
-      "number": 62,
+      "number": 31,
       "slug": "chapter-18",
       "title": "第十八章 两个半球的碰撞",
       "sourcePath": "text/part0030.html"
     },
     {
-      "number": 63,
+      "number": 32,
       "slug": "chapter-19",
       "title": "第十九章 非洲是怎样成为黑人的非洲的",
       "sourcePath": "text/part0031.html"
     },
     {
-      "number": 64,
+      "number": 33,
       "slug": "afterword",
       "title": "后记 人类史作为一门科学的未来",
       "sourcePath": "text/part0032.html"
     },
     {
-      "number": 65,
-      "slug": "section-66",
+      "number": 34,
+      "slug": "section-35",
       "title": "出版信息（CIP）",
       "sourcePath": "text/part0033.html"
     },
     {
-      "number": 66,
-      "slug": "section-67",
+      "number": 35,
+      "slug": "section-36",
       "title": "原版与译本信息",
       "sourcePath": "text/part0034.html"
     },
     {
-      "number": 67,
-      "slug": "section-68",
+      "number": 36,
+      "slug": "section-37",
       "title": "世纪人文系列丛书（2005年）",
       "sourcePath": "text/part0035.html"
     },
     {
-      "number": 68,
-      "slug": "section-69",
+      "number": 37,
+      "slug": "section-38",
       "title": "世纪人文系列丛书（2006年）",
       "sourcePath": "text/part0036.html"
     },
     {
-      "number": 69,
-      "slug": "front-matter-70",
+      "number": 38,
+      "slug": "front-matter-39",
       "title": "封三",
       "sourcePath": "text/part0037.html"
     },
     {
-      "number": 70,
-      "slug": "front-matter-71",
+      "number": 39,
+      "slug": "front-matter-40",
       "title": "封底",
       "sourcePath": "text/part0038.html"
     }

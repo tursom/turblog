@@ -10,5 +10,5 @@ summary: "关于人类社会差异、农业、技术与历史发展路径的综�
 sourceUrl: "https://www.99csw.com/book/6380/index.htm"
 rightsNotice: "公开部署前请确认正文与插图的转载许可范围"
 cover: "/images/books/guns-germs-steel/cover.jpeg"
-chapterCount: 70
+chapterCount: 39
 ---
