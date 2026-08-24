@@ -78,6 +78,50 @@ func TestRecordArticleViewDeduplicatesPerVisitorDay(t *testing.T) {
 	}
 }
 
+func TestBookChapterViewsUseSeparateSubjectType(t *testing.T) {
+	t.Parallel()
+
+	location := time.FixedZone("CST", 8*60*60)
+	tracker, err := analytics.Open(context.Background(), analytics.Config{
+		DatabasePath:   filepath.Join(t.TempDir(), "turblog.sqlite"),
+		HashKey:        []byte("0123456789abcdef0123456789abcdef"),
+		Location:       location,
+		ArticleSlugs:   []string{"go-atomic-generics"},
+		BookChapterIDs: []string{"guns-germs-steel/chapter-01"},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Cleanup(func() { _ = tracker.Close() })
+
+	view := analytics.ArticleView{
+		Slug:       "guns-germs-steel/chapter-01",
+		ClientIP:   "203.0.113.8",
+		UserAgent:  "Example Browser",
+		ClientKind: analytics.ClientBrowser,
+		OccurredAt: time.Date(2026, 8, 24, 9, 0, 0, 0, location),
+	}
+	result, err := tracker.RecordBookChapterView(context.Background(), view)
+	if err != nil || !result.Counted || result.Count != 1 {
+		t.Fatalf("book chapter result = %+v, err=%v", result, err)
+	}
+
+	bookCounts, err := tracker.BookChapterViewCounts(context.Background(), []string{view.Slug, "missing"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if bookCounts.Values[view.Slug] != 1 || len(bookCounts.Unknown) != 1 || bookCounts.Unknown[0] != "missing" {
+		t.Fatalf("book counts = %+v, want one known count and one unknown", bookCounts)
+	}
+	articleCounts, err := tracker.ArticleViewCounts(context.Background(), []string{view.Slug})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(articleCounts.Values) != 0 || len(articleCounts.Unknown) != 1 {
+		t.Fatalf("article counts = %+v, want book chapter id unknown", articleCounts)
+	}
+}
+
 func TestRecordArticleViewIsAtomicUnderConcurrentDuplicates(t *testing.T) {
 	t.Parallel()
 

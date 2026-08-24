@@ -38,10 +38,11 @@ func run(ctx context.Context, logger *slog.Logger) error {
 		return err
 	}
 	tracker, err := analytics.Open(ctx, analytics.Config{
-		DatabasePath: settings.DatabasePath,
-		HashKey:      settings.HashKey,
-		Location:     settings.Location,
-		ArticleSlugs: articles.Slugs(),
+		DatabasePath:   settings.DatabasePath,
+		HashKey:        settings.HashKey,
+		Location:       settings.Location,
+		ArticleSlugs:   articles.Slugs(),
+		BookChapterIDs: articles.BookChapterIDs(),
 	})
 	if err != nil {
 		return err

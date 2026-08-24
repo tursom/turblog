@@ -1,0 +1,98 @@
+---
+import { getCollection, render } from 'astro:content';
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import BookChapterViewCounts from '@/components/BookChapterViewCounts.astro';
+import BookReaderNav from '@/components/BookReaderNav.astro';
+import BookToc from '@/components/BookToc.astro';
+import TableOfContents from '@/components/TableOfContents.astro';
+import { bookPath, getBookChapters, type Book, type BookChapter } from '@/lib/books';
+import { readingMinutes } from '@/lib/posts';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return (
+    await Promise.all(
+      books.map(async (book) => {
+        const bookChapters = await getBookChapters(book.data.slug);
+        return bookChapters.map((chapter, index) => ({
+          params: { bookSlug: book.data.slug, chapterSlug: chapter.data.slug },
+          props: {
+            book,
+            chapters: bookChapters,
+            chapter,
+            previous: bookChapters[index - 1],
+            next: bookChapters[index + 1],
+          },
+        }));
+      }),
+    )
+  ).flat();
+}
+
+interface Props {
+  book: Book;
+  chapters: BookChapter[];
+  chapter: BookChapter;
+  previous?: BookChapter;
+  next?: BookChapter;
+}
+
+const { book, chapters, chapter, previous, next } = Astro.props;
+const { Content, headings } = await render(chapter);
+const readingTime = readingMinutes(chapter.body ?? '');
+---
+
+<SiteLayout
+  title={`${chapter.data.title} · ${book.data.title}`}
+  description={book.data.summary}
+  ogImageUrl={book.data.cover ?? undefined}
+  pageType="article"
+>
+  <div class="breadcrumbs">
+    <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/books/">books</a><span
+      aria-hidden="true">/</span
+    ><a href={bookPath(book)}>{book.data.slug}</a><span aria-hidden="true">/</span><strong
+      >{chapter.data.slug}</strong
+    >
+  </div>
+  <div class="article-layout book-reader-layout">
+    <article class="article-page">
+      <header class="article-header book-chapter-header">
+        <div class="post-meta detail">
+          <span>{book.data.title}</span><span aria-hidden="true">·</span><span
+            >{readingTime} 分钟阅读</span
+          >
+          <span
+            class="post-views"
+            data-book-chapter-views={`${book.data.slug}/${chapter.data.slug}`}
+            data-state="loading"
+            aria-live="polite">— 次访问</span
+          >
+        </div>
+        <h1>{chapter.data.title}</h1>
+        <p class="book-chapter-source">
+          第 {String(chapter.data.chapterNumber).padStart(2, '0')} 个阅读单元
+        </p>
+      </header>
+      <details class="mobile-toc">
+        <summary>本书目录</summary>
+        <BookToc book={book} chapters={chapters} currentSlug={chapter.data.slug} />
+        {headings.length > 0 && <TableOfContents headings={headings} />}
+      </details>
+      <div class="prose"><Content /></div>
+      <BookReaderNav book={book} previous={previous} next={next} />
+      <p class="book-source-note">
+        本章内容请在公开部署前确认正文与插图的转载许可。<a
+          href={book.data.sourceUrl}
+          target="_blank"
+          rel="noreferrer">查看来源 ↗</a
+        >
+      </p>
+    </article>
+    <aside class="article-aside">
+      <BookToc book={book} chapters={chapters} currentSlug={chapter.data.slug} />
+      {headings.length > 0 && <TableOfContents headings={headings} />}
+    </aside>
+  </div>
+  <BookChapterViewCounts />
+</SiteLayout>

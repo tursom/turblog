@@ -10,6 +10,7 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: ImageMetadata;
+  ogImageUrl?: string;
   pageType?: 'website' | 'article';
 }
 
@@ -17,11 +18,16 @@ const {
   title = 'Tursom Log',
   description = '关于软件、系统与长期实践的技术记录。',
   ogImage,
+  ogImageUrl,
   pageType = 'website',
 } = Astro.props;
 const fullTitle = title === 'Tursom Log' ? title : `${title} · Tursom Log`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
-const imageUrl = ogImage ? new URL(ogImage.src, Astro.site ?? Astro.url).href : undefined;
+const imageUrl = ogImage
+  ? new URL(ogImage.src, Astro.site ?? Astro.url).href
+  : ogImageUrl
+    ? new URL(ogImageUrl, Astro.site ?? Astro.url).href
+    : undefined;
 const apiBasePath = (import.meta.env.PUBLIC_API_BASE_PATH || '/api/v1').replace(/\/+$/, '');
 ---
 

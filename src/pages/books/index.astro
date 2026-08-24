@@ -1,0 +1,27 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import BookCard from '@/components/BookCard.astro';
+import { getBooks } from '@/lib/books';
+
+const books = await getBooks();
+---
+
+<SiteLayout title="图书" description="独立整理的图书阅读空间。">
+  <div class="breadcrumbs">
+    <a href="/">~/log</a><span aria-hidden="true">/</span><strong>books</strong>
+  </div>
+  <section class="page-intro compact-intro">
+    <span class="eyebrow">BOOKSHELF</span>
+    <h1>图书</h1>
+    <p>与技术文章分开的长期阅读空间，共 {books.length} 本。</p>
+  </section>
+  <section class="book-list" aria-label="图书列表">
+    {
+      books.length === 0 ? (
+        <p class="empty-state">这里还没有图书。</p>
+      ) : (
+        books.map((book) => <BookCard book={book} />)
+      )
+    }
+  </section>
+</SiteLayout>

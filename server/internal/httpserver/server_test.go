@@ -71,6 +71,54 @@ func TestMetricsQueryReturnsAllRequestedArticleCountsInOneResponse(t *testing.T)
 	}
 }
 
+func TestMetricsQueryReturnsBookChapterCountsSeparately(t *testing.T) {
+	t.Parallel()
+
+	tracker, content := newBackend(t, nil)
+	_, err := tracker.RecordBookChapterView(context.Background(), analytics.ArticleView{
+		Slug:       "guns-germs-steel/chapter-01",
+		ClientIP:   "203.0.113.8",
+		UserAgent:  "Example Browser",
+		ClientKind: analytics.ClientBrowser,
+		OccurredAt: time.Date(2026, 8, 24, 9, 0, 0, 0, time.FixedZone("CST", 8*60*60)),
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	handler := httpserver.New(httpserver.Config{
+		Analytics: tracker,
+		Catalog:   content,
+		Logger:    slog.New(slog.NewTextHandler(io.Discard, nil)),
+	})
+	body := bytes.NewBufferString(`{
+		"metric":"book_chapter_unique_views",
+		"subject_type":"book_chapter",
+		"subject_ids":["guns-germs-steel/chapter-01","missing"]
+	}`)
+	request := httptest.NewRequest(http.MethodPost, "/api/v1/analytics/metrics/query", body)
+	request.Header.Set("Content-Type", "application/json")
+	response := httptest.NewRecorder()
+	handler.ServeHTTP(response, request)
+
+	if response.Code != http.StatusOK {
+		t.Fatalf("status = %d, body = %s", response.Code, response.Body.String())
+	}
+	var payload struct {
+		Metric  string           `json:"metric"`
+		Values  map[string]int64 `json:"values"`
+		Unknown []string         `json:"unknown"`
+	}
+	if err := json.NewDecoder(response.Body).Decode(&payload); err != nil {
+		t.Fatal(err)
+	}
+	if payload.Metric != analytics.BookChapterUniqueViewsMetric || payload.Values["guns-germs-steel/chapter-01"] != 1 {
+		t.Fatalf("payload = %#v", payload)
+	}
+	if len(payload.Unknown) != 1 || payload.Unknown[0] != "missing" {
+		t.Fatalf("unknown = %#v", payload.Unknown)
+	}
+}
+
 func TestArticleProxyRecordsSuccessfulHTMLGetAndPreservesResponse(t *testing.T) {
 	t.Parallel()
 
@@ -140,6 +188,47 @@ func TestArticleProxyRecordsSuccessfulHTMLGetAndPreservesResponse(t *testing.T) 
 	}
 	if counts.Values["go-atomic-generics"] != 1 {
 		t.Fatalf("view count = %d, want 1", counts.Values["go-atomic-generics"])
+	}
+}
+
+func TestBookChapterProxyRecordsSuccessfulHTMLGet(t *testing.T) {
+	t.Parallel()
+
+	upstream := httptest.NewServer(http.HandlerFunc(func(response http.ResponseWriter, _ *http.Request) {
+		response.Header().Set("Content-Type", "text/html; charset=utf-8")
+		_, _ = response.Write([]byte("<article>chapter</article>"))
+	}))
+	t.Cleanup(upstream.Close)
+	upstreamURL, err := url.Parse(upstream.URL)
+	if err != nil {
+		t.Fatal(err)
+	}
+	tracker, content := newBackend(t, nil)
+	handler := httpserver.New(httpserver.Config{
+		Analytics:       tracker,
+		Catalog:         content,
+		ContentUpstream: upstreamURL,
+		Now:             func() time.Time { return time.Date(2026, 8, 24, 10, 0, 0, 0, time.FixedZone("CST", 8*60*60)) },
+		Logger:          slog.New(slog.NewTextHandler(io.Discard, nil)),
+	})
+	request := httptest.NewRequest(http.MethodGet, "/books/guns-germs-steel/chapter-01/", nil)
+	request.Header.Set("User-Agent", "Example Browser")
+	request.Header.Set("X-Real-IP", "203.0.113.8")
+	response := httptest.NewRecorder()
+	handler.ServeHTTP(response, request)
+
+	if response.Code != http.StatusOK || response.Body.String() != "<article>chapter</article>" {
+		t.Fatalf("proxy response = %d %q", response.Code, response.Body.String())
+	}
+	if response.Header().Get("Cache-Control") != "private, no-cache, must-revalidate" {
+		t.Fatalf("cache control = %q", response.Header().Get("Cache-Control"))
+	}
+	counts, err := tracker.BookChapterViewCounts(context.Background(), []string{"guns-germs-steel/chapter-01"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if counts.Values["guns-germs-steel/chapter-01"] != 1 {
+		t.Fatalf("view count = %d, want 1", counts.Values["guns-germs-steel/chapter-01"])
 	}
 }
 
@@ -318,6 +407,7 @@ func newBackend(t *testing.T, articleSlugs []string) (*analytics.Tracker, *catal
 	for _, slug := range articleSlugs {
 		sitemap += `<url><loc>https://blog.tursom.dev/posts/` + slug + `/</loc></url>`
 	}
+	sitemap += `<url><loc>https://blog.tursom.dev/books/guns-germs-steel/chapter-01/</loc></url>`
 	sitemap += `</urlset>`
 	if err := os.WriteFile(sitemapPath, []byte(sitemap), 0o600); err != nil {
 		t.Fatal(err)
@@ -331,10 +421,11 @@ func newBackend(t *testing.T, articleSlugs []string) (*analytics.Tracker, *catal
 		t.Fatal(err)
 	}
 	tracker, err := analytics.Open(context.Background(), analytics.Config{
-		DatabasePath: filepath.Join(t.TempDir(), "turblog.sqlite"),
-		HashKey:      []byte("0123456789abcdef0123456789abcdef"),
-		Location:     location,
-		ArticleSlugs: articles.Slugs(),
+		DatabasePath:   filepath.Join(t.TempDir(), "turblog.sqlite"),
+		HashKey:        []byte("0123456789abcdef0123456789abcdef"),
+		Location:       location,
+		ArticleSlugs:   articles.Slugs(),
+		BookChapterIDs: articles.BookChapterIDs(),
 	})
 	if err != nil {
 		t.Fatal(err)

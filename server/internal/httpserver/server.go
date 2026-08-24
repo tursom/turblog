@@ -113,7 +113,12 @@ func (s *server) queryMetrics(response http.ResponseWriter, request *http.Reques
 		writeError(response, http.StatusBadRequest, "invalid_request", "request body must contain one JSON object")
 		return
 	}
-	if query.Metric != analytics.ArticleUniqueViewsMetric || query.SubjectType != analytics.ArticleSubjectType {
+	if query.Metric != analytics.ArticleUniqueViewsMetric && query.Metric != analytics.BookChapterUniqueViewsMetric {
+		writeError(response, http.StatusBadRequest, "unsupported_metric", "unsupported metric or subject type")
+		return
+	}
+	if (query.Metric == analytics.ArticleUniqueViewsMetric && query.SubjectType != analytics.ArticleSubjectType) ||
+		(query.Metric == analytics.BookChapterUniqueViewsMetric && query.SubjectType != analytics.BookChapterSubjectType) {
 		writeError(response, http.StatusBadRequest, "unsupported_metric", "unsupported metric or subject type")
 		return
 	}
@@ -122,14 +127,20 @@ func (s *server) queryMetrics(response http.ResponseWriter, request *http.Reques
 		return
 	}
 
-	counts, err := s.analytics.ArticleViewCounts(request.Context(), query.SubjectIDs)
+	var counts analytics.CountResult
+	var err error
+	if query.SubjectType == analytics.ArticleSubjectType {
+		counts, err = s.analytics.ArticleViewCounts(request.Context(), query.SubjectIDs)
+	} else {
+		counts, err = s.analytics.BookChapterViewCounts(request.Context(), query.SubjectIDs)
+	}
 	if err != nil {
-		s.logger.Error("query article view counts", "error", err)
+		s.logger.Error("query content view counts", "subject_type", query.SubjectType, "error", err)
 		writeError(response, http.StatusInternalServerError, "internal_error", "unable to query metrics")
 		return
 	}
 	writeJSON(response, http.StatusOK, metricResponse{
-		Metric:  analytics.ArticleUniqueViewsMetric,
+		Metric:  query.Metric,
 		Values:  counts.Values,
 		Unknown: counts.Unknown,
 	})
@@ -145,7 +156,7 @@ func (s *server) proxyContent(response http.ResponseWriter, request *http.Reques
 
 func (s *server) recordArticleView(upstreamResponse *http.Response) error {
 	request := upstreamResponse.Request
-	if strings.HasPrefix(request.URL.Path, "/posts/") {
+	if strings.HasPrefix(request.URL.Path, "/posts/") || strings.HasPrefix(request.URL.Path, "/books/") {
 		upstreamResponse.Header.Set("Cache-Control", "private, no-cache, must-revalidate")
 	}
 	if request.Method != http.MethodGet || upstreamResponse.StatusCode != http.StatusOK {
@@ -155,8 +166,9 @@ func (s *server) recordArticleView(upstreamResponse *http.Response) error {
 	if err != nil || mediaType != "text/html" {
 		return nil
 	}
-	slug, ok := s.catalog.SlugFromPath(request.URL.Path)
-	if !ok {
+	slug, isArticle := s.catalog.SlugFromPath(request.URL.Path)
+	bookChapterID, isBookChapter := s.catalog.BookChapterIDFromPath(request.URL.Path)
+	if !isArticle && !isBookChapter {
 		return nil
 	}
 
@@ -173,8 +185,15 @@ func (s *server) recordArticleView(upstreamResponse *http.Response) error {
 	}
 	ctx, cancel := context.WithTimeout(context.WithoutCancel(request.Context()), 100*time.Millisecond)
 	defer cancel()
-	if _, err := s.analytics.RecordArticleView(ctx, view); err != nil {
-		s.logger.Error("record article view", "slug", slug, "client_kind", view.ClientKind, "error", err)
+	if isArticle {
+		if _, err := s.analytics.RecordArticleView(ctx, view); err != nil {
+			s.logger.Error("record article view", "slug", slug, "client_kind", view.ClientKind, "error", err)
+		}
+	} else {
+		view.Slug = bookChapterID
+		if _, err := s.analytics.RecordBookChapterView(ctx, view); err != nil {
+			s.logger.Error("record book chapter view", "slug", bookChapterID, "client_kind", view.ClientKind, "error", err)
+		}
 	}
 	return nil
 }

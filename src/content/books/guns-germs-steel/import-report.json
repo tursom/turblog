@@ -1,0 +1,861 @@
+{
+  "input": "枪炮、病菌与钢铁——人类社会的命运.epub",
+  "title": "枪炮、病菌与钢铁",
+  "author": "贾雷德·戴蒙德",
+  "navigationEntries": 33,
+  "spineEntries": 71,
+  "orderedEntries": 71,
+  "generatedChapters": 70,
+  "skippedEntries": 1,
+  "emptyEntries": [
+    {
+      "title": "附录 01",
+      "sourcePath": "titlepage.xhtml"
+    }
+  ],
+  "images": 106,
+  "imageReferences": [
+    {
+      "sourcePath": "cover.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0001.jpeg"
+    },
+    {
+      "sourcePath": "images/00002.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0002.jpeg"
+    },
+    {
+      "sourcePath": "images/00003.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0003.jpeg"
+    },
+    {
+      "sourcePath": "images/00004.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0004.jpeg"
+    },
+    {
+      "sourcePath": "images/00005.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0005.jpeg"
+    },
+    {
+      "sourcePath": "images/00006.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0006.jpeg"
+    },
+    {
+      "sourcePath": "images/00007.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0007.jpeg"
+    },
+    {
+      "sourcePath": "images/00008.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0008.jpeg"
+    },
+    {
+      "sourcePath": "images/00009.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0009.jpeg"
+    },
+    {
+      "sourcePath": "images/00010.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0010.jpeg"
+    },
+    {
+      "sourcePath": "images/00011.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0011.jpeg"
+    },
+    {
+      "sourcePath": "images/00012.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0012.jpeg"
+    },
+    {
+      "sourcePath": "images/00013.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0013.jpeg"
+    },
+    {
+      "sourcePath": "images/00014.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0014.jpeg"
+    },
+    {
+      "sourcePath": "images/00015.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0015.jpeg"
+    },
+    {
+      "sourcePath": "images/00016.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0016.jpeg"
+    },
+    {
+      "sourcePath": "images/00017.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0017.jpeg"
+    },
+    {
+      "sourcePath": "images/00018.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0018.jpeg"
+    },
+    {
+      "sourcePath": "images/00019.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0019.jpeg"
+    },
+    {
+      "sourcePath": "images/00020.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0020.jpeg"
+    },
+    {
+      "sourcePath": "images/00021.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0021.jpeg"
+    },
+    {
+      "sourcePath": "images/00022.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0022.jpeg"
+    },
+    {
+      "sourcePath": "images/00023.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0023.jpeg"
+    },
+    {
+      "sourcePath": "images/00024.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0024.jpeg"
+    },
+    {
+      "sourcePath": "images/00025.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0025.jpeg"
+    },
+    {
+      "sourcePath": "images/00026.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0026.jpeg"
+    },
+    {
+      "sourcePath": "images/00027.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0027.jpeg"
+    },
+    {
+      "sourcePath": "images/00028.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0028.jpeg"
+    },
+    {
+      "sourcePath": "images/00029.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0029.jpeg"
+    },
+    {
+      "sourcePath": "images/00030.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0030.jpeg"
+    },
+    {
+      "sourcePath": "images/00031.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0031.jpeg"
+    },
+    {
+      "sourcePath": "images/00032.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0032.jpeg"
+    },
+    {
+      "sourcePath": "images/00033.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0033.jpeg"
+    },
+    {
+      "sourcePath": "images/00034.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0034.jpeg"
+    },
+    {
+      "sourcePath": "images/00035.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0035.jpeg"
+    },
+    {
+      "sourcePath": "images/00036.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0036.jpeg"
+    },
+    {
+      "sourcePath": "images/00037.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0037.jpeg"
+    },
+    {
+      "sourcePath": "images/00038.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0038.jpeg"
+    },
+    {
+      "sourcePath": "images/00039.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0039.jpeg"
+    },
+    {
+      "sourcePath": "images/00040.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0040.jpeg"
+    },
+    {
+      "sourcePath": "images/00041.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0041.jpeg"
+    },
+    {
+      "sourcePath": "images/00042.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0042.jpeg"
+    },
+    {
+      "sourcePath": "images/00043.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0043.jpeg"
+    },
+    {
+      "sourcePath": "images/00044.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0044.jpeg"
+    },
+    {
+      "sourcePath": "images/00045.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0045.jpeg"
+    },
+    {
+      "sourcePath": "images/00046.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0046.jpeg"
+    },
+    {
+      "sourcePath": "images/00047.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0047.jpeg"
+    },
+    {
+      "sourcePath": "images/00048.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0048.jpeg"
+    },
+    {
+      "sourcePath": "images/00049.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0049.jpeg"
+    },
+    {
+      "sourcePath": "images/00050.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0050.jpeg"
+    },
+    {
+      "sourcePath": "images/00051.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0051.jpeg"
+    },
+    {
+      "sourcePath": "images/00052.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0052.jpeg"
+    },
+    {
+      "sourcePath": "images/00053.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0053.jpeg"
+    },
+    {
+      "sourcePath": "images/00054.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0054.jpeg"
+    },
+    {
+      "sourcePath": "images/00055.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0055.jpeg"
+    },
+    {
+      "sourcePath": "images/00056.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0056.jpeg"
+    },
+    {
+      "sourcePath": "images/00057.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0057.jpeg"
+    },
+    {
+      "sourcePath": "images/00058.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0058.jpeg"
+    },
+    {
+      "sourcePath": "images/00059.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0059.jpeg"
+    },
+    {
+      "sourcePath": "images/00060.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0060.jpeg"
+    },
+    {
+      "sourcePath": "images/00061.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0061.jpeg"
+    },
+    {
+      "sourcePath": "images/00062.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0062.jpeg"
+    },
+    {
+      "sourcePath": "images/00063.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0063.jpeg"
+    },
+    {
+      "sourcePath": "images/00064.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0064.jpeg"
+    },
+    {
+      "sourcePath": "images/00065.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0065.jpeg"
+    },
+    {
+      "sourcePath": "images/00066.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0066.jpeg"
+    },
+    {
+      "sourcePath": "images/00067.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0067.jpeg"
+    },
+    {
+      "sourcePath": "images/00068.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0068.jpeg"
+    },
+    {
+      "sourcePath": "images/00069.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0069.jpeg"
+    },
+    {
+      "sourcePath": "images/00070.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0070.jpeg"
+    },
+    {
+      "sourcePath": "images/00071.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0071.jpeg"
+    },
+    {
+      "sourcePath": "images/00072.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0072.jpeg"
+    },
+    {
+      "sourcePath": "images/00073.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0073.jpeg"
+    },
+    {
+      "sourcePath": "images/00074.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0074.jpeg"
+    },
+    {
+      "sourcePath": "images/00075.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0075.jpeg"
+    },
+    {
+      "sourcePath": "images/00076.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0076.jpeg"
+    },
+    {
+      "sourcePath": "images/00077.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0077.jpeg"
+    },
+    {
+      "sourcePath": "images/00078.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0078.jpeg"
+    },
+    {
+      "sourcePath": "images/00079.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0079.jpeg"
+    },
+    {
+      "sourcePath": "images/00080.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0080.jpeg"
+    },
+    {
+      "sourcePath": "images/00081.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0081.jpeg"
+    },
+    {
+      "sourcePath": "images/00082.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0082.jpeg"
+    },
+    {
+      "sourcePath": "images/00083.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0083.jpeg"
+    },
+    {
+      "sourcePath": "images/00084.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0084.jpeg"
+    },
+    {
+      "sourcePath": "images/00085.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0085.jpeg"
+    },
+    {
+      "sourcePath": "images/00086.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0086.jpeg"
+    },
+    {
+      "sourcePath": "images/00087.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0087.jpeg"
+    },
+    {
+      "sourcePath": "images/00088.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0088.jpeg"
+    },
+    {
+      "sourcePath": "images/00089.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0089.jpeg"
+    },
+    {
+      "sourcePath": "images/00090.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0090.jpeg"
+    },
+    {
+      "sourcePath": "images/00091.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0091.jpeg"
+    },
+    {
+      "sourcePath": "images/00092.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0092.jpeg"
+    },
+    {
+      "sourcePath": "images/00093.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0093.jpeg"
+    },
+    {
+      "sourcePath": "images/00094.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0094.jpeg"
+    },
+    {
+      "sourcePath": "images/00095.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0095.jpeg"
+    },
+    {
+      "sourcePath": "images/00096.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0096.jpeg"
+    },
+    {
+      "sourcePath": "images/00097.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0097.jpeg"
+    },
+    {
+      "sourcePath": "images/00098.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0098.jpeg"
+    },
+    {
+      "sourcePath": "images/00099.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0099.jpeg"
+    },
+    {
+      "sourcePath": "images/00100.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0100.jpeg"
+    },
+    {
+      "sourcePath": "images/00101.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0101.jpeg"
+    },
+    {
+      "sourcePath": "images/00102.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0102.jpeg"
+    },
+    {
+      "sourcePath": "images/00103.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0103.jpeg"
+    },
+    {
+      "sourcePath": "images/00104.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0104.jpeg"
+    },
+    {
+      "sourcePath": "images/00105.jpeg",
+      "outputPath": "public/images/books/guns-germs-steel/0105.jpeg"
+    }
+  ],
+  "chapters": [
+    {
+      "number": 1,
+      "slug": "front-matter-02",
+      "title": "封面",
+      "sourcePath": "text/part0000.html"
+    },
+    {
+      "number": 2,
+      "slug": "front-matter-03",
+      "title": "封二",
+      "sourcePath": "text/part0001.html"
+    },
+    {
+      "number": 3,
+      "slug": "section-04",
+      "title": "附录 04",
+      "sourcePath": "text/part0002.html"
+    },
+    {
+      "number": 4,
+      "slug": "front-matter-05",
+      "title": "标题页",
+      "sourcePath": "text/part0003.html"
+    },
+    {
+      "number": 5,
+      "slug": "front-matter-06",
+      "title": "书前插图",
+      "sourcePath": "text/part0004_split_000.html"
+    },
+    {
+      "number": 6,
+      "slug": "front-matter-07",
+      "title": "书前插图 2",
+      "sourcePath": "text/part0004_split_001.html"
+    },
+    {
+      "number": 7,
+      "slug": "front-matter-08",
+      "title": "书前插图 3",
+      "sourcePath": "text/part0004_split_002.html"
+    },
+    {
+      "number": 8,
+      "slug": "front-matter-09",
+      "title": "书前插图 4",
+      "sourcePath": "text/part0004_split_003.html"
+    },
+    {
+      "number": 9,
+      "slug": "front-matter-10",
+      "title": "书前插图 5",
+      "sourcePath": "text/part0004_split_004.html"
+    },
+    {
+      "number": 10,
+      "slug": "front-matter-11",
+      "title": "书前插图 6",
+      "sourcePath": "text/part0004_split_005.html"
+    },
+    {
+      "number": 11,
+      "slug": "front-matter-12",
+      "title": "书前插图 7",
+      "sourcePath": "text/part0004_split_006.html"
+    },
+    {
+      "number": 12,
+      "slug": "front-matter-13",
+      "title": "书前插图 8",
+      "sourcePath": "text/part0004_split_007.html"
+    },
+    {
+      "number": 13,
+      "slug": "front-matter-14",
+      "title": "书前插图 9",
+      "sourcePath": "text/part0004_split_008.html"
+    },
+    {
+      "number": 14,
+      "slug": "front-matter-15",
+      "title": "书前插图 10",
+      "sourcePath": "text/part0004_split_009.html"
+    },
+    {
+      "number": 15,
+      "slug": "front-matter-16",
+      "title": "书前插图 11",
+      "sourcePath": "text/part0004_split_010.html"
+    },
+    {
+      "number": 16,
+      "slug": "front-matter-17",
+      "title": "书前插图 12",
+      "sourcePath": "text/part0004_split_011.html"
+    },
+    {
+      "number": 17,
+      "slug": "front-matter-18",
+      "title": "书前插图 13",
+      "sourcePath": "text/part0004_split_012.html"
+    },
+    {
+      "number": 18,
+      "slug": "front-matter-19",
+      "title": "书前插图 14",
+      "sourcePath": "text/part0004_split_013.html"
+    },
+    {
+      "number": 19,
+      "slug": "front-matter-20",
+      "title": "书前插图 15",
+      "sourcePath": "text/part0004_split_014.html"
+    },
+    {
+      "number": 20,
+      "slug": "front-matter-21",
+      "title": "书前插图 16",
+      "sourcePath": "text/part0004_split_015.html"
+    },
+    {
+      "number": 21,
+      "slug": "front-matter-22",
+      "title": "书前插图 17",
+      "sourcePath": "text/part0004_split_016.html"
+    },
+    {
+      "number": 22,
+      "slug": "front-matter-23",
+      "title": "书前插图 18",
+      "sourcePath": "text/part0004_split_017.html"
+    },
+    {
+      "number": 23,
+      "slug": "front-matter-24",
+      "title": "书前插图 19",
+      "sourcePath": "text/part0004_split_018.html"
+    },
+    {
+      "number": 24,
+      "slug": "front-matter-25",
+      "title": "书前插图 20",
+      "sourcePath": "text/part0004_split_019.html"
+    },
+    {
+      "number": 25,
+      "slug": "front-matter-26",
+      "title": "书前插图 21",
+      "sourcePath": "text/part0004_split_020.html"
+    },
+    {
+      "number": 26,
+      "slug": "front-matter-27",
+      "title": "书前插图 22",
+      "sourcePath": "text/part0004_split_021.html"
+    },
+    {
+      "number": 27,
+      "slug": "front-matter-28",
+      "title": "书前插图 23",
+      "sourcePath": "text/part0004_split_022.html"
+    },
+    {
+      "number": 28,
+      "slug": "front-matter-29",
+      "title": "书前插图 24",
+      "sourcePath": "text/part0004_split_023.html"
+    },
+    {
+      "number": 29,
+      "slug": "front-matter-30",
+      "title": "书前插图 25",
+      "sourcePath": "text/part0004_split_024.html"
+    },
+    {
+      "number": 30,
+      "slug": "front-matter-31",
+      "title": "书前插图 26",
+      "sourcePath": "text/part0004_split_025.html"
+    },
+    {
+      "number": 31,
+      "slug": "front-matter-32",
+      "title": "书前插图 27",
+      "sourcePath": "text/part0004_split_026.html"
+    },
+    {
+      "number": 32,
+      "slug": "front-matter-33",
+      "title": "书前插图 28",
+      "sourcePath": "text/part0004_split_027.html"
+    },
+    {
+      "number": 33,
+      "slug": "front-matter-34",
+      "title": "书前插图 29",
+      "sourcePath": "text/part0004_split_028.html"
+    },
+    {
+      "number": 34,
+      "slug": "front-matter-35",
+      "title": "书前插图 30",
+      "sourcePath": "text/part0004_split_029.html"
+    },
+    {
+      "number": 35,
+      "slug": "front-matter-36",
+      "title": "书前插图 31",
+      "sourcePath": "text/part0004_split_030.html"
+    },
+    {
+      "number": 36,
+      "slug": "front-matter-37",
+      "title": "书前插图 32",
+      "sourcePath": "text/part0004_split_031.html"
+    },
+    {
+      "number": 37,
+      "slug": "front-matter-38",
+      "title": "出版说明",
+      "sourcePath": "text/part0005.html"
+    },
+    {
+      "number": 38,
+      "slug": "section-39",
+      "title": "附录 39",
+      "sourcePath": "text/part0006.html"
+    },
+    {
+      "number": 39,
+      "slug": "front-matter-40",
+      "title": "目录",
+      "sourcePath": "text/part0007.html"
+    },
+    {
+      "number": 40,
+      "slug": "preface-yali-question",
+      "title": "前言 耶利的问题",
+      "sourcePath": "text/part0008.html"
+    },
+    {
+      "number": 41,
+      "slug": "part-01",
+      "title": "第一部分 从伊甸园到卡哈马卡",
+      "sourcePath": "text/part0009.html"
+    },
+    {
+      "number": 42,
+      "slug": "chapter-01",
+      "title": "第一章 走上起跑线",
+      "sourcePath": "text/part0010.html"
+    },
+    {
+      "number": 43,
+      "slug": "chapter-02",
+      "title": "第二章 历史的自然实验",
+      "sourcePath": "text/part0011.html"
+    },
+    {
+      "number": 44,
+      "slug": "chapter-03",
+      "title": "第三章 卡哈马卡的冲突",
+      "sourcePath": "text/part0012.html"
+    },
+    {
+      "number": 45,
+      "slug": "part-02",
+      "title": "第二部分 粮食生产的出现和传播",
+      "sourcePath": "text/part0013.html"
+    },
+    {
+      "number": 46,
+      "slug": "chapter-04",
+      "title": "第四章 农民的力量",
+      "sourcePath": "text/part0014.html"
+    },
+    {
+      "number": 47,
+      "slug": "chapter-05",
+      "title": "第五章 历史上的穷与富",
+      "sourcePath": "text/part0015.html"
+    },
+    {
+      "number": 48,
+      "slug": "chapter-06",
+      "title": "第六章 种田还是不种田",
+      "sourcePath": "text/part0016.html"
+    },
+    {
+      "number": 49,
+      "slug": "chapter-07",
+      "title": "第七章 怎样识别杏仁",
+      "sourcePath": "text/part0017.html"
+    },
+    {
+      "number": 50,
+      "slug": "chapter-08",
+      "title": "第八章 问题在苹果还是在印第安人",
+      "sourcePath": "text/part0018.html"
+    },
+    {
+      "number": 51,
+      "slug": "chapter-09",
+      "title": "第九章 斑马、不幸的婚姻和安娜·卡列尼娜原则",
+      "sourcePath": "text/part0019.html"
+    },
+    {
+      "number": 52,
+      "slug": "chapter-10",
+      "title": "第十章 辽阔的天空与偏斜的轴线",
+      "sourcePath": "text/part0020.html"
+    },
+    {
+      "number": 53,
+      "slug": "part-03",
+      "title": "第三部分 从粮食到枪炮、病菌与钢铁",
+      "sourcePath": "text/part0021.html"
+    },
+    {
+      "number": 54,
+      "slug": "chapter-11",
+      "title": "第十一章 牲畜的致命礼物",
+      "sourcePath": "text/part0022.html"
+    },
+    {
+      "number": 55,
+      "slug": "chapter-12",
+      "title": "第十二章 蓝图和借用字母",
+      "sourcePath": "text/part0023.html"
+    },
+    {
+      "number": 56,
+      "slug": "chapter-13",
+      "title": "第十三章 需要之母",
+      "sourcePath": "text/part0024.html"
+    },
+    {
+      "number": 57,
+      "slug": "chapter-14",
+      "title": "第十四章 从平等主义到盗贼统治",
+      "sourcePath": "text/part0025.html"
+    },
+    {
+      "number": 58,
+      "slug": "part-04",
+      "title": "第四部分 在5章中环游世界",
+      "sourcePath": "text/part0026.html"
+    },
+    {
+      "number": 59,
+      "slug": "chapter-15",
+      "title": "第十五章 耶利的族人",
+      "sourcePath": "text/part0027.html"
+    },
+    {
+      "number": 60,
+      "slug": "chapter-16",
+      "title": "第十六章 中国是怎样成为中国人的中国的",
+      "sourcePath": "text/part0028.html"
+    },
+    {
+      "number": 61,
+      "slug": "chapter-17",
+      "title": "第十七章 驶向波利尼西亚的快艇",
+      "sourcePath": "text/part0029.html"
+    },
+    {
+      "number": 62,
+      "slug": "chapter-18",
+      "title": "第十八章 两个半球的碰撞",
+      "sourcePath": "text/part0030.html"
+    },
+    {
+      "number": 63,
+      "slug": "chapter-19",
+      "title": "第十九章 非洲是怎样成为黑人的非洲的",
+      "sourcePath": "text/part0031.html"
+    },
+    {
+      "number": 64,
+      "slug": "afterword",
+      "title": "后记 人类史作为一门科学的未来",
+      "sourcePath": "text/part0032.html"
+    },
+    {
+      "number": 65,
+      "slug": "section-66",
+      "title": "出版信息（CIP）",
+      "sourcePath": "text/part0033.html"
+    },
+    {
+      "number": 66,
+      "slug": "section-67",
+      "title": "原版与译本信息",
+      "sourcePath": "text/part0034.html"
+    },
+    {
+      "number": 67,
+      "slug": "section-68",
+      "title": "世纪人文系列丛书（2005年）",
+      "sourcePath": "text/part0035.html"
+    },
+    {
+      "number": 68,
+      "slug": "section-69",
+      "title": "世纪人文系列丛书（2006年）",
+      "sourcePath": "text/part0036.html"
+    },
+    {
+      "number": 69,
+      "slug": "front-matter-70",
+      "title": "封三",
+      "sourcePath": "text/part0037.html"
+    },
+    {
+      "number": 70,
+      "slug": "front-matter-71",
+      "title": "封底",
+      "sourcePath": "text/part0038.html"
+    }
+  ]
+}

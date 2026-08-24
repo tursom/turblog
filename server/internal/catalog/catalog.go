@@ -11,6 +11,7 @@ import (
 )
 
 var articlePathPattern = regexp.MustCompile(`^/posts/([a-z0-9]+(?:-[a-z0-9]+)*)/$`)
+var bookChapterPathPattern = regexp.MustCompile(`^/books/([a-z0-9]+(?:-[a-z0-9]+)*)/([a-z0-9]+(?:-[a-z0-9]+)*)/$`)
 
 type sitemap struct {
 	URLs []struct {
@@ -19,7 +20,8 @@ type sitemap struct {
 }
 
 type Catalog struct {
-	slugs map[string]struct{}
+	slugs        map[string]struct{}
+	bookChapters map[string]struct{}
 }
 
 func Load(path string) (*Catalog, error) {
@@ -35,7 +37,10 @@ func Load(path string) (*Catalog, error) {
 		return nil, errors.New("sitemap contains no URLs")
 	}
 
-	articles := &Catalog{slugs: make(map[string]struct{})}
+	articles := &Catalog{
+		slugs:        make(map[string]struct{}),
+		bookChapters: make(map[string]struct{}),
+	}
 	for _, entry := range document.URLs {
 		location, err := url.Parse(entry.Location)
 		if err != nil || location.Hostname() == "" {
@@ -44,12 +49,38 @@ func Load(path string) (*Catalog, error) {
 		matches := articlePathPattern.FindStringSubmatch(location.EscapedPath())
 		if len(matches) == 2 {
 			articles.slugs[matches[1]] = struct{}{}
+			continue
+		}
+		bookMatches := bookChapterPathPattern.FindStringSubmatch(location.EscapedPath())
+		if len(bookMatches) == 3 {
+			articles.bookChapters[bookMatches[1]+"/"+bookMatches[2]] = struct{}{}
 		}
 	}
-	if len(articles.slugs) == 0 {
-		return nil, errors.New("sitemap contains no absolute article URLs")
+	if len(articles.slugs) == 0 && len(articles.bookChapters) == 0 {
+		return nil, errors.New("sitemap contains no absolute content URLs")
 	}
 	return articles, nil
+}
+
+func (c *Catalog) BookChapterIDFromPath(path string) (string, bool) {
+	matches := bookChapterPathPattern.FindStringSubmatch(path)
+	if len(matches) != 3 {
+		return "", false
+	}
+	id := matches[1] + "/" + matches[2]
+	if _, ok := c.bookChapters[id]; !ok {
+		return "", false
+	}
+	return id, true
+}
+
+func (c *Catalog) BookChapterIDs() []string {
+	ids := make([]string, 0, len(c.bookChapters))
+	for id := range c.bookChapters {
+		ids = append(ids, id)
+	}
+	sort.Strings(ids)
+	return ids
 }
 
 func (c *Catalog) Contains(slug string) bool {

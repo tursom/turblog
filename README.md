@@ -50,6 +50,20 @@ cover: null
 
 草稿使用 `draft/*` 分支；合并到 `master` 才会进入正式构建。Mermaid 使用 `mermaid` fenced code block，构建阶段生成静态 SVG。
 
+## 导入图书
+
+图书使用独立的 `src/content/books/` 集合，不会出现在普通文章首页、归档、标签或 RSS 中。每本书有一个书籍详情页和多个独立章节页，入口为 `/books/`。
+
+仓库提供 EPUB 离线导入器。它读取本地 EPUB 的 `content.opf`、`toc.ncx`、XHTML 正文和图片，生成书籍 Markdown、章节 Markdown、封面/插图和导入报告：
+
+```bash
+pnpm import:book /path/to/book.epub
+```
+
+未传路径时，命令使用当前工作区约定的《枪炮、病菌与钢铁》 EPUB 路径。导入器只清理并重建目标书籍自己的 `src/content/books/<slug>/` 和 `public/images/books/<slug>/`，不会修改原始 EPUB、其他书籍或普通文章。原始电子书文件不应提交到 Git。
+
+图书 Front Matter 必须保留 `sourceUrl` 和 `rightsNotice`。公开部署前应确认正文和插图的转载范围；导入器不绕过 Cloudflare、人机验证或其他访问控制。
+
 ## 访问统计后端
 
 `server/` 是 Tursom Log 的通用 Go 后端。文章访问统计是第一个模块；以后站长登录、管理后台和内容操作也由这个服务承载。当前公开接口只有批量指标查询：
@@ -67,6 +81,8 @@ Content-Type: application/json
 
 一次最多查询 100 个 slug。响应中的 `values` 包含已知文章的总访问量（包括浏览器、爬虫、脚本和未知客户端），`unknown` 返回 sitemap 中不存在的 slug。公开页面每页只发一次批量请求。
 
+图书章节使用同一个接口，但 subject type 和 metric 独立：`book_chapter` / `book_chapter_unique_views`，subject id 为 `<book-slug>/<chapter-slug>`。文章和图书章节的统计不会相互混淆。
+
 Go 服务代理 `/posts/*`，只在 sitemap 中的文章收到成功的 `GET 200 text/html` 响应后计数。`HEAD`、重定向、404 和非 HTML 响应不会计数。同一 IP 和 User-Agent 对同一文章每天最多计数一次；日期桶使用 `Asia/Shanghai`，事件时间使用 UTC。原始 IP 和完整 User-Agent 不会写入数据库。生产 Compose 显式允许 Go 信任入口代理写入的 `X-Real-IP`；本地直连模式默认忽略客户端提供的代理头。
 
 本地运行 Go 测试：
@@ -78,7 +94,7 @@ go test -race ./...
 
 ## 容器部署
 
-Dockerfile 同时构建 Astro 静态站点和 `turblog-server`，并将两者放入同一个 Nginx 运行镜像。Compose 使用该镜像启动 `blog` 和 `server` 两个容器，入口代理只把 `/posts/*` 和 `/api/v1/*` 交给 Go；其他页面和静态资源直达 `blog`。Go 不可用时，文章请求会回退到 `blog`，页面仍可访问，但该次访问不会统计。
+Dockerfile 同时构建 Astro 静态站点和 `turblog-server`，并将两者放入同一个 Nginx 运行镜像。Compose 使用该镜像启动 `blog` 和 `server` 两个容器，入口代理把 `/posts/*`、`/books/*` 和 `/api/v1/*` 交给 Go；其他页面和静态资源直达 `blog`。Go 不可用时，文章和图书章节请求会回退到 `blog`，页面仍可访问，但该次访问不会统计。
 
 本地 Compose 默认监听 `8080`：
 
@@ -126,7 +142,7 @@ docker compose ps
 
 ### Cloudflare 缓存
 
-在 Cloudflare Cache Rules 中增加一条规则：当 URI Path 以 `/posts/` 开头时，将 Cache eligibility 设为 **Bypass cache**。Go 和入口 Nginx 也会为文章响应设置 `private, no-cache, must-revalidate`，但 Cloudflare 规则仍是确保每次文章访问到达源站的必要配置。其他静态资源继续使用现有缓存策略。
+在 Cloudflare Cache Rules 中增加一条规则：当 URI Path 以 `/posts/` 或 `/books/` 开头时，将 Cache eligibility 设为 **Bypass cache**。Go 和入口 Nginx 也会为文章、图书章节响应设置 `private, no-cache, must-revalidate`，但 Cloudflare 规则仍是确保每次内容访问到达源站的必要配置。其他静态资源继续使用现有缓存策略。
 
 入口 Nginx 只接受 Cloudflare 官方 IP 网段发来的 `CF-Connecting-IP`，直接访问源站时会忽略调用者伪造的客户端 IP 头。Cloudflare 更新 [IP ranges](https://www.cloudflare.com/ips/) 后应同步更新 Compose 中的 `set_real_ip_from` 列表；生产防火墙仍建议只允许 Cloudflare 和运维来源访问源站端口。
 

@@ -18,9 +18,11 @@ import (
 )
 
 const (
-	ArticleSubjectType       = "article"
-	ArticleUniqueViewsMetric = "article_unique_views"
-	articleViewEvent         = "article_view"
+	ArticleSubjectType           = "article"
+	ArticleUniqueViewsMetric     = "article_unique_views"
+	BookChapterSubjectType       = "book_chapter"
+	BookChapterUniqueViewsMetric = "book_chapter_unique_views"
+	articleViewEvent             = "article_view"
 )
 
 type ClientKind string
@@ -33,12 +35,14 @@ const (
 )
 
 var ErrUnknownArticle = errors.New("unknown article")
+var ErrUnknownBookChapter = errors.New("unknown book chapter")
 
 type Config struct {
-	DatabasePath string
-	HashKey      []byte
-	Location     *time.Location
-	ArticleSlugs []string
+	DatabasePath   string
+	HashKey        []byte
+	Location       *time.Location
+	ArticleSlugs   []string
+	BookChapterIDs []string
 }
 
 type ArticleView struct {
@@ -49,6 +53,8 @@ type ArticleView struct {
 	Referrer   string
 	OccurredAt time.Time
 }
+
+type BookChapterView = ArticleView
 
 type RecordResult struct {
 	Count   int64
@@ -61,10 +67,11 @@ type CountResult struct {
 }
 
 type Tracker struct {
-	db       *sql.DB
-	hashKey  []byte
-	location *time.Location
-	articles map[string]struct{}
+	db           *sql.DB
+	hashKey      []byte
+	location     *time.Location
+	articles     map[string]struct{}
+	bookChapters map[string]struct{}
 }
 
 func Open(ctx context.Context, config Config) (*Tracker, error) {
@@ -101,11 +108,16 @@ func Open(ctx context.Context, config Config) (*Tracker, error) {
 	for _, slug := range config.ArticleSlugs {
 		articles[slug] = struct{}{}
 	}
+	bookChapters := make(map[string]struct{}, len(config.BookChapterIDs))
+	for _, id := range config.BookChapterIDs {
+		bookChapters[id] = struct{}{}
+	}
 	return &Tracker{
-		db:       db,
-		hashKey:  append([]byte(nil), config.HashKey...),
-		location: config.Location,
-		articles: articles,
+		db:           db,
+		hashKey:      append([]byte(nil), config.HashKey...),
+		location:     config.Location,
+		articles:     articles,
+		bookChapters: bookChapters,
 	}, nil
 }
 
@@ -129,8 +141,16 @@ func (t *Tracker) Ping(ctx context.Context) error {
 }
 
 func (t *Tracker) RecordArticleView(ctx context.Context, view ArticleView) (RecordResult, error) {
-	if _, ok := t.articles[view.Slug]; !ok {
-		return RecordResult{}, ErrUnknownArticle
+	return t.recordView(ctx, ArticleSubjectType, ArticleUniqueViewsMetric, t.articles, ErrUnknownArticle, view)
+}
+
+func (t *Tracker) RecordBookChapterView(ctx context.Context, view BookChapterView) (RecordResult, error) {
+	return t.recordView(ctx, BookChapterSubjectType, BookChapterUniqueViewsMetric, t.bookChapters, ErrUnknownBookChapter, view)
+}
+
+func (t *Tracker) recordView(ctx context.Context, subjectType, metric string, known map[string]struct{}, unknown error, view ArticleView) (RecordResult, error) {
+	if _, ok := known[view.Slug]; !ok {
+		return RecordResult{}, unknown
 	}
 	if view.OccurredAt.IsZero() {
 		return RecordResult{}, errors.New("occurred time is required")
@@ -140,7 +160,7 @@ func (t *Tracker) RecordArticleView(ctx context.Context, view ArticleView) (Reco
 	}
 
 	day := view.OccurredAt.In(t.location).Format(time.DateOnly)
-	dedupeKey := t.visitorHash(day, view)
+	dedupeKey := t.visitorHashForSubject(subjectType, day, view)
 	transaction, err := t.db.BeginTx(ctx, nil)
 	if err != nil {
 		return RecordResult{}, fmt.Errorf("begin article view transaction: %w", err)
@@ -153,7 +173,7 @@ func (t *Tracker) RecordArticleView(ctx context.Context, view ArticleView) (Reco
 			visitor_hash, referrer_host, client_kind
 		) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
 		articleViewEvent,
-		ArticleSubjectType,
+		subjectType,
 		view.Slug,
 		view.OccurredAt.UTC().UnixMilli(),
 		day,
@@ -176,8 +196,8 @@ func (t *Tracker) RecordArticleView(ctx context.Context, view ArticleView) (Reco
 			) VALUES (?, ?, ?, 1, ?)
 			ON CONFLICT(metric, subject_type, subject_id)
 			DO UPDATE SET value = value + 1, updated_at = excluded.updated_at`,
-			ArticleUniqueViewsMetric,
-			ArticleSubjectType,
+			metric,
+			subjectType,
 			view.Slug,
 			view.OccurredAt.UTC().UnixMilli(),
 		)
@@ -191,14 +211,14 @@ func (t *Tracker) RecordArticleView(ctx context.Context, view ArticleView) (Reco
 		SELECT value
 		FROM analytics_metric_totals
 		WHERE metric = ? AND subject_type = ? AND subject_id = ?`,
-		ArticleUniqueViewsMetric,
-		ArticleSubjectType,
+		metric,
+		subjectType,
 		view.Slug,
 	).Scan(&count)
 	if errors.Is(err, sql.ErrNoRows) {
 		count = 0
 	} else if err != nil {
-		return RecordResult{}, fmt.Errorf("read article view total: %w", err)
+		return RecordResult{}, fmt.Errorf("read %s view total: %w", subjectType, err)
 	}
 	if err := transaction.Commit(); err != nil {
 		return RecordResult{}, fmt.Errorf("commit article view transaction: %w", err)
@@ -207,6 +227,14 @@ func (t *Tracker) RecordArticleView(ctx context.Context, view ArticleView) (Reco
 }
 
 func (t *Tracker) ArticleViewCounts(ctx context.Context, slugs []string) (CountResult, error) {
+	return t.viewCounts(ctx, ArticleUniqueViewsMetric, ArticleSubjectType, t.articles, slugs)
+}
+
+func (t *Tracker) BookChapterViewCounts(ctx context.Context, ids []string) (CountResult, error) {
+	return t.viewCounts(ctx, BookChapterUniqueViewsMetric, BookChapterSubjectType, t.bookChapters, ids)
+}
+
+func (t *Tracker) viewCounts(ctx context.Context, metric, subjectType string, knownSubjects map[string]struct{}, slugs []string) (CountResult, error) {
 	result := CountResult{
 		Values:  make(map[string]int64, len(slugs)),
 		Unknown: make([]string, 0),
@@ -218,7 +246,7 @@ func (t *Tracker) ArticleViewCounts(ctx context.Context, slugs []string) (CountR
 			continue
 		}
 		seen[slug] = struct{}{}
-		if _, ok := t.articles[slug]; !ok {
+		if _, ok := knownSubjects[slug]; !ok {
 			result.Unknown = append(result.Unknown, slug)
 			continue
 		}
@@ -231,7 +259,7 @@ func (t *Tracker) ArticleViewCounts(ctx context.Context, slugs []string) (CountR
 
 	placeholders := strings.TrimSuffix(strings.Repeat("?,", len(known)), ",")
 	arguments := make([]any, 0, len(known)+2)
-	arguments = append(arguments, ArticleUniqueViewsMetric, ArticleSubjectType)
+	arguments = append(arguments, metric, subjectType)
 	for _, slug := range known {
 		arguments = append(arguments, slug)
 	}
@@ -242,27 +270,35 @@ func (t *Tracker) ArticleViewCounts(ctx context.Context, slugs []string) (CountR
 		arguments...,
 	)
 	if err != nil {
-		return CountResult{}, fmt.Errorf("query article view totals: %w", err)
+		return CountResult{}, fmt.Errorf("query %s view totals: %w", subjectType, err)
 	}
 	defer rows.Close()
 	for rows.Next() {
 		var slug string
 		var value int64
 		if err := rows.Scan(&slug, &value); err != nil {
-			return CountResult{}, fmt.Errorf("scan article view total: %w", err)
+			return CountResult{}, fmt.Errorf("scan %s view total: %w", subjectType, err)
 		}
 		result.Values[slug] = value
 	}
 	if err := rows.Err(); err != nil {
-		return CountResult{}, fmt.Errorf("iterate article view totals: %w", err)
+		return CountResult{}, fmt.Errorf("iterate %s view totals: %w", subjectType, err)
 	}
 	sort.Strings(result.Unknown)
 	return result, nil
 }
 
 func (t *Tracker) visitorHash(day string, view ArticleView) []byte {
+	return t.visitorHashForSubject(ArticleSubjectType, day, view)
+}
+
+func (t *Tracker) visitorHashForSubject(subjectType, day string, view ArticleView) []byte {
 	digest := hmac.New(sha256.New, t.hashKey)
-	for _, value := range []string{day, view.Slug, view.ClientIP, view.UserAgent} {
+	values := []string{day, view.Slug, view.ClientIP, view.UserAgent}
+	if subjectType != ArticleSubjectType {
+		values = append([]string{subjectType}, values...)
+	}
+	for _, value := range values {
 		_, _ = digest.Write([]byte(value))
 		_, _ = digest.Write([]byte{0})
 	}

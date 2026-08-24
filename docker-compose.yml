@@ -131,6 +131,19 @@ configs:
           add_header Cache-Control "private, no-cache, must-revalidate" always;
         }
 
+        location ^~ /books/ {
+          proxy_pass $$server_upstream;
+          proxy_http_version 1.1;
+          proxy_set_header Host $$host;
+          proxy_set_header X-Real-IP $$remote_addr;
+          proxy_set_header X-Forwarded-For $$remote_addr;
+          proxy_set_header X-Forwarded-Proto $$scheme;
+          proxy_intercept_errors on;
+          error_page 502 503 504 = @blog_fallback;
+          proxy_hide_header Cache-Control;
+          add_header Cache-Control "private, no-cache, must-revalidate" always;
+        }
+
         location @blog_fallback {
           proxy_pass $$blog_upstream;
           proxy_http_version 1.1;

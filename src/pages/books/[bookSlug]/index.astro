@@ -1,0 +1,77 @@
+---
+import { getCollection } from 'astro:content';
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import BookToc from '@/components/BookToc.astro';
+import { getBookChapters, type Book } from '@/lib/books';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return Promise.all(
+    books.map(async (book) => ({
+      params: { bookSlug: book.data.slug },
+      props: { book, chapters: await getBookChapters(book.data.slug) },
+    })),
+  );
+}
+
+interface Props {
+  book: Book;
+  chapters: Awaited<ReturnType<typeof getBookChapters>>;
+}
+
+const { book, chapters } = Astro.props;
+---
+
+<SiteLayout
+  title={book.data.title}
+  description={book.data.summary}
+  ogImageUrl={book.data.cover ?? undefined}
+>
+  <div class="breadcrumbs">
+    <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/books/">books</a><span
+      aria-hidden="true">/</span
+    ><strong>{book.data.slug}</strong>
+  </div>
+  <section class:list={['book-detail-header', { 'has-cover': Boolean(book.data.cover) }]}>
+    {
+      book.data.cover && (
+        <img
+          class="book-detail-cover"
+          src={book.data.cover}
+          alt={`${book.data.title} 封面`}
+          width="1049"
+          height="1600"
+          loading="eager"
+          decoding="async"
+        />
+      )
+    }
+    <div>
+      <span class="eyebrow">BOOK</span>
+      <h1>{book.data.title}</h1>
+      {book.data.subtitle && <p class="book-detail-subtitle">{book.data.subtitle}</p>}
+      <p class="book-detail-summary">{book.data.summary}</p>
+      <dl class="book-facts">
+        <div><dt>作者</dt><dd>{book.data.author}</dd></div>
+        <div><dt>语言</dt><dd>{book.data.language}</dd></div>
+        <div><dt>阅读单元</dt><dd>{chapters.length}</dd></div>
+      </dl>
+      <p class="book-rights">
+        {book.data.rightsNotice}。来源：<a
+          href={book.data.sourceUrl}
+          target="_blank"
+          rel="noreferrer">99csw.com ↗</a
+        >
+      </p>
+    </div>
+  </section>
+  <section class="book-outline" aria-labelledby="book-outline-heading">
+    <div class="section-heading">
+      <div>
+        <span class="section-kicker">CONTENTS</span><h2 id="book-outline-heading">完整目录</h2>
+      </div>
+      <span class="quiet-link">{chapters.length} 个阅读单元</span>
+    </div>
+    <BookToc book={book} chapters={chapters} />
+  </section>
+</SiteLayout>

@@ -1,0 +1,32 @@
+---
+import { chapterPath, type Book, type BookChapter } from '@/lib/books';
+
+interface Props {
+  book: Book;
+  chapters: BookChapter[];
+  currentSlug?: string;
+}
+
+const { book, chapters, currentSlug } = Astro.props;
+---
+
+<nav class="book-toc" aria-label="图书目录">
+  <p class="toc-title">目录</p>
+  <ol>
+    {
+      chapters.map((chapter) => (
+        <li class:list={{ active: chapter.data.slug === currentSlug }}>
+          <a
+            href={chapterPath(book, chapter)}
+            aria-current={chapter.data.slug === currentSlug ? 'page' : undefined}
+          >
+            <span class="book-toc-number">
+              {String(chapter.data.chapterNumber).padStart(2, '0')}
+            </span>
+            <span>{chapter.data.title}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</nav>

@@ -1,0 +1,34 @@
+---
+import { chapterPath, type Book, type BookChapter } from '@/lib/books';
+
+interface Props {
+  book: Book;
+  previous?: BookChapter;
+  next?: BookChapter;
+}
+
+const { book, previous, next } = Astro.props;
+---
+
+<footer class="book-reader-nav">
+  {
+    previous ? (
+      <a href={chapterPath(book, previous)}>
+        <span class="reader-nav-label">上一章</span>
+        <strong>← {previous.data.title}</strong>
+      </a>
+    ) : (
+      <span />
+    )
+  }
+  {
+    next ? (
+      <a class="reader-nav-next" href={chapterPath(book, next)}>
+        <span class="reader-nav-label">下一章</span>
+        <strong>{next.data.title} →</strong>
+      </a>
+    ) : (
+      <span />
+    )
+  }
+</footer>
