@@ -1,7 +1,7 @@
 ---
 title: 先做三个原型，再写正式页面：AI 前端实现的多原型工作流
 slug: multi-prototype-ai-frontend-workflow
-summary: 将前端设计中的方向性不确定拆成三个可丢弃、可比较的原型，先控制变量完成选型，再依据真实系统边界重写正式页面。
+summary: 提高AI前端质量的一个尝试，原型驱动型编程
 publishedAt: 2026-08-23
 tags:
   - AI 编程
