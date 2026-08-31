@@ -1,0 +1,1041 @@
+{
+  "generatedAt": "2026-08-31T11:35:12.604Z",
+  "title": "资本论",
+  "language": "zh-CN",
+  "volumes": 3,
+  "generatedChapters": 103,
+  "characters": 1743802,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "volume-01-prefaces",
+      "title": "序言与各版说明",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/00.htm"
+      ],
+      "characters": 27786
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "volume-01-chapter-01",
+      "title": "第一章 商品",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/01.htm"
+      ],
+      "characters": 44317
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "volume-01-chapter-02",
+      "title": "第二章 交换过程",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/02.htm"
+      ],
+      "characters": 9495
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "volume-01-chapter-03",
+      "title": "第三章 货币或商品流通",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/03.htm"
+      ],
+      "characters": 52220
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "volume-01-chapter-04",
+      "title": "第四章 货币转化为资本",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/04.htm"
+      ],
+      "characters": 29377
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "volume-01-chapter-05",
+      "title": "第五章 劳动过程和价值增殖过程",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/05.htm"
+      ],
+      "characters": 19405
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "volume-01-chapter-06",
+      "title": "第六章 不变资本和可变资本",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/06.htm"
+      ],
+      "characters": 9996
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "volume-01-chapter-07",
+      "title": "第七章 剩余价值率",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/07.htm"
+      ],
+      "characters": 17437
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "volume-01-chapter-08",
+      "title": "第八章 工作日",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/08.htm"
+      ],
+      "characters": 84057
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "volume-01-chapter-09",
+      "title": "第九章 剩余价值率和剩余价值量",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/09.htm"
+      ],
+      "characters": 8081
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "volume-01-chapter-10",
+      "title": "第十章 相对剩余价值的概念",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/10.htm"
+      ],
+      "characters": 5961
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "volume-01-chapter-11",
+      "title": "第十一章 协作",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/11.htm"
+      ],
+      "characters": 8785
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "volume-01-chapter-12",
+      "title": "第十二章 分工和工场手工业",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/12.htm"
+      ],
+      "characters": 17966
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "volume-01-chapter-13",
+      "title": "第十三章 机器和大工业",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/13.htm"
+      ],
+      "characters": 78475
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "volume-01-chapter-14",
+      "title": "第十四章 绝对剩余价值和相对剩余价值",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/14.htm"
+      ],
+      "characters": 6781
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "volume-01-chapter-15",
+      "title": "第十五章 劳动力价格和剩余价值的量的变化",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/15.htm"
+      ],
+      "characters": 7084
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "volume-01-chapter-16",
+      "title": "第十六章 剩余价值率的各种公式",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/16.htm"
+      ],
+      "characters": 2766
+    },
+    {
+      "chapterNumber": 18,
+      "slug": "volume-01-chapter-17",
+      "title": "第十七章 劳动力的价值或价格转化为工资",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/17.htm"
+      ],
+      "characters": 6852
+    },
+    {
+      "chapterNumber": 19,
+      "slug": "volume-01-chapter-18",
+      "title": "第十八章 计时工资",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/18.htm"
+      ],
+      "characters": 8093
+    },
+    {
+      "chapterNumber": 20,
+      "slug": "volume-01-chapter-19",
+      "title": "第十九章 计件工资",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/19.htm"
+      ],
+      "characters": 9121
+    },
+    {
+      "chapterNumber": 21,
+      "slug": "volume-01-chapter-20",
+      "title": "第二十章 工资的国民差异",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/20.htm"
+      ],
+      "characters": 4211
+    },
+    {
+      "chapterNumber": 22,
+      "slug": "volume-01-chapter-21",
+      "title": "第二十一章 简单再生产",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/21.htm"
+      ],
+      "characters": 9229
+    },
+    {
+      "chapterNumber": 23,
+      "slug": "volume-01-chapter-22",
+      "title": "第二十二章 剩余价值转化为资本",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/22.htm"
+      ],
+      "characters": 23574
+    },
+    {
+      "chapterNumber": 24,
+      "slug": "volume-01-chapter-23",
+      "title": "第二十三章 资本主义积累的一般规律",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/23.htm"
+      ],
+      "characters": 65053
+    },
+    {
+      "chapterNumber": 25,
+      "slug": "volume-01-chapter-24",
+      "title": "第二十四章 所谓原始积累",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/24.htm"
+      ],
+      "characters": 28159
+    },
+    {
+      "chapterNumber": 26,
+      "slug": "volume-01-chapter-25",
+      "title": "第二十五章 现代殖民理论",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx/capital/25.htm"
+      ],
+      "characters": 5972
+    },
+    {
+      "chapterNumber": 27,
+      "slug": "volume-02-preface",
+      "title": "弗·恩格斯 · 序言",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/001.htm"
+      ],
+      "characters": 17813
+    },
+    {
+      "chapterNumber": 28,
+      "slug": "volume-02-preface-second-edition",
+      "title": "弗·恩格斯 · 第二版序言",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/002.htm"
+      ],
+      "characters": 841
+    },
+    {
+      "chapterNumber": 29,
+      "slug": "volume-02-chapter-01",
+      "title": "第一章 货币资本的循环",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/003.htm"
+      ],
+      "characters": 29423
+    },
+    {
+      "chapterNumber": 30,
+      "slug": "volume-02-chapter-02",
+      "title": "第二章 生产资本的循环",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/004.htm"
+      ],
+      "characters": 18374
+    },
+    {
+      "chapterNumber": 31,
+      "slug": "volume-02-chapter-03",
+      "title": "第三章 商品资本的循环",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/005.htm"
+      ],
+      "characters": 10331
+    },
+    {
+      "chapterNumber": 32,
+      "slug": "volume-02-chapter-04",
+      "title": "第四章 循环过程的三个公式",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/006.htm"
+      ],
+      "characters": 16248
+    },
+    {
+      "chapterNumber": 33,
+      "slug": "volume-02-chapter-05",
+      "title": "第五章 流通时间",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/007.htm"
+      ],
+      "characters": 5394
+    },
+    {
+      "chapterNumber": 34,
+      "slug": "volume-02-chapter-06",
+      "title": "第六章 流通费用",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/008.htm"
+      ],
+      "characters": 17771
+    },
+    {
+      "chapterNumber": 35,
+      "slug": "volume-02-chapter-07",
+      "title": "第七章 周转时间和周转次数",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/009.htm"
+      ],
+      "characters": 2715
+    },
+    {
+      "chapterNumber": 36,
+      "slug": "volume-02-chapter-08",
+      "title": "第八章 固定资本和流动资本",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/010.htm"
+      ],
+      "characters": 19882
+    },
+    {
+      "chapterNumber": 37,
+      "slug": "volume-02-chapter-09",
+      "title": "第九章 预付资本的总周转。周转的周期",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/011.htm"
+      ],
+      "characters": 4873
+    },
+    {
+      "chapterNumber": 38,
+      "slug": "volume-02-chapter-10",
+      "title": "第十章 关于固定资本和流动资本的理论。重农学派和亚当·斯密",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/012.htm"
+      ],
+      "characters": 20061
+    },
+    {
+      "chapterNumber": 39,
+      "slug": "volume-02-chapter-11",
+      "title": "第十一章 关于固定资本和流动资本的理论。李嘉图",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/013.htm"
+      ],
+      "characters": 11762
+    },
+    {
+      "chapterNumber": 40,
+      "slug": "volume-02-chapter-12",
+      "title": "第十二章 劳动期间",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/014.htm"
+      ],
+      "characters": 7476
+    },
+    {
+      "chapterNumber": 41,
+      "slug": "volume-02-chapter-13",
+      "title": "第十三章 生产时间",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/015.htm"
+      ],
+      "characters": 7099
+    },
+    {
+      "chapterNumber": 42,
+      "slug": "volume-02-chapter-14",
+      "title": "第十四章 流通时间",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/016.htm"
+      ],
+      "characters": 5834
+    },
+    {
+      "chapterNumber": 43,
+      "slug": "volume-02-chapter-15",
+      "title": "第十五章 周转时间对预付资本量的影响",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/017.htm"
+      ],
+      "characters": 27167
+    },
+    {
+      "chapterNumber": 44,
+      "slug": "volume-02-chapter-16",
+      "title": "第十六章 可变资本的周转",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/018.htm"
+      ],
+      "characters": 19337
+    },
+    {
+      "chapterNumber": 45,
+      "slug": "volume-02-chapter-17",
+      "title": "第十七章 剩余价值的流通",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/019.htm"
+      ],
+      "characters": 23506
+    },
+    {
+      "chapterNumber": 46,
+      "slug": "volume-02-chapter-18",
+      "title": "第十八章 导言",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/020.htm"
+      ],
+      "characters": 5722
+    },
+    {
+      "chapterNumber": 47,
+      "slug": "volume-02-chapter-19",
+      "title": "第十九章 前人对这个问题的阐述",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/021.htm"
+      ],
+      "characters": 26042
+    },
+    {
+      "chapterNumber": 48,
+      "slug": "volume-02-chapter-20",
+      "title": "第二十章 简单再生产",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/022.htm"
+      ],
+      "characters": 80346
+    },
+    {
+      "chapterNumber": 49,
+      "slug": "volume-02-chapter-21",
+      "title": "第二十一章 积累和扩大再生产",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/24/023.htm"
+      ],
+      "characters": 28517
+    },
+    {
+      "chapterNumber": 50,
+      "slug": "volume-03-preface",
+      "title": "弗里德里希·恩格斯 · 序言",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/001.htm"
+      ],
+      "characters": 18501
+    },
+    {
+      "chapterNumber": 51,
+      "slug": "volume-03-chapter-01",
+      "title": "第一章 成本价格和利润",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/002.htm"
+      ],
+      "characters": 11856
+    },
+    {
+      "chapterNumber": 52,
+      "slug": "volume-03-chapter-02",
+      "title": "第二章 利润率",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/003.htm"
+      ],
+      "characters": 6083
+    },
+    {
+      "chapterNumber": 53,
+      "slug": "volume-03-chapter-03",
+      "title": "第三章 利润率和剩余价值率的关系",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/004.htm"
+      ],
+      "characters": 16335
+    },
+    {
+      "chapterNumber": 54,
+      "slug": "volume-03-chapter-04",
+      "title": "第四章 周转对利润率的影响",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/005.htm"
+      ],
+      "characters": 5499
+    },
+    {
+      "chapterNumber": 55,
+      "slug": "volume-03-chapter-05",
+      "title": "第五章 不变资本使用上的节约",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/006.htm"
+      ],
+      "characters": 22092
+    },
+    {
+      "chapterNumber": 56,
+      "slug": "volume-03-chapter-06",
+      "title": "第六章 价格变动的影响",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/007.htm"
+      ],
+      "characters": 26992
+    },
+    {
+      "chapterNumber": 57,
+      "slug": "volume-03-chapter-07",
+      "title": "第七章 补充说明",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/008.htm"
+      ],
+      "characters": 2918
+    },
+    {
+      "chapterNumber": 58,
+      "slug": "volume-03-chapter-08",
+      "title": "第八章 不同生产部门的资本的不同构成和由此引起的利润率的差别",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/009.htm"
+      ],
+      "characters": 9634
+    },
+    {
+      "chapterNumber": 59,
+      "slug": "volume-03-chapter-09",
+      "title": "第九章 一般利润率（平均利润率）的形成和商品价值转化为生产价格",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/010.htm"
+      ],
+      "characters": 14328
+    },
+    {
+      "chapterNumber": 60,
+      "slug": "volume-03-chapter-10",
+      "title": "第十章 一般利润率通过竞争而平均化。市场价格和市场价值。超额利润",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/011.htm"
+      ],
+      "characters": 22282
+    },
+    {
+      "chapterNumber": 61,
+      "slug": "volume-03-chapter-11",
+      "title": "第十一章 工资的一般变动对生产价格的影响",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/012.htm"
+      ],
+      "characters": 5117
+    },
+    {
+      "chapterNumber": 62,
+      "slug": "volume-03-chapter-12",
+      "title": "第十二章 补充说明",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/013.htm"
+      ],
+      "characters": 4331
+    },
+    {
+      "chapterNumber": 63,
+      "slug": "volume-03-chapter-13",
+      "title": "第十三章 规律本身",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/014.htm"
+      ],
+      "characters": 16891
+    },
+    {
+      "chapterNumber": 64,
+      "slug": "volume-03-chapter-14",
+      "title": "第十四章 起反作用的各种原因",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/015.htm"
+      ],
+      "characters": 6520
+    },
+    {
+      "chapterNumber": 65,
+      "slug": "volume-03-chapter-15",
+      "title": "第十五章 规律的内部矛盾的展开",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/016.htm"
+      ],
+      "characters": 19750
+    },
+    {
+      "chapterNumber": 66,
+      "slug": "volume-03-chapter-16",
+      "title": "第十六章 商品经营资本",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/017.htm"
+      ],
+      "characters": 10611
+    },
+    {
+      "chapterNumber": 67,
+      "slug": "volume-03-chapter-17",
+      "title": "第十七章 商业利润",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/018.htm"
+      ],
+      "characters": 17154
+    },
+    {
+      "chapterNumber": 68,
+      "slug": "volume-03-chapter-18",
+      "title": "第十八章 商人资本的周转。价格",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/019.htm"
+      ],
+      "characters": 10017
+    },
+    {
+      "chapterNumber": 69,
+      "slug": "volume-03-chapter-19",
+      "title": "第十九章 货币经营资本",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/020.htm"
+      ],
+      "characters": 6389
+    },
+    {
+      "chapterNumber": 70,
+      "slug": "volume-03-chapter-20",
+      "title": "第二十章 关于商人资本的历史考察",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/021.htm"
+      ],
+      "characters": 13458
+    },
+    {
+      "chapterNumber": 71,
+      "slug": "volume-03-chapter-21",
+      "title": "第二十一章 生息资本",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/022.htm"
+      ],
+      "characters": 16574
+    },
+    {
+      "chapterNumber": 72,
+      "slug": "volume-03-chapter-22",
+      "title": "第二十二章 利润的分割。利息率。“自然”利息率",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/023.htm"
+      ],
+      "characters": 10321
+    },
+    {
+      "chapterNumber": 73,
+      "slug": "volume-03-chapter-23",
+      "title": "第二十三章 利息和企业主收入",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/024.htm"
+      ],
+      "characters": 17747
+    },
+    {
+      "chapterNumber": 74,
+      "slug": "volume-03-chapter-24",
+      "title": "第二十四章 资本关系在生息资本形式上的外表化",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/025.htm"
+      ],
+      "characters": 8101
+    },
+    {
+      "chapterNumber": 75,
+      "slug": "volume-03-chapter-25",
+      "title": "第二十五章 信用和虚拟资本",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/026.htm"
+      ],
+      "characters": 14609
+    },
+    {
+      "chapterNumber": 76,
+      "slug": "volume-03-chapter-26",
+      "title": "第二十六章 货币资本的积累，它对利息率的影响",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/027.htm"
+      ],
+      "characters": 18338
+    },
+    {
+      "chapterNumber": 77,
+      "slug": "volume-03-chapter-27",
+      "title": "第二十七章 信用在资本主义生产中的作用",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/028.htm"
+      ],
+      "characters": 5639
+    },
+    {
+      "chapterNumber": 78,
+      "slug": "volume-03-chapter-28",
+      "title": "第二十八章 流通手段和资本。图克和富拉顿的见解",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/029.htm"
+      ],
+      "characters": 17060
+    },
+    {
+      "chapterNumber": 79,
+      "slug": "volume-03-chapter-29",
+      "title": "第二十九章 银行资本的组成部分",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/030.htm"
+      ],
+      "characters": 10203
+    },
+    {
+      "chapterNumber": 80,
+      "slug": "volume-03-chapter-30",
+      "title": "第三十章 货币资本和现实资本。Ⅰ",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/031.htm"
+      ],
+      "characters": 14175
+    },
+    {
+      "chapterNumber": 81,
+      "slug": "volume-03-chapter-31",
+      "title": "第三十一章 货币资本和现实资本。Ⅱ（续）",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/032.htm"
+      ],
+      "characters": 7886
+    },
+    {
+      "chapterNumber": 82,
+      "slug": "volume-03-chapter-32",
+      "title": "第三十二章 货币资本和现实资本。Ⅲ（续完）",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/033.htm"
+      ],
+      "characters": 12764
+    },
+    {
+      "chapterNumber": 83,
+      "slug": "volume-03-chapter-33",
+      "title": "第三十三章 信用制度下的流通手段",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/034.htm"
+      ],
+      "characters": 22991
+    },
+    {
+      "chapterNumber": 84,
+      "slug": "volume-03-chapter-34",
+      "title": "第三十四章 通货原理和1844年英国的银行立法",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/035.htm"
+      ],
+      "characters": 16027
+    },
+    {
+      "chapterNumber": 85,
+      "slug": "volume-03-chapter-35",
+      "title": "第三十五章 贵金属和汇兑率",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/036.htm"
+      ],
+      "characters": 22556
+    },
+    {
+      "chapterNumber": 86,
+      "slug": "volume-03-chapter-36",
+      "title": "第三十六章 资本主义以前的状态",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/037.htm"
+      ],
+      "characters": 18534
+    },
+    {
+      "chapterNumber": 87,
+      "slug": "volume-03-chapter-37",
+      "title": "第三十七章 导论",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/038.htm"
+      ],
+      "characters": 23895
+    },
+    {
+      "chapterNumber": 88,
+      "slug": "volume-03-chapter-38",
+      "title": "第三十八章 级差地租：概论",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/039.htm"
+      ],
+      "characters": 6593
+    },
+    {
+      "chapterNumber": 89,
+      "slug": "volume-03-chapter-39",
+      "title": "第三十九章 级差地租的第一形式（级差地租Ⅰ）",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/040.htm"
+      ],
+      "characters": 17842
+    },
+    {
+      "chapterNumber": 90,
+      "slug": "volume-03-chapter-40",
+      "title": "第四十章 级差地租的第二形式（级差地租Ⅱ）",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/041.htm"
+      ],
+      "characters": 9668
+    },
+    {
+      "chapterNumber": 91,
+      "slug": "volume-03-chapter-41",
+      "title": "第四十一章 级差地租Ⅱ——第一种情况：生产价格不变",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/042.htm"
+      ],
+      "characters": 6625
+    },
+    {
+      "chapterNumber": 92,
+      "slug": "volume-03-chapter-42",
+      "title": "第四十二章 级差地租Ⅱ——第二种情况：生产价格下降",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/043.htm"
+      ],
+      "characters": 14801
+    },
+    {
+      "chapterNumber": 93,
+      "slug": "volume-03-chapter-43",
+      "title": "第四十三章 级差地租Ⅱ——第三种情况：生产价格上涨。结论",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/044.htm"
+      ],
+      "characters": 28050
+    },
+    {
+      "chapterNumber": 94,
+      "slug": "volume-03-chapter-44",
+      "title": "第四十四章 最坏耕地也有级差地租",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/045.htm"
+      ],
+      "characters": 8251
+    },
+    {
+      "chapterNumber": 95,
+      "slug": "volume-03-chapter-45",
+      "title": "第四十五章 绝对地租",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/046.htm"
+      ],
+      "characters": 20308
+    },
+    {
+      "chapterNumber": 96,
+      "slug": "volume-03-chapter-46",
+      "title": "第四十六章 建筑地段的地租。矿山地租。土地价格",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/047.htm"
+      ],
+      "characters": 7579
+    },
+    {
+      "chapterNumber": 97,
+      "slug": "volume-03-chapter-47",
+      "title": "第四十七章 资本主义地租的产生",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/048.htm"
+      ],
+      "characters": 28022
+    },
+    {
+      "chapterNumber": 98,
+      "slug": "volume-03-chapter-48",
+      "title": "第四十八章 三位一体的公式",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/049.htm"
+      ],
+      "characters": 14929
+    },
+    {
+      "chapterNumber": 99,
+      "slug": "volume-03-chapter-49",
+      "title": "第四十九章 关于生产过程的分析",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/050.htm"
+      ],
+      "characters": 16850
+    },
+    {
+      "chapterNumber": 100,
+      "slug": "volume-03-chapter-50",
+      "title": "第五十章 竞争的假象",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/051.htm"
+      ],
+      "characters": 19254
+    },
+    {
+      "chapterNumber": 101,
+      "slug": "volume-03-chapter-51",
+      "title": "第五十一章 分配关系和生产关系",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/052.htm"
+      ],
+      "characters": 5323
+    },
+    {
+      "chapterNumber": 102,
+      "slug": "volume-03-chapter-52",
+      "title": "第五十二章 阶级",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/053.htm"
+      ],
+      "characters": 891
+    },
+    {
+      "chapterNumber": 103,
+      "slug": "volume-03-supplement",
+      "title": "弗·恩格斯《资本论》第三卷增补",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://www.marxists.org/chinese/marx-engels/25/054.htm",
+        "https://www.marxists.org/chinese/marx-engels/25/055.htm"
+      ],
+      "characters": 17851
+    }
+  ]
+}

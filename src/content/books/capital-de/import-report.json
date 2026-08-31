@@ -1,0 +1,1095 @@
+{
+  "generatedAt": "2026-08-31T11:35:14.150Z",
+  "sourceRevision": "216d406fce11c91834f9402386b55a183c8d491b",
+  "title": "Das Kapital",
+  "language": "de",
+  "volumes": 3,
+  "generatedChapters": 108,
+  "characters": 5714055,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "volume-01-preface-first-edition-de",
+      "title": "Vorwort zur ersten Auflage",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_011.htm"
+      ],
+      "characters": 10478
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "volume-01-preface-second-edition-de",
+      "title": "Nachwort zur zweiten Auflage",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_018.htm"
+      ],
+      "characters": 22205
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "volume-01-preface-french-edition-de",
+      "title": "Vorwort und Nachwort zur französischen Ausgabe",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_031.htm"
+      ],
+      "characters": 2614
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "volume-01-preface-third-edition-de",
+      "title": "Zur dritten Auflage",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_033.htm"
+      ],
+      "characters": 5718
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "volume-01-preface-english-edition-de",
+      "title": "Vorwort zur englischen Ausgabe",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_036.htm"
+      ],
+      "characters": 11367
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "volume-01-preface-fourth-edition-de",
+      "title": "Zur vierten Auflage",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_041.htm"
+      ],
+      "characters": 14938
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "volume-01-chapter-01-de",
+      "title": "Erstes Kapitel · Die Ware",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_049.htm"
+      ],
+      "characters": 128810
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "volume-01-chapter-02-de",
+      "title": "Zweites Kapitel · Der Austauschprozeß",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_099.htm"
+      ],
+      "characters": 25176
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "volume-01-chapter-03-de",
+      "title": "Drittes Kapitel · Das Geld oder die Warenzirkulation",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_109.htm"
+      ],
+      "characters": 141902
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "volume-01-chapter-04-de",
+      "title": "Viertes Kapitel · Die Verwandlung von Geld in Kapital",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_161.htm"
+      ],
+      "characters": 84268
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "volume-01-chapter-05-de",
+      "title": "Fünftes Kapitel · Arbeitsprozeß und Verwertungsprozeß",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_192.htm"
+      ],
+      "characters": 58318
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "volume-01-chapter-06-de",
+      "title": "Sechstes Kapitel · Konstantes Kapital und variables Kapital",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_214.htm"
+      ],
+      "characters": 32022
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "volume-01-chapter-07-de",
+      "title": "Siebentes Kapitel · Die Rate des Mehrwerts",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_226.htm"
+      ],
+      "characters": 48958
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "volume-01-chapter-08-de",
+      "title": "Achtes Kapitel · Der Arbeitstag",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_245.htm"
+      ],
+      "characters": 215705
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "volume-01-chapter-09-de",
+      "title": "Neuntes Kapitel · Rate und Masse des Mehrwerts",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_321.htm"
+      ],
+      "characters": 24724
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "volume-01-chapter-10-de",
+      "title": "Zehntes Kapitel · Begriff des relativen Mehrwerts",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_331.htm"
+      ],
+      "characters": 25856
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "volume-01-chapter-11-de",
+      "title": "Elftes Kapitel · Kooperation",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_341.htm"
+      ],
+      "characters": 40413
+    },
+    {
+      "chapterNumber": 18,
+      "slug": "volume-01-chapter-12-de",
+      "title": "Zwölftes Kapitel · Teilung der Arbeit und Manufaktur",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_356.htm"
+      ],
+      "characters": 97414
+    },
+    {
+      "chapterNumber": 19,
+      "slug": "volume-01-chapter-13-de",
+      "title": "Dreizehntes Kapitel · Maschinerie und große Industrie",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_391.htm",
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_441.htm",
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_483.htm"
+      ],
+      "characters": 386830
+    },
+    {
+      "chapterNumber": 20,
+      "slug": "volume-01-chapter-14-de",
+      "title": "Vierzehntes Kapitel · Absoluter und relativer Mehrwert",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_531.htm"
+      ],
+      "characters": 28117
+    },
+    {
+      "chapterNumber": 21,
+      "slug": "volume-01-chapter-15-de",
+      "title": "Fünfzehntes Kapitel · Größenwechsel von Preis der Arbeitskraft und Mehrwert",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_542.htm"
+      ],
+      "characters": 28660
+    },
+    {
+      "chapterNumber": 22,
+      "slug": "volume-01-chapter-16-de",
+      "title": "Sechzehntes Kapitel · Verschiedene Formeln für die Rate des Mehrwerts",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_553.htm"
+      ],
+      "characters": 9554
+    },
+    {
+      "chapterNumber": 23,
+      "slug": "volume-01-chapter-17-de",
+      "title": "Siebzehntes Kapitel · Verwandlung von Wert resp. Preis der Arbeitskraft in Arbeitslohn",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_557.htm"
+      ],
+      "characters": 21102
+    },
+    {
+      "chapterNumber": 24,
+      "slug": "volume-01-chapter-18-de",
+      "title": "Achtzehntes Kapitel · Der Zeitlohn",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_565.htm"
+      ],
+      "characters": 22685
+    },
+    {
+      "chapterNumber": 25,
+      "slug": "volume-01-chapter-19-de",
+      "title": "Neunzehntes Kapitel · Der Stücklohn",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_574.htm"
+      ],
+      "characters": 25681
+    },
+    {
+      "chapterNumber": 26,
+      "slug": "volume-01-chapter-20-de",
+      "title": "Zwanzigstes Kapitel · Nationale Verschiedenheiten der Arbeitslöhne",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_583.htm"
+      ],
+      "characters": 13417
+    },
+    {
+      "chapterNumber": 27,
+      "slug": "volume-01-chapter-21-de",
+      "title": "Einundzwanzigstes Kapitel · Einfache Reproduktion",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_589.htm"
+      ],
+      "characters": 40643
+    },
+    {
+      "chapterNumber": 28,
+      "slug": "volume-01-chapter-22-de",
+      "title": "Zweiundzwanzigstes Kapitel · Verwandlung von Mehrwert in Kapital",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_605.htm"
+      ],
+      "characters": 95140
+    },
+    {
+      "chapterNumber": 29,
+      "slug": "volume-01-chapter-23-de",
+      "title": "Dreiundzwanzigstes Kapitel · Das allgemeine Gesetz der kapitalistischen Akkumulation",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_640.htm",
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_677.htm",
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_701.htm"
+      ],
+      "characters": 275281
+    },
+    {
+      "chapterNumber": 30,
+      "slug": "volume-01-chapter-24-de",
+      "title": "Vierundzwanzigstes Kapitel · Die sogenannte ursprüngliche Akkumulation",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_741.htm"
+      ],
+      "characters": 143477
+    },
+    {
+      "chapterNumber": 31,
+      "slug": "volume-01-chapter-25-de",
+      "title": "Fünfundzwanzigstes Kapitel · Die moderne Kolonisationstheorie",
+      "volumeNumber": 1,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me23/me23_792.htm"
+      ],
+      "characters": 26720
+    },
+    {
+      "chapterNumber": 32,
+      "slug": "volume-02-preface-de",
+      "title": "Friedrich Engels · Vorwort",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_007.htm"
+      ],
+      "characters": 46075
+    },
+    {
+      "chapterNumber": 33,
+      "slug": "volume-02-preface-second-edition-de",
+      "title": "Friedrich Engels · Vorwort zur zweiten Auflage",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_027.htm"
+      ],
+      "characters": 1516
+    },
+    {
+      "chapterNumber": 34,
+      "slug": "volume-02-chapter-01-de",
+      "title": "Erstes Kapitel · Der Kreislauf des Geldkapitals",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_031.htm"
+      ],
+      "characters": 87476
+    },
+    {
+      "chapterNumber": 35,
+      "slug": "volume-02-chapter-02-de",
+      "title": "Zweites Kapitel · Der Kreislauf des produktiven Kapitals",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_069.htm"
+      ],
+      "characters": 57754
+    },
+    {
+      "chapterNumber": 36,
+      "slug": "volume-02-chapter-03-de",
+      "title": "Drittes Kapitel · Der Kreislauf des Warenkapitals",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_091.htm"
+      ],
+      "characters": 31937
+    },
+    {
+      "chapterNumber": 37,
+      "slug": "volume-02-chapter-04-de",
+      "title": "Viertes Kapitel · Die drei Figuren des Kreislaufsprozesses",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_104.htm"
+      ],
+      "characters": 53534
+    },
+    {
+      "chapterNumber": 38,
+      "slug": "volume-02-chapter-05-de",
+      "title": "Fünftes Kapitel · Die Umlaufszeit",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_124.htm"
+      ],
+      "characters": 18551
+    },
+    {
+      "chapterNumber": 39,
+      "slug": "volume-02-chapter-06-de",
+      "title": "Sechstes Kapitel · Die Zirkulationskosten",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_131.htm"
+      ],
+      "characters": 59438
+    },
+    {
+      "chapterNumber": 40,
+      "slug": "volume-02-chapter-07-de",
+      "title": "Siebentes Kapitel · Umschlagszeit und Umschlagszahl",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_154.htm"
+      ],
+      "characters": 9099
+    },
+    {
+      "chapterNumber": 41,
+      "slug": "volume-02-chapter-08-de",
+      "title": "Achtes Kapitel · Fixes Kapital und zirkulierendes Kapital",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_158.htm"
+      ],
+      "characters": 66299
+    },
+    {
+      "chapterNumber": 42,
+      "slug": "volume-02-chapter-09-de",
+      "title": "Neuntes Kapitel · Der Gesamtumschlag des vorgeschoßnen Kapitals. Umschlagszyklen",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_183.htm"
+      ],
+      "characters": 14588
+    },
+    {
+      "chapterNumber": 43,
+      "slug": "volume-02-chapter-10-de",
+      "title": "Zehntes Kapitel · Theorien über fixes und zirkulierendes Kapital. Die Physiokraten und Adam Smith",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_189.htm"
+      ],
+      "characters": 73720
+    },
+    {
+      "chapterNumber": 44,
+      "slug": "volume-02-chapter-11-de",
+      "title": "Elftes Kapitel · Theorien über fixes und zirkulierendes Kapital.",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_217.htm"
+      ],
+      "characters": 34792
+    },
+    {
+      "chapterNumber": 45,
+      "slug": "volume-02-chapter-12-de",
+      "title": "Zwölftes Kapitel · Die Arbeitsperiode",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_231.htm"
+      ],
+      "characters": 25762
+    },
+    {
+      "chapterNumber": 46,
+      "slug": "volume-02-chapter-13-de",
+      "title": "Dreizehntes Kapitel · Die Produktionszeit",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_241.htm"
+      ],
+      "characters": 26355
+    },
+    {
+      "chapterNumber": 47,
+      "slug": "volume-02-chapter-14-de",
+      "title": "Vierzehntes Kapitel · Die Umlaufszeit",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_251.htm"
+      ],
+      "characters": 21386
+    },
+    {
+      "chapterNumber": 48,
+      "slug": "volume-02-chapter-15-de",
+      "title": "Fünfzehntes Kapitel · Wirkung der Umschlagszeit auf die Größe des Kapitalvorschusses",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_260.htm"
+      ],
+      "characters": 87500
+    },
+    {
+      "chapterNumber": 49,
+      "slug": "volume-02-chapter-16-de",
+      "title": "Sechzehntes Kapitel · Der Umschlag des variablen Kapitals",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_296.htm"
+      ],
+      "characters": 64635
+    },
+    {
+      "chapterNumber": 50,
+      "slug": "volume-02-chapter-17-de",
+      "title": "Siebzehntes Kapitel · Die Zirkulation des Mehrwerts",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_321.htm"
+      ],
+      "characters": 79957
+    },
+    {
+      "chapterNumber": 51,
+      "slug": "volume-02-chapter-18-de",
+      "title": "Achtzehntes Kapitel · Einleitung",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_351.htm"
+      ],
+      "characters": 19812
+    },
+    {
+      "chapterNumber": 52,
+      "slug": "volume-02-chapter-19-de",
+      "title": "Neunzehntes Kapitel · Frühere Darstellungen des Gegenstandes",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_359.htm"
+      ],
+      "characters": 84723
+    },
+    {
+      "chapterNumber": 53,
+      "slug": "volume-02-chapter-20-de",
+      "title": "Zwanzigstes Kapitel · Einfache Reproduktion",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_391.htm"
+      ],
+      "characters": 244934
+    },
+    {
+      "chapterNumber": 54,
+      "slug": "volume-02-chapter-21-de",
+      "title": "Einundzwanzigstes Kapitel · Akkumulation und erweiterte Reproduktion",
+      "volumeNumber": 2,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me24/me24_485.htm"
+      ],
+      "characters": 83518
+    },
+    {
+      "chapterNumber": 55,
+      "slug": "volume-03-preface-de",
+      "title": "Friedrich Engels · Vorwort",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_007.htm"
+      ],
+      "characters": 52307
+    },
+    {
+      "chapterNumber": 56,
+      "slug": "volume-03-chapter-01-de",
+      "title": "Erstes Kapitel · Kostpreis und Profit",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_033.htm"
+      ],
+      "characters": 34806
+    },
+    {
+      "chapterNumber": 57,
+      "slug": "volume-03-chapter-02-de",
+      "title": "Zweites Kapitel · Die Profitrate",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_051.htm"
+      ],
+      "characters": 20539
+    },
+    {
+      "chapterNumber": 58,
+      "slug": "volume-03-chapter-03-de",
+      "title": "Drittes Kapitel · Verhältnis der Profitrate zur Mehrwertsrate",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_059.htm"
+      ],
+      "characters": 45681
+    },
+    {
+      "chapterNumber": 59,
+      "slug": "volume-03-chapter-04-de",
+      "title": "Viertes Kapitel · Wirkung des Umschlags auf die Profitrate",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_080.htm"
+      ],
+      "characters": 16117
+    },
+    {
+      "chapterNumber": 60,
+      "slug": "volume-03-chapter-05-de",
+      "title": "Fünftes Kapitel · Ökonomie in der Anwendung des konstanten Kapitals",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_087.htm"
+      ],
+      "characters": 73778
+    },
+    {
+      "chapterNumber": 61,
+      "slug": "volume-03-chapter-06-de",
+      "title": "Sechstes Kapitel · Wirkung von Preiswechsel",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_115.htm"
+      ],
+      "characters": 86442
+    },
+    {
+      "chapterNumber": 62,
+      "slug": "volume-03-chapter-07-de",
+      "title": "Siebentes Kapitel · Nachträge",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_147.htm"
+      ],
+      "characters": 8643
+    },
+    {
+      "chapterNumber": 63,
+      "slug": "volume-03-chapter-08-de",
+      "title": "Achtes Kapitel · Verschiedne Zusammensetzung der Kapitale in verschiednen Produktionszweigen und daher folgende Verschiedenheit der Profitraten",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_151.htm"
+      ],
+      "characters": 32027
+    },
+    {
+      "chapterNumber": 64,
+      "slug": "volume-03-chapter-09-de",
+      "title": "Neuntes Kapitel · Bildung einer allgemeinen Profitrate (Durchschnittsprofitrate) und Verwandlung der Warenwerte in Produktionspreise",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_164.htm"
+      ],
+      "characters": 45394
+    },
+    {
+      "chapterNumber": 65,
+      "slug": "volume-03-chapter-10-de",
+      "title": "Zehntes Kapitel · Ausgleichung der allgemeinen Profitrate durch die Konkurrenz. Marktpreise und Marktwerte. Surplusprofit",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_182.htm"
+      ],
+      "characters": 72394
+    },
+    {
+      "chapterNumber": 66,
+      "slug": "volume-03-chapter-11-de",
+      "title": "Elftes Kapitel · Wirkungen allgemeiner Schwankungen des Arbeitslohns auf die Produktionspreise",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_210.htm"
+      ],
+      "characters": 11907
+    },
+    {
+      "chapterNumber": 67,
+      "slug": "volume-03-chapter-12-de",
+      "title": "Zwölftes Kapitel · Nachträge",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_215.htm"
+      ],
+      "characters": 14770
+    },
+    {
+      "chapterNumber": 68,
+      "slug": "volume-03-chapter-13-de",
+      "title": "Dreizehntes Kapitel · Das Gesetz als solches",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_221.htm"
+      ],
+      "characters": 55125
+    },
+    {
+      "chapterNumber": 69,
+      "slug": "volume-03-chapter-14-de",
+      "title": "Vierzehntes Kapitel · Entgegenwirkende Ursachen",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_242.htm"
+      ],
+      "characters": 22375
+    },
+    {
+      "chapterNumber": 70,
+      "slug": "volume-03-chapter-15-de",
+      "title": "Fünfzehntes Kapitel · Entfaltung der innern Widersprüche des Gesetzes",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_251.htm"
+      ],
+      "characters": 68843
+    },
+    {
+      "chapterNumber": 71,
+      "slug": "volume-03-chapter-16-de",
+      "title": "Sechzehntes Kapitel · Das Warenhandlungskapital",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_278.htm"
+      ],
+      "characters": 35766
+    },
+    {
+      "chapterNumber": 72,
+      "slug": "volume-03-chapter-17-de",
+      "title": "Siebzehntes Kapitel · Der kommerzielle Profit",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_292.htm"
+      ],
+      "characters": 56091
+    },
+    {
+      "chapterNumber": 73,
+      "slug": "volume-03-chapter-18-de",
+      "title": "Achtzehntes Kapitel · Der Umschlag des Kaufmannskapitals. Die Preise",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_314.htm"
+      ],
+      "characters": 32589
+    },
+    {
+      "chapterNumber": 74,
+      "slug": "volume-03-chapter-19-de",
+      "title": "Neunzehntes Kapitel · Das Geldhandlungskapital",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_327.htm"
+      ],
+      "characters": 20977
+    },
+    {
+      "chapterNumber": 75,
+      "slug": "volume-03-chapter-20-de",
+      "title": "Zwanzigstes Kapitel · Geschichtliches über das Kaufmannskapital",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_335.htm"
+      ],
+      "characters": 39923
+    },
+    {
+      "chapterNumber": 76,
+      "slug": "volume-03-chapter-21-de",
+      "title": "Einundzwanzigstes Kapitel · Das zinstragende Kapital",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_350.htm"
+      ],
+      "characters": 52574
+    },
+    {
+      "chapterNumber": 77,
+      "slug": "volume-03-chapter-22-de",
+      "title": "Zweiundzwanzigstes Kapitel · Teilung des Profils. Zinsfuß. \"Natürliche\" Rate des Zinsfußes",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_370.htm"
+      ],
+      "characters": 33470
+    },
+    {
+      "chapterNumber": 78,
+      "slug": "volume-03-chapter-23-de",
+      "title": "Dreiundzwanzigstes Kapitel · Zins und Unternehmergewinn",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_383.htm"
+      ],
+      "characters": 57113
+    },
+    {
+      "chapterNumber": 79,
+      "slug": "volume-03-chapter-24-de",
+      "title": "Vierundzwanzigstes Kapitel · Veräußerlichung des Kapitalverhältnisses in der Form des zinstragenden Kapitals",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_404.htm"
+      ],
+      "characters": 23712
+    },
+    {
+      "chapterNumber": 80,
+      "slug": "volume-03-chapter-25-de",
+      "title": "Fünfundzwanzigstes Kapitel · Kredit und fiktives Kapital",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_413.htm"
+      ],
+      "characters": 45345
+    },
+    {
+      "chapterNumber": 81,
+      "slug": "volume-03-chapter-26-de",
+      "title": "Sechsundzwanzigstes Kapitel · Akkumulation von Geldkapital, ihr Einfluß auf den Zinsfuß",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_429.htm"
+      ],
+      "characters": 57595
+    },
+    {
+      "chapterNumber": 82,
+      "slug": "volume-03-chapter-27-de",
+      "title": "Siebenundzwanzigstes Kapitel · Die Rolle des Kredits in der kapitalistischen Produktion",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_451.htm"
+      ],
+      "characters": 18248
+    },
+    {
+      "chapterNumber": 83,
+      "slug": "volume-03-chapter-28-de",
+      "title": "Achtundzwanzigstes Kapitel · Umlaufsmittel und Kapital. Tookes und Fullartons Auffassung",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_458.htm"
+      ],
+      "characters": 54408
+    },
+    {
+      "chapterNumber": 84,
+      "slug": "volume-03-chapter-29-de",
+      "title": "Neunundzwanzigstes Kapitel · Bestandteile des Bankkapitals",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_481.htm"
+      ],
+      "characters": 32287
+    },
+    {
+      "chapterNumber": 85,
+      "slug": "volume-03-chapter-30-de",
+      "title": "Dreißigstes Kapitel · Geldkapital und wirkliches Kapital I",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_493.htm"
+      ],
+      "characters": 47662
+    },
+    {
+      "chapterNumber": 86,
+      "slug": "volume-03-chapter-31-de",
+      "title": "Einunddreißigstes Kapitel · Geldkapital und wirkliches Kapital II",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_511.htm"
+      ],
+      "characters": 26404
+    },
+    {
+      "chapterNumber": 87,
+      "slug": "volume-03-chapter-32-de",
+      "title": "Zweiunddreißigstes Kapitel · Geldkapital und wirkliches Kapital III (Schluß)",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_521.htm"
+      ],
+      "characters": 41011
+    },
+    {
+      "chapterNumber": 88,
+      "slug": "volume-03-chapter-33-de",
+      "title": "Dreiunddreißigstes Kapitel · Das Umlaufsmittel unter dem Kreditsystem",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_536.htm"
+      ],
+      "characters": 66661
+    },
+    {
+      "chapterNumber": 89,
+      "slug": "volume-03-chapter-34-de",
+      "title": "Vierunddreißigstes Kapitel · Das Currency Principle und die englische Bankgesetzgebung von 1844",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_562.htm"
+      ],
+      "characters": 46483
+    },
+    {
+      "chapterNumber": 90,
+      "slug": "volume-03-chapter-35-de",
+      "title": "Fünfunddreißigstes Kapitel · Edelmetall und Wechselkurs",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_580.htm"
+      ],
+      "characters": 72128
+    },
+    {
+      "chapterNumber": 91,
+      "slug": "volume-03-chapter-36-de",
+      "title": "Sechsunddreißigstes Kapitel · Vorkapitalistisches",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_607.htm"
+      ],
+      "characters": 52463
+    },
+    {
+      "chapterNumber": 92,
+      "slug": "volume-03-chapter-37-de",
+      "title": "Siebenunddreißigstes Kapitel · Einleitendes",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_627.htm"
+      ],
+      "characters": 69708
+    },
+    {
+      "chapterNumber": 93,
+      "slug": "volume-03-chapter-38-de",
+      "title": "Achtunddreißigstes Kapitel · Die Differentialrente: Allgemeines",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_653.htm"
+      ],
+      "characters": 22659
+    },
+    {
+      "chapterNumber": 94,
+      "slug": "volume-03-chapter-39-de",
+      "title": "Neununddreißigstes Kapitel · Erste Form der Differentialrente (Differentialrente I)",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_662.htm"
+      ],
+      "characters": 58781
+    },
+    {
+      "chapterNumber": 95,
+      "slug": "volume-03-chapter-40-de",
+      "title": "Vierzigstes Kapitel · Zweite Form der Differentialrente (Differentialrente II)",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_686.htm"
+      ],
+      "characters": 29224
+    },
+    {
+      "chapterNumber": 96,
+      "slug": "volume-03-chapter-41-de",
+      "title": "Einundvierzigstes Kapitel · Die Differentialrente II - Erster Fall: Konstanter Produktionspreis",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_698.htm"
+      ],
+      "characters": 18518
+    },
+    {
+      "chapterNumber": 97,
+      "slug": "volume-03-chapter-42-de",
+      "title": "Zweiundvierzigstes Kapitel · Die Differentialrente II - Zweiter Fall: Fallender Produktionspreis",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_706.htm"
+      ],
+      "characters": 37278
+    },
+    {
+      "chapterNumber": 98,
+      "slug": "volume-03-chapter-43-de",
+      "title": "Dreiundvierzigstes Kapitel · Die Differentialrente II - Dritter Fall: Steigender Produktionspreis. Resultate",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_722.htm"
+      ],
+      "characters": 59821
+    },
+    {
+      "chapterNumber": 99,
+      "slug": "volume-03-chapter-44-de",
+      "title": "Vierundvierzigstes Kapitel · Differentialrente auch auf dem schlechtesten bebauten Boden",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_747.htm"
+      ],
+      "characters": 22975
+    },
+    {
+      "chapterNumber": 100,
+      "slug": "volume-03-chapter-45-de",
+      "title": "Fünfundvierzigstes Kapitel · Die absolute Grundrente",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_756.htm"
+      ],
+      "characters": 66226
+    },
+    {
+      "chapterNumber": 101,
+      "slug": "volume-03-chapter-46-de",
+      "title": "Sechsundvierzigstes Kapitel · Baustellenrente. Bergwerksrente. Bodenpreis",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_781.htm"
+      ],
+      "characters": 22621
+    },
+    {
+      "chapterNumber": 102,
+      "slug": "volume-03-chapter-47-de",
+      "title": "Siebenundvierzigstes Kapitel · Genesis der kapitalistischen Grundrente",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_790.htm"
+      ],
+      "characters": 85786
+    },
+    {
+      "chapterNumber": 103,
+      "slug": "volume-03-chapter-48-de",
+      "title": "Achtundvierzigstes Kapitel · Die trinitarische Formel",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_822.htm"
+      ],
+      "characters": 47591
+    },
+    {
+      "chapterNumber": 104,
+      "slug": "volume-03-chapter-49-de",
+      "title": "Neunundvierzigstes Kapitel · Zur Analyse des Produktionsprozesses",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_840.htm"
+      ],
+      "characters": 55090
+    },
+    {
+      "chapterNumber": 105,
+      "slug": "volume-03-chapter-50-de",
+      "title": "Fünfzigstes Kapitel · Der Schein der Konkurrenz",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_860.htm"
+      ],
+      "characters": 64872
+    },
+    {
+      "chapterNumber": 106,
+      "slug": "volume-03-chapter-51-de",
+      "title": "Einundfünfzigstes Kapitel · Distributionsverhältnisse und Produktionsverhältnisse",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_884.htm"
+      ],
+      "characters": 18980
+    },
+    {
+      "chapterNumber": 107,
+      "slug": "volume-03-chapter-52-de",
+      "title": "Zweiundfünfzigstes Kapitel · Die Klassen",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_892.htm"
+      ],
+      "characters": 3035
+    },
+    {
+      "chapterNumber": 108,
+      "slug": "volume-03-supplement-de",
+      "title": "Friedrich Engels · Ergänzung und Nachtrag",
+      "volumeNumber": 3,
+      "sourcePaths": [
+        "https://github.com/wertform/mlwerke.de/blob/216d406fce11c91834f9402386b55a183c8d491b/me/me25/me25_897.htm"
+      ],
+      "characters": 55278
+    }
+  ]
+}

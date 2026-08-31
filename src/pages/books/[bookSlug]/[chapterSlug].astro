@@ -5,7 +5,13 @@ import BookChapterViewCounts from '@/components/BookChapterViewCounts.astro';
 import BookReaderNav from '@/components/BookReaderNav.astro';
 import BookToc from '@/components/BookToc.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
-import { bookPath, getBookChapters, type Book, type BookChapter } from '@/lib/books';
+import {
+  bookPath,
+  getBookChapters,
+  parallelChapterPath,
+  type Book,
+  type BookChapter,
+} from '@/lib/books';
 import { readingMinutes } from '@/lib/posts';
 
 export async function getStaticPaths() {
@@ -73,6 +79,17 @@ const readingTime = readingMinutes(chapter.body ?? '');
         <p class="book-chapter-source">
           第 {String(chapter.data.chapterNumber).padStart(2, '0')} 个阅读单元
         </p>
+        {
+          parallelChapterPath(book, chapter) && book.data.alternateEditionLabel && (
+            <p class="book-chapter-source">
+              对照阅读：
+              <a class="text-link" href={parallelChapterPath(book, chapter)!}>
+                阅读{book.data.alternateEditionLabel}
+              </a>
+              （同一章）
+            </p>
+          )
+        }
       </header>
       <details class="mobile-toc">
         <summary>本书目录</summary>
@@ -82,11 +99,9 @@ const readingTime = readingMinutes(chapter.body ?? '');
       <div class="prose"><Content /></div>
       <BookReaderNav book={book} previous={previous} next={next} />
       <p class="book-source-note">
-        本章内容请在公开部署前确认正文与插图的转载许可。<a
-          href={book.data.sourceUrl}
-          target="_blank"
-          rel="noreferrer">查看来源 ↗</a
-        >
+        本章内容来自<a href={book.data.sourceUrl} target="_blank" rel="noreferrer">
+          {book.data.sourceName} ↗
+        </a>，转载范围见<a href={bookPath(book)}>图书页说明</a>。
       </p>
     </article>
     <aside class="article-aside">

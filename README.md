@@ -64,6 +64,8 @@ pnpm import:book /path/to/book.epub
 
 图书 Front Matter 必须保留 `sourceUrl` 和 `rightsNotice`。公开部署前应确认正文和插图的转载范围；导入器不绕过 Cloudflare、人机验证或其他访问控制。
 
+《资本论》双语版由专用导入器 `pnpm import:capital` 生成：中文译本来自中文马克思主义文库（据人民出版社 1972 年及 1975 年版整理），德文原文来自 mlwerke.de 的 GitHub 镜像（MEW 第 23—25 卷，固定提交）。两者生成 `capital-zh` 与 `capital-de` 两个书籍版本，目录按卷分组，同章互链；导入器只重建这两个书籍自己的目录，不修改其他书籍或文章。中文译本的转载权利仍须按所在地法律与来源站说明核验。
+
 ## 访问统计后端
 
 `server/` 是 Tursom Log 的通用 Go 后端。文章访问统计是第一个模块；以后站长登录、管理后台和内容操作也由这个服务承载。当前公开接口只有批量指标查询：

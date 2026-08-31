@@ -7,26 +7,71 @@ interface Props {
   currentSlug?: string;
 }
 
+interface VolumeGroup {
+  title: string;
+  chapters: BookChapter[];
+}
+
 const { book, chapters, currentSlug } = Astro.props;
+
+const volumeGroups: VolumeGroup[] | null =
+  Boolean(book.data.volumeCount) &&
+  chapters.every((chapter) => chapter.data.volumeNumber && chapter.data.volumeTitle)
+    ? chapters.reduce<VolumeGroup[]>((groups, chapter) => {
+        const previous = groups.at(-1);
+        if (previous && previous.title === chapter.data.volumeTitle) {
+          previous.chapters.push(chapter);
+        } else {
+          groups.push({ title: chapter.data.volumeTitle!, chapters: [chapter] });
+        }
+        return groups;
+      }, [])
+    : null;
 ---
 
 <nav class="book-toc" aria-label="图书目录">
   <p class="toc-title">目录</p>
-  <ol>
-    {
-      chapters.map((chapter) => (
-        <li class:list={{ active: chapter.data.slug === currentSlug }}>
-          <a
-            href={chapterPath(book, chapter)}
-            aria-current={chapter.data.slug === currentSlug ? 'page' : undefined}
-          >
-            <span class="book-toc-number">
-              {String(chapter.data.chapterNumber).padStart(2, '0')}
-            </span>
-            <span>{chapter.data.title}</span>
-          </a>
-        </li>
+  {
+    volumeGroups ? (
+      volumeGroups.map((group) => (
+        <section class="book-toc-volume">
+          <h3>{group.title}</h3>
+          <ol>
+            {group.chapters.map((chapter) => (
+              <li class:list={{ active: chapter.data.slug === currentSlug }}>
+                <a
+                  href={chapterPath(book, chapter)}
+                  aria-current={chapter.data.slug === currentSlug ? 'page' : undefined}
+                >
+                  <span class="book-toc-number">
+                    {String(chapter.data.volumeUnitNumber ?? chapter.data.chapterNumber).padStart(
+                      2,
+                      '0',
+                    )}
+                  </span>
+                  <span>{chapter.data.title}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
       ))
-    }
-  </ol>
+    ) : (
+      <ol>
+        {chapters.map((chapter) => (
+          <li class:list={{ active: chapter.data.slug === currentSlug }}>
+            <a
+              href={chapterPath(book, chapter)}
+              aria-current={chapter.data.slug === currentSlug ? 'page' : undefined}
+            >
+              <span class="book-toc-number">
+                {String(chapter.data.chapterNumber).padStart(2, '0')}
+              </span>
+              <span>{chapter.data.title}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    )
+  }
 </nav>

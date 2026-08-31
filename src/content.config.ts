@@ -26,11 +26,19 @@ const books = defineCollection({
     author: z.string(),
     translator: z.string().optional(),
     language: z.string().default('zh-CN'),
+    editionLabel: z.string().optional(),
+    alternateEditionSlug: z
+      .string()
+      .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+      .optional(),
+    alternateEditionLabel: z.string().optional(),
     publishedAt: z.coerce.date().nullable().optional(),
     summary: z.string().min(1),
     sourceUrl: z.string().regex(/^https?:\/\//),
+    sourceName: z.string().min(1),
     rightsNotice: z.string().min(1),
     cover: z.string().nullable().optional(),
+    volumeCount: z.number().int().positive().optional(),
     chapterCount: z.number().int().positive(),
   }),
 });
@@ -43,6 +51,14 @@ const bookChapters = defineCollection({
     slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
     title: z.string(),
     sourcePath: z.string().min(1),
+    volumeNumber: z.number().int().positive().optional(),
+    volumeTitle: z.string().min(1).optional(),
+    volumeUnitNumber: z.number().int().positive().optional(),
+    unitType: z.enum(['preface', 'chapter', 'supplement']).optional(),
+    parallelSlug: z
+      .string()
+      .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+      .optional(),
   }),
 });
 

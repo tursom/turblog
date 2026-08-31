@@ -53,8 +53,23 @@ test('book shelf and chapter pages stay separate from ordinary posts', async ({ 
   await page.goto(`${baseUrl}/books/`);
 
   await expect(page.locator('h1')).toHaveText('图书');
-  await expect(page.locator('.book-card-copy h2 a')).toHaveText('枪炮、病菌与钢铁');
+  await expect(page.getByRole('link', { name: '枪炮、病菌与钢铁', exact: true })).toHaveCount(1);
   await expect(page.locator('a[href="/posts/go-atomic-generics/"]')).toHaveCount(0);
+});
+
+test('Capital offers Chinese and German editions with parallel chapter links', async ({ page }) => {
+  await serveBuiltSite(page);
+  await page.goto(`${baseUrl}/books/`);
+
+  await expect(page.getByRole('link', { name: '资本论', exact: true })).toHaveCount(1);
+  await expect(page.getByRole('link', { name: 'Das Kapital', exact: true })).toHaveCount(1);
+
+  await page.goto(`${baseUrl}/books/capital-zh/volume-01-chapter-01/`);
+  await expect(page.locator('h1')).toHaveText('第一章 商品');
+  await expect(page.getByRole('link', { name: '阅读德文原文' })).toHaveAttribute(
+    'href',
+    '/books/capital-de/volume-01-chapter-01-de/',
+  );
 });
 
 test('book chapter has toc navigation and its own metric', async ({ page }) => {

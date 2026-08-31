@@ -752,6 +752,19 @@ img {
   font-size: 14px;
 }
 
+.book-toc-volume h3 {
+  margin: 20px 0 0;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--accent-strong);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.book-toc-volume:first-of-type h3 {
+  margin-top: 2px;
+}
+
 .book-toc a:hover,
 .book-toc li.active a {
   color: var(--accent-strong);

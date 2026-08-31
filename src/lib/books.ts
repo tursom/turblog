@@ -20,3 +20,15 @@ export function bookPath(book: Pick<Book, 'data'>): string {
 export function chapterPath(book: Pick<Book, 'data'>, chapter: Pick<BookChapter, 'data'>): string {
   return `/books/${book.data.slug}/${chapter.data.slug}/`;
 }
+
+export function alternateBookPath(book: Pick<Book, 'data'>): string | null {
+  return book.data.alternateEditionSlug ? `/books/${book.data.alternateEditionSlug}/` : null;
+}
+
+export function parallelChapterPath(
+  book: Pick<Book, 'data'>,
+  chapter: Pick<BookChapter, 'data'>,
+): string | null {
+  if (!book.data.alternateEditionSlug || !chapter.data.parallelSlug) return null;
+  return `/books/${book.data.alternateEditionSlug}/${chapter.data.parallelSlug}/`;
+}

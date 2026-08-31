@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "import:book": "node scripts/import-book.mjs",
+    "import:capital": "node scripts/import-capital.mjs",
     "test:e2e": "playwright test",
     "test:code-contrast": "pnpm build && playwright test tests/code-block-contrast.spec.ts",
     "format": "prettier --write ."

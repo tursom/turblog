@@ -231,10 +231,7 @@ async function main() {
   groupedEntries.forEach((item, index) => {
     const slug = safeSlug(item.title, index + 1);
     for (const sourceItem of item.items) {
-      chapterSlugs.set(
-        resolveZipPath(join(dirname(ncxPath), sourceItem.source)),
-        slug,
-      );
+      chapterSlugs.set(resolveZipPath(join(dirname(ncxPath), sourceItem.source)), slug);
     }
   });
 
@@ -309,6 +306,7 @@ async function main() {
       translator: '谢延光',
       summary: '关于人类社会差异、农业、技术与历史发展路径的综合历史论述。',
       sourceUrl: 'https://www.99csw.com/book/6380/index.htm',
+      sourceName: '99csw.com',
       rightsNotice: '公开部署前请确认正文与插图的转载许可范围',
       cover: coverPath,
       chapterCount: chapters.length,
