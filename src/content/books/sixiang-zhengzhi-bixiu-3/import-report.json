@@ -1,0 +1,132 @@
+{
+  "generatedAt": "2026-09-01T08:13:29.755Z",
+  "sourceId": "507cf8b4-327e-41ad-9f6d-babb59f5eef1",
+  "sourceUrl": "https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=507cf8b4-327e-41ad-9f6d-babb59f5eef1&catalogType=tchMaterial&subCatalog=tchMaterial",
+  "title": "思想政治 必修3 政治与法治",
+  "language": "zh-CN",
+  "volumes": 3,
+  "generatedChapters": 15,
+  "characters": 76061,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "sixiang-zhengzhi-bixiu-3-unit-01-intro",
+      "title": "单元导语 · 中国共产党的领导",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 1,
+      "characters": 261
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "sixiang-zhengzhi-bixiu-3-lesson-01",
+      "title": "第一课 历史和人民的选择",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 2,
+      "characters": 8216
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "sixiang-zhengzhi-bixiu-3-lesson-02",
+      "title": "第二课 中国共产党的先进性",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 3,
+      "characters": 7447
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "sixiang-zhengzhi-bixiu-3-lesson-03",
+      "title": "第三课 坚持和加强党的全面领导",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 4,
+      "characters": 5289
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "sixiang-zhengzhi-bixiu-3-inquiry-01",
+      "title": "综合探究 始终走在时代前列的中国共产党",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 5,
+      "characters": 1915
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "sixiang-zhengzhi-bixiu-3-unit-02-intro",
+      "title": "单元导语 · 人民当家作主",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 1,
+      "characters": 273
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "sixiang-zhengzhi-bixiu-3-lesson-04",
+      "title": "第四课 人民民主专政的社会主义国家",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 2,
+      "characters": 5360
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "sixiang-zhengzhi-bixiu-3-lesson-05",
+      "title": "第五课 我国的根本政治制度",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 3,
+      "characters": 6619
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "sixiang-zhengzhi-bixiu-3-lesson-06",
+      "title": "第六课 我国的基本政治制度",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 4,
+      "characters": 11428
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "sixiang-zhengzhi-bixiu-3-inquiry-02",
+      "title": "综合探究 在党的领导下实现人民当家作主",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 5,
+      "characters": 2142
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "sixiang-zhengzhi-bixiu-3-unit-03-intro",
+      "title": "单元导语 · 全面依法治国",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 1,
+      "characters": 252
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "sixiang-zhengzhi-bixiu-3-lesson-07",
+      "title": "第七课 治国理政的基本方式",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 2,
+      "characters": 7224
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "sixiang-zhengzhi-bixiu-3-lesson-08",
+      "title": "第八课 法治中国建设",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 3,
+      "characters": 8234
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "sixiang-zhengzhi-bixiu-3-lesson-09",
+      "title": "第九课 全面推进依法治国的基本要求",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 4,
+      "characters": 7596
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "sixiang-zhengzhi-bixiu-3-inquiry-03",
+      "title": "综合探究 坚持党的领导、人民当家作主、依法治国有机统一",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 5,
+      "characters": 3805
+    }
+  ]
+}

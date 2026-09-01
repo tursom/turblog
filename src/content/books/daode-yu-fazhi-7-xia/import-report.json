@@ -1,0 +1,164 @@
+{
+  "generatedAt": "2026-09-01T08:12:59.235Z",
+  "sourceId": "4e1a2a9e-1e62-451f-a52e-ef99cb4e8bf2",
+  "sourceUrl": "https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=4e1a2a9e-1e62-451f-a52e-ef99cb4e8bf2&catalogType=tchMaterial&subCatalog=tchMaterial",
+  "title": "道德与法治 七年级下册",
+  "language": "zh-CN",
+  "volumes": 4,
+  "generatedChapters": 19,
+  "characters": 45995,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "daode-yu-fazhi-7-xia-unit-01-intro",
+      "title": "单元导语 · 珍惜青春时光",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 1,
+      "characters": 204
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "daode-yu-fazhi-7-xia-lesson-01",
+      "title": "第一课 青春正当时",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 2,
+      "characters": 4207
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "daode-yu-fazhi-7-xia-lesson-02",
+      "title": "第二课 做情绪情感的主人",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 3,
+      "characters": 4155
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "daode-yu-fazhi-7-xia-unit-review-01",
+      "title": "单元思考与行动",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 4,
+      "characters": 718
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "daode-yu-fazhi-7-xia-unit-02-intro",
+      "title": "单元导语 · 焕发青春活力",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 1,
+      "characters": 191
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "daode-yu-fazhi-7-xia-lesson-03",
+      "title": "第三课 人贵自尊",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 2,
+      "characters": 2576
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "daode-yu-fazhi-7-xia-lesson-04",
+      "title": "第四课 自信给人力量",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 3,
+      "characters": 2974
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "daode-yu-fazhi-7-xia-lesson-05",
+      "title": "第五课 人生当自强",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 4,
+      "characters": 2526
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "daode-yu-fazhi-7-xia-unit-review-02",
+      "title": "单元思考与行动",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 5,
+      "characters": 686
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "daode-yu-fazhi-7-xia-unit-03-intro",
+      "title": "单元导语 · 传承中华优秀传统文化",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 1,
+      "characters": 212
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "daode-yu-fazhi-7-xia-lesson-06",
+      "title": "第六课 传承核心思想理念",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 2,
+      "characters": 4002
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "daode-yu-fazhi-7-xia-lesson-07",
+      "title": "第七课 弘扬中华人文精神",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 3,
+      "characters": 3683
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "daode-yu-fazhi-7-xia-lesson-08",
+      "title": "第八课 践行中华传统美德",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 4,
+      "characters": 4177
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "daode-yu-fazhi-7-xia-unit-review-03",
+      "title": "单元思考与行动",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 5,
+      "characters": 1176
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "daode-yu-fazhi-7-xia-unit-04-intro",
+      "title": "单元导语 · 生活在法治社会",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 1,
+      "characters": 165
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "daode-yu-fazhi-7-xia-lesson-09",
+      "title": "第九课 法律为我们护航",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 2,
+      "characters": 3503
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "daode-yu-fazhi-7-xia-lesson-10",
+      "title": "第十课 走近民法典",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 3,
+      "characters": 4985
+    },
+    {
+      "chapterNumber": 18,
+      "slug": "daode-yu-fazhi-7-xia-lesson-11",
+      "title": "第十一课 远离违法犯罪",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 4,
+      "characters": 4240
+    },
+    {
+      "chapterNumber": 19,
+      "slug": "daode-yu-fazhi-7-xia-unit-review-04",
+      "title": "单元思考与行动",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 5,
+      "characters": 1615
+    }
+  ]
+}

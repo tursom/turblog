@@ -194,6 +194,39 @@ function publicPdfUrl(detail) {
   return source.ti_storages[0].replace('-ndr-private.', '-ndr.');
 }
 
+/**
+ * 下载源 PDF：先试公开桶；失败且提供了 SMARTEDU_TOKEN 时，改用私有桶 + x-nd-auth 头。
+ * 官方阅读器对私有桶只校验 token id，nonce/mac 可为占位值。
+ */
+async function downloadPdf(pdfUrl, pdfPath) {
+  const token = process.env.SMARTEDU_TOKEN?.trim();
+  const attempts = [
+    { url: pdfUrl, headers: { 'user-agent': userAgent } },
+  ];
+  if (token) {
+    attempts.push({
+      url: pdfUrl.replace('-ndr.', '-ndr-private.'),
+      headers: {
+        'user-agent': userAgent,
+        'x-nd-auth': `MAC id="${token}",nonce="0",mac="0"`,
+      },
+    });
+  }
+  let lastError;
+  for (const attempt of attempts) {
+    try {
+      await writeFile(pdfPath, await fetchBuffer(attempt.url, { headers: attempt.headers }));
+      return;
+    } catch (error) {
+      lastError = error;
+    }
+  }
+  throw new Error(
+    `Unable to download PDF: ${lastError?.message || lastError}` +
+      (token ? '' : '（公开桶不可用；如需从私有桶下载请设置 SMARTEDU_TOKEN）'),
+  );
+}
+
 // —— 文本层解析 ——
 
 const LESSON_PREFIX = /^第([一二三四五六七八九十百]+)课/;
@@ -236,7 +269,7 @@ function isPageHeader(line) {
 
 function isPageFooter(line) {
   const t = line.trim();
-  return /^\d+\s+(道德与法治|思想政治|第[一二三四五六七八九十百]+单元)/.test(t);
+  return /^\d+\s+(道德与法治|思想政治|第[一二三四五六七八九十百]+单元|目\s*录)/.test(t);
 }
 
 function isDecorativeLine(line) {
@@ -292,7 +325,7 @@ function isTocEntryLine(line) {
 /** 解析目录页，得到 单元/课/框/综合探究 的权威结构。 */
 function parseToc(pages, tocStartIndex) {
   const entries = []; // { kind, number?, title, page, unit? }
-  let pendingLesson = null; // 标题换行的课目
+  let pending = null; // 标题换行的目录条目（课 / 综合探究）
   let contentStart = null;
 
   const footerNoise = /^\d+\s+(道德与法治|思想政治|第[一二三四五六七八九十百]+单元|目\s*录)/;
@@ -303,16 +336,17 @@ function parseToc(pages, tocStartIndex) {
       if (!t) continue;
       if (footerNoise.test(t) || isWatermark(t) || /目\s*录/.test(t) || isPageNumberOnly(t)) continue;
 
-      // 目录中换行的课目标题（如「第四课 …才能实现」+「中华民族伟大复兴 43」）不是正文起始
+      // 目录中换行的条目（如「第四课 …才能实现」+「中华民族伟大复兴 43」，
+      // 或「综合探究 坚持党的领导、人民当家作主、」+「依法治国有机统一 111」）不是正文起始
       const heading = chapterHeading(t);
       if (heading) {
         const nextLine = pages[p].slice(i + 1).find((line) => line.trim());
         const wrapped = Boolean(nextLine && /\d$/.test(nextLine.trim()));
-        if (wrapped && heading.kind === 'lesson') {
-          pendingLesson = {
-            number: heading.number,
-            title: normalizeWs(t.replace(LESSON_PREFIX, '')),
-          };
+        if (wrapped && (heading.kind === 'lesson' || heading.kind === 'inquiry')) {
+          pending =
+            heading.kind === 'lesson'
+              ? { kind: 'lesson', number: heading.number, title: normalizeWs(t.replace(LESSON_PREFIX, '')) }
+              : { kind: 'inquiry', index: heading.index, title: normalizeWs(t.replace(/^综合探究[一二三四五]?\s*/, '')) };
           continue;
         }
         contentStart = p;
@@ -326,7 +360,7 @@ function parseToc(pages, tocStartIndex) {
 
       const unit = t.match(/^第([一二三四五六七八九十百]+)单元\s+(.+?)\s+(\d+)\s*$/);
       if (unit) {
-        pendingLesson = null;
+        pending = null;
         entries.push({
           kind: 'unit',
           number: chineseNumber(unit[1]),
@@ -338,7 +372,7 @@ function parseToc(pages, tocStartIndex) {
 
       const lesson = t.match(/^第([一二三四五六七八九十百]+)课\s*(.+?)\s+(\d+)\s*$/);
       if (lesson) {
-        pendingLesson = null;
+        pending = null;
         entries.push({
           kind: 'lesson',
           number: chineseNumber(lesson[1]),
@@ -348,39 +382,57 @@ function parseToc(pages, tocStartIndex) {
         continue;
       }
 
-      // 课目标题换行：以「第X课」开头但本行没有页码，下一行续
-      if (LESSON_PREFIX.test(t)) {
-        pendingLesson = {
+      // 标题换行：以「第X课」/「综合探究」开头、本行无页码（完整条目已在上方匹配）
+      if (LESSON_PREFIX.test(t) && !/\d$/.test(t)) {
+        pending = {
+          kind: 'lesson',
           number: chineseNumber(t.match(LESSON_PREFIX)[1]),
           title: normalizeWs(t.replace(LESSON_PREFIX, '')),
         };
         continue;
       }
-      if (pendingLesson) {
+      if (/^综合探究/.test(t) && !/\d$/.test(t)) {
+        pending = {
+          kind: 'inquiry',
+          index: t.match(/^综合探究([一二三四五]?)/)[1] || '',
+          title: normalizeWs(t.replace(/^综合探究[一二三四五]?\s*/, '')),
+        };
+        continue;
+      }
+      if (pending) {
         const continuation = t.match(/^(.+?)\s+(\d+)\s*$/);
         if (continuation) {
-          entries.push({
-            kind: 'lesson',
-            number: pendingLesson.number,
-            title: normalizeWs(`${pendingLesson.title}${continuation[1]}`),
-            page: Number(continuation[2]),
-          });
-          pendingLesson = null;
+          if (pending.kind === 'lesson') {
+            entries.push({
+              kind: 'lesson',
+              number: pending.number,
+              title: normalizeWs(`${pending.title}${continuation[1]}`),
+              page: Number(continuation[2]),
+            });
+          } else {
+            entries.push({
+              kind: 'inquiry',
+              index: pending.index,
+              title: normalizeWs(`${pending.title}${continuation[1]}`),
+              page: Number(continuation[2]),
+            });
+          }
+          pending = null;
           continue;
         }
-        pendingLesson = null; // 下一行不是页码结尾，放弃续行
+        pending = null; // 下一行不是页码结尾，放弃续行
       }
 
       const review = t.match(/^单元思考与行动\s+(\d+)\s*$/);
       if (review) {
-        pendingLesson = null;
+        pending = null;
         entries.push({ kind: 'unit-review', title: '单元思考与行动', page: Number(review[1]) });
         continue;
       }
 
       const inquiry = t.match(/^综合探究([一二三四五]?)\s*(.+?)\s+(\d+)\s*$/);
       if (inquiry) {
-        pendingLesson = null;
+        pending = null;
         entries.push({
           kind: 'inquiry',
           index: inquiry[1] || '',
@@ -392,7 +444,7 @@ function parseToc(pages, tocStartIndex) {
 
       const section = t.match(/^(.+?)\s+(\d+)\s*$/);
       if (section) {
-        pendingLesson = null;
+        pending = null;
         entries.push({ kind: 'section', title: normalizeWs(section[1]), page: Number(section[2]) });
         continue;
       }
@@ -591,11 +643,15 @@ function parseContent(pages, toc, headingAllowlist, bookSlug) {
         !/ {2,}/.test(t) &&
         /[\u4e00-\u9fff]{2,}/.test(t) &&
         !BOX_LABELS.has(bareNorm) &&
-        !sectionsByLesson.get(current.number)?.has(norm) &&
-        headingAllowlist.has(norm)
+        !sectionsByLesson.get(current.number)?.has(norm)
       ) {
-        pushLine(`### ${norm}`);
-        continue;
+        if (process.env.TEXTBOOK_DEBUG_CANDIDATES && !headingAllowlist.has(norm)) {
+          process.stderr.write(`CANDIDATE ${bookSlug}\t${norm}\n`);
+        }
+        if (headingAllowlist.has(norm)) {
+          pushLine(`### ${norm}`);
+          continue;
+        }
       }
 
       // 正文行（压缩连续空格，避免排版列间隙）
@@ -645,7 +701,7 @@ async function importBook(book, workspace, warnings) {
   const txtPath = join(workspace, `${slug}.txt`);
 
   console.log('下载官方电子教材 PDF…');
-  await writeFile(pdfPath, await fetchBuffer(pdfUrl));
+  await downloadPdf(pdfUrl, pdfPath);
 
   console.log('提取文本层…');
   await execFileAsync('pdftotext', ['-layout', pdfPath, txtPath]);

@@ -1,0 +1,132 @@
+{
+  "generatedAt": "2026-09-01T08:13:38.026Z",
+  "sourceId": "561cdda2-8f90-4b13-b987-8d8c3bb9e554",
+  "sourceUrl": "https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=561cdda2-8f90-4b13-b987-8d8c3bb9e554&catalogType=tchMaterial&subCatalog=tchMaterial",
+  "title": "思想政治 必修4 哲学与文化",
+  "language": "zh-CN",
+  "volumes": 3,
+  "generatedChapters": 15,
+  "characters": 83847,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "sixiang-zhengzhi-bixiu-4-unit-01-intro",
+      "title": "单元导语 · 探索世界与把握规律",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 1,
+      "characters": 212
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "sixiang-zhengzhi-bixiu-4-lesson-01",
+      "title": "第一课 时代精神的精华",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 2,
+      "characters": 10536
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "sixiang-zhengzhi-bixiu-4-lesson-02",
+      "title": "第二课 探究世界的本质",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 3,
+      "characters": 5935
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "sixiang-zhengzhi-bixiu-4-lesson-03",
+      "title": "第三课 把握世界的规律",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 4,
+      "characters": 11955
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "sixiang-zhengzhi-bixiu-4-inquiry-01",
+      "title": "综合探究 坚持唯物辩证法 反对形而上学",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 5,
+      "characters": 1911
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "sixiang-zhengzhi-bixiu-4-unit-02-intro",
+      "title": "单元导语 · 认识社会与价值选择",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 1,
+      "characters": 110
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "sixiang-zhengzhi-bixiu-4-lesson-04",
+      "title": "第四课 探索认识的奥秘",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 2,
+      "characters": 5954
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "sixiang-zhengzhi-bixiu-4-lesson-05",
+      "title": "第五课 寻觅社会的真谛",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 3,
+      "characters": 9042
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "sixiang-zhengzhi-bixiu-4-lesson-06",
+      "title": "第六课 实现人生的价值",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 4,
+      "characters": 9726
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "sixiang-zhengzhi-bixiu-4-inquiry-02",
+      "title": "综合探究 坚持历史唯物主义 反对历史虚无主义",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 5,
+      "characters": 2456
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "sixiang-zhengzhi-bixiu-4-unit-03-intro",
+      "title": "单元导语 · 文化传承与文化创新",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 1,
+      "characters": 197
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "sixiang-zhengzhi-bixiu-4-lesson-07",
+      "title": "第七课 继承发展中华优秀传统文化",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 2,
+      "characters": 8119
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "sixiang-zhengzhi-bixiu-4-lesson-08",
+      "title": "第八课 学习借鉴外来文化的有益成果",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 3,
+      "characters": 5171
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "sixiang-zhengzhi-bixiu-4-lesson-09",
+      "title": "第九课 发展中国特色社会主义文化",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 4,
+      "characters": 8292
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "sixiang-zhengzhi-bixiu-4-inquiry-03",
+      "title": "综合探究 坚持以马克思主义为指导 发展中国特色社会主义文化",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 5,
+      "characters": 4231
+    }
+  ]
+}

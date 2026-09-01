@@ -1,0 +1,204 @@
+{
+  "generatedAt": "2026-09-01T08:13:09.260Z",
+  "sourceId": "f1db2a19-2513-4626-8e6c-275cf549bdf2",
+  "sourceUrl": "https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=f1db2a19-2513-4626-8e6c-275cf549bdf2&catalogType=tchMaterial&subCatalog=tchMaterial",
+  "title": "道德与法治 八年级下册",
+  "language": "zh-CN",
+  "volumes": 5,
+  "generatedChapters": 24,
+  "characters": 55322,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "daode-yu-fazhi-8-xia-unit-01-intro",
+      "title": "单元导语 · 坚持宪法至上",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 1,
+      "characters": 245
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "daode-yu-fazhi-8-xia-lesson-01",
+      "title": "第一课 治国安邦的总章程",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 2,
+      "characters": 4853
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "daode-yu-fazhi-8-xia-lesson-02",
+      "title": "第二课 维护宪法权威",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 3,
+      "characters": 3304
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "daode-yu-fazhi-8-xia-unit-review-01",
+      "title": "单元思考与行动",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 4,
+      "characters": 924
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "daode-yu-fazhi-8-xia-unit-02-intro",
+      "title": "单元导语 · 理解权利义务",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 1,
+      "characters": 158
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "daode-yu-fazhi-8-xia-lesson-03",
+      "title": "第三课 公民的基本权利和义务",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 2,
+      "characters": 5476
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "daode-yu-fazhi-8-xia-lesson-04",
+      "title": "第四课 依法行使权利和履行义务",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 3,
+      "characters": 4371
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "daode-yu-fazhi-8-xia-unit-review-02",
+      "title": "单元思考与行动",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 4,
+      "characters": 555
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "daode-yu-fazhi-8-xia-unit-03-intro",
+      "title": "单元导语 · 认识国家制度",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 1,
+      "characters": 248
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "daode-yu-fazhi-8-xia-lesson-05",
+      "title": "第五课 我国的政治制度",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 2,
+      "characters": 7214
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "daode-yu-fazhi-8-xia-lesson-06",
+      "title": "第六课 我国的基本经济制度",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 3,
+      "characters": 3177
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "daode-yu-fazhi-8-xia-unit-review-03",
+      "title": "单元思考与行动",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 4,
+      "characters": 685
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "daode-yu-fazhi-8-xia-unit-04-intro",
+      "title": "单元导语 · 走近国家机构",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 1,
+      "characters": 219
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "daode-yu-fazhi-8-xia-lesson-07",
+      "title": "第七课 国家权力机关",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 2,
+      "characters": 2194
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "daode-yu-fazhi-8-xia-lesson-08",
+      "title": "第八课 中华人民共和国主席",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 3,
+      "characters": 1738
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "daode-yu-fazhi-8-xia-lesson-09",
+      "title": "第九课 国家行政机关",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 4,
+      "characters": 2353
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "daode-yu-fazhi-8-xia-lesson-10",
+      "title": "第十课 中央军事委员会",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 5,
+      "characters": 2772
+    },
+    {
+      "chapterNumber": 18,
+      "slug": "daode-yu-fazhi-8-xia-lesson-11",
+      "title": "第十一课 国家监察机关",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 6,
+      "characters": 2473
+    },
+    {
+      "chapterNumber": 19,
+      "slug": "daode-yu-fazhi-8-xia-lesson-12",
+      "title": "第十二课 国家司法机关",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 7,
+      "characters": 2542
+    },
+    {
+      "chapterNumber": 20,
+      "slug": "daode-yu-fazhi-8-xia-unit-review-04",
+      "title": "单元思考与行动",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 8,
+      "characters": 722
+    },
+    {
+      "chapterNumber": 21,
+      "slug": "daode-yu-fazhi-8-xia-unit-05-intro",
+      "title": "单元导语 · 建设法治中国",
+      "volumeNumber": 5,
+      "volumeUnitNumber": 1,
+      "characters": 213
+    },
+    {
+      "chapterNumber": 22,
+      "slug": "daode-yu-fazhi-8-xia-lesson-13",
+      "title": "第十三课 坚持全面依法治国",
+      "volumeNumber": 5,
+      "volumeUnitNumber": 2,
+      "characters": 3391
+    },
+    {
+      "chapterNumber": 23,
+      "slug": "daode-yu-fazhi-8-xia-lesson-14",
+      "title": "第十四课 以法治推进国家治理现代化",
+      "volumeNumber": 5,
+      "volumeUnitNumber": 3,
+      "characters": 3670
+    },
+    {
+      "chapterNumber": 24,
+      "slug": "daode-yu-fazhi-8-xia-unit-review-05",
+      "title": "单元思考与行动",
+      "volumeNumber": 5,
+      "volumeUnitNumber": 4,
+      "characters": 1825
+    }
+  ]
+}

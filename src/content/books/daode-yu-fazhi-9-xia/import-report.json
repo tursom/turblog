@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-09-01T08:13:18.967Z",
+  "sourceId": "845ceea7-36c6-4db8-b032-998193173585",
+  "sourceUrl": "https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=845ceea7-36c6-4db8-b032-998193173585&catalogType=tchMaterial&subCatalog=tchMaterial",
+  "title": "道德与法治 九年级下册",
+  "language": "zh-CN",
+  "volumes": 3,
+  "generatedChapters": 10,
+  "characters": 44552,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "daode-yu-fazhi-9-xia-unit-01-intro",
+      "title": "单元导语 · 我们共同的世界",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 1,
+      "characters": 154
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "daode-yu-fazhi-9-xia-lesson-01",
+      "title": "第一课 同住地球村",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 2,
+      "characters": 6599
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "daode-yu-fazhi-9-xia-lesson-02",
+      "title": "第二课 构建人类命运共同体",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 3,
+      "characters": 5991
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "daode-yu-fazhi-9-xia-unit-02-intro",
+      "title": "单元导语 · 世界舞台上的中国",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 1,
+      "characters": 150
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "daode-yu-fazhi-9-xia-lesson-03",
+      "title": "第三课 与世界紧相连",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 2,
+      "characters": 6518
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "daode-yu-fazhi-9-xia-lesson-04",
+      "title": "第四课 与世界共发展",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 3,
+      "characters": 6856
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "daode-yu-fazhi-9-xia-unit-03-intro",
+      "title": "单元导语 · 走向未来的少年",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 1,
+      "characters": 143
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "daode-yu-fazhi-9-xia-lesson-05",
+      "title": "第五课 少年的担当",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 2,
+      "characters": 5946
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "daode-yu-fazhi-9-xia-lesson-06",
+      "title": "第六课 我的毕业季",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 3,
+      "characters": 6365
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "daode-yu-fazhi-9-xia-lesson-07",
+      "title": "第七课 从这里出发",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 4,
+      "characters": 5830
+    }
+  ]
+}
