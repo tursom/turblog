@@ -1,0 +1,156 @@
+{
+  "generatedAt": "2026-09-01T07:45:33.512Z",
+  "sourceId": "03d41525-a373-4286-92c3-3f2d7cbe3b79",
+  "sourceUrl": "https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=03d41525-a373-4286-92c3-3f2d7cbe3b79&catalogType=tchMaterial&subCatalog=tchMaterial",
+  "title": "道德与法治 九年级上册",
+  "language": "zh-CN",
+  "volumes": 4,
+  "generatedChapters": 18,
+  "characters": 50209,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "daode-yu-fazhi-9-shang-unit-01-intro",
+      "title": "单元导语 · 坚持党的全面领导",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 1,
+      "characters": 254
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "daode-yu-fazhi-9-shang-lesson-01",
+      "title": "第一课 百年大党风华正茂",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 2,
+      "characters": 5303
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "daode-yu-fazhi-9-shang-lesson-02",
+      "title": "第二课 坚持以人民为中心",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 3,
+      "characters": 3509
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "daode-yu-fazhi-9-shang-lesson-03",
+      "title": "第三课 党是领导一切的",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 4,
+      "characters": 2311
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "daode-yu-fazhi-9-shang-unit-review-01",
+      "title": "单元思考与行动",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 5,
+      "characters": 752
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "daode-yu-fazhi-9-shang-unit-02-intro",
+      "title": "单元导语 · 进入新时代",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 1,
+      "characters": 190
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "daode-yu-fazhi-9-shang-lesson-04",
+      "title": "第四课 新的历史方位",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 2,
+      "characters": 3486
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "daode-yu-fazhi-9-shang-lesson-05",
+      "title": "第五课 新时代的思想旗帜",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 3,
+      "characters": 4470
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "daode-yu-fazhi-9-shang-lesson-06",
+      "title": "第六课 中国腾飞谱新篇",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 4,
+      "characters": 8644
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "daode-yu-fazhi-9-shang-unit-review-02",
+      "title": "单元思考与行动",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 5,
+      "characters": 592
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "daode-yu-fazhi-9-shang-unit-03-intro",
+      "title": "单元导语 · 奋进新征程",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 1,
+      "characters": 216
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "daode-yu-fazhi-9-shang-lesson-07",
+      "title": "第七课 擘画宏伟蓝图",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 2,
+      "characters": 3605
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "daode-yu-fazhi-9-shang-lesson-08",
+      "title": "第八课 实现高质量发展",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 3,
+      "characters": 3860
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "daode-yu-fazhi-9-shang-unit-review-03",
+      "title": "单元思考与行动",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 4,
+      "characters": 794
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "daode-yu-fazhi-9-shang-unit-04-intro",
+      "title": "单元导语 · 共圆中国梦",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 1,
+      "characters": 265
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "daode-yu-fazhi-9-shang-lesson-09",
+      "title": "第九课 凝聚团结伟力",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 2,
+      "characters": 6753
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "daode-yu-fazhi-9-shang-lesson-10",
+      "title": "第十课 实现伟大梦想",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 3,
+      "characters": 3207
+    },
+    {
+      "chapterNumber": 18,
+      "slug": "daode-yu-fazhi-9-shang-unit-review-04",
+      "title": "单元思考与行动",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 4,
+      "characters": 1998
+    }
+  ]
+}

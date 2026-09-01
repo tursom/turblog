@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-09-01T07:45:42.114Z",
+  "sourceId": "e36cf7c0-c787-4b34-ba7a-84a78baac331",
+  "sourceUrl": "https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=e36cf7c0-c787-4b34-ba7a-84a78baac331&catalogType=tchMaterial&subCatalog=tchMaterial",
+  "title": "思想政治 必修2 经济与社会",
+  "language": "zh-CN",
+  "volumes": 2,
+  "generatedChapters": 8,
+  "characters": 44399,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "sixiang-zhengzhi-bixiu-2-unit-01-intro",
+      "title": "单元导语 · 生产资料所有制与经济体制",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 1,
+      "characters": 373
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "sixiang-zhengzhi-bixiu-2-lesson-01",
+      "title": "第一课 我国的生产资料所有制",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 2,
+      "characters": 8796
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "sixiang-zhengzhi-bixiu-2-lesson-02",
+      "title": "第二课 我国的社会主义市场经济体制",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 3,
+      "characters": 7772
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "sixiang-zhengzhi-bixiu-2-inquiry-01",
+      "title": "综合探究 构建高水平社会主义市场经济体制",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 4,
+      "characters": 4246
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "sixiang-zhengzhi-bixiu-2-unit-02-intro",
+      "title": "单元导语 · 经济发展与社会进步",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 1,
+      "characters": 341
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "sixiang-zhengzhi-bixiu-2-lesson-03",
+      "title": "第三课 我国的经济发展",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 2,
+      "characters": 9026
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "sixiang-zhengzhi-bixiu-2-lesson-04",
+      "title": "第四课 我国的个人收入分配与社会保障",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 3,
+      "characters": 8385
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "sixiang-zhengzhi-bixiu-2-inquiry-02",
+      "title": "综合探究 践行社会责任 促进社会进步",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 4,
+      "characters": 5460
+    }
+  ]
+}

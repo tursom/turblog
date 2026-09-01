@@ -1,0 +1,148 @@
+{
+  "generatedAt": "2026-09-01T07:45:56.917Z",
+  "sourceId": "9cee6cbd-4ce9-43a2-b884-895dafd832af",
+  "sourceUrl": "https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=9cee6cbd-4ce9-43a2-b884-895dafd832af&catalogType=tchMaterial&subCatalog=tchMaterial",
+  "title": "思想政治 选择性必修1 当代国际政治与经济",
+  "language": "zh-CN",
+  "volumes": 4,
+  "generatedChapters": 17,
+  "characters": 84841,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-unit-01-intro",
+      "title": "单元导语 · 各具特色的国家",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 1,
+      "characters": 189
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-lesson-01",
+      "title": "第一课 国体与政体",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 2,
+      "characters": 8081
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-lesson-02",
+      "title": "第二课 国家的结构形式",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 3,
+      "characters": 3778
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-inquiry-01",
+      "title": "综合探究 国家安全与核心利益",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 4,
+      "characters": 4348
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-unit-02-intro",
+      "title": "单元导语 · 世界多极化",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 1,
+      "characters": 281
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-lesson-03",
+      "title": "第三课 多极化趋势",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 2,
+      "characters": 5901
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-lesson-04",
+      "title": "第四课 世界之问",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 3,
+      "characters": 5958
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-lesson-05",
+      "title": "第五课 中国的外交",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 4,
+      "characters": 7457
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-inquiry-02",
+      "title": "综合探究 贡献中国智慧",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 5,
+      "characters": 4540
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-unit-03-intro",
+      "title": "单元导语 · 经济全球化",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 1,
+      "characters": 286
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-lesson-06",
+      "title": "第六课 走进经济全球化",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 2,
+      "characters": 7029
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-lesson-07",
+      "title": "第七课 经济全球化与中国",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 3,
+      "characters": 5091
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-inquiry-03",
+      "title": "综合探究 推进高水平对外开放 完善全球治理",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 4,
+      "characters": 5117
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-unit-04-intro",
+      "title": "单元导语 · 国际组织",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 1,
+      "characters": 233
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-lesson-08",
+      "title": "第八课 主要的国际组织",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 2,
+      "characters": 12721
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-lesson-09",
+      "title": "第九课 中国与国际组织",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 3,
+      "characters": 8038
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-1-inquiry-04",
+      "title": "综合探究 国际视野及国际人才",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 4,
+      "characters": 5793
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "generatedAt": "2026-09-01T07:45:58.474Z",
+  "sourceId": "acc5bf16-92b5-47c7-b57b-b7f4eb5f2199",
+  "sourceUrl": "https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=acc5bf16-92b5-47c7-b57b-b7f4eb5f2199&catalogType=tchMaterial&subCatalog=tchMaterial",
+  "title": "思想政治 选择性必修2 法律与生活",
+  "language": "zh-CN",
+  "volumes": 4,
+  "generatedChapters": 18,
+  "characters": 62334,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-unit-01-intro",
+      "title": "单元导语 · 民事权利与义务",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 1,
+      "characters": 250
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-lesson-01",
+      "title": "第一课 在生活中学民法用民法",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 2,
+      "characters": 6528
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-lesson-02",
+      "title": "第二课 依法有效保护财产权",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 3,
+      "characters": 6594
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-lesson-03",
+      "title": "第三课 订约履约 诚信为本",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 4,
+      "characters": 5847
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-lesson-04",
+      "title": "第四课 侵权责任与权利界限",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 5,
+      "characters": 4371
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-inquiry-01",
+      "title": "综合探究 财产制度助力经济社会发展",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 6,
+      "characters": 1650
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-unit-02-intro",
+      "title": "单元导语 · 家庭与婚姻",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 1,
+      "characters": 230
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-lesson-05",
+      "title": "第五课 在和睦家庭中成长",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 2,
+      "characters": 4349
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-lesson-06",
+      "title": "第六课 珍惜婚姻关系",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 3,
+      "characters": 4318
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-inquiry-02",
+      "title": "综合探究 家庭生活 法律守护",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 4,
+      "characters": 1237
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-unit-03-intro",
+      "title": "单元导语 · 就业与创业",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 1,
+      "characters": 177
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-lesson-07",
+      "title": "第七课 做个明白的劳动者",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 2,
+      "characters": 6329
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-lesson-08",
+      "title": "第八课 自主创业与诚信经营",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 3,
+      "characters": 5698
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-inquiry-03",
+      "title": "综合探究 企业创办之旅",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 4,
+      "characters": 1173
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-unit-04-intro",
+      "title": "单元导语 · 社会争议解决",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 1,
+      "characters": 202
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-lesson-09",
+      "title": "第九课 纠纷的多元解决方式",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 2,
+      "characters": 4053
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-lesson-10",
+      "title": "第十课 诉讼实现公平正义",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 3,
+      "characters": 7002
+    },
+    {
+      "chapterNumber": 18,
+      "slug": "sixiang-zhengzhi-xuanzexing-bixiu-2-inquiry-04",
+      "title": "综合探究 感受司法公正",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 4,
+      "characters": 2326
+    }
+  ]
+}

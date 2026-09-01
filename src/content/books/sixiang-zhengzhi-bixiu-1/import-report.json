@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-09-01T07:45:41.126Z",
+  "sourceId": "c7c07640-970b-4def-814a-0f77eba4a2d9",
+  "sourceUrl": "https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=c7c07640-970b-4def-814a-0f77eba4a2d9&catalogType=tchMaterial&subCatalog=tchMaterial",
+  "title": "思想政治 必修1 中国特色社会主义",
+  "language": "zh-CN",
+  "volumes": 0,
+  "generatedChapters": 6,
+  "characters": 63646,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "sixiang-zhengzhi-bixiu-1-lesson-01",
+      "title": "第一课 社会主义从空想到科学、从理论到实践的发展",
+      "volumeNumber": null,
+      "volumeUnitNumber": null,
+      "characters": 15194
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "sixiang-zhengzhi-bixiu-1-lesson-02",
+      "title": "第二课 只有社会主义才能救中国",
+      "volumeNumber": null,
+      "volumeUnitNumber": null,
+      "characters": 7871
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "sixiang-zhengzhi-bixiu-1-lesson-03",
+      "title": "第三课 只有中国特色社会主义才能发展中国",
+      "volumeNumber": null,
+      "volumeUnitNumber": null,
+      "characters": 9166
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "sixiang-zhengzhi-bixiu-1-lesson-04",
+      "title": "第四课 只有坚持和发展中国特色社会主义才能实现中华民族伟大复兴",
+      "volumeNumber": null,
+      "volumeUnitNumber": null,
+      "characters": 20356
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "sixiang-zhengzhi-bixiu-1-inquiry-01",
+      "title": "综合探究一 回看走过的路 比较别人的路 远眺前行的路",
+      "volumeNumber": null,
+      "volumeUnitNumber": null,
+      "characters": 4057
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "sixiang-zhengzhi-bixiu-1-inquiry-02",
+      "title": "综合探究二 方向决定道路 道路决定命运",
+      "volumeNumber": null,
+      "volumeUnitNumber": null,
+      "characters": 7002
+    }
+  ]
+}

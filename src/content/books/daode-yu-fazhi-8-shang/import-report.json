@@ -1,0 +1,172 @@
+{
+  "generatedAt": "2026-09-01T07:45:25.749Z",
+  "sourceId": "5a29b928-d6da-4131-a69e-4c54941f7651",
+  "sourceUrl": "https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=5a29b928-d6da-4131-a69e-4c54941f7651&catalogType=tchMaterial&subCatalog=tchMaterial",
+  "title": "道德与法治 八年级上册",
+  "language": "zh-CN",
+  "volumes": 4,
+  "generatedChapters": 20,
+  "characters": 47643,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "daode-yu-fazhi-8-shang-unit-01-intro",
+      "title": "单元导语 · 走进社会生活",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 1,
+      "characters": 257
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "daode-yu-fazhi-8-shang-lesson-01",
+      "title": "第一课 丰富的社会生活",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 2,
+      "characters": 2409
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "daode-yu-fazhi-8-shang-lesson-02",
+      "title": "第二课 在社会中健康成长",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 3,
+      "characters": 2673
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "daode-yu-fazhi-8-shang-lesson-03",
+      "title": "第三课 共建网络美好家园",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 4,
+      "characters": 3536
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "daode-yu-fazhi-8-shang-unit-review-01",
+      "title": "单元思考与行动",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 5,
+      "characters": 749
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "daode-yu-fazhi-8-shang-unit-02-intro",
+      "title": "单元导语 · 维护社会秩序",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 1,
+      "characters": 148
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "daode-yu-fazhi-8-shang-lesson-04",
+      "title": "第四课 遵守社会规则",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 2,
+      "characters": 3067
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "daode-yu-fazhi-8-shang-lesson-05",
+      "title": "第五课 社会生活讲道德",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 3,
+      "characters": 4922
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "daode-yu-fazhi-8-shang-lesson-06",
+      "title": "第六课 提升法治素养",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 4,
+      "characters": 3790
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "daode-yu-fazhi-8-shang-unit-review-02",
+      "title": "单元思考与行动",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 5,
+      "characters": 480
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "daode-yu-fazhi-8-shang-unit-03-intro",
+      "title": "单元导语 · 勇担社会责任",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 1,
+      "characters": 158
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "daode-yu-fazhi-8-shang-lesson-07",
+      "title": "第七课 追求自由平等",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 2,
+      "characters": 3807
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "daode-yu-fazhi-8-shang-lesson-08",
+      "title": "第八课 维护公平正义",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 3,
+      "characters": 4011
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "daode-yu-fazhi-8-shang-lesson-09",
+      "title": "第九课 积极奉献社会",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 4,
+      "characters": 3522
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "daode-yu-fazhi-8-shang-unit-review-03",
+      "title": "单元思考与行动",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 5,
+      "characters": 803
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "daode-yu-fazhi-8-shang-unit-04-intro",
+      "title": "单元导语 · 维护国家利益",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 1,
+      "characters": 244
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "daode-yu-fazhi-8-shang-lesson-10",
+      "title": "第十课 国家利益至上",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 2,
+      "characters": 3730
+    },
+    {
+      "chapterNumber": 18,
+      "slug": "daode-yu-fazhi-8-shang-lesson-11",
+      "title": "第十一课 军强才能国安",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 3,
+      "characters": 3964
+    },
+    {
+      "chapterNumber": 19,
+      "slug": "daode-yu-fazhi-8-shang-lesson-12",
+      "title": "第十二课 树立总体国家安全观",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 4,
+      "characters": 3165
+    },
+    {
+      "chapterNumber": 20,
+      "slug": "daode-yu-fazhi-8-shang-unit-review-04",
+      "title": "单元思考与行动",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 5,
+      "characters": 2208
+    }
+  ]
+}

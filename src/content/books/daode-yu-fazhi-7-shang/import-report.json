@@ -1,0 +1,180 @@
+{
+  "generatedAt": "2026-09-01T07:45:17.386Z",
+  "sourceId": "11446212-4b7b-4094-afe3-bd5b4f2b3f0c",
+  "sourceUrl": "https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=11446212-4b7b-4094-afe3-bd5b4f2b3f0c&catalogType=tchMaterial&subCatalog=tchMaterial",
+  "title": "道德与法治 七年级上册",
+  "language": "zh-CN",
+  "volumes": 4,
+  "generatedChapters": 21,
+  "characters": 39887,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "daode-yu-fazhi-7-shang-unit-01-intro",
+      "title": "单元导语 · 少年有梦",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 1,
+      "characters": 178
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "daode-yu-fazhi-7-shang-lesson-01",
+      "title": "第一课 开启初中生活",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 2,
+      "characters": 2780
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "daode-yu-fazhi-7-shang-lesson-02",
+      "title": "第二课 正确认识自我",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 3,
+      "characters": 2685
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "daode-yu-fazhi-7-shang-lesson-03",
+      "title": "第三课 梦想始于当下",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 4,
+      "characters": 2689
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "daode-yu-fazhi-7-shang-unit-review-01",
+      "title": "单元思考与行动",
+      "volumeNumber": 1,
+      "volumeUnitNumber": 5,
+      "characters": 357
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "daode-yu-fazhi-7-shang-unit-02-intro",
+      "title": "单元导语 · 成长的时空",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 1,
+      "characters": 152
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "daode-yu-fazhi-7-shang-lesson-04",
+      "title": "第四课 幸福和睦的家庭",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 2,
+      "characters": 3445
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "daode-yu-fazhi-7-shang-lesson-05",
+      "title": "第五课 和谐的师生关系",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 3,
+      "characters": 3193
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "daode-yu-fazhi-7-shang-lesson-06",
+      "title": "第六课 友谊之树常青",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 4,
+      "characters": 2987
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "daode-yu-fazhi-7-shang-lesson-07",
+      "title": "第七课 在集体中成长",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 5,
+      "characters": 2863
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "daode-yu-fazhi-7-shang-unit-review-02",
+      "title": "单元思考与行动",
+      "volumeNumber": 2,
+      "volumeUnitNumber": 6,
+      "characters": 525
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "daode-yu-fazhi-7-shang-unit-03-intro",
+      "title": "单元导语 · 珍爱我们的生命",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 1,
+      "characters": 183
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "daode-yu-fazhi-7-shang-lesson-08",
+      "title": "第八课 生命可贵",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 2,
+      "characters": 2665
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "daode-yu-fazhi-7-shang-lesson-09",
+      "title": "第九课 守护生命安全",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 3,
+      "characters": 2882
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "daode-yu-fazhi-7-shang-lesson-10",
+      "title": "第十课 保持身心健康",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 4,
+      "characters": 2491
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "daode-yu-fazhi-7-shang-unit-review-03",
+      "title": "单元思考与行动",
+      "volumeNumber": 3,
+      "volumeUnitNumber": 5,
+      "characters": 516
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "daode-yu-fazhi-7-shang-unit-04-intro",
+      "title": "单元导语 · 追求美好人生",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 1,
+      "characters": 176
+    },
+    {
+      "chapterNumber": 18,
+      "slug": "daode-yu-fazhi-7-shang-lesson-11",
+      "title": "第十一课 确立人生目标",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 2,
+      "characters": 2709
+    },
+    {
+      "chapterNumber": 19,
+      "slug": "daode-yu-fazhi-7-shang-lesson-12",
+      "title": "第十二课 端正人生态度",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 3,
+      "characters": 2396
+    },
+    {
+      "chapterNumber": 20,
+      "slug": "daode-yu-fazhi-7-shang-lesson-13",
+      "title": "第十三课 实现人生价值",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 4,
+      "characters": 2677
+    },
+    {
+      "chapterNumber": 21,
+      "slug": "daode-yu-fazhi-7-shang-unit-review-04",
+      "title": "单元思考与行动",
+      "volumeNumber": 4,
+      "volumeUnitNumber": 5,
+      "characters": 1338
+    }
+  ]
+}
