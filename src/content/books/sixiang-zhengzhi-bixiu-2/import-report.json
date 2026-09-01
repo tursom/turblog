@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-01T07:45:42.114Z",
+  "generatedAt": "2026-09-01T08:13:21.423Z",
   "sourceId": "e36cf7c0-c787-4b34-ba7a-84a78baac331",
   "sourceUrl": "https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=e36cf7c0-c787-4b34-ba7a-84a78baac331&catalogType=tchMaterial&subCatalog=tchMaterial",
   "title": "思想政治 必修2 经济与社会",
   "language": "zh-CN",
   "volumes": 2,
   "generatedChapters": 8,
-  "characters": 44399,
+  "characters": 44392,
   "chapters": [
     {
       "chapterNumber": 1,
@@ -70,7 +70,7 @@
       "title": "综合探究 践行社会责任 促进社会进步",
       "volumeNumber": 2,
       "volumeUnitNumber": 4,
-      "characters": 5460
+      "characters": 5453
     }
   ]
 }
