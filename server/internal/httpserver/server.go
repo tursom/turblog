@@ -78,6 +78,7 @@ func New(config Config) http.Handler {
 	mux.HandleFunc("GET /healthz", application.health)
 	mux.HandleFunc("POST /api/v1/analytics/metrics/query", application.queryMetrics)
 	mux.HandleFunc("POST /api/v1/books/access", application.grantBookAccess)
+	mux.HandleFunc("POST /books/_access/share", application.createBookShareToken)
 	mux.HandleFunc("/api/v1/", notFound)
 	mux.HandleFunc("/", application.proxyContent)
 	return mux

@@ -13,6 +13,7 @@ smoke_private_adjacent_chapter="/books/daode-yu-fazhi-7-shang/daode-yu-fazhi-7-s
 smoke_watchtower_token="0123456789abcdef0123456789abcdef"
 smoke_base_url="http://127.0.0.1:${smoke_port}"
 smoke_cookie_jar="/tmp/${smoke_project}-cookies.txt"
+smoke_shared_cookie_jar="/tmp/${smoke_project}-shared-cookies.txt"
 
 compose() {
   env \
@@ -27,7 +28,7 @@ compose() {
 
 cleanup() {
   compose down --volumes >/dev/null 2>&1 || true
-  rm -f "$smoke_cookie_jar"
+  rm -f "$smoke_cookie_jar" "$smoke_shared_cookie_jar"
 }
 trap cleanup EXIT
 
@@ -107,6 +108,40 @@ curl \
   --show-error \
   --output /dev/null \
   --cookie "$smoke_cookie_jar" \
+  "${smoke_base_url}${smoke_private_adjacent_chapter}"
+
+share_payload="$(curl \
+  --fail \
+  --silent \
+  --show-error \
+  --cookie "$smoke_cookie_jar" \
+  -X POST "${smoke_base_url}/books/_access/share" \
+  -H 'Content-Type: application/json' \
+  --data "{\"path\":\"${smoke_private_adjacent_chapter}\"}")"
+share_token="$(printf '%s' "$share_payload" | node -e '
+  let input = "";
+  process.stdin.on("data", (chunk) => input += chunk);
+  process.stdin.on("end", () => {
+    const token = JSON.parse(input).token;
+    if (typeof token !== "string" || !/^[A-Za-z0-9_-]{43}$/.test(token)) process.exit(1);
+    process.stdout.write(token);
+  });
+')"
+curl \
+  --fail \
+  --silent \
+  --show-error \
+  --output /dev/null \
+  --cookie-jar "$smoke_shared_cookie_jar" \
+  -X POST "${smoke_base_url}/api/v1/books/access" \
+  -H 'Content-Type: application/json' \
+  --data "{\"path\":\"${smoke_private_adjacent_chapter}\",\"token\":\"${share_token}\"}"
+curl \
+  --fail \
+  --silent \
+  --show-error \
+  --output /dev/null \
+  --cookie "$smoke_shared_cookie_jar" \
   "${smoke_base_url}${smoke_private_adjacent_chapter}"
 
 metrics="$(query_metrics)"

@@ -796,6 +796,30 @@ img {
   margin: 0;
 }
 
+.book-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  margin-top: 16px;
+}
+
+.book-share-actions .button-link {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.book-share-actions .button-link:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.book-share-status {
+  color: var(--muted);
+  font-size: 12px;
+}
+
 .book-reader-layout .article-aside {
   display: grid;
   gap: 30px;

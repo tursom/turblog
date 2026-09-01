@@ -79,6 +79,47 @@ test('book access manifest is generated from private book metadata', async () =>
   expect(sitemap).not.toContain('book-access-manifest.json');
 });
 
+test('private chapter owner can put an exact share token in the URL', async ({ page }) => {
+  await serveBuiltSite(page);
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: {
+        writeText(text: string) {
+          (window as typeof window & { copiedShareLink?: string }).copiedShareLink = text;
+          return Promise.resolve();
+        },
+      },
+    });
+  });
+  const chapterPath = '/books/daode-yu-fazhi-7-shang/daode-yu-fazhi-7-shang-lesson-01/';
+  const token = 'chapter-specific-token';
+  let requestedPath = '';
+  await page.route(`${baseUrl}/books/_access/share`, async (route) => {
+    requestedPath = (route.request().postDataJSON() as { path: string }).path;
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({ token }),
+    });
+  });
+
+  await page.goto(`${baseUrl}${chapterPath}`);
+  await page.getByRole('button', { name: '复制本章分享链接' }).click();
+
+  await expect(page).toHaveURL(`${baseUrl}${chapterPath}#access=${token}`);
+  await expect(page.locator('[data-book-share-status]')).toHaveText('链接已复制');
+  expect(requestedPath).toBe(chapterPath);
+  expect(
+    await page.evaluate(
+      () => (window as typeof window & { copiedShareLink?: string }).copiedShareLink,
+    ),
+  ).toBe(`${baseUrl}${chapterPath}#access=${token}`);
+
+  await page.goto(`${baseUrl}/books/guns-germs-steel/chapter-01/`);
+  await expect(page.getByRole('button', { name: '复制本章分享链接' })).toHaveCount(0);
+});
+
 test('book shelf and chapter pages stay separate from ordinary posts', async ({ page }) => {
   await serveBuiltSite(page);
   await page.goto(`${baseUrl}/books/`);

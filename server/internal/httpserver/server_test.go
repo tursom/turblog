@@ -357,6 +357,30 @@ func TestBookChapterAccessIsRequiredAndScopedToOnePath(t *testing.T) {
 		t.Fatalf("owner access cookie = %#v", ownerCookies)
 	}
 
+	chapterShareRequest := httptest.NewRequest(http.MethodPost, "/books/_access/share", bytes.NewBufferString(`{"path":"/books/guns-germs-steel/chapter-02/"}`))
+	chapterShareRequest.Header.Set("Content-Type", "application/json")
+	chapterShareRequest.AddCookie(cookies[0])
+	chapterShareResponse := httptest.NewRecorder()
+	handler.ServeHTTP(chapterShareResponse, chapterShareRequest)
+	if chapterShareResponse.Code != http.StatusForbidden {
+		t.Fatalf("chapter cookie share response = %d %q", chapterShareResponse.Code, chapterShareResponse.Body.String())
+	}
+
+	ownerShareRequest := httptest.NewRequest(http.MethodPost, "/books/_access/share", bytes.NewBufferString(`{"path":"/books/guns-germs-steel/chapter-02/"}`))
+	ownerShareRequest.Header.Set("Content-Type", "application/json")
+	ownerShareRequest.AddCookie(ownerCookies[0])
+	ownerShareResponse := httptest.NewRecorder()
+	handler.ServeHTTP(ownerShareResponse, ownerShareRequest)
+	if ownerShareResponse.Code != http.StatusOK || ownerShareResponse.Header().Get("Cache-Control") != "no-store" {
+		t.Fatalf("owner share response = %d %#v %q", ownerShareResponse.Code, ownerShareResponse.Header(), ownerShareResponse.Body.String())
+	}
+	var sharePayload struct {
+		Token string `json:"token"`
+	}
+	if err := json.NewDecoder(ownerShareResponse.Body).Decode(&sharePayload); err != nil || sharePayload.Token != "LjY6zg1uxkq-K8hd_6eP0OOaqdo2cTMRBT1qUKweHvY" {
+		t.Fatalf("owner share payload = %#v, error = %v", sharePayload, err)
+	}
+
 	ownerAuthorizedRequest := httptest.NewRequest(http.MethodGet, "/books/guns-germs-steel/chapter-02/", nil)
 	ownerAuthorizedRequest.AddCookie(ownerCookies[0])
 	ownerAuthorizedResponse := httptest.NewRecorder()
