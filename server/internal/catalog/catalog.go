@@ -62,6 +62,10 @@ func Load(path string) (*Catalog, error) {
 	return articles, nil
 }
 
+func IsBookChapterPath(path string) bool {
+	return bookChapterPathPattern.MatchString(path)
+}
+
 func (c *Catalog) BookChapterIDFromPath(path string) (string, bool) {
 	matches := bookChapterPathPattern.FindStringSubmatch(path)
 	if len(matches) != 3 {

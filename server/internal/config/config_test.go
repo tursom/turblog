@@ -10,7 +10,8 @@ func TestLoadUsesProductionDefaultsAndRequiresHashKey(t *testing.T) {
 	t.Parallel()
 
 	values := map[string]string{
-		"TURBLOG_VISITOR_HASH_KEY": "0123456789abcdef0123456789abcdef",
+		"TURBLOG_VISITOR_HASH_KEY":     "0123456789abcdef0123456789abcdef",
+		"TURBLOG_BOOK_ACCESS_PASSWORD": "0123456789abcdef0123456789abcdef",
 	}
 	loaded, err := config.Load(func(name string) string { return values[name] })
 	if err != nil {
@@ -31,6 +32,9 @@ func TestLoadUsesProductionDefaultsAndRequiresHashKey(t *testing.T) {
 	if loaded.Location.String() != "Asia/Shanghai" {
 		t.Fatalf("location = %q", loaded.Location)
 	}
+	if string(loaded.BookAccessPassword) != values["TURBLOG_BOOK_ACCESS_PASSWORD"] {
+		t.Fatalf("book access password was not loaded")
+	}
 	if loaded.TrustProxyHeaders {
 		t.Fatal("proxy headers are trusted by default")
 	}
@@ -47,5 +51,10 @@ func TestLoadUsesProductionDefaultsAndRequiresHashKey(t *testing.T) {
 
 	if _, err := config.Load(func(string) string { return "" }); err == nil {
 		t.Fatal("Load() accepted a missing hash key")
+	}
+	values["TURBLOG_VISITOR_HASH_KEY"] = "0123456789abcdef0123456789abcdef"
+	values["TURBLOG_BOOK_ACCESS_PASSWORD"] = "too-short"
+	if _, err := config.Load(func(name string) string { return values[name] }); err == nil {
+		t.Fatal("Load() accepted a short book access password")
 	}
 }

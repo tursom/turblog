@@ -15,6 +15,7 @@ services:
       - blog
     environment:
       TURBLOG_VISITOR_HASH_KEY: ${TURBLOG_VISITOR_HASH_KEY:?TURBLOG_VISITOR_HASH_KEY is required}
+      TURBLOG_BOOK_ACCESS_PASSWORD: ${TURBLOG_BOOK_ACCESS_PASSWORD:?TURBLOG_BOOK_ACCESS_PASSWORD is required}
     ports:
       - '${BLOG_PORT:-8080}:8080'
     volumes:

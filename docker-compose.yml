@@ -16,13 +16,14 @@ services:
       - blog
     environment:
       TURBLOG_VISITOR_HASH_KEY: ${TURBLOG_VISITOR_HASH_KEY:?TURBLOG_VISITOR_HASH_KEY is required}
+      TURBLOG_BOOK_ACCESS_PASSWORD: ${TURBLOG_BOOK_ACCESS_PASSWORD:?TURBLOG_BOOK_ACCESS_PASSWORD is required}
       TURBLOG_TRUST_PROXY_HEADERS: 'true'
     expose:
       - '8080'
     volumes:
       - ./data:/var/lib/turblog
     healthcheck:
-      test: [ 'CMD', 'wget', '-qO-', 'http://127.0.0.1:8080/healthz' ]
+      test: ['CMD', 'wget', '-qO-', 'http://127.0.0.1:8080/healthz']
       interval: 10s
       timeout: 3s
       retries: 5
@@ -138,8 +139,6 @@ configs:
           proxy_set_header X-Real-IP $$remote_addr;
           proxy_set_header X-Forwarded-For $$remote_addr;
           proxy_set_header X-Forwarded-Proto $$scheme;
-          proxy_intercept_errors on;
-          error_page 502 503 504 = @blog_fallback;
           proxy_hide_header Cache-Control;
           add_header Cache-Control "private, no-cache, must-revalidate" always;
         }

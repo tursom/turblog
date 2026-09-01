@@ -3,6 +3,9 @@ package httpserver_test
 import (
 	"bytes"
 	"context"
+	"crypto/hmac"
+	"crypto/sha256"
+	"encoding/base64"
 	"encoding/json"
 	"io"
 	"log/slog"
@@ -20,6 +23,8 @@ import (
 	"github.com/tursom/turblog/server/internal/catalog"
 	"github.com/tursom/turblog/server/internal/httpserver"
 )
+
+const testBookAccessPassword = "0123456789abcdef0123456789abcdef"
 
 func TestMetricsQueryReturnsAllRequestedArticleCountsInOneResponse(t *testing.T) {
 	t.Parallel()
@@ -205,13 +210,18 @@ func TestBookChapterProxyRecordsSuccessfulHTMLGet(t *testing.T) {
 	}
 	tracker, content := newBackend(t, nil)
 	handler := httpserver.New(httpserver.Config{
-		Analytics:       tracker,
-		Catalog:         content,
-		ContentUpstream: upstreamURL,
-		Now:             func() time.Time { return time.Date(2026, 8, 24, 10, 0, 0, 0, time.FixedZone("CST", 8*60*60)) },
-		Logger:          slog.New(slog.NewTextHandler(io.Discard, nil)),
+		Analytics:          tracker,
+		BookAccessPassword: []byte(testBookAccessPassword),
+		Catalog:            content,
+		ContentUpstream:    upstreamURL,
+		Now:                func() time.Time { return time.Date(2026, 8, 24, 10, 0, 0, 0, time.FixedZone("CST", 8*60*60)) },
+		Logger:             slog.New(slog.NewTextHandler(io.Discard, nil)),
 	})
 	request := httptest.NewRequest(http.MethodGet, "/books/guns-germs-steel/chapter-01/", nil)
+	request.AddCookie(&http.Cookie{
+		Name:  "turblog_book_access",
+		Value: bookAccessToken("/books/guns-germs-steel/chapter-01/", testBookAccessPassword),
+	})
 	request.Header.Set("User-Agent", "Example Browser")
 	request.Header.Set("X-Real-IP", "203.0.113.8")
 	response := httptest.NewRecorder()
@@ -229,6 +239,104 @@ func TestBookChapterProxyRecordsSuccessfulHTMLGet(t *testing.T) {
 	}
 	if counts.Values["guns-germs-steel/chapter-01"] != 1 {
 		t.Fatalf("view count = %d, want 1", counts.Values["guns-germs-steel/chapter-01"])
+	}
+}
+
+func TestBookChapterAccessIsRequiredAndScopedToOnePath(t *testing.T) {
+	t.Parallel()
+
+	const password = testBookAccessPassword
+	upstream := httptest.NewServer(http.HandlerFunc(func(response http.ResponseWriter, request *http.Request) {
+		response.Header().Set("Content-Type", "text/html; charset=utf-8")
+		_, _ = response.Write([]byte("<article>" + request.URL.Path + "</article>"))
+	}))
+	t.Cleanup(upstream.Close)
+	upstreamURL, err := url.Parse(upstream.URL)
+	if err != nil {
+		t.Fatal(err)
+	}
+	tracker, content := newBackend(t, nil)
+	handler := httpserver.New(httpserver.Config{
+		Analytics:          tracker,
+		BookAccessPassword: []byte(password),
+		Catalog:            content,
+		ContentUpstream:    upstreamURL,
+		Logger:             slog.New(slog.NewTextHandler(io.Discard, nil)),
+		TrustProxyHeaders:  true,
+	})
+
+	lockedRequest := httptest.NewRequest(http.MethodGet, "/books/guns-germs-steel/chapter-01/", nil)
+	lockedResponse := httptest.NewRecorder()
+	handler.ServeHTTP(lockedResponse, lockedRequest)
+	if lockedResponse.Code != http.StatusUnauthorized {
+		t.Fatalf("locked response status = %d", lockedResponse.Code)
+	}
+	if strings.Contains(lockedResponse.Body.String(), "<article>") {
+		t.Fatal("locked response contains upstream chapter content")
+	}
+	if lockedResponse.Header().Get("Cache-Control") != "no-store" || !strings.Contains(lockedResponse.Header().Get("X-Robots-Tag"), "noindex") {
+		t.Fatalf("locked response headers = %#v", lockedResponse.Header())
+	}
+
+	publicRequest := httptest.NewRequest(http.MethodGet, "/books/guns-germs-steel/", nil)
+	publicResponse := httptest.NewRecorder()
+	handler.ServeHTTP(publicResponse, publicRequest)
+	if publicResponse.Code != http.StatusOK || !strings.Contains(publicResponse.Body.String(), "/books/guns-germs-steel/") {
+		t.Fatalf("public book page response = %d %q", publicResponse.Code, publicResponse.Body.String())
+	}
+
+	invalidBody := bytes.NewBufferString(`{"path":"/books/guns-germs-steel/chapter-01/","token":"invalid"}`)
+	invalidRequest := httptest.NewRequest(http.MethodPost, "/api/v1/books/access", invalidBody)
+	invalidRequest.Header.Set("Content-Type", "application/json")
+	invalidResponse := httptest.NewRecorder()
+	handler.ServeHTTP(invalidResponse, invalidRequest)
+	if invalidResponse.Code != http.StatusForbidden {
+		t.Fatalf("invalid token response = %d %q", invalidResponse.Code, invalidResponse.Body.String())
+	}
+
+	chapterPath := "/books/guns-germs-steel/chapter-01/"
+	token := bookAccessToken(chapterPath, password)
+	validBody, err := json.Marshal(map[string]string{"path": chapterPath, "token": token})
+	if err != nil {
+		t.Fatal(err)
+	}
+	validRequest := httptest.NewRequest(http.MethodPost, "/api/v1/books/access", bytes.NewReader(validBody))
+	validRequest.Header.Set("Content-Type", "application/json")
+	validRequest.Header.Set("X-Forwarded-Proto", "https")
+	validResponse := httptest.NewRecorder()
+	handler.ServeHTTP(validResponse, validRequest)
+	if validResponse.Code != http.StatusNoContent {
+		t.Fatalf("valid token response = %d %q", validResponse.Code, validResponse.Body.String())
+	}
+	cookies := validResponse.Result().Cookies()
+	if len(cookies) != 1 || cookies[0].Path != chapterPath || !cookies[0].HttpOnly || !cookies[0].Secure {
+		t.Fatalf("access cookie = %#v", cookies)
+	}
+
+	authorizedRequest := httptest.NewRequest(http.MethodGet, chapterPath, nil)
+	authorizedRequest.AddCookie(cookies[0])
+	authorizedResponse := httptest.NewRecorder()
+	handler.ServeHTTP(authorizedResponse, authorizedRequest)
+	if authorizedResponse.Code != http.StatusOK || !strings.Contains(authorizedResponse.Body.String(), "<article>") {
+		t.Fatalf("authorized response = %d %q", authorizedResponse.Code, authorizedResponse.Body.String())
+	}
+	if authorizedResponse.Header().Get("Referrer-Policy") != "no-referrer" || !strings.Contains(authorizedResponse.Header().Get("Vary"), "Cookie") {
+		t.Fatalf("authorized response headers = %#v", authorizedResponse.Header())
+	}
+
+	otherRequest := httptest.NewRequest(http.MethodGet, "/books/guns-germs-steel/chapter-02/", nil)
+	otherRequest.AddCookie(cookies[0])
+	otherResponse := httptest.NewRecorder()
+	handler.ServeHTTP(otherResponse, otherRequest)
+	if otherResponse.Code != http.StatusUnauthorized || strings.Contains(otherResponse.Body.String(), "<article>") {
+		t.Fatalf("other chapter response = %d %q", otherResponse.Code, otherResponse.Body.String())
+	}
+
+	unknownRequest := httptest.NewRequest(http.MethodGet, "/books/guns-germs-steel/not-in-sitemap/", nil)
+	unknownResponse := httptest.NewRecorder()
+	handler.ServeHTTP(unknownResponse, unknownRequest)
+	if unknownResponse.Code != http.StatusUnauthorized {
+		t.Fatalf("unknown chapter-shaped path response = %d", unknownResponse.Code)
 	}
 }
 
@@ -397,6 +505,12 @@ func TestArticleProxyReturnsBadGatewayWhenUpstreamIsUnavailable(t *testing.T) {
 	}
 }
 
+func bookAccessToken(path, password string) string {
+	mac := hmac.New(sha256.New, []byte(password))
+	_, _ = mac.Write([]byte(path))
+	return base64.RawURLEncoding.EncodeToString(mac.Sum(nil))
+}
+
 func newBackend(t *testing.T, articleSlugs []string) (*analytics.Tracker, *catalog.Catalog) {
 	t.Helper()
 	if articleSlugs == nil {
@@ -408,6 +522,7 @@ func newBackend(t *testing.T, articleSlugs []string) (*analytics.Tracker, *catal
 		sitemap += `<url><loc>https://blog.tursom.dev/posts/` + slug + `/</loc></url>`
 	}
 	sitemap += `<url><loc>https://blog.tursom.dev/books/guns-germs-steel/chapter-01/</loc></url>`
+	sitemap += `<url><loc>https://blog.tursom.dev/books/guns-germs-steel/chapter-02/</loc></url>`
 	sitemap += `</urlset>`
 	if err := os.WriteFile(sitemapPath, []byte(sitemap), 0o600); err != nil {
 		t.Fatal(err)

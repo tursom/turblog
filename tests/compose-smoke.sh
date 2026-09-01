@@ -7,6 +7,7 @@ smoke_image="${SMOKE_IMAGE:-turblog}"
 smoke_version="${SMOKE_VERSION:-analytics-test}"
 smoke_port="${SMOKE_PORT:-18089}"
 smoke_hash_key="0123456789abcdef0123456789abcdef"
+smoke_book_password="0123456789abcdef0123456789abcdef"
 smoke_watchtower_token="0123456789abcdef0123456789abcdef"
 smoke_base_url="http://127.0.0.1:${smoke_port}"
 
@@ -16,6 +17,7 @@ compose() {
     BLOG_VERSION="$smoke_version" \
     BLOG_PORT="$smoke_port" \
     TURBLOG_VISITOR_HASH_KEY="$smoke_hash_key" \
+    TURBLOG_BOOK_ACCESS_PASSWORD="$smoke_book_password" \
     WATCHTOWER_HTTP_API_TOKEN="$smoke_watchtower_token" \
     docker compose -p "$smoke_project" "$@"
 }
@@ -75,6 +77,9 @@ curl \
 cache_header_count="$({ curl --fail --silent --show-error --head "${smoke_base_url}/posts/go-atomic-generics/" || true; } | tr -d '\r' | grep -c -i '^cache-control:')"
 test "$cache_header_count" = "1"
 
+book_status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "${smoke_base_url}/books/guns-germs-steel/chapter-01/")"
+test "$book_status" = "401"
+
 metrics="$(query_metrics)"
 printf '%s' "$metrics" | node -e '
   let input = "";
@@ -89,6 +94,8 @@ printf '%s' "$metrics" | node -e '
 
 compose stop server
 curl --fail --silent --show-error --output /dev/null "${smoke_base_url}/posts/go-atomic-generics/"
+book_status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "${smoke_base_url}/books/guns-germs-steel/chapter-01/")"
+test "$book_status" = "502"
 curl --fail --silent --show-error --output /dev/null "${smoke_base_url}/"
 curl --fail --silent --show-error --output /dev/null "${smoke_base_url}/favicon.svg"
 api_status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' -X POST "${smoke_base_url}/api/v1/analytics/metrics/query" -H 'Content-Type: application/json' --data '{"metric":"article_unique_views","subject_type":"article","subject_ids":["go-atomic-generics"]}')"

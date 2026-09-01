@@ -25,21 +25,23 @@ const (
 )
 
 type Config struct {
-	Analytics         *analytics.Tracker
-	Catalog           *catalog.Catalog
-	ContentUpstream   *url.URL
-	Logger            *slog.Logger
-	Now               func() time.Time
-	TrustProxyHeaders bool
+	Analytics          *analytics.Tracker
+	BookAccessPassword []byte
+	Catalog            *catalog.Catalog
+	ContentUpstream    *url.URL
+	Logger             *slog.Logger
+	Now                func() time.Time
+	TrustProxyHeaders  bool
 }
 
 type server struct {
-	analytics         *analytics.Tracker
-	catalog           *catalog.Catalog
-	logger            *slog.Logger
-	now               func() time.Time
-	proxy             *httputil.ReverseProxy
-	trustProxyHeaders bool
+	analytics          *analytics.Tracker
+	bookAccessPassword []byte
+	catalog            *catalog.Catalog
+	logger             *slog.Logger
+	now                func() time.Time
+	proxy              *httputil.ReverseProxy
+	trustProxyHeaders  bool
 }
 
 func New(config Config) http.Handler {
@@ -50,11 +52,12 @@ func New(config Config) http.Handler {
 		config.Now = time.Now
 	}
 	application := &server{
-		analytics:         config.Analytics,
-		catalog:           config.Catalog,
-		logger:            config.Logger,
-		now:               config.Now,
-		trustProxyHeaders: config.TrustProxyHeaders,
+		analytics:          config.Analytics,
+		bookAccessPassword: config.BookAccessPassword,
+		catalog:            config.Catalog,
+		logger:             config.Logger,
+		now:                config.Now,
+		trustProxyHeaders:  config.TrustProxyHeaders,
 	}
 	if config.ContentUpstream != nil {
 		application.proxy = httputil.NewSingleHostReverseProxy(config.ContentUpstream)
@@ -68,6 +71,7 @@ func New(config Config) http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /healthz", application.health)
 	mux.HandleFunc("POST /api/v1/analytics/metrics/query", application.queryMetrics)
+	mux.HandleFunc("POST /api/v1/books/access", application.grantBookAccess)
 	mux.HandleFunc("/api/v1/", notFound)
 	mux.HandleFunc("/", application.proxyContent)
 	return mux
@@ -151,6 +155,10 @@ func (s *server) proxyContent(response http.ResponseWriter, request *http.Reques
 		writeError(response, http.StatusServiceUnavailable, "content_unavailable", "content upstream is unavailable")
 		return
 	}
+	if catalog.IsBookChapterPath(request.URL.Path) && !s.hasBookAccess(request) {
+		s.serveBookAccess(response)
+		return
+	}
 	s.proxy.ServeHTTP(response, request)
 }
 
@@ -158,6 +166,10 @@ func (s *server) recordArticleView(upstreamResponse *http.Response) error {
 	request := upstreamResponse.Request
 	if strings.HasPrefix(request.URL.Path, "/posts/") || strings.HasPrefix(request.URL.Path, "/books/") {
 		upstreamResponse.Header.Set("Cache-Control", "private, no-cache, must-revalidate")
+	}
+	if catalog.IsBookChapterPath(request.URL.Path) {
+		upstreamResponse.Header.Set("Referrer-Policy", "no-referrer")
+		upstreamResponse.Header.Add("Vary", "Cookie")
 	}
 	if request.Method != http.MethodGet || upstreamResponse.StatusCode != http.StatusOK {
 		return nil

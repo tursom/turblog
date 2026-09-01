@@ -70,6 +70,20 @@ pnpm import:book /path/to/book.epub
 
 中学政治课本由专用导入器 `pnpm import:textbooks` 生成：初中《道德与法治》六三制各册与高中《思想政治》必修/选择性必修各册，正文来自国家中小学智慧教育平台（basic.smartedu.cn）官方电子教材 PDF 的文本层，按「单元 / 课 / 框」结构整理成书籍与章节 Markdown，封面取 PDF 首页。官方电子教材版权页及每页均标注“仅供个人学习使用，未经授权不得另做他用”，本仓库整理版本同样仅限本地个人学习使用，请勿公开部署或传播；正文插图未收录。个别册次（如最新修订版下册）在平台上仅存于需登录鉴权的存储桶，导入器会跳过并在结束时报告，届时请更换为公开的册次或以其他方式获取。
 
+### 图书章节访问控制
+
+书架 `/books/` 和每本书的资料、目录页保持公开，形如 `/books/<book-slug>/<chapter-slug>/` 的章节页由 Go 服务强制鉴权。章节令牌为 `HMAC-SHA-256(TURBLOG_BOOK_ACCESS_PASSWORD, 章节规范路径)`，因此一个令牌只能打开一个精确路径。分享链接把令牌放在 `#access=...` fragment 中；fragment 不会发送给 Nginx、Cloudflare 或外部站点。锁定页用令牌换取仅作用于当前章节路径的 HttpOnly 会话 Cookie，随后清除 fragment。
+
+在 `.env` 中配置至少 32 字节的高熵主密码（推荐使用 `openssl rand -base64 32` 生成），然后可从锁定页输入密码并复制分享链接，也可在项目目录生成：
+
+```bash
+pnpm book:share /books/guns-germs-steel/chapter-01/
+```
+
+`book:share` 从 `.env` 读取 `TURBLOG_BOOK_ACCESS_PASSWORD` 和 `PUBLIC_SITE_URL`。轮换主密码会立即使所有旧分享链接和 Cookie 失效。生产环境必须使用 HTTPS，否则浏览器的 Web Crypto 和安全传输边界无法成立。
+
+这是一层线上访问控制，不会加密 Git 历史、Markdown 源文件、Docker 镜像或 `public/images/books/` 下可直接访问的图片。当前图书文件已被 Git 跟踪，公开仓库或公开 GHCR 镜像仍会泄露正文；真正的私人数据必须移出公开 Git 历史并使用私有镜像/私有内容存储，图片也需要另行迁入受保护的内容接口。
+
 ## 访问统计后端
 
 `server/` 是 Tursom Log 的通用 Go 后端。文章访问统计是第一个模块；以后站长登录、管理后台和内容操作也由这个服务承载。当前公开接口只有批量指标查询：
@@ -100,17 +114,18 @@ go test -race ./...
 
 ## 容器部署
 
-Dockerfile 同时构建 Astro 静态站点和 `turblog-server`，并将两者放入同一个 Nginx 运行镜像。Compose 使用该镜像启动 `blog` 和 `server` 两个容器，入口代理把 `/posts/*`、`/books/*` 和 `/api/v1/*` 交给 Go；其他页面和静态资源直达 `blog`。Go 不可用时，文章和图书章节请求会回退到 `blog`，页面仍可访问，但该次访问不会统计。
+Dockerfile 同时构建 Astro 静态站点和 `turblog-server`，并将两者放入同一个 Nginx 运行镜像。Compose 使用该镜像启动 `blog` 和 `server` 两个容器，入口代理把 `/posts/*`、`/books/*` 和 `/api/v1/*` 交给 Go；其他页面和静态资源直达 `blog`。Go 不可用时，普通文章会回退到 `blog`，但 `/books/*` 会失败关闭，避免绕过章节鉴权。
 
 本地 Compose 默认监听 `8080`：
 
 ```bash
 export TURBLOG_VISITOR_HASH_KEY="$(openssl rand -hex 32)"
+export TURBLOG_BOOK_ACCESS_PASSWORD="$(openssl rand -base64 32)"
 docker compose -f docker-compose.local.yml pull
 docker compose -f docker-compose.local.yml up -d
 ```
 
-GitHub Actions 在 `master` 推送时构建并推送公开 GHCR 镜像。需要 VPS 自动更新时，才配置以下 Secrets：
+GitHub Actions 在 `master` 推送时构建并推送 GHCR 镜像。需要 VPS 自动更新时，才配置以下 Secrets：
 
 - `DEPLOY_WEBHOOK_URL`
 - `DEPLOY_WEBHOOK_TOKEN`
@@ -128,9 +143,10 @@ GitHub Actions 在 `master` 推送时构建并推送公开 GHCR 镜像。需要 
 ```bash
 WATCHTOWER_HTTP_API_TOKEN=replace-with-a-long-random-token
 TURBLOG_VISITOR_HASH_KEY=replace-with-output-of-openssl-rand-hex-32
+TURBLOG_BOOK_ACCESS_PASSWORD=replace-with-output-of-openssl-rand-base64-32
 ```
 
-用 `openssl rand -hex 32` 生成 `TURBLOG_VISITOR_HASH_KEY`，生成后长期保存。轮换它会改变当天的匿名摘要，可能让同一访客在轮换当天再次计数。然后拉取镜像并同步服务：
+用 `openssl rand -hex 32` 生成 `TURBLOG_VISITOR_HASH_KEY`，用 `openssl rand -base64 32` 生成独立的 `TURBLOG_BOOK_ACCESS_PASSWORD`，两者都要长期保存且不要提交。轮换前者会让同一访客在轮换当天可能再次计数；轮换后者会使全部图书分享链接失效。然后拉取镜像并同步服务：
 
 ```bash
 docker compose pull
@@ -180,4 +196,4 @@ docker compose ps
 
 不要只回滚其中一个容器。旧二进制如果遇到比自身更新的数据库版本会拒绝启动，此时文章仍会由 Nginx回退直连，但访问量接口不可用；应恢复兼容镜像或使用回滚前的 SQLite 备份。
 
-首次发布后，需要在 GitHub Packages 设置中确认 GHCR 包继承公开仓库的可见性。仓库公开，GitHub Issues 用于文章勘误和建议。首版后端只提供访问统计，不包含登录、权限或管理后台。
+首次发布后，需要在 GitHub Packages 设置中核对 GHCR 包的可见性。只要镜像中包含私人明文，GHCR 包就不能公开，并且 VPS 与 Watchtower 必须配置对应的私有仓库凭据。当前仓库可匿名读取，已经提交的私人内容还必须从公开仓库及其 Git 历史中移除；仅删除当前分支文件或启用章节访问控制都无法撤回既有公开副本。

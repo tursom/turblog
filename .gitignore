@@ -7,6 +7,7 @@ dist/
 pnpm-debug.log
 playwright-report/
 test-results/
+/data/
 
 .capital-import-*
 .mao-import-*

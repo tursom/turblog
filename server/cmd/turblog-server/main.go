@@ -50,11 +50,12 @@ func run(ctx context.Context, logger *slog.Logger) error {
 	defer tracker.Close()
 
 	handler := httpserver.New(httpserver.Config{
-		Analytics:         tracker,
-		Catalog:           articles,
-		ContentUpstream:   settings.ContentUpstream,
-		Logger:            logger,
-		TrustProxyHeaders: settings.TrustProxyHeaders,
+		Analytics:          tracker,
+		BookAccessPassword: settings.BookAccessPassword,
+		Catalog:            articles,
+		ContentUpstream:    settings.ContentUpstream,
+		Logger:             logger,
+		TrustProxyHeaders:  settings.TrustProxyHeaders,
 	})
 	server := &http.Server{
 		Addr:              settings.ListenAddress,
