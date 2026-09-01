@@ -74,6 +74,29 @@ test('Capital offers Chinese and German editions with parallel chapter links', a
   );
 });
 
+test('Mao selected works provides five grouped volumes and pinned source text', async ({
+  page,
+}) => {
+  await serveBuiltSite(page);
+  await page.goto(`${baseUrl}/books/`);
+
+  await expect(page.getByRole('link', { name: '毛泽东选集', exact: true })).toHaveCount(1);
+  await page.goto(`${baseUrl}/books/mao-selected-works/`);
+  await expect(page.locator('.book-toc-volume')).toHaveCount(5);
+  await expect(page.locator('.book-toc-volume').first().locator('h3')).toHaveText(
+    '第一卷 国内革命战争时期',
+  );
+  await expect(page.locator('.book-rights a')).toHaveAttribute(
+    'href',
+    /\/tree\/f23ff5c48d976561f888c6ce8c594725d5670e38$/,
+  );
+
+  await page.goto(`${baseUrl}/books/mao-selected-works/volume-01-article-001/`);
+  await expect(page.locator('.article-header h1')).toHaveText('中国社会各阶级的分析');
+  await expect(page.locator('.prose h1')).toHaveCount(0);
+  await expect(page.locator('.prose')).toContainText('谁是我们的敌人？谁是我们的朋友？');
+});
+
 test('Capital footnotes jump to the note and back to the reference', async ({ page }) => {
   await serveBuiltSite(page);
   await page.goto(`${baseUrl}/books/capital-zh/volume-01-chapter-01/`);

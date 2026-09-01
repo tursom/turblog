@@ -1,0 +1,23 @@
+---
+bookSlug: "mao-selected-works"
+chapterNumber: 163
+slug: "volume-05-article-004"
+title: "永远保持艰苦奋斗的作风"
+sourcePath: "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/162-%E6%B0%B8%E8%BF%9C%E4%BF%9D%E6%8C%81%E8%89%B0%E8%8B%A6%E5%A5%8B%E6%96%97%E7%9A%84%E4%BD%9C%E9%A3%8E.md"
+volumeNumber: 5
+volumeTitle: "第五卷 中国人民站起来了"
+volumeUnitNumber: 4
+unitType: "chapter"
+---
+
+（一九四九年十月二十六日）  
+  
+　　延安的同志们和陕甘宁边区的同胞们：   
+  
+　　接到你们的贺函，使我十分愉快和感谢。延安和陕甘宁边区，从一九三六年到一九四八年，曾经是中共中央的所在地，曾经是中国人民解放斗争的总后方。延安和陕甘宁边区的人民对于全国人民是有伟大贡献的。我庆祝延安和陕甘宁边区的人民继续团结一致，迅速恢复战争的创伤，发展经济建设和文化建设。我并且希望，全国一切革命工作人员永远保持过去十余年间在延安和陕甘宁边区的工作人员中所具有的艰苦奋斗的作风。   
+  
+　　毛泽东   
+  
+　　一九四九年十月二十六日   
+  
+（《毛泽东选集》第五卷，人民出版社1977年4月第1版，第12页）
