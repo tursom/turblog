@@ -36,14 +36,14 @@ type Config struct {
 }
 
 type server struct {
-	analytics          *analytics.Tracker
-	privateBookSlugs   map[string]struct{}
-	bookAccessPassword []byte
-	catalog            *catalog.Catalog
-	logger             *slog.Logger
-	now                func() time.Time
-	proxy              *httputil.ReverseProxy
-	trustProxyHeaders  bool
+	analytics         *analytics.Tracker
+	privateBookSlugs  map[string]struct{}
+	bookAccessKey     []byte
+	catalog           *catalog.Catalog
+	logger            *slog.Logger
+	now               func() time.Time
+	proxy             *httputil.ReverseProxy
+	trustProxyHeaders bool
 }
 
 func New(config Config) http.Handler {
@@ -54,13 +54,13 @@ func New(config Config) http.Handler {
 		config.Now = time.Now
 	}
 	application := &server{
-		analytics:          config.Analytics,
-		privateBookSlugs:   make(map[string]struct{}, len(config.PrivateBookSlugs)),
-		bookAccessPassword: config.BookAccessPassword,
-		catalog:            config.Catalog,
-		logger:             config.Logger,
-		now:                config.Now,
-		trustProxyHeaders:  config.TrustProxyHeaders,
+		analytics:         config.Analytics,
+		privateBookSlugs:  make(map[string]struct{}, len(config.PrivateBookSlugs)),
+		bookAccessKey:     deriveBookAccessKey(config.BookAccessPassword),
+		catalog:           config.Catalog,
+		logger:            config.Logger,
+		now:               config.Now,
+		trustProxyHeaders: config.TrustProxyHeaders,
 	}
 	for _, slug := range config.PrivateBookSlugs {
 		application.privateBookSlugs[slug] = struct{}{}

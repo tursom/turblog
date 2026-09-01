@@ -80,9 +80,9 @@ pnpm import:book /path/to/book.epub
 private: true
 ```
 
-受保护章节的令牌为 `HMAC-SHA-256(TURBLOG_BOOK_ACCESS_PASSWORD, 章节规范路径)`，因此一个令牌只能打开一个精确路径。分享链接把令牌放在 `#access=...` fragment 中；fragment 不会发送给 Nginx、Cloudflare 或外部站点。锁定页用令牌换取仅作用于当前章节路径的 HttpOnly 会话 Cookie，随后清除 fragment。
+受保护章节先使用 60 万轮 `PBKDF2-HMAC-SHA-256` 从 `TURBLOG_BOOK_ACCESS_PASSWORD` 派生签名密钥，再以 `HMAC-SHA-256(派生密钥, 章节规范路径)` 生成令牌，因此一个令牌只能打开一个精确路径。慢速派生能提高离线猜测分享令牌的成本，但不能弥补过弱的口令。分享链接把令牌放在 `#access=...` fragment 中；fragment 不会发送给 Nginx、Cloudflare 或外部站点。锁定页用令牌换取仅作用于当前章节路径的 HttpOnly 会话 Cookie，随后清除 fragment。
 
-在 `.env` 中配置至少 32 字节的高熵主密码（推荐使用 `openssl rand -base64 32` 生成）。修改书籍的 `private` 元数据后重新构建并部署镜像即可，不需要修改环境变量。可从锁定页输入密码并复制分享链接，也可在项目目录生成：
+在 `.env` 中配置至少 8 个字符的可记忆口令，建议使用由多个无关词组成的长短语，而不是常见单词、生日或连续数字。修改书籍的 `private` 元数据后重新构建并部署镜像即可，不需要修改环境变量。可从锁定页输入口令并复制分享链接，也可在项目目录生成：
 
 ```bash
 pnpm book:share /books/daode-yu-fazhi-7-shang/daode-yu-fazhi-7-shang-lesson-01/
@@ -128,7 +128,7 @@ Dockerfile 同时构建 Astro 静态站点和 `turblog-server`，并将两者放
 
 ```bash
 export TURBLOG_VISITOR_HASH_KEY="$(openssl rand -hex 32)"
-export TURBLOG_BOOK_ACCESS_PASSWORD="$(openssl rand -base64 32)"
+export TURBLOG_BOOK_ACCESS_PASSWORD='choose-a-memorable-passphrase'
 docker compose -f docker-compose.local.yml pull
 docker compose -f docker-compose.local.yml up -d
 ```
@@ -151,10 +151,10 @@ GitHub Actions 在 `master` 推送时构建并推送 GHCR 镜像。需要 VPS �
 ```bash
 WATCHTOWER_HTTP_API_TOKEN=replace-with-a-long-random-token
 TURBLOG_VISITOR_HASH_KEY=replace-with-output-of-openssl-rand-hex-32
-TURBLOG_BOOK_ACCESS_PASSWORD=replace-with-output-of-openssl-rand-base64-32
+TURBLOG_BOOK_ACCESS_PASSWORD=choose-a-memorable-passphrase
 ```
 
-用 `openssl rand -hex 32` 生成 `TURBLOG_VISITOR_HASH_KEY`，用 `openssl rand -base64 32` 生成独立的 `TURBLOG_BOOK_ACCESS_PASSWORD`，两者都要长期保存且不要提交。书籍 Front Matter 的 `private` 字段是唯一决定哪些书需要鉴权的标记；构建出的访问清单缺失或无效时 Go 服务会拒绝启动。轮换统计密钥会让同一访客在轮换当天可能再次计数；轮换图书密码会使全部受保护章节的分享链接失效。然后拉取镜像并同步服务：
+用 `openssl rand -hex 32` 生成 `TURBLOG_VISITOR_HASH_KEY`；`TURBLOG_BOOK_ACCESS_PASSWORD` 使用至少 8 个字符且便于记忆的长短语。两者都要长期保存且不要提交。书籍 Front Matter 的 `private` 字段是唯一决定哪些书需要鉴权的标记；构建出的访问清单缺失或无效时 Go 服务会拒绝启动。轮换统计密钥会让同一访客在轮换当天可能再次计数；轮换图书口令或令牌派生版本会使全部受保护章节的分享链接失效。然后拉取镜像并同步服务：
 
 ```bash
 docker compose pull

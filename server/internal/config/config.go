@@ -6,6 +6,7 @@ import (
 	"net/url"
 	"strconv"
 	"time"
+	"unicode/utf8"
 )
 
 type Values struct {
@@ -25,10 +26,11 @@ func Load(getenv func(string) string) (Values, error) {
 	if len(hashKey) < 32 {
 		return Values{}, errors.New("TURBLOG_VISITOR_HASH_KEY must contain at least 32 bytes")
 	}
-	bookAccessPassword := []byte(getenv("TURBLOG_BOOK_ACCESS_PASSWORD"))
-	if len(bookAccessPassword) < 32 {
-		return Values{}, errors.New("TURBLOG_BOOK_ACCESS_PASSWORD must contain at least 32 bytes")
+	bookAccessPasswordValue := getenv("TURBLOG_BOOK_ACCESS_PASSWORD")
+	if !utf8.ValidString(bookAccessPasswordValue) || utf8.RuneCountInString(bookAccessPasswordValue) < 8 {
+		return Values{}, errors.New("TURBLOG_BOOK_ACCESS_PASSWORD must contain at least 8 characters")
 	}
+	bookAccessPassword := []byte(bookAccessPasswordValue)
 	locationName := valueOrDefault(getenv("TURBLOG_TIMEZONE"), "Asia/Shanghai")
 	location, err := time.LoadLocation(locationName)
 	if err != nil {

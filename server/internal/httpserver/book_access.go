@@ -3,6 +3,7 @@ package httpserver
 import (
 	"bytes"
 	"crypto/hmac"
+	"crypto/pbkdf2"
 	"crypto/rand"
 	"crypto/sha256"
 	"encoding/base64"
@@ -13,7 +14,11 @@ import (
 	"strings"
 )
 
-const bookAccessCookieName = "turblog_book_access"
+const (
+	bookAccessCookieName       = "turblog_book_access"
+	bookAccessPBKDF2Iterations = 600_000
+	bookAccessPBKDF2Salt       = "turblog-book-access-v2"
+)
 
 var bookAccessPage = template.Must(template.New("book-access").Parse(`<!doctype html>
 <html lang="zh-CN">
@@ -56,7 +61,7 @@ var bookAccessPage = template.Must(template.New("book-access").Parse(`<!doctype 
     <p class="lead">输入站点主密码以阅读本页，或打开主人分享的完整链接。</p>
     <form id="access-form">
       <label for="password">站点主密码</label>
-      <input id="password" name="password" type="password" autocomplete="current-password" required autofocus>
+      <input id="password" name="password" type="password" autocomplete="current-password" minlength="8" required autofocus>
       <div class="actions">
         <button type="submit">解锁并阅读</button>
         <button id="copy-link" type="button">复制本页分享链接</button>
@@ -89,11 +94,24 @@ var bookAccessPage = template.Must(template.New("book-access").Parse(`<!doctype 
 
     async function tokenFor(password) {
       const encoder = new TextEncoder();
-      const key = await crypto.subtle.importKey(
-        'raw', encoder.encode(password), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']
+      const passwordKey = await crypto.subtle.importKey(
+        'raw', encoder.encode(password), 'PBKDF2', false, ['deriveBits']
       );
-      const signature = await crypto.subtle.sign('HMAC', key, encoder.encode(location.pathname));
-      return base64url(new Uint8Array(signature));
+      const derivedKey = await crypto.subtle.deriveBits(
+        {
+          name: 'PBKDF2',
+          hash: 'SHA-256',
+          iterations: 600000,
+          salt: encoder.encode('turblog-book-access-v2'),
+        },
+        passwordKey,
+        256
+      );
+      const signingKey = await crypto.subtle.importKey(
+        'raw', derivedKey, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']
+      );
+      const token = await crypto.subtle.sign('HMAC', signingKey, encoder.encode(location.pathname));
+      return base64url(new Uint8Array(token));
     }
 
     async function unlock(token) {
@@ -193,15 +211,32 @@ func (s *server) hasBookAccess(request *http.Request) bool {
 	return err == nil && s.validBookAccessToken(request.URL.Path, cookie.Value)
 }
 
+func deriveBookAccessKey(password []byte) []byte {
+	if len(password) == 0 {
+		return nil
+	}
+	key, err := pbkdf2.Key(
+		sha256.New,
+		string(password),
+		[]byte(bookAccessPBKDF2Salt),
+		bookAccessPBKDF2Iterations,
+		sha256.Size,
+	)
+	if err != nil {
+		return nil
+	}
+	return key
+}
+
 func (s *server) validBookAccessToken(path, encodedToken string) bool {
-	if len(s.bookAccessPassword) == 0 {
+	if len(s.bookAccessKey) == 0 {
 		return false
 	}
 	provided, err := base64.RawURLEncoding.DecodeString(encodedToken)
 	if err != nil || len(provided) != sha256.Size {
 		return false
 	}
-	mac := hmac.New(sha256.New, s.bookAccessPassword)
+	mac := hmac.New(sha256.New, s.bookAccessKey)
 	_, _ = mac.Write([]byte(path))
 	return hmac.Equal(provided, mac.Sum(nil))
 }

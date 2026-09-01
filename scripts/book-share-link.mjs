@@ -1,4 +1,4 @@
-import { createHmac } from 'node:crypto';
+import { createHmac, pbkdf2Sync } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
@@ -42,11 +42,12 @@ if (metadata.slug !== bookSlug || metadata.private !== true) {
 }
 
 const password = process.env.TURBLOG_BOOK_ACCESS_PASSWORD ?? '';
-if (Buffer.byteLength(password, 'utf8') < 32) {
-  console.error('TURBLOG_BOOK_ACCESS_PASSWORD must contain at least 32 bytes.');
+if (Array.from(password).length < 8) {
+  console.error('TURBLOG_BOOK_ACCESS_PASSWORD must contain at least 8 characters.');
   process.exit(1);
 }
 
+const key = pbkdf2Sync(password, 'turblog-book-access-v2', 600_000, 32, 'sha256');
+const token = createHmac('sha256', key).update(chapterPath).digest('base64url');
 const siteURL = (process.env.PUBLIC_SITE_URL || 'http://localhost:4321').replace(/\/+$/, '');
-const token = createHmac('sha256', password).update(chapterPath).digest('base64url');
 console.log(`${siteURL}${chapterPath}#access=${token}`);

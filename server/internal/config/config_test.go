@@ -11,7 +11,7 @@ func TestLoadUsesProductionDefaultsAndRequiresHashKey(t *testing.T) {
 
 	values := map[string]string{
 		"TURBLOG_VISITOR_HASH_KEY":     "0123456789abcdef0123456789abcdef",
-		"TURBLOG_BOOK_ACCESS_PASSWORD": "0123456789abcdef0123456789abcdef",
+		"TURBLOG_BOOK_ACCESS_PASSWORD": "book-pass",
 	}
 	loaded, err := config.Load(func(name string) string { return values[name] })
 	if err != nil {
@@ -56,10 +56,8 @@ func TestLoadUsesProductionDefaultsAndRequiresHashKey(t *testing.T) {
 		t.Fatal("Load() accepted a missing hash key")
 	}
 	values["TURBLOG_VISITOR_HASH_KEY"] = "0123456789abcdef0123456789abcdef"
-	values["TURBLOG_BOOK_ACCESS_PASSWORD"] = "too-short"
+	values["TURBLOG_BOOK_ACCESS_PASSWORD"] = "short"
 	if _, err := config.Load(func(name string) string { return values[name] }); err == nil {
-		t.Fatal("Load() accepted a short book access password")
+		t.Fatal("Load() accepted a book access password shorter than eight characters")
 	}
-
-	values["TURBLOG_BOOK_ACCESS_PASSWORD"] = "0123456789abcdef0123456789abcdef"
 }

@@ -3,9 +3,6 @@ package httpserver_test
 import (
 	"bytes"
 	"context"
-	"crypto/hmac"
-	"crypto/sha256"
-	"encoding/base64"
 	"encoding/json"
 	"io"
 	"log/slog"
@@ -24,7 +21,7 @@ import (
 	"github.com/tursom/turblog/server/internal/httpserver"
 )
 
-const testBookAccessPassword = "0123456789abcdef0123456789abcdef"
+const testBookAccessPassword = "book-pass"
 
 func TestMetricsQueryReturnsAllRequestedArticleCountsInOneResponse(t *testing.T) {
 	t.Parallel()
@@ -300,7 +297,7 @@ func TestBookChapterAccessIsRequiredAndScopedToOnePath(t *testing.T) {
 	}
 
 	chapterPath := "/books/guns-germs-steel/chapter-01/"
-	token := bookAccessToken(chapterPath, password)
+	token := "dRtEPC7PNuJYlJTZg9oOAkzHUCa2UW9kXGuVb5Z560g"
 	validBody, err := json.Marshal(map[string]string{"path": chapterPath, "token": token})
 	if err != nil {
 		t.Fatal(err)
@@ -508,12 +505,6 @@ func TestArticleProxyReturnsBadGatewayWhenUpstreamIsUnavailable(t *testing.T) {
 	if response.Code != http.StatusBadGateway {
 		t.Fatalf("proxy response status = %d, body = %s", response.Code, response.Body.String())
 	}
-}
-
-func bookAccessToken(path, password string) string {
-	mac := hmac.New(sha256.New, []byte(password))
-	_, _ = mac.Write([]byte(path))
-	return base64.RawURLEncoding.EncodeToString(mac.Sum(nil))
 }
 
 func newBackend(t *testing.T, articleSlugs []string) (*analytics.Tracker, *catalog.Catalog) {
