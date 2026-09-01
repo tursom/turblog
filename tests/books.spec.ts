@@ -1,6 +1,8 @@
 import { readFile } from 'node:fs/promises';
 import { resolve, sep } from 'node:path';
+import { createMarkdownProcessor } from '@astrojs/markdown-remark';
 import { expect, test, type Page } from 'playwright/test';
+import rehypeLegacyFootnoteAnchors from '../src/lib/rehype-legacy-footnote-anchors.mjs';
 
 const baseUrl = 'http://turblog.test';
 const distDirectory = resolve('dist');
@@ -70,6 +72,235 @@ test('Capital offers Chinese and German editions with parallel chapter links', a
     'href',
     '/books/capital-de/volume-01-chapter-01-de/',
   );
+});
+
+test('Capital footnotes jump to the note and back to the reference', async ({ page }) => {
+  await serveBuiltSite(page);
+  await page.goto(`${baseUrl}/books/capital-zh/volume-01-chapter-01/`);
+
+  const referenceId = 'zh-v1-01-_ftnref1';
+  const footnoteId = 'zh-v1-01-_ftn1';
+  const reference = page.locator(`#${referenceId}`);
+  const footnote = page.locator(`#${footnoteId}`);
+
+  await expect(reference).toHaveCount(1);
+  await expect(footnote).toHaveCount(1);
+
+  await reference.click();
+  await expect(page).toHaveURL(`${baseUrl}/books/capital-zh/volume-01-chapter-01/#${footnoteId}`);
+  await expect(footnote).toBeInViewport();
+
+  await footnote.click();
+  await expect(page).toHaveURL(`${baseUrl}/books/capital-zh/volume-01-chapter-01/#${referenceId}`);
+  await expect(reference).toBeInViewport();
+
+  await page.goto(`${baseUrl}/books/capital-de/volume-01-chapter-02-de/`);
+  const germanReference = page.locator('#de-v1-me23_099-Z44');
+  const germanFootnote = page.locator('#de-v1-me23_099-M44');
+
+  await germanReference.click();
+  await expect(page).toHaveURL(
+    `${baseUrl}/books/capital-de/volume-01-chapter-02-de/#de-v1-me23_099-M44`,
+  );
+  await expect(germanFootnote).toBeInViewport();
+
+  await germanFootnote.click();
+  await expect(page).toHaveURL(
+    `${baseUrl}/books/capital-de/volume-01-chapter-02-de/#de-v1-me23_099-Z44`,
+  );
+  await expect(germanReference).toBeInViewport();
+});
+
+test('Capital footnotes show their content on hover without navigating', async ({ page }) => {
+  await serveBuiltSite(page);
+  await page.goto(`${baseUrl}/books/capital-zh/volume-01-chapter-01/`);
+
+  const reference = page.locator('#zh-v1-01-_ftnref1');
+  const preview = page.locator('[data-footnote-preview-panel]');
+
+  await reference.hover();
+
+  await expect(preview).toBeVisible();
+  await expect(preview).toContainText('卡尔·马克思《政治经济学批判》1859年柏林版第3页');
+  await expect(preview).toContainText('【26】');
+  await expect(preview.locator('a[href="#zh-v1-01-_ftn1026"]')).toHaveCount(0);
+  await expect(page).toHaveURL(`${baseUrl}/books/capital-zh/volume-01-chapter-01/`);
+
+  const referenceBox = await reference.boundingBox();
+  const previewBox = await preview.boundingBox();
+  expect(referenceBox).not.toBeNull();
+  expect(previewBox).not.toBeNull();
+  expect(previewBox!.y + previewBox!.height).toBeLessThanOrEqual(referenceBox!.y);
+
+  await preview.hover();
+  await page.waitForTimeout(180);
+  await expect(preview).toBeVisible();
+
+  await page.locator('.article-header h1').hover();
+  await expect(preview).toBeHidden();
+
+  await reference.evaluate((element) => element.scrollIntoView({ block: 'start' }));
+  await reference.hover();
+  const belowReferenceBox = await reference.boundingBox();
+  const belowPreviewBox = await preview.boundingBox();
+  expect(belowReferenceBox).not.toBeNull();
+  expect(belowPreviewBox).not.toBeNull();
+  expect(belowPreviewBox!.y).toBeGreaterThanOrEqual(
+    belowReferenceBox!.y + belowReferenceBox!.height,
+  );
+
+  await page.locator('.article-header h1').click();
+  await expect(preview).toBeHidden();
+
+  await reference.focus();
+  await expect(preview).toBeVisible();
+  await page.locator('a[href="/books/"]').first().focus();
+  await expect(preview).toBeHidden();
+});
+
+test('German footnote previews isolate adjacent notes', async ({ page }) => {
+  await serveBuiltSite(page);
+  await page.goto(`${baseUrl}/books/capital-de/volume-01-chapter-08-de/`);
+
+  const preview = page.locator('[data-footnote-preview-panel]');
+  const note107 = page.locator('#de-v1-me23_245-Z107');
+  const note108 = page.locator('#de-v1-me23_245-Z108');
+
+  await note107.hover();
+  await expect(preview).toContainText('John Ward');
+  await expect(preview).not.toContainText('Ferrands Rede');
+
+  await note108.hover();
+  await expect(preview).toContainText('Ferrands Rede');
+  await expect(preview).not.toContainText('John Ward');
+  await expect(page.locator('#de-v1-me23_245-M107')).not.toHaveAttribute(
+    'data-footnote-preview-ref',
+    '',
+  );
+
+  await page.goto(`${baseUrl}/books/capital-de/volume-03-preface-de/`);
+  await page.locator('#de-v3-me25_007-FNankered1').hover();
+  await expect(preview).toContainText('Peter Fireman');
+  await expect(preview).not.toContainText('Stuttgart : Dietz, 1889');
+
+  await page.goto(`${baseUrl}/books/capital-de/volume-01-chapter-13-de/`);
+  await page.locator('#de-v1-me23_483-Z296').hover();
+  await expect(preview).toContainText('25 Kubikzoll Luft');
+});
+
+test('standard Markdown footnotes preview complete rich content', async ({ page }) => {
+  const renderer = await createMarkdownProcessor({
+    rehypePlugins: [rehypeLegacyFootnoteAnchors],
+  });
+  const rendered = await renderer.render(`Reference[^complete]. Text only[^text-only].
+
+[^complete]: First *rich* paragraph with an [external link](https://example.com/docs-M1_ftn).
+
+    Second paragraph.
+
+    ${'Long footnote content. '.repeat(180)}
+
+[^text-only]: ${'Keyboard scroll content. '.repeat(180)}`);
+
+  await serveBuiltSite(page);
+  await page.setViewportSize({ width: 360, height: 640 });
+  await page.goto(`${baseUrl}/about/`);
+  await page.locator('.about-content').evaluate((container, html) => {
+    container.insertAdjacentHTML('beforeend', html);
+  }, rendered.code);
+
+  const reference = page.locator('#user-content-fnref-complete');
+  await reference.focus();
+  const preview = page.locator('[data-footnote-preview-panel]');
+
+  await expect(preview).toBeVisible();
+  await expect(preview.locator('p')).toHaveCount(3);
+  await expect(preview.locator('em')).toHaveText('rich');
+  await expect(preview.getByRole('link', { name: 'external link' })).toHaveAttribute(
+    'href',
+    'https://example.com/docs-M1_ftn',
+  );
+  await expect(preview).toContainText('Second paragraph.');
+  await expect(preview.locator('[data-footnote-backref]')).toHaveCount(0);
+  await expect(preview.locator('[id]')).toHaveCount(0);
+
+  const dimensions = await preview.evaluate((element) => ({
+    box: element.getBoundingClientRect().toJSON(),
+    clientHeight: element.clientHeight,
+    scrollHeight: element.scrollHeight,
+  }));
+  expect(dimensions.scrollHeight).toBeGreaterThan(dimensions.clientHeight);
+  expect(dimensions.box.left).toBeGreaterThanOrEqual(12);
+  expect(dimensions.box.right).toBeLessThanOrEqual(348);
+  expect(dimensions.box.top).toBeGreaterThanOrEqual(12);
+  expect(dimensions.box.bottom).toBeLessThanOrEqual(628);
+
+  const externalLink = preview.getByRole('link', { name: 'external link' });
+  await page.keyboard.press('Tab');
+  await expect(externalLink).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(reference).toBeFocused();
+
+  const lightBackground = await preview.evaluate(
+    (element) => getComputedStyle(element).backgroundColor,
+  );
+  await page.evaluate(() => {
+    document.documentElement.dataset.theme = 'dark';
+  });
+  await expect
+    .poll(() => preview.evaluate((element) => getComputedStyle(element).backgroundColor))
+    .not.toBe(lightBackground);
+
+  await page.keyboard.press('Escape');
+  await expect(preview).toBeHidden();
+  await expect(reference).toBeFocused();
+
+  const textOnlyReference = page.locator('#user-content-fnref-text-only');
+  await textOnlyReference.focus();
+  await expect(preview).toBeVisible();
+  await page.keyboard.press('Tab');
+  await expect(preview).toBeFocused();
+  await page.keyboard.press('PageDown');
+  await expect.poll(() => preview.evaluate((element) => element.scrollTop)).toBeGreaterThan(0);
+  await page.keyboard.press('Shift+Tab');
+  await expect(textOnlyReference).toBeFocused();
+});
+
+test('touching a footnote previews first and navigates on the second tap', async ({ browser }) => {
+  const context = await browser.newContext({
+    hasTouch: true,
+    isMobile: true,
+    viewport: { width: 390, height: 844 },
+  });
+  const page = await context.newPage();
+  await serveBuiltSite(page);
+  await page.goto(`${baseUrl}/books/capital-zh/volume-01-chapter-01/`);
+
+  const reference = page.locator('#zh-v1-01-_ftnref1');
+  const preview = page.locator('[data-footnote-preview-panel]');
+  const initialUrl = page.url();
+
+  await reference.click();
+  await expect(page).toHaveURL(`${baseUrl}/books/capital-zh/volume-01-chapter-01/#zh-v1-01-_ftn1`);
+
+  await page.goto(initialUrl);
+  await reference.tap();
+  await expect(preview).toBeVisible();
+  await expect(page).toHaveURL(initialUrl);
+
+  await page.locator('.article-header h1').tap();
+  await expect(preview).toBeHidden();
+
+  const secondReference = page.locator('#zh-v1-01-_ftnref2');
+  await secondReference.tap();
+  await expect(preview).toBeVisible();
+  await expect(preview).toContainText('这是精神的食欲，就象肉体的饥饿那样自然');
+  await expect(page).toHaveURL(initialUrl);
+
+  await secondReference.tap();
+  await expect(page).toHaveURL(`${baseUrl}/books/capital-zh/volume-01-chapter-01/#zh-v1-01-_ftn2`);
+  await expect(page.locator('#zh-v1-01-_ftn2')).toBeInViewport();
+  await context.close();
 });
 
 test('book chapter has toc navigation and its own metric', async ({ page }) => {

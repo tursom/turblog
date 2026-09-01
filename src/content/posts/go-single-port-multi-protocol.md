@@ -48,7 +48,7 @@ return mux.Serve()
 
 短示例容易盖住几个细节。`cmux.Match` 的注册顺序就是匹配顺序，更具体的协议放前面，兜底放最后；先注册 `cmux.Any()`，后面的规则永远不会跑。matcher 读过的数据也不会凭空消失——`cmux` 用带缓冲的连接包一层，下游会先读到刚才窥探过的字节，再继续读底层连接。
 
-gRPC 客户端还可能在发完完整请求头之前，先等服务端 HTTP/2 `SETTINGS` frame。`MatchWithWriters` 允许 matcher 在识别期间先写出设置帧。会写连接的 matcher 会影响真正协议服务器接手前的线级状态，只在明确需要时用。
+gRPC 客户端还可能在发完完整请求头之前，先等服务端 HTTP/2 `SETTINGS` frame。`MatchWithWriters` 允许 matcher 在识别期间先写出设置帧。会往连接写数据的 matcher 会影响真正的协议服务器接手前的连接状态，只在明确需要时用。
 
 Content-Type 也不是只有精确的 `application/grpc`。官方 [gRPC over HTTP/2 协议](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) 允许 `application/grpc+proto`、`application/grpc+json` 以及自定义后缀。用精确值 matcher 会把合法变体拒掉，通用实现应该匹配前缀。
 
@@ -99,7 +99,7 @@ server := &http.Server{
 }
 ```
 
-这段还能解释大量存量服务，但不该再无条件复制。当前 `x/net/http2/h2c` 已标记 deprecated；新服务如果能约束客户端用 prior knowledge，优先用标准库的 `Protocols`。现有客户端依赖 HTTP/1.1 upgrade 的，不能没做兼容性验证就换。旧 wrapper 会先把 h2c 连接的首个请求完整读进内存，外层要加 `http.MaxBytesHandler`。
+不少存量服务还在跑这段写法，但新代码不该再无条件复制。当前 `x/net/http2/h2c` 已标记 deprecated；新服务如果能约束客户端用 prior knowledge，优先用标准库的 `Protocols`。现有客户端依赖 HTTP/1.1 upgrade 的，不能没做兼容性验证就换。旧 wrapper 会先把 h2c 连接的首个请求完整读进内存，外层要加 `http.MaxBytesHandler`。
 
 [`grpc.Server.ServeHTTP`](https://pkg.go.dev/google.golang.org/grpc#Server.ServeHTTP) 目前仍标 Experimental。它用的是 Go 标准库的 HTTP/2 server，和 `grpc.Server.Serve` 用的 grpc-go HTTP/2 server 是两套实现，支持和性能可能不同。实际用到的 gRPC 功能和负载要自己测过，不能把两种入口当成无条件等价。
 

@@ -2,6 +2,7 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
 import rehypeMermaid from 'rehype-mermaid';
+import rehypeLegacyFootnoteAnchors from './src/lib/rehype-legacy-footnote-anchors.mjs';
 
 const siteUrl = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
 
@@ -26,6 +27,7 @@ export default defineConfig({
     },
     processor: unified({
       rehypePlugins: [
+        rehypeLegacyFootnoteAnchors,
         [
           rehypeMermaid,
           {

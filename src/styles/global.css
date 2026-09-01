@@ -981,6 +981,72 @@ img {
   text-underline-offset: 3px;
 }
 
+.footnote-preview {
+  position: fixed;
+  z-index: 80;
+  box-sizing: border-box;
+  width: min(480px, calc(100vw - 24px));
+  max-height: min(50vh, 420px);
+  padding: 15px 17px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.footnote-preview[hidden] {
+  display: none;
+}
+
+.footnote-preview-content > :first-child {
+  margin-top: 0;
+}
+
+.footnote-preview-content > :last-child {
+  margin-bottom: 0;
+}
+
+.footnote-preview-content p,
+.footnote-preview-content ul,
+.footnote-preview-content ol,
+.footnote-preview-content blockquote {
+  margin: 0 0 12px;
+}
+
+.footnote-preview-content ul,
+.footnote-preview-content ol {
+  padding-left: 22px;
+}
+
+.footnote-preview-content blockquote {
+  padding-left: 12px;
+  border-left: 2px solid var(--line);
+  color: var(--muted);
+}
+
+.footnote-preview-content a {
+  color: var(--accent-strong);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footnote-preview-content img,
+.footnote-preview-content video,
+.footnote-preview-content table,
+.footnote-preview-content pre {
+  max-width: 100%;
+}
+
+.footnote-preview-content pre,
+.footnote-preview-content table {
+  overflow: auto;
+}
+
 .prose blockquote {
   margin-left: 0;
   padding: 2px 0 2px 18px;

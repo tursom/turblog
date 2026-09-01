@@ -4,6 +4,7 @@ import ArticleViewCounts from '@/components/ArticleViewCounts.astro';
 import MobileMenu from '@/components/MobileMenu.astro';
 import ThemeToggle from '@/components/ThemeToggle.astro';
 import '@/styles/global.css';
+import footnotePreviewScript from '@/lib/footnote-preview.js?raw';
 import type { ImageMetadata } from 'astro';
 
 interface Props {
@@ -79,6 +80,18 @@ const apiBasePath = (import.meta.env.PUBLIC_API_BASE_PATH || '/api/v1').replace(
       </div>
     </div>
     <div class="desktop-theme"><ThemeToggle /></div>
+    <aside
+      id="footnote-preview"
+      class="footnote-preview"
+      data-footnote-preview-panel
+      role="region"
+      aria-label="脚注预览"
+      tabindex="-1"
+      hidden
+    >
+      <div class="footnote-preview-content" data-footnote-preview-content></div>
+    </aside>
+    <script is:inline set:html={footnotePreviewScript} />
     <script is:inline>
       (() => {
         const root = document.documentElement;

@@ -82,7 +82,7 @@ flowchart TB
   G --> H["VPS<br/>更新博客容器"]
 ```
 
-发布顺序是后来才想清楚的。有一次如果把 GitHub 的代码 push 事件直接转给服务器，事件会在镜像还在构建时就到。Watchtower 立刻去查，看到的还是旧的 `latest`，更新就悄悄没了。所以 Actions 必须先确认镜像已经到 GHCR，再调 Webhook。
+发布顺序是后来才想清楚的。有一次，GitHub 的 push 事件直接转给了服务器，事件在镜像还在构建时就到了。Watchtower 立刻去查，看到的还是旧的 `latest`，更新就悄悄没了。所以 Actions 必须先确认镜像已经到 GHCR，再调 Webhook。
 
 后来还确定博客和 Webhook 共用一个宿主机端口，按路径区分。生产 Compose 同时跑博客、Watchtower 和入口代理。凭证分别放在 Actions Secrets 和 VPS 环境文件里。以后换 Git 托管平台，静态镜像和 Compose 可以留着，要换的是构建触发和镜像仓库。
 
