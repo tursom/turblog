@@ -80,7 +80,9 @@ pnpm import:book /path/to/book.epub
 private: true
 ```
 
-受保护章节先使用 60 万轮 `PBKDF2-HMAC-SHA-256` 从 `TURBLOG_BOOK_ACCESS_PASSWORD` 派生签名密钥，再以 `HMAC-SHA-256(派生密钥, 章节规范路径)` 生成令牌，因此一个令牌只能打开一个精确路径。慢速派生能提高离线猜测分享令牌的成本，但不能弥补过弱的口令。分享链接把令牌放在 `#access=...` fragment 中；fragment 不会发送给 Nginx、Cloudflare 或外部站点。锁定页用令牌换取仅作用于当前章节路径的 HttpOnly 会话 Cookie，随后清除 fragment。
+受保护章节先使用 60 万轮 `PBKDF2-HMAC-SHA-256` 从 `TURBLOG_BOOK_ACCESS_PASSWORD` 派生签名密钥，再以 `HMAC-SHA-256(派生密钥, 章节规范路径)` 生成章节令牌，因此一个分享令牌只能打开一个精确路径。慢速派生能提高离线猜测分享令牌的成本，但不能弥补过弱的口令。
+
+在锁定页直接输入主口令会换取作用于 `/books/`、持续 30 天的 HttpOnly 主人 Cookie，浏览器在此期间可以连续阅读所有受保护章节。分享链接仍把章节令牌放在 `#access=...` fragment 中；fragment 不会发送给 Nginx、Cloudflare 或外部站点，并且只能换取当前章节路径的 HttpOnly Cookie。两种流程都会在授权后清除 fragment。
 
 在 `.env` 中配置至少 8 个字符的可记忆口令，建议使用由多个无关词组成的长短语，而不是常见单词、生日或连续数字。修改书籍的 `private` 元数据后重新构建并部署镜像即可，不需要修改环境变量。可从锁定页输入口令并复制分享链接，也可在项目目录生成：
 

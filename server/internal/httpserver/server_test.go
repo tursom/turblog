@@ -334,6 +334,37 @@ func TestBookChapterAccessIsRequiredAndScopedToOnePath(t *testing.T) {
 		t.Fatalf("other chapter response = %d %q", otherResponse.Code, otherResponse.Body.String())
 	}
 
+	ownerBody := bytes.NewBufferString(`{"path":"/books/guns-germs-steel/chapter-01/","owner_token":"` + token + `"}`)
+	ownerRequest := httptest.NewRequest(http.MethodPost, "/api/v1/books/access", ownerBody)
+	ownerRequest.Header.Set("Content-Type", "application/json")
+	forgedOwnerResponse := httptest.NewRecorder()
+	handler.ServeHTTP(forgedOwnerResponse, ownerRequest)
+	if forgedOwnerResponse.Code != http.StatusForbidden {
+		t.Fatalf("chapter token used as owner token response = %d %q", forgedOwnerResponse.Code, forgedOwnerResponse.Body.String())
+	}
+
+	ownerBody = bytes.NewBufferString(`{"path":"/books/guns-germs-steel/chapter-01/","owner_token":"0b7bBGl9qWXMvGUdEgMGNlkPKhLhvS85SJ0HL6cXHAs"}`)
+	ownerRequest = httptest.NewRequest(http.MethodPost, "/api/v1/books/access", ownerBody)
+	ownerRequest.Header.Set("Content-Type", "application/json")
+	ownerRequest.Header.Set("X-Forwarded-Proto", "https")
+	ownerResponse := httptest.NewRecorder()
+	handler.ServeHTTP(ownerResponse, ownerRequest)
+	if ownerResponse.Code != http.StatusNoContent {
+		t.Fatalf("owner token response = %d %q", ownerResponse.Code, ownerResponse.Body.String())
+	}
+	ownerCookies := ownerResponse.Result().Cookies()
+	if len(ownerCookies) != 1 || ownerCookies[0].Path != "/books/" || ownerCookies[0].MaxAge != 30*24*60*60 || !ownerCookies[0].HttpOnly || !ownerCookies[0].Secure || ownerCookies[0].SameSite != http.SameSiteLaxMode {
+		t.Fatalf("owner access cookie = %#v", ownerCookies)
+	}
+
+	ownerAuthorizedRequest := httptest.NewRequest(http.MethodGet, "/books/guns-germs-steel/chapter-02/", nil)
+	ownerAuthorizedRequest.AddCookie(ownerCookies[0])
+	ownerAuthorizedResponse := httptest.NewRecorder()
+	handler.ServeHTTP(ownerAuthorizedResponse, ownerAuthorizedRequest)
+	if ownerAuthorizedResponse.Code != http.StatusOK || !strings.Contains(ownerAuthorizedResponse.Body.String(), "<article>") {
+		t.Fatalf("owner authorized response = %d %q", ownerAuthorizedResponse.Code, ownerAuthorizedResponse.Body.String())
+	}
+
 	unknownRequest := httptest.NewRequest(http.MethodGet, "/books/guns-germs-steel/not-in-sitemap/", nil)
 	unknownResponse := httptest.NewRecorder()
 	handler.ServeHTTP(unknownResponse, unknownRequest)

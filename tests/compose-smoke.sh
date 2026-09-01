@@ -9,8 +9,10 @@ smoke_port="${SMOKE_PORT:-18089}"
 smoke_hash_key="0123456789abcdef0123456789abcdef"
 smoke_book_password="book-pass"
 smoke_private_chapter="/books/daode-yu-fazhi-7-shang/daode-yu-fazhi-7-shang-lesson-01/"
+smoke_private_adjacent_chapter="/books/daode-yu-fazhi-7-shang/daode-yu-fazhi-7-shang-lesson-02/"
 smoke_watchtower_token="0123456789abcdef0123456789abcdef"
 smoke_base_url="http://127.0.0.1:${smoke_port}"
+smoke_cookie_jar="/tmp/${smoke_project}-cookies.txt"
 
 compose() {
   env \
@@ -25,6 +27,7 @@ compose() {
 
 cleanup() {
   compose down --volumes >/dev/null 2>&1 || true
+  rm -f "$smoke_cookie_jar"
 }
 trap cleanup EXIT
 
@@ -83,6 +86,28 @@ manifest_status="$(curl --silent --show-error --output /dev/null --write-out '%{
 test "$manifest_status" = "404"
 book_status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "${smoke_base_url}${smoke_private_chapter}")"
 test "$book_status" = "401"
+
+owner_token="$(node -e '
+  const { createHmac, pbkdf2Sync } = require("node:crypto");
+  const key = pbkdf2Sync(process.argv[1], "turblog-book-access-v2", 600000, 32, "sha256");
+  process.stdout.write(createHmac("sha256", key).update("turblog-book-owner-v1").digest("base64url"));
+' "$smoke_book_password")"
+curl \
+  --fail \
+  --silent \
+  --show-error \
+  --output /dev/null \
+  --cookie-jar "$smoke_cookie_jar" \
+  -X POST "${smoke_base_url}/api/v1/books/access" \
+  -H 'Content-Type: application/json' \
+  --data "{\"path\":\"${smoke_private_chapter}\",\"owner_token\":\"${owner_token}\"}"
+curl \
+  --fail \
+  --silent \
+  --show-error \
+  --output /dev/null \
+  --cookie "$smoke_cookie_jar" \
+  "${smoke_base_url}${smoke_private_adjacent_chapter}"
 
 metrics="$(query_metrics)"
 printf '%s' "$metrics" | node -e '

@@ -12,10 +12,14 @@ import (
 	"mime"
 	"net/http"
 	"strings"
+	"time"
 )
 
 const (
 	bookAccessCookieName       = "turblog_book_access"
+	bookOwnerCookieName        = "turblog_book_owner"
+	bookOwnerTokenPurpose      = "turblog-book-owner-v1"
+	bookOwnerCookieMaxAge      = 30 * 24 * 60 * 60
 	bookAccessPBKDF2Iterations = 600_000
 	bookAccessPBKDF2Salt       = "turblog-book-access-v2"
 )
@@ -92,7 +96,7 @@ var bookAccessPage = template.Must(template.New("book-access").Parse(`<!doctype 
       return btoa(binary).replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '');
     }
 
-    async function tokenFor(password) {
+    async function tokenFor(password, message) {
       const encoder = new TextEncoder();
       const passwordKey = await crypto.subtle.importKey(
         'raw', encoder.encode(password), 'PBKDF2', false, ['deriveBits']
@@ -110,16 +114,16 @@ var bookAccessPage = template.Must(template.New("book-access").Parse(`<!doctype 
       const signingKey = await crypto.subtle.importKey(
         'raw', derivedKey, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']
       );
-      const token = await crypto.subtle.sign('HMAC', signingKey, encoder.encode(location.pathname));
+      const token = await crypto.subtle.sign('HMAC', signingKey, encoder.encode(message));
       return base64url(new Uint8Array(token));
     }
 
-    async function unlock(token) {
+    async function unlock(credentials) {
       const response = await fetch('/api/v1/books/access', {
         method: 'POST',
         credentials: 'same-origin',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ path: location.pathname, token }),
+        body: JSON.stringify({ path: location.pathname, ...credentials }),
       });
       if (!response.ok) throw new Error('access denied');
       history.replaceState(null, '', location.pathname + location.search);
@@ -131,7 +135,7 @@ var bookAccessPage = template.Must(template.New("book-access").Parse(`<!doctype 
       setBusy(true);
       setStatus('正在验证…');
       try {
-        await unlock(await tokenFor(passwordInput.value));
+        await unlock({ owner_token: await tokenFor(passwordInput.value, 'turblog-book-owner-v1') });
       } catch {
         setBusy(false);
         setStatus('密码不正确。', true);
@@ -143,7 +147,7 @@ var bookAccessPage = template.Must(template.New("book-access").Parse(`<!doctype 
       if (!passwordInput.reportValidity()) return;
       setBusy(true);
       try {
-        const token = await tokenFor(passwordInput.value);
+        const token = await tokenFor(passwordInput.value, location.pathname);
         const link = location.origin + location.pathname + '#access=' + token;
         await navigator.clipboard.writeText(link);
         setStatus('本页分享链接已复制。');
@@ -158,7 +162,7 @@ var bookAccessPage = template.Must(template.New("book-access").Parse(`<!doctype 
     if (sharedToken) {
       setBusy(true);
       setStatus('正在验证分享链接…');
-      unlock(sharedToken).catch(() => {
+      unlock({ token: sharedToken }).catch(() => {
         history.replaceState(null, '', location.pathname + location.search);
         setBusy(false);
         setStatus('分享链接无效，或站点主密码已经更换。', true);
@@ -169,8 +173,9 @@ var bookAccessPage = template.Must(template.New("book-access").Parse(`<!doctype 
 </html>`))
 
 type bookAccessRequest struct {
-	Path  string `json:"path"`
-	Token string `json:"token"`
+	Path       string `json:"path"`
+	Token      string `json:"token"`
+	OwnerToken string `json:"owner_token"`
 }
 
 func (s *server) grantBookAccess(response http.ResponseWriter, request *http.Request) {
@@ -190,7 +195,34 @@ func (s *server) grantBookAccess(response http.ResponseWriter, request *http.Req
 		writeError(response, http.StatusBadRequest, "book_access_not_required", "book does not require access authorization")
 		return
 	}
-	if _, ok := s.catalog.BookChapterIDFromPath(access.Path); !ok || !s.validBookAccessToken(access.Path, access.Token) {
+	if _, ok := s.catalog.BookChapterIDFromPath(access.Path); !ok {
+		writeError(response, http.StatusForbidden, "invalid_book_access", "book access token is invalid")
+		return
+	}
+	if (access.Token == "") == (access.OwnerToken == "") {
+		writeError(response, http.StatusBadRequest, "invalid_request", "request must contain exactly one access token")
+		return
+	}
+	if access.OwnerToken != "" {
+		if !s.validBookOwnerToken(access.OwnerToken) {
+			writeError(response, http.StatusForbidden, "invalid_book_access", "book access token is invalid")
+			return
+		}
+		http.SetCookie(response, &http.Cookie{
+			Name:     bookOwnerCookieName,
+			Value:    access.OwnerToken,
+			Path:     "/books/",
+			MaxAge:   bookOwnerCookieMaxAge,
+			Expires:  s.now().Add(time.Duration(bookOwnerCookieMaxAge) * time.Second),
+			HttpOnly: true,
+			Secure:   s.secureBookCookie(request),
+			SameSite: http.SameSiteLaxMode,
+		})
+		response.Header().Set("Cache-Control", "no-store")
+		response.WriteHeader(http.StatusNoContent)
+		return
+	}
+	if !s.validBookAccessToken(access.Path, access.Token) {
 		writeError(response, http.StatusForbidden, "invalid_book_access", "book access token is invalid")
 		return
 	}
@@ -199,14 +231,21 @@ func (s *server) grantBookAccess(response http.ResponseWriter, request *http.Req
 		Value:    access.Token,
 		Path:     access.Path,
 		HttpOnly: true,
-		Secure:   request.TLS != nil || (s.trustProxyHeaders && strings.EqualFold(request.Header.Get("X-Forwarded-Proto"), "https")),
+		Secure:   s.secureBookCookie(request),
 		SameSite: http.SameSiteLaxMode,
 	})
 	response.Header().Set("Cache-Control", "no-store")
 	response.WriteHeader(http.StatusNoContent)
 }
 
+func (s *server) secureBookCookie(request *http.Request) bool {
+	return request.TLS != nil || (s.trustProxyHeaders && strings.EqualFold(request.Header.Get("X-Forwarded-Proto"), "https"))
+}
+
 func (s *server) hasBookAccess(request *http.Request) bool {
+	if ownerCookie, err := request.Cookie(bookOwnerCookieName); err == nil && s.validBookOwnerToken(ownerCookie.Value) {
+		return true
+	}
 	cookie, err := request.Cookie(bookAccessCookieName)
 	return err == nil && s.validBookAccessToken(request.URL.Path, cookie.Value)
 }
@@ -226,6 +265,16 @@ func deriveBookAccessKey(password []byte) []byte {
 		return nil
 	}
 	return key
+}
+
+func (s *server) validBookOwnerToken(encodedToken string) bool {
+	provided, err := base64.RawURLEncoding.DecodeString(encodedToken)
+	if err != nil || len(provided) != sha256.Size || len(s.bookAccessKey) == 0 {
+		return false
+	}
+	mac := hmac.New(sha256.New, s.bookAccessKey)
+	_, _ = mac.Write([]byte(bookOwnerTokenPurpose))
+	return hmac.Equal(provided, mac.Sum(nil))
 }
 
 func (s *server) validBookAccessToken(path, encodedToken string) bool {
