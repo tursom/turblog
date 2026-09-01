@@ -1,5 +1,6 @@
 ---
 slug: "sixiang-zhengzhi-bixiu-4"
+private: true
 title: "思想政治"
 subtitle: "必修4 哲学与文化"
 author: "教育部组织编写"

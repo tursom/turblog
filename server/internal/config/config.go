@@ -9,14 +9,15 @@ import (
 )
 
 type Values struct {
-	ListenAddress      string
-	DatabasePath       string
-	SitemapPath        string
-	ContentUpstream    *url.URL
-	BookAccessPassword []byte
-	HashKey            []byte
-	Location           *time.Location
-	TrustProxyHeaders  bool
+	ListenAddress          string
+	DatabasePath           string
+	SitemapPath            string
+	BookAccessManifestPath string
+	ContentUpstream        *url.URL
+	BookAccessPassword     []byte
+	HashKey                []byte
+	Location               *time.Location
+	TrustProxyHeaders      bool
 }
 
 func Load(getenv func(string) string) (Values, error) {
@@ -46,14 +47,15 @@ func Load(getenv func(string) string) (Values, error) {
 		}
 	}
 	return Values{
-		ListenAddress:      valueOrDefault(getenv("TURBLOG_LISTEN_ADDR"), ":8080"),
-		DatabasePath:       valueOrDefault(getenv("TURBLOG_DB_PATH"), "/var/lib/turblog/server.sqlite"),
-		SitemapPath:        valueOrDefault(getenv("TURBLOG_SITEMAP_PATH"), "/usr/share/nginx/html/sitemap-0.xml"),
-		ContentUpstream:    upstream,
-		BookAccessPassword: bookAccessPassword,
-		HashKey:            hashKey,
-		Location:           location,
-		TrustProxyHeaders:  trustProxyHeaders,
+		ListenAddress:          valueOrDefault(getenv("TURBLOG_LISTEN_ADDR"), ":8080"),
+		DatabasePath:           valueOrDefault(getenv("TURBLOG_DB_PATH"), "/var/lib/turblog/server.sqlite"),
+		SitemapPath:            valueOrDefault(getenv("TURBLOG_SITEMAP_PATH"), "/usr/share/nginx/html/sitemap-0.xml"),
+		BookAccessManifestPath: "/usr/share/nginx/html/book-access-manifest.json",
+		ContentUpstream:        upstream,
+		BookAccessPassword:     bookAccessPassword,
+		HashKey:                hashKey,
+		Location:               location,
+		TrustProxyHeaders:      trustProxyHeaders,
 	}, nil
 }
 

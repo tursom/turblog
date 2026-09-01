@@ -8,6 +8,39 @@ import (
 	"github.com/tursom/turblog/server/internal/catalog"
 )
 
+func TestLoadBookAccessManifest(t *testing.T) {
+	t.Parallel()
+
+	manifestPath := filepath.Join(t.TempDir(), "book-access-manifest.json")
+	if err := os.WriteFile(manifestPath, []byte(`{"version":1,"privateBooks":["private-book","another-book"]}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	privateBooks, err := catalog.LoadBookAccessManifest(manifestPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(privateBooks) != 2 || privateBooks[0] != "another-book" || privateBooks[1] != "private-book" {
+		t.Fatalf("private books = %#v", privateBooks)
+	}
+
+	invalidManifests := []string{
+		`{"version":2,"privateBooks":[]}`,
+		`{"version":1}`,
+		`{"version":1,"privateBooks":["INVALID"]}`,
+		`{"version":1,"privateBooks":["same-book","same-book"]}`,
+		`{"version":1,"privateBooks":[],"unexpected":true}`,
+		`{"version":1,"privateBooks":[]} {}`,
+	}
+	for _, contents := range invalidManifests {
+		if err := os.WriteFile(manifestPath, []byte(contents), 0o600); err != nil {
+			t.Fatal(err)
+		}
+		if _, err := catalog.LoadBookAccessManifest(manifestPath); err == nil {
+			t.Fatalf("LoadBookAccessManifest() accepted %s", contents)
+		}
+	}
+}
+
 func TestLoadExtractsOnlyCanonicalArticleSlugs(t *testing.T) {
 	t.Parallel()
 
@@ -34,6 +67,9 @@ func TestLoadExtractsOnlyCanonicalArticleSlugs(t *testing.T) {
 	}
 	if articles.Contains("nested/not-an-article") {
 		t.Fatal("catalog accepted a nested non-canonical article path")
+	}
+	if !articles.ContainsBook("guns-germs-steel") || articles.ContainsBook("missing-book") {
+		t.Fatalf("book membership is incorrect")
 	}
 	if id, ok := articles.BookChapterIDFromPath("/books/guns-germs-steel/chapter-01/"); !ok || id != "guns-germs-steel/chapter-01" {
 		t.Fatalf("book chapter id = %q, ok=%v", id, ok)

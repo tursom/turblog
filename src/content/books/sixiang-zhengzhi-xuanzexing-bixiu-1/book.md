@@ -1,5 +1,6 @@
 ---
 slug: "sixiang-zhengzhi-xuanzexing-bixiu-1"
+private: true
 title: "思想政治"
 subtitle: "选择性必修1 当代国际政治与经济"
 author: "教育部组织编写"

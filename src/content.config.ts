@@ -21,6 +21,7 @@ const books = defineCollection({
   loader: glob({ pattern: '*/book.md', base: './src/content/books' }),
   schema: z.object({
     slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+    private: z.boolean().default(false),
     title: z.string(),
     subtitle: z.string().optional(),
     author: z.string(),

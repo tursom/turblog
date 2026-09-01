@@ -1,5 +1,6 @@
 ---
 slug: "sixiang-zhengzhi-bixiu-2"
+private: true
 title: "思想政治"
 subtitle: "必修2 经济与社会"
 author: "教育部组织编写"

@@ -168,6 +168,10 @@ func (s *server) grantBookAccess(response http.ResponseWriter, request *http.Req
 		writeError(response, http.StatusBadRequest, "invalid_request", "request body must contain one valid JSON object")
 		return
 	}
+	if !s.isProtectedBookChapter(access.Path) {
+		writeError(response, http.StatusBadRequest, "book_access_not_required", "book does not require access authorization")
+		return
+	}
 	if _, ok := s.catalog.BookChapterIDFromPath(access.Path); !ok || !s.validBookAccessToken(access.Path, access.Token) {
 		writeError(response, http.StatusForbidden, "invalid_book_access", "book access token is invalid")
 		return

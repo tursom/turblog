@@ -8,6 +8,7 @@ smoke_version="${SMOKE_VERSION:-analytics-test}"
 smoke_port="${SMOKE_PORT:-18089}"
 smoke_hash_key="0123456789abcdef0123456789abcdef"
 smoke_book_password="0123456789abcdef0123456789abcdef"
+smoke_private_chapter="/books/daode-yu-fazhi-7-shang/daode-yu-fazhi-7-shang-lesson-01/"
 smoke_watchtower_token="0123456789abcdef0123456789abcdef"
 smoke_base_url="http://127.0.0.1:${smoke_port}"
 
@@ -77,7 +78,10 @@ curl \
 cache_header_count="$({ curl --fail --silent --show-error --head "${smoke_base_url}/posts/go-atomic-generics/" || true; } | tr -d '\r' | grep -c -i '^cache-control:')"
 test "$cache_header_count" = "1"
 
-book_status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "${smoke_base_url}/books/guns-germs-steel/chapter-01/")"
+curl --fail --silent --show-error --output /dev/null "${smoke_base_url}/books/guns-germs-steel/chapter-01/"
+manifest_status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "${smoke_base_url}/book-access-manifest.json")"
+test "$manifest_status" = "404"
+book_status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "${smoke_base_url}${smoke_private_chapter}")"
 test "$book_status" = "401"
 
 metrics="$(query_metrics)"
@@ -94,7 +98,7 @@ printf '%s' "$metrics" | node -e '
 
 compose stop server
 curl --fail --silent --show-error --output /dev/null "${smoke_base_url}/posts/go-atomic-generics/"
-book_status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "${smoke_base_url}/books/guns-germs-steel/chapter-01/")"
+book_status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "${smoke_base_url}${smoke_private_chapter}")"
 test "$book_status" = "502"
 curl --fail --silent --show-error --output /dev/null "${smoke_base_url}/"
 curl --fail --silent --show-error --output /dev/null "${smoke_base_url}/favicon.svg"

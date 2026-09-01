@@ -1,5 +1,6 @@
 ---
 slug: "sixiang-zhengzhi-bixiu-1"
+private: true
 title: "思想政治"
 subtitle: "必修1 中国特色社会主义"
 author: "教育部组织编写"

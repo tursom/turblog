@@ -1,5 +1,6 @@
 ---
 slug: "daode-yu-fazhi-9-xia"
+private: true
 title: "道德与法治"
 subtitle: "九年级下册"
 author: "教育部组织编写"

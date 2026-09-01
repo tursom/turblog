@@ -8,6 +8,22 @@ const baseUrl = 'http://turblog.test';
 const distDirectory = resolve('dist');
 const apiPath = '/api/v1/analytics/metrics/query';
 
+const privateTextbookSlugs = [
+  'daode-yu-fazhi-7-shang',
+  'daode-yu-fazhi-7-xia',
+  'daode-yu-fazhi-8-shang',
+  'daode-yu-fazhi-8-xia',
+  'daode-yu-fazhi-9-shang',
+  'daode-yu-fazhi-9-xia',
+  'sixiang-zhengzhi-bixiu-1',
+  'sixiang-zhengzhi-bixiu-2',
+  'sixiang-zhengzhi-bixiu-3',
+  'sixiang-zhengzhi-bixiu-4',
+  'sixiang-zhengzhi-xuanzexing-bixiu-1',
+  'sixiang-zhengzhi-xuanzexing-bixiu-2',
+  'sixiang-zhengzhi-xuanzexing-bixiu-3',
+];
+
 async function serveBuiltSite(page: Page) {
   const requests: Array<{ metric: string; subjectType: string; subjectIds: string[] }> = [];
   await page.route(`${baseUrl}/**`, async (route) => {
@@ -49,6 +65,19 @@ async function serveBuiltSite(page: Page) {
   });
   return requests;
 }
+
+test('book access manifest is generated from private book metadata', async () => {
+  const manifest = JSON.parse(
+    await readFile(resolve(distDirectory, 'book-access-manifest.json'), 'utf8'),
+  ) as { version: number; privateBooks: string[] };
+
+  expect(manifest.version).toBe(1);
+  expect(manifest.privateBooks).toEqual([...privateTextbookSlugs].sort());
+  expect(manifest.privateBooks).not.toContain('guns-germs-steel');
+
+  const sitemap = await readFile(resolve(distDirectory, 'sitemap-0.xml'), 'utf8');
+  expect(sitemap).not.toContain('book-access-manifest.json');
+});
 
 test('book shelf and chapter pages stay separate from ordinary posts', async ({ page }) => {
   await serveBuiltSite(page);

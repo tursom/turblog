@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log/slog"
 	"net/http"
 	"os"
@@ -37,6 +38,15 @@ func run(ctx context.Context, logger *slog.Logger) error {
 	if err != nil {
 		return err
 	}
+	privateBookSlugs, err := catalog.LoadBookAccessManifest(settings.BookAccessManifestPath)
+	if err != nil {
+		return err
+	}
+	for _, slug := range privateBookSlugs {
+		if !articles.ContainsBook(slug) {
+			return fmt.Errorf("book access manifest contains unknown book slug %q", slug)
+		}
+	}
 	tracker, err := analytics.Open(ctx, analytics.Config{
 		DatabasePath:   settings.DatabasePath,
 		HashKey:        settings.HashKey,
@@ -51,6 +61,7 @@ func run(ctx context.Context, logger *slog.Logger) error {
 
 	handler := httpserver.New(httpserver.Config{
 		Analytics:          tracker,
+		PrivateBookSlugs:   privateBookSlugs,
 		BookAccessPassword: settings.BookAccessPassword,
 		Catalog:            articles,
 		ContentUpstream:    settings.ContentUpstream,

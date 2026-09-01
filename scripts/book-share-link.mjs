@@ -1,6 +1,9 @@
 import { createHmac } from 'node:crypto';
 import { existsSync } from 'node:fs';
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 import process from 'node:process';
+import { parseFrontmatter } from '@astrojs/markdown-remark';
 
 if (existsSync('.env')) process.loadEnvFile('.env');
 
@@ -20,6 +23,21 @@ try {
 
 if (!/^\/books\/[a-z0-9]+(?:-[a-z0-9]+)*\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/.test(chapterPath)) {
   console.error('Chapter path must match /books/<book-slug>/<chapter-slug>/ and end with a slash.');
+  process.exit(1);
+}
+
+const bookSlug = chapterPath.split('/')[2];
+let metadata;
+try {
+  const source = await readFile(resolve('src/content/books', bookSlug, 'book.md'), 'utf8');
+  metadata = parseFrontmatter(source).frontmatter;
+} catch (error) {
+  const message = error instanceof Error ? error.message : String(error);
+  console.error(`Unable to read metadata for ${bookSlug}: ${message}`);
+  process.exit(1);
+}
+if (metadata.slug !== bookSlug || metadata.private !== true) {
+  console.error(`Book is not marked private in its metadata: ${bookSlug}`);
   process.exit(1);
 }
 

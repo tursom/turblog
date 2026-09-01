@@ -26,6 +26,9 @@ func TestLoadUsesProductionDefaultsAndRequiresHashKey(t *testing.T) {
 	if loaded.SitemapPath != "/usr/share/nginx/html/sitemap-0.xml" {
 		t.Fatalf("sitemap path = %q", loaded.SitemapPath)
 	}
+	if loaded.BookAccessManifestPath != "/usr/share/nginx/html/book-access-manifest.json" {
+		t.Fatalf("book access manifest path = %q", loaded.BookAccessManifestPath)
+	}
 	if loaded.ContentUpstream.String() != "http://blog:8080" {
 		t.Fatalf("content upstream = %q", loaded.ContentUpstream)
 	}
@@ -57,4 +60,6 @@ func TestLoadUsesProductionDefaultsAndRequiresHashKey(t *testing.T) {
 	if _, err := config.Load(func(name string) string { return values[name] }); err == nil {
 		t.Fatal("Load() accepted a short book access password")
 	}
+
+	values["TURBLOG_BOOK_ACCESS_PASSWORD"] = "0123456789abcdef0123456789abcdef"
 }

@@ -814,6 +814,7 @@ async function importBook(book, workspace, warnings) {
     join(bookDirectory, 'book.md'),
     `---\n${frontMatter({
       slug,
+      private: true,
       title,
       subtitle,
       author: '教育部组织编写',

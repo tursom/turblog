@@ -11,7 +11,9 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({ filter: (page) => !page.endsWith('/book-access-manifest.json') }),
+  ],
   markdown: {
     syntaxHighlight: {
       type: 'shiki',

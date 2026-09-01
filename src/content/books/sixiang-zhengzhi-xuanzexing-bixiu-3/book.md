@@ -1,5 +1,6 @@
 ---
 slug: "sixiang-zhengzhi-xuanzexing-bixiu-3"
+private: true
 title: "思想政治"
 subtitle: "选择性必修3 逻辑与思维"
 author: "教育部组织编写"

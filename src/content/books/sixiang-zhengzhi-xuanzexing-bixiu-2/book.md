@@ -1,5 +1,6 @@
 ---
 slug: "sixiang-zhengzhi-xuanzexing-bixiu-2"
+private: true
 title: "思想政治"
 subtitle: "选择性必修2 法律与生活"
 author: "教育部组织编写"

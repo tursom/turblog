@@ -1,5 +1,6 @@
 ---
 slug: "sixiang-zhengzhi-bixiu-3"
+private: true
 title: "思想政治"
 subtitle: "必修3 政治与法治"
 author: "教育部组织编写"

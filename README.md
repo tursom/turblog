@@ -72,15 +72,23 @@ pnpm import:book /path/to/book.epub
 
 ### 图书章节访问控制
 
-书架 `/books/` 和每本书的资料、目录页保持公开，形如 `/books/<book-slug>/<chapter-slug>/` 的章节页由 Go 服务强制鉴权。章节令牌为 `HMAC-SHA-256(TURBLOG_BOOK_ACCESS_PASSWORD, 章节规范路径)`，因此一个令牌只能打开一个精确路径。分享链接把令牌放在 `#access=...` fragment 中；fragment 不会发送给 Nginx、Cloudflare 或外部站点。锁定页用令牌换取仅作用于当前章节路径的 HttpOnly 会话 Cookie，随后清除 fragment。
+书架 `/books/`、每本书的资料页和目录页保持公开。章节访问由书籍自身的 `book.md` 元数据决定：设置 `private: true` 的书籍，其 `/books/<book-slug>/<chapter-slug>/` 页面由 Go 服务强制鉴权；未设置或设置为 `false` 的图书章节直接公开。Astro 构建时会根据内容集合自动生成访问清单，Go 服务从同一镜像读取它。当前 13 本中学政治教材已标记为私有。
 
-在 `.env` 中配置至少 32 字节的高熵主密码（推荐使用 `openssl rand -base64 32` 生成），然后可从锁定页输入密码并复制分享链接，也可在项目目录生成：
+新增需要保护的书籍时，在对应的 `src/content/books/<book-slug>/book.md` Front Matter 中设置：
 
-```bash
-pnpm book:share /books/guns-germs-steel/chapter-01/
+```yaml
+private: true
 ```
 
-`book:share` 从 `.env` 读取 `TURBLOG_BOOK_ACCESS_PASSWORD` 和 `PUBLIC_SITE_URL`。轮换主密码会立即使所有旧分享链接和 Cookie 失效。生产环境必须使用 HTTPS，否则浏览器的 Web Crypto 和安全传输边界无法成立。
+受保护章节的令牌为 `HMAC-SHA-256(TURBLOG_BOOK_ACCESS_PASSWORD, 章节规范路径)`，因此一个令牌只能打开一个精确路径。分享链接把令牌放在 `#access=...` fragment 中；fragment 不会发送给 Nginx、Cloudflare 或外部站点。锁定页用令牌换取仅作用于当前章节路径的 HttpOnly 会话 Cookie，随后清除 fragment。
+
+在 `.env` 中配置至少 32 字节的高熵主密码（推荐使用 `openssl rand -base64 32` 生成）。修改书籍的 `private` 元数据后重新构建并部署镜像即可，不需要修改环境变量。可从锁定页输入密码并复制分享链接，也可在项目目录生成：
+
+```bash
+pnpm book:share /books/daode-yu-fazhi-7-shang/daode-yu-fazhi-7-shang-lesson-01/
+```
+
+`book:share` 从对应书籍的 `book.md` 读取 `private` 标记，并从 `.env` 读取 `TURBLOG_BOOK_ACCESS_PASSWORD` 和 `PUBLIC_SITE_URL`；它会拒绝为公开书籍生成分享链接。轮换主密码会立即使所有受保护章节的旧分享链接和 Cookie 失效。生产环境必须使用 HTTPS，否则浏览器的 Web Crypto 和安全传输边界无法成立。
 
 这是一层线上访问控制，不会加密 Git 历史、Markdown 源文件、Docker 镜像或 `public/images/books/` 下可直接访问的图片。当前图书文件已被 Git 跟踪，公开仓库或公开 GHCR 镜像仍会泄露正文；真正的私人数据必须移出公开 Git 历史并使用私有镜像/私有内容存储，图片也需要另行迁入受保护的内容接口。
 
@@ -146,7 +154,7 @@ TURBLOG_VISITOR_HASH_KEY=replace-with-output-of-openssl-rand-hex-32
 TURBLOG_BOOK_ACCESS_PASSWORD=replace-with-output-of-openssl-rand-base64-32
 ```
 
-用 `openssl rand -hex 32` 生成 `TURBLOG_VISITOR_HASH_KEY`，用 `openssl rand -base64 32` 生成独立的 `TURBLOG_BOOK_ACCESS_PASSWORD`，两者都要长期保存且不要提交。轮换前者会让同一访客在轮换当天可能再次计数；轮换后者会使全部图书分享链接失效。然后拉取镜像并同步服务：
+用 `openssl rand -hex 32` 生成 `TURBLOG_VISITOR_HASH_KEY`，用 `openssl rand -base64 32` 生成独立的 `TURBLOG_BOOK_ACCESS_PASSWORD`，两者都要长期保存且不要提交。书籍 Front Matter 的 `private` 字段是唯一决定哪些书需要鉴权的标记；构建出的访问清单缺失或无效时 Go 服务会拒绝启动。轮换统计密钥会让同一访客在轮换当天可能再次计数；轮换图书密码会使全部受保护章节的分享链接失效。然后拉取镜像并同步服务：
 
 ```bash
 docker compose pull

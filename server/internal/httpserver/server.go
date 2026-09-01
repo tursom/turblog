@@ -26,6 +26,7 @@ const (
 
 type Config struct {
 	Analytics          *analytics.Tracker
+	PrivateBookSlugs   []string
 	BookAccessPassword []byte
 	Catalog            *catalog.Catalog
 	ContentUpstream    *url.URL
@@ -36,6 +37,7 @@ type Config struct {
 
 type server struct {
 	analytics          *analytics.Tracker
+	privateBookSlugs   map[string]struct{}
 	bookAccessPassword []byte
 	catalog            *catalog.Catalog
 	logger             *slog.Logger
@@ -53,11 +55,15 @@ func New(config Config) http.Handler {
 	}
 	application := &server{
 		analytics:          config.Analytics,
+		privateBookSlugs:   make(map[string]struct{}, len(config.PrivateBookSlugs)),
 		bookAccessPassword: config.BookAccessPassword,
 		catalog:            config.Catalog,
 		logger:             config.Logger,
 		now:                config.Now,
 		trustProxyHeaders:  config.TrustProxyHeaders,
+	}
+	for _, slug := range config.PrivateBookSlugs {
+		application.privateBookSlugs[slug] = struct{}{}
 	}
 	if config.ContentUpstream != nil {
 		application.proxy = httputil.NewSingleHostReverseProxy(config.ContentUpstream)
@@ -155,11 +161,20 @@ func (s *server) proxyContent(response http.ResponseWriter, request *http.Reques
 		writeError(response, http.StatusServiceUnavailable, "content_unavailable", "content upstream is unavailable")
 		return
 	}
-	if catalog.IsBookChapterPath(request.URL.Path) && !s.hasBookAccess(request) {
+	if s.isProtectedBookChapter(request.URL.Path) && !s.hasBookAccess(request) {
 		s.serveBookAccess(response)
 		return
 	}
 	s.proxy.ServeHTTP(response, request)
+}
+
+func (s *server) isProtectedBookChapter(path string) bool {
+	bookSlug, isBookChapter := catalog.BookSlugFromChapterPath(path)
+	if !isBookChapter {
+		return false
+	}
+	_, protected := s.privateBookSlugs[bookSlug]
+	return protected
 }
 
 func (s *server) recordArticleView(upstreamResponse *http.Response) error {
@@ -167,7 +182,7 @@ func (s *server) recordArticleView(upstreamResponse *http.Response) error {
 	if strings.HasPrefix(request.URL.Path, "/posts/") || strings.HasPrefix(request.URL.Path, "/books/") {
 		upstreamResponse.Header.Set("Cache-Control", "private, no-cache, must-revalidate")
 	}
-	if catalog.IsBookChapterPath(request.URL.Path) {
+	if s.isProtectedBookChapter(request.URL.Path) {
 		upstreamResponse.Header.Set("Referrer-Policy", "no-referrer")
 		upstreamResponse.Header.Add("Vary", "Cookie")
 	}
