@@ -11,6 +11,7 @@
     "import:book": "node scripts/import-book.mjs",
     "import:capital": "node scripts/import-capital.mjs",
     "import:mao": "node scripts/import-mao.mjs",
+    "import:santi": "node scripts/import-santi.mjs",
     "import:textbooks": "node scripts/import-textbooks.mjs",
     "book:share": "node scripts/book-share-link.mjs",
     "test:e2e": "playwright test",

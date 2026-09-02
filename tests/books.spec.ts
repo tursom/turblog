@@ -8,7 +8,10 @@ const baseUrl = 'http://turblog.test';
 const distDirectory = resolve('dist');
 const apiPath = '/api/v1/analytics/metrics/query';
 
-const privateTextbookSlugs = [
+const privateBookSlugs = [
+  'three-body',
+  'three-body-dark-forest',
+  'three-body-deaths-end',
   'daode-yu-fazhi-7-shang',
   'daode-yu-fazhi-7-xia',
   'daode-yu-fazhi-8-shang',
@@ -72,7 +75,7 @@ test('book access manifest is generated from private book metadata', async () =>
   ) as { version: number; privateBooks: string[] };
 
   expect(manifest.version).toBe(1);
-  expect(manifest.privateBooks).toEqual([...privateTextbookSlugs].sort());
+  expect(manifest.privateBooks).toEqual([...privateBookSlugs].sort());
   expect(manifest.privateBooks).not.toContain('guns-germs-steel');
 
   const sitemap = await readFile(resolve(distDirectory, 'sitemap-0.xml'), 'utf8');
@@ -125,7 +128,7 @@ test('book shelf groups series and filters books locally', async ({ page }) => {
   await page.goto(`${baseUrl}/books/`);
 
   await expect(page.locator('h1')).toHaveText('图书');
-  await expect(page.locator('[data-book-group]')).toHaveCount(5);
+  await expect(page.locator('[data-book-group]')).toHaveCount(6);
   await expect(page.getByRole('link', { name: '枪炮、病菌与钢铁', exact: true })).toHaveCount(1);
   await expect(page.locator('a[href="/posts/go-atomic-generics/"]')).toHaveCount(0);
 
@@ -180,6 +183,40 @@ test('Capital offers Chinese and German editions with parallel chapter links', a
     'href',
     '/books/capital-de/volume-01-chapter-01-de/',
   );
+});
+
+test('Three-Body trilogy shelves as one series with volume-grouped chapter TOCs', async ({
+  page,
+}) => {
+  await serveBuiltSite(page);
+  await page.goto(`${baseUrl}/books/`);
+
+  const series = page.locator('[data-book-group]', { hasText: '三体三部曲' });
+  await expect(series).toHaveCount(1);
+  await expect(series.locator('.book-edition-list li')).toHaveCount(3);
+  const editions = [
+    ['三体', '/books/three-body/'],
+    ['三体Ⅱ·黑暗森林', '/books/three-body-dark-forest/'],
+    ['三体Ⅲ·死神永生', '/books/three-body-deaths-end/'],
+  ];
+  for (const [title, href] of editions) {
+    await expect(series.locator(`a[href="${href}"]`)).toHaveAttribute(
+      'aria-label',
+      `${title}，网络电子文本整理版`,
+    );
+  }
+
+  await page.goto(`${baseUrl}/books/three-body-dark-forest/`);
+  await expect(page.locator('.book-toc-volume')).toHaveCount(4);
+  await expect(page.locator('.book-toc-volume').nth(1).locator('h3')).toHaveText('上部 面壁者');
+
+  await page.goto(`${baseUrl}/books/three-body-deaths-end/`);
+  await expect(page.locator('.book-toc-volume')).toHaveCount(8);
+  await expect(page.locator('.book-toc-volume').first().locator('h3')).toHaveText('纪年对照表');
+
+  await page.goto(`${baseUrl}/books/three-body/section-001/`);
+  await expect(page.locator('.article-header h1')).toHaveText('疯狂年代');
+  await expect(page.locator('.prose')).toContainText('中国，1967年');
 });
 
 test('Mao selected works provides five grouped volumes and pinned source text', async ({
