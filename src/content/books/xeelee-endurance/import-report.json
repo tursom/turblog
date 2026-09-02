@@ -1,0 +1,598 @@
+{
+  "input": "Xeelee_Endurance_-_Stephen_Baxter.epub",
+  "format": "epub",
+  "title": "Xeelee: Endurance",
+  "private": true,
+  "generatedChapters": 50,
+  "characters": 833599,
+  "packagePath": "OEBPS/content.opf",
+  "spineEntries": 67,
+  "skipped": [
+    {
+      "sourcePath": "OEBPS/Text/titlepage.xhtml",
+      "reason": "empty"
+    },
+    {
+      "sourcePath": "OEBPS/Text/Jacket Blurb.xhtml",
+      "title": "Jacket Blurb",
+      "reason": "front-or-back-matter"
+    },
+    {
+      "sourcePath": "OEBPS/Text/title.xhtml",
+      "title": "Title",
+      "reason": "front-or-back-matter"
+    },
+    {
+      "sourcePath": "OEBPS/Text/copy.xhtml",
+      "title": "Copyright",
+      "reason": "front-or-back-matter"
+    },
+    {
+      "sourcePath": "OEBPS/Text/ALSO BY STEPHEN BAXTER FROM GOLLANCZ.xhtml",
+      "title": "ALSO BY STEPHEN BAXTER FROM GOLLANCZ:",
+      "reason": "front-or-back-matter"
+    },
+    {
+      "sourcePath": "OEBPS/Text/Previous publications.xhtml",
+      "title": "Previous publications:",
+      "reason": "front-or-back-matter"
+    },
+    {
+      "sourcePath": "OEBPS/Text/RETURN TO TITAN.xhtml",
+      "title": "RETURN TO TITAN",
+      "reason": "section-divider"
+    },
+    {
+      "sourcePath": "OEBPS/Text/STARFALL.xhtml",
+      "title": "STARFALL",
+      "reason": "section-divider"
+    },
+    {
+      "sourcePath": "OEBPS/Text/REMEMBRANCE.xhtml",
+      "title": "REMEMBRANCE",
+      "reason": "section-divider"
+    },
+    {
+      "sourcePath": "OEBPS/Text/ENDURANCE.xhtml",
+      "title": "ENDURANCE",
+      "reason": "section-divider"
+    },
+    {
+      "sourcePath": "OEBPS/Text/THE SEER AND THE SILVERMAN.xhtml",
+      "title": "THE SEER AND THE SILVERMAN",
+      "reason": "section-divider"
+    },
+    {
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-41.xhtml",
+      "title": "GRAVITY DREAMS",
+      "reason": "section-divider"
+    },
+    {
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-58.xhtml",
+      "title": "PERIANDRY’S QUEST",
+      "reason": "section-divider"
+    },
+    {
+      "sourcePath": "OEBPS/Text/CLIMBING THE BLUE.xhtml",
+      "title": "CLIMBING THE BLUE",
+      "reason": "section-divider"
+    },
+    {
+      "sourcePath": "OEBPS/Text/THE TIME PIT.xhtml",
+      "title": "THE TIME PIT",
+      "reason": "section-divider"
+    },
+    {
+      "sourcePath": "OEBPS/Text/THE LOWLAND EXPEDITION.xhtml",
+      "title": "THE LOWLAND EXPEDITION",
+      "reason": "section-divider"
+    },
+    {
+      "sourcePath": "OEBPS/Text/FORMIDABLE CARESS.xhtml",
+      "title": "FORMIDABLE CARESS",
+      "reason": "section-divider"
+    }
+  ],
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "xeelee-endurance-prologue",
+      "title": "PROLOGUE",
+      "sourcePath": "OEBPS/Text/PROLOGUE.xhtml",
+      "characters": 1836,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "xeelee-endurance-chapter-01",
+      "title": "1",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-5.xhtml",
+      "characters": 7597,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "xeelee-endurance-chapter-02",
+      "title": "2",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-6.xhtml",
+      "characters": 4893,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "xeelee-endurance-chapter-03",
+      "title": "3",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-7.xhtml",
+      "characters": 11648,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "xeelee-endurance-chapter-04",
+      "title": "4",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-8.xhtml",
+      "characters": 9623,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "xeelee-endurance-chapter-05",
+      "title": "5",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-9.xhtml",
+      "characters": 8177,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "xeelee-endurance-chapter-06",
+      "title": "6",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-10.xhtml",
+      "characters": 6583,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "xeelee-endurance-chapter-07",
+      "title": "7",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-11.xhtml",
+      "characters": 6978,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 8
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "xeelee-endurance-chapter-08",
+      "title": "8",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-12.xhtml",
+      "characters": 9984,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 9
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "xeelee-endurance-chapter-09",
+      "title": "9",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-13.xhtml",
+      "characters": 13021,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 10
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "xeelee-endurance-chapter-10",
+      "title": "10",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-14.xhtml",
+      "characters": 12135,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 11
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "xeelee-endurance-chapter-11",
+      "title": "11",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-15.xhtml",
+      "characters": 11086,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 12
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "xeelee-endurance-chapter-12",
+      "title": "12",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-16.xhtml",
+      "characters": 7228,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 13
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "xeelee-endurance-chapter-13",
+      "title": "13",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-17.xhtml",
+      "characters": 16496,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 14
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "xeelee-endurance-chapter-14",
+      "title": "14",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-18.xhtml",
+      "characters": 9869,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 15
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "xeelee-endurance-chapter-15",
+      "title": "15",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-19.xhtml",
+      "characters": 5428,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 16
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "xeelee-endurance-chapter-16",
+      "title": "16",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-20.xhtml",
+      "characters": 3399,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 17
+    },
+    {
+      "chapterNumber": 18,
+      "slug": "xeelee-endurance-epilogue",
+      "title": "EPILOGUE",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-21.xhtml",
+      "characters": 3570,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 18
+    },
+    {
+      "chapterNumber": 19,
+      "slug": "xeelee-endurance-a-century-and-a-half-later-the-future-invaded-the-solar-system",
+      "title": "A century and a half later, the future invaded the Solar System.",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-22.xhtml",
+      "characters": 2186,
+      "volumeNumber": 1,
+      "volumeTitle": "RETURN TO TITAN",
+      "volumeUnitNumber": 19
+    },
+    {
+      "chapterNumber": 20,
+      "slug": "xeelee-endurance-ad-4771-starfall-minus-49-years",
+      "title": "AD 4771. Starfall minus 49 years.",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-24.xhtml",
+      "characters": 126486,
+      "volumeNumber": 2,
+      "volumeTitle": "STARFALL",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 21,
+      "slug": "xeelee-endurance-remembrance",
+      "title": "REMEMBRANCE",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-27.xhtml",
+      "characters": 42128,
+      "volumeNumber": 3,
+      "volumeTitle": "REMEMBRANCE",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 22,
+      "slug": "xeelee-endurance-chapter-01-2",
+      "title": "1",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-30.xhtml",
+      "characters": 18243,
+      "volumeNumber": 4,
+      "volumeTitle": "ENDURANCE",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 23,
+      "slug": "xeelee-endurance-chapter-02-2",
+      "title": "2",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-31.xhtml",
+      "characters": 14838,
+      "volumeNumber": 4,
+      "volumeTitle": "ENDURANCE",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 24,
+      "slug": "xeelee-endurance-chapter-03-2",
+      "title": "3",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-32.xhtml",
+      "characters": 5856,
+      "volumeNumber": 4,
+      "volumeTitle": "ENDURANCE",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 25,
+      "slug": "xeelee-endurance-chapter-04-2",
+      "title": "4",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-33.xhtml",
+      "characters": 7891,
+      "volumeNumber": 4,
+      "volumeTitle": "ENDURANCE",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 26,
+      "slug": "xeelee-endurance-chapter-05-2",
+      "title": "5",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-34.xhtml",
+      "characters": 8764,
+      "volumeNumber": 4,
+      "volumeTitle": "ENDURANCE",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 27,
+      "slug": "xeelee-endurance-chapter-06-2",
+      "title": "6",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-35.xhtml",
+      "characters": 5531,
+      "volumeNumber": 4,
+      "volumeTitle": "ENDURANCE",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 28,
+      "slug": "xeelee-endurance-chapter-07-2",
+      "title": "7",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-36.xhtml",
+      "characters": 9152,
+      "volumeNumber": 4,
+      "volumeTitle": "ENDURANCE",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 29,
+      "slug": "xeelee-endurance-the-seer-and-the-silverman",
+      "title": "THE SEER AND THE SILVERMAN",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-39.xhtml",
+      "characters": 109987,
+      "volumeNumber": 5,
+      "volumeTitle": "THE SEER AND THE SILVERMAN",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 30,
+      "slug": "xeelee-endurance-chapter-01-3",
+      "title": "1",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-42.xhtml",
+      "characters": 13209,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 31,
+      "slug": "xeelee-endurance-chapter-02-3",
+      "title": "2",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-43.xhtml",
+      "characters": 17286,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 32,
+      "slug": "xeelee-endurance-chapter-03-3",
+      "title": "3",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-44.xhtml",
+      "characters": 13983,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 33,
+      "slug": "xeelee-endurance-chapter-04-3",
+      "title": "4",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-45.xhtml",
+      "characters": 4601,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 34,
+      "slug": "xeelee-endurance-chapter-05-3",
+      "title": "5",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-46.xhtml",
+      "characters": 7020,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 35,
+      "slug": "xeelee-endurance-chapter-06-3",
+      "title": "6",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-47.xhtml",
+      "characters": 7671,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 36,
+      "slug": "xeelee-endurance-chapter-07-3",
+      "title": "7",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-48.xhtml",
+      "characters": 3432,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 37,
+      "slug": "xeelee-endurance-chapter-08-2",
+      "title": "8",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-49.xhtml",
+      "characters": 12860,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 8
+    },
+    {
+      "chapterNumber": 38,
+      "slug": "xeelee-endurance-chapter-09-2",
+      "title": "9",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-50.xhtml",
+      "characters": 10722,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 9
+    },
+    {
+      "chapterNumber": 39,
+      "slug": "xeelee-endurance-chapter-10-2",
+      "title": "10",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-51.xhtml",
+      "characters": 13006,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 10
+    },
+    {
+      "chapterNumber": 40,
+      "slug": "xeelee-endurance-chapter-11-2",
+      "title": "11",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-52.xhtml",
+      "characters": 11281,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 11
+    },
+    {
+      "chapterNumber": 41,
+      "slug": "xeelee-endurance-chapter-12-2",
+      "title": "12",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-53.xhtml",
+      "characters": 2391,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 12
+    },
+    {
+      "chapterNumber": 42,
+      "slug": "xeelee-endurance-chapter-13-2",
+      "title": "13",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-54.xhtml",
+      "characters": 7646,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 13
+    },
+    {
+      "chapterNumber": 43,
+      "slug": "xeelee-endurance-chapter-14-2",
+      "title": "14",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-55.xhtml",
+      "characters": 13194,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 14
+    },
+    {
+      "chapterNumber": 44,
+      "slug": "xeelee-endurance-chapter-15-2",
+      "title": "15",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-56.xhtml",
+      "characters": 3482,
+      "volumeNumber": 6,
+      "volumeTitle": "GRAVITY DREAMS",
+      "volumeUnitNumber": 15
+    },
+    {
+      "chapterNumber": 45,
+      "slug": "xeelee-endurance-periandrys-quest",
+      "title": "PERIANDRY’S QUEST",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-59.xhtml",
+      "characters": 43379,
+      "volumeNumber": 7,
+      "volumeTitle": "PERIANDRY’S QUEST",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 46,
+      "slug": "xeelee-endurance-climbing-the-blue",
+      "title": "CLIMBING THE BLUE",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-61.xhtml",
+      "characters": 30309,
+      "volumeNumber": 8,
+      "volumeTitle": "CLIMBING THE BLUE",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 47,
+      "slug": "xeelee-endurance-the-time-pit",
+      "title": "THE TIME PIT",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-63.xhtml",
+      "characters": 27968,
+      "volumeNumber": 9,
+      "volumeTitle": "THE TIME PIT",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 48,
+      "slug": "xeelee-endurance-the-lowland-expedition",
+      "title": "THE LOWLAND EXPEDITION",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-65.xhtml",
+      "characters": 34659,
+      "volumeNumber": 10,
+      "volumeTitle": "THE LOWLAND EXPEDITION",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 49,
+      "slug": "xeelee-endurance-formidable-caress",
+      "title": "FORMIDABLE CARESS",
+      "sourcePath": "OEBPS/Text/Xeelee_Endurance-9781473212732-67.xhtml",
+      "characters": 52859,
+      "volumeNumber": 11,
+      "volumeTitle": "FORMIDABLE CARESS",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 50,
+      "slug": "xeelee-endurance-the-xeelee-sequence-timeline",
+      "title": "THE XEELEE SEQUENCE – TIMELINE",
+      "sourcePath": "OEBPS/Text/THE XEELEE SEQUENCE - TIMELINE.xhtml",
+      "characters": 2028,
+      "volumeNumber": 12,
+      "volumeTitle": "THE XEELEE SEQUENCE – TIMELINE",
+      "volumeUnitNumber": 1
+    }
+  ]
+}

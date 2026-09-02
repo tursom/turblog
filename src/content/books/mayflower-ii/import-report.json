@@ -1,0 +1,90 @@
+{
+  "input": "Mayflower_II_-_Stephen_Baxter.epub",
+  "format": "epub",
+  "title": "Mayflower II",
+  "private": true,
+  "generatedChapters": 11,
+  "characters": 143203,
+  "packagePath": "content.opf",
+  "spineEntries": 11,
+  "skipped": [],
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "mayflower-ii-mayflower-ii",
+      "title": "MAYFLOWER II",
+      "sourcePath": "Stephen Baxter - Xeelee 08 - Mayflower II_split_000.html",
+      "characters": 14
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "mayflower-ii-i",
+      "title": "I",
+      "sourcePath": "Stephen Baxter - Xeelee 08 - Mayflower II_split_001.html",
+      "characters": 23187
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "mayflower-ii-ii",
+      "title": "II",
+      "sourcePath": "Stephen Baxter - Xeelee 08 - Mayflower II_split_002.html",
+      "characters": 14001
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "mayflower-ii-iii",
+      "title": "III",
+      "sourcePath": "Stephen Baxter - Xeelee 08 - Mayflower II_split_003.html",
+      "characters": 16324
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "mayflower-ii-iv",
+      "title": "IV",
+      "sourcePath": "Stephen Baxter - Xeelee 08 - Mayflower II_split_004.html",
+      "characters": 13838
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "mayflower-ii-v",
+      "title": "V",
+      "sourcePath": "Stephen Baxter - Xeelee 08 - Mayflower II_split_005.html",
+      "characters": 11723
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "mayflower-ii-vi",
+      "title": "VI",
+      "sourcePath": "Stephen Baxter - Xeelee 08 - Mayflower II_split_006.html",
+      "characters": 12284
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "mayflower-ii-vii",
+      "title": "VII",
+      "sourcePath": "Stephen Baxter - Xeelee 08 - Mayflower II_split_007.html",
+      "characters": 13715
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "mayflower-ii-viii",
+      "title": "VIII",
+      "sourcePath": "Stephen Baxter - Xeelee 08 - Mayflower II_split_008.html",
+      "characters": 7450
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "mayflower-ii-ix",
+      "title": "IX",
+      "sourcePath": "Stephen Baxter - Xeelee 08 - Mayflower II_split_009.html",
+      "characters": 24816
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "mayflower-ii-x",
+      "title": "X",
+      "sourcePath": "Stephen Baxter - Xeelee 08 - Mayflower II_split_010.html",
+      "characters": 5851
+    }
+  ]
+}

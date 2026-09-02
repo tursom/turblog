@@ -1,0 +1,808 @@
+{
+  "input": "Xeelee__Vengeance_-_Stephen_Baxter.epub",
+  "format": "epub",
+  "title": "Xeelee: Vengeance",
+  "private": true,
+  "generatedChapters": 77,
+  "characters": 666715,
+  "packagePath": "content.opf",
+  "spineEntries": 82,
+  "skipped": [
+    {
+      "sourcePath": "titlepage.xhtml",
+      "reason": "empty"
+    },
+    {
+      "sourcePath": "text/part0000.html",
+      "title": "Title Page",
+      "reason": "front-or-back-matter"
+    },
+    {
+      "sourcePath": "text/part0001.html",
+      "title": "Contents",
+      "reason": "front-or-back-matter"
+    },
+    {
+      "sourcePath": "text/part0079.html",
+      "title": "Also By Stephen Baxter From Gollancz:",
+      "reason": "front-or-back-matter"
+    },
+    {
+      "sourcePath": "text/part0080.html",
+      "title": "Copyright",
+      "reason": "front-or-back-matter"
+    }
+  ],
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "xeelee-vengeance-one",
+      "title": "ONE",
+      "sourcePath": "text/part0002.html",
+      "characters": 138,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "xeelee-vengeance-chapter-01",
+      "title": "1",
+      "sourcePath": "text/part0003.html",
+      "characters": 442,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "xeelee-vengeance-chapter-02",
+      "title": "2",
+      "sourcePath": "text/part0004.html",
+      "characters": 14896,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "xeelee-vengeance-chapter-03",
+      "title": "3",
+      "sourcePath": "text/part0005.html",
+      "characters": 11444,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "xeelee-vengeance-chapter-04",
+      "title": "4",
+      "sourcePath": "text/part0006.html",
+      "characters": 13264,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "xeelee-vengeance-chapter-05",
+      "title": "5",
+      "sourcePath": "text/part0007.html",
+      "characters": 13302,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "xeelee-vengeance-chapter-06",
+      "title": "6",
+      "sourcePath": "text/part0008.html",
+      "characters": 6595,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "xeelee-vengeance-two",
+      "title": "TWO",
+      "sourcePath": "text/part0009.html",
+      "characters": 127,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "xeelee-vengeance-chapter-07",
+      "title": "7",
+      "sourcePath": "text/part0010.html",
+      "characters": 8183,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "xeelee-vengeance-chapter-08",
+      "title": "8",
+      "sourcePath": "text/part0011.html",
+      "characters": 14299,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "xeelee-vengeance-chapter-09",
+      "title": "9",
+      "sourcePath": "text/part0012.html",
+      "characters": 4196,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "xeelee-vengeance-chapter-10",
+      "title": "10",
+      "sourcePath": "text/part0013.html",
+      "characters": 15194,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "xeelee-vengeance-chapter-11",
+      "title": "11",
+      "sourcePath": "text/part0014.html",
+      "characters": 8802,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "xeelee-vengeance-chapter-12",
+      "title": "12",
+      "sourcePath": "text/part0015.html",
+      "characters": 13215,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "xeelee-vengeance-chapter-13",
+      "title": "13",
+      "sourcePath": "text/part0016.html",
+      "characters": 8066,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 8
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "xeelee-vengeance-chapter-14",
+      "title": "14",
+      "sourcePath": "text/part0017.html",
+      "characters": 15251,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 9
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "xeelee-vengeance-chapter-15",
+      "title": "15",
+      "sourcePath": "text/part0018.html",
+      "characters": 6428,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 10
+    },
+    {
+      "chapterNumber": 18,
+      "slug": "xeelee-vengeance-chapter-16",
+      "title": "16",
+      "sourcePath": "text/part0019.html",
+      "characters": 6187,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 11
+    },
+    {
+      "chapterNumber": 19,
+      "slug": "xeelee-vengeance-chapter-17",
+      "title": "17",
+      "sourcePath": "text/part0020.html",
+      "characters": 14327,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 12
+    },
+    {
+      "chapterNumber": 20,
+      "slug": "xeelee-vengeance-chapter-18",
+      "title": "18",
+      "sourcePath": "text/part0021.html",
+      "characters": 10497,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 13
+    },
+    {
+      "chapterNumber": 21,
+      "slug": "xeelee-vengeance-chapter-19",
+      "title": "19",
+      "sourcePath": "text/part0022.html",
+      "characters": 11291,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 14
+    },
+    {
+      "chapterNumber": 22,
+      "slug": "xeelee-vengeance-three",
+      "title": "THREE",
+      "sourcePath": "text/part0023.html",
+      "characters": 103,
+      "volumeNumber": 3,
+      "volumeTitle": "THREE",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 23,
+      "slug": "xeelee-vengeance-chapter-20",
+      "title": "20",
+      "sourcePath": "text/part0024.html",
+      "characters": 12111,
+      "volumeNumber": 3,
+      "volumeTitle": "THREE",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 24,
+      "slug": "xeelee-vengeance-chapter-21",
+      "title": "21",
+      "sourcePath": "text/part0025.html",
+      "characters": 13773,
+      "volumeNumber": 3,
+      "volumeTitle": "THREE",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 25,
+      "slug": "xeelee-vengeance-chapter-22",
+      "title": "22",
+      "sourcePath": "text/part0026.html",
+      "characters": 11330,
+      "volumeNumber": 3,
+      "volumeTitle": "THREE",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 26,
+      "slug": "xeelee-vengeance-chapter-23",
+      "title": "23",
+      "sourcePath": "text/part0027.html",
+      "characters": 1628,
+      "volumeNumber": 3,
+      "volumeTitle": "THREE",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 27,
+      "slug": "xeelee-vengeance-chapter-24",
+      "title": "24",
+      "sourcePath": "text/part0028.html",
+      "characters": 11571,
+      "volumeNumber": 3,
+      "volumeTitle": "THREE",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 28,
+      "slug": "xeelee-vengeance-chapter-25",
+      "title": "25",
+      "sourcePath": "text/part0029.html",
+      "characters": 11452,
+      "volumeNumber": 3,
+      "volumeTitle": "THREE",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 29,
+      "slug": "xeelee-vengeance-four",
+      "title": "FOUR",
+      "sourcePath": "text/part0030.html",
+      "characters": 724,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 30,
+      "slug": "xeelee-vengeance-chapter-26",
+      "title": "26",
+      "sourcePath": "text/part0031.html",
+      "characters": 6664,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 31,
+      "slug": "xeelee-vengeance-chapter-27",
+      "title": "27",
+      "sourcePath": "text/part0032.html",
+      "characters": 6357,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 32,
+      "slug": "xeelee-vengeance-chapter-28",
+      "title": "28",
+      "sourcePath": "text/part0033.html",
+      "characters": 11296,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 33,
+      "slug": "xeelee-vengeance-chapter-29",
+      "title": "29",
+      "sourcePath": "text/part0034.html",
+      "characters": 10274,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 34,
+      "slug": "xeelee-vengeance-chapter-30",
+      "title": "30",
+      "sourcePath": "text/part0035.html",
+      "characters": 5920,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 35,
+      "slug": "xeelee-vengeance-chapter-31",
+      "title": "31",
+      "sourcePath": "text/part0036.html",
+      "characters": 11100,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 36,
+      "slug": "xeelee-vengeance-chapter-32",
+      "title": "32",
+      "sourcePath": "text/part0037.html",
+      "characters": 5555,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 8
+    },
+    {
+      "chapterNumber": 37,
+      "slug": "xeelee-vengeance-chapter-33",
+      "title": "33",
+      "sourcePath": "text/part0038.html",
+      "characters": 5855,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 9
+    },
+    {
+      "chapterNumber": 38,
+      "slug": "xeelee-vengeance-chapter-34",
+      "title": "34",
+      "sourcePath": "text/part0039.html",
+      "characters": 9320,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 10
+    },
+    {
+      "chapterNumber": 39,
+      "slug": "xeelee-vengeance-chapter-35",
+      "title": "35",
+      "sourcePath": "text/part0040.html",
+      "characters": 9258,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 11
+    },
+    {
+      "chapterNumber": 40,
+      "slug": "xeelee-vengeance-chapter-36",
+      "title": "36",
+      "sourcePath": "text/part0041.html",
+      "characters": 10650,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 12
+    },
+    {
+      "chapterNumber": 41,
+      "slug": "xeelee-vengeance-chapter-37",
+      "title": "37",
+      "sourcePath": "text/part0042.html",
+      "characters": 9097,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 13
+    },
+    {
+      "chapterNumber": 42,
+      "slug": "xeelee-vengeance-chapter-38",
+      "title": "38",
+      "sourcePath": "text/part0043.html",
+      "characters": 8037,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 14
+    },
+    {
+      "chapterNumber": 43,
+      "slug": "xeelee-vengeance-chapter-39",
+      "title": "39",
+      "sourcePath": "text/part0044.html",
+      "characters": 3482,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 15
+    },
+    {
+      "chapterNumber": 44,
+      "slug": "xeelee-vengeance-chapter-40",
+      "title": "40",
+      "sourcePath": "text/part0045.html",
+      "characters": 9024,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 16
+    },
+    {
+      "chapterNumber": 45,
+      "slug": "xeelee-vengeance-chapter-41",
+      "title": "41",
+      "sourcePath": "text/part0046.html",
+      "characters": 9435,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 17
+    },
+    {
+      "chapterNumber": 46,
+      "slug": "xeelee-vengeance-chapter-42",
+      "title": "42",
+      "sourcePath": "text/part0047.html",
+      "characters": 7816,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 18
+    },
+    {
+      "chapterNumber": 47,
+      "slug": "xeelee-vengeance-five",
+      "title": "FIVE",
+      "sourcePath": "text/part0048.html",
+      "characters": 158,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 48,
+      "slug": "xeelee-vengeance-chapter-43",
+      "title": "43",
+      "sourcePath": "text/part0049.html",
+      "characters": 5034,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 49,
+      "slug": "xeelee-vengeance-chapter-44",
+      "title": "44",
+      "sourcePath": "text/part0050.html",
+      "characters": 26676,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 50,
+      "slug": "xeelee-vengeance-chapter-45",
+      "title": "45",
+      "sourcePath": "text/part0051.html",
+      "characters": 6802,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 51,
+      "slug": "xeelee-vengeance-chapter-46",
+      "title": "46",
+      "sourcePath": "text/part0052.html",
+      "characters": 10887,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 52,
+      "slug": "xeelee-vengeance-chapter-47",
+      "title": "47",
+      "sourcePath": "text/part0053.html",
+      "characters": 7586,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 53,
+      "slug": "xeelee-vengeance-chapter-48",
+      "title": "48",
+      "sourcePath": "text/part0054.html",
+      "characters": 13907,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 54,
+      "slug": "xeelee-vengeance-chapter-49",
+      "title": "49",
+      "sourcePath": "text/part0055.html",
+      "characters": 18420,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 8
+    },
+    {
+      "chapterNumber": 55,
+      "slug": "xeelee-vengeance-chapter-50",
+      "title": "50",
+      "sourcePath": "text/part0056.html",
+      "characters": 5477,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 9
+    },
+    {
+      "chapterNumber": 56,
+      "slug": "xeelee-vengeance-chapter-51",
+      "title": "51",
+      "sourcePath": "text/part0057.html",
+      "characters": 9498,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 10
+    },
+    {
+      "chapterNumber": 57,
+      "slug": "xeelee-vengeance-chapter-52",
+      "title": "52",
+      "sourcePath": "text/part0058.html",
+      "characters": 2866,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 11
+    },
+    {
+      "chapterNumber": 58,
+      "slug": "xeelee-vengeance-chapter-53",
+      "title": "53",
+      "sourcePath": "text/part0059.html",
+      "characters": 12758,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 12
+    },
+    {
+      "chapterNumber": 59,
+      "slug": "xeelee-vengeance-six",
+      "title": "SIX",
+      "sourcePath": "text/part0060.html",
+      "characters": 419,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 60,
+      "slug": "xeelee-vengeance-chapter-54",
+      "title": "54",
+      "sourcePath": "text/part0061.html",
+      "characters": 13108,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 61,
+      "slug": "xeelee-vengeance-chapter-55",
+      "title": "55",
+      "sourcePath": "text/part0062.html",
+      "characters": 9410,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 62,
+      "slug": "xeelee-vengeance-chapter-56",
+      "title": "56",
+      "sourcePath": "text/part0063.html",
+      "characters": 3975,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 63,
+      "slug": "xeelee-vengeance-chapter-57",
+      "title": "57",
+      "sourcePath": "text/part0064.html",
+      "characters": 12949,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 64,
+      "slug": "xeelee-vengeance-chapter-58",
+      "title": "58",
+      "sourcePath": "text/part0065.html",
+      "characters": 6789,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 65,
+      "slug": "xeelee-vengeance-chapter-59",
+      "title": "59",
+      "sourcePath": "text/part0066.html",
+      "characters": 4776,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 66,
+      "slug": "xeelee-vengeance-chapter-60",
+      "title": "60",
+      "sourcePath": "text/part0067.html",
+      "characters": 10104,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 8
+    },
+    {
+      "chapterNumber": 67,
+      "slug": "xeelee-vengeance-chapter-61",
+      "title": "61",
+      "sourcePath": "text/part0068.html",
+      "characters": 8135,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 9
+    },
+    {
+      "chapterNumber": 68,
+      "slug": "xeelee-vengeance-chapter-62",
+      "title": "62",
+      "sourcePath": "text/part0069.html",
+      "characters": 12201,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 10
+    },
+    {
+      "chapterNumber": 69,
+      "slug": "xeelee-vengeance-chapter-63",
+      "title": "63",
+      "sourcePath": "text/part0070.html",
+      "characters": 13200,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 11
+    },
+    {
+      "chapterNumber": 70,
+      "slug": "xeelee-vengeance-seven",
+      "title": "SEVEN",
+      "sourcePath": "text/part0071.html",
+      "characters": 228,
+      "volumeNumber": 7,
+      "volumeTitle": "SEVEN",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 71,
+      "slug": "xeelee-vengeance-chapter-64",
+      "title": "64",
+      "sourcePath": "text/part0072.html",
+      "characters": 5148,
+      "volumeNumber": 7,
+      "volumeTitle": "SEVEN",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 72,
+      "slug": "xeelee-vengeance-chapter-65",
+      "title": "65",
+      "sourcePath": "text/part0073.html",
+      "characters": 8288,
+      "volumeNumber": 7,
+      "volumeTitle": "SEVEN",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 73,
+      "slug": "xeelee-vengeance-chapter-66",
+      "title": "66",
+      "sourcePath": "text/part0074.html",
+      "characters": 12902,
+      "volumeNumber": 7,
+      "volumeTitle": "SEVEN",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 74,
+      "slug": "xeelee-vengeance-chapter-67",
+      "title": "67",
+      "sourcePath": "text/part0075.html",
+      "characters": 8233,
+      "volumeNumber": 7,
+      "volumeTitle": "SEVEN",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 75,
+      "slug": "xeelee-vengeance-chapter-68",
+      "title": "68",
+      "sourcePath": "text/part0076.html",
+      "characters": 13808,
+      "volumeNumber": 7,
+      "volumeTitle": "SEVEN",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 76,
+      "slug": "xeelee-vengeance-coda",
+      "title": "Coda",
+      "sourcePath": "text/part0077.html",
+      "characters": 297,
+      "volumeNumber": 7,
+      "volumeTitle": "SEVEN",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 77,
+      "slug": "xeelee-vengeance-afterword",
+      "title": "Afterword",
+      "sourcePath": "text/part0078.html",
+      "characters": 4700,
+      "volumeNumber": 7,
+      "volumeTitle": "SEVEN",
+      "volumeUnitNumber": 8
+    }
+  ]
+}

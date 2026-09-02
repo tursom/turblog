@@ -1,0 +1,233 @@
+{
+  "input": "Flux_-_Stephen_Baxter.epub",
+  "format": "epub",
+  "title": "Flux",
+  "private": true,
+  "generatedChapters": 30,
+  "characters": 723699,
+  "packagePath": "content.opf",
+  "spineEntries": 32,
+  "skipped": [
+    {
+      "sourcePath": "titlepage.xhtml",
+      "reason": "empty"
+    },
+    {
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_030.htm",
+      "title": "About the Author",
+      "reason": "front-or-back-matter"
+    }
+  ],
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "flux-xeelee-sequence-book-3",
+      "title": "Xeelee Sequence Book 3",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_000.htm",
+      "characters": 77
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "flux-chapter-01",
+      "title": "1",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_001.htm",
+      "characters": 39203
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "flux-chapter-02",
+      "title": "2",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_002.htm",
+      "characters": 33523
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "flux-chapter-03",
+      "title": "3",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_003.htm",
+      "characters": 29455
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "flux-chapter-04",
+      "title": "4",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_004.htm",
+      "characters": 23881
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "flux-chapter-05",
+      "title": "5",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_005.htm",
+      "characters": 21070
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "flux-chapter-06",
+      "title": "6",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_006.htm",
+      "characters": 29443
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "flux-chapter-07",
+      "title": "7",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_007.htm",
+      "characters": 37280
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "flux-chapter-08",
+      "title": "8",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_008.htm",
+      "characters": 31280
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "flux-chapter-09",
+      "title": "9",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_009.htm",
+      "characters": 27869
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "flux-chapter-10",
+      "title": "10",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_010.htm",
+      "characters": 23982
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "flux-chapter-11",
+      "title": "11",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_011.htm",
+      "characters": 21205
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "flux-chapter-12",
+      "title": "12",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_012.htm",
+      "characters": 21416
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "flux-chapter-13",
+      "title": "13",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_013.htm",
+      "characters": 26883
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "flux-chapter-14",
+      "title": "14",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_014.htm",
+      "characters": 25759
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "flux-chapter-15",
+      "title": "15",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_015.htm",
+      "characters": 22120
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "flux-chapter-16",
+      "title": "16",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_016.htm",
+      "characters": 17602
+    },
+    {
+      "chapterNumber": 18,
+      "slug": "flux-chapter-17",
+      "title": "17",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_017.htm",
+      "characters": 23398
+    },
+    {
+      "chapterNumber": 19,
+      "slug": "flux-chapter-18",
+      "title": "18",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_018.htm",
+      "characters": 25107
+    },
+    {
+      "chapterNumber": 20,
+      "slug": "flux-chapter-19",
+      "title": "19",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_019.htm",
+      "characters": 25156
+    },
+    {
+      "chapterNumber": 21,
+      "slug": "flux-chapter-20",
+      "title": "20",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_020.htm",
+      "characters": 26495
+    },
+    {
+      "chapterNumber": 22,
+      "slug": "flux-chapter-21",
+      "title": "21",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_021.htm",
+      "characters": 28635
+    },
+    {
+      "chapterNumber": 23,
+      "slug": "flux-chapter-22",
+      "title": "22",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_022.htm",
+      "characters": 24364
+    },
+    {
+      "chapterNumber": 24,
+      "slug": "flux-chapter-23",
+      "title": "23",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_023.htm",
+      "characters": 23747
+    },
+    {
+      "chapterNumber": 25,
+      "slug": "flux-chapter-24",
+      "title": "24",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_024.htm",
+      "characters": 27963
+    },
+    {
+      "chapterNumber": 26,
+      "slug": "flux-chapter-25",
+      "title": "25",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_025.htm",
+      "characters": 20428
+    },
+    {
+      "chapterNumber": 27,
+      "slug": "flux-chapter-26",
+      "title": "26",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_026.htm",
+      "characters": 24702
+    },
+    {
+      "chapterNumber": 28,
+      "slug": "flux-chapter-27",
+      "title": "27",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_027.htm",
+      "characters": 17756
+    },
+    {
+      "chapterNumber": 29,
+      "slug": "flux-chapter-28",
+      "title": "28",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_028.htm",
+      "characters": 2951
+    },
+    {
+      "chapterNumber": 30,
+      "slug": "flux-chapter-29",
+      "title": "29",
+      "sourcePath": "Stephen Baxter - Xeelee 03 - Flux_split_029.htm",
+      "characters": 20949
+    }
+  ]
+}

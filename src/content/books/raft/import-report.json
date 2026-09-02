@@ -1,0 +1,137 @@
+{
+  "input": "Raft_-_Stephen_Baxter.epub",
+  "format": "epub",
+  "title": "Raft",
+  "private": true,
+  "generatedChapters": 17,
+  "characters": 448631,
+  "packagePath": "content.opf",
+  "spineEntries": 18,
+  "skipped": [
+    {
+      "sourcePath": "titlepage.xhtml",
+      "reason": "empty"
+    }
+  ],
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "raft-acknowledgment",
+      "title": "Acknowledgment",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_000.htm",
+      "characters": 654
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "raft-chapter-01",
+      "title": "1",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_001.htm",
+      "characters": 27187
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "raft-chapter-02",
+      "title": "2",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_002.htm",
+      "characters": 27711
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "raft-chapter-03",
+      "title": "3",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_003.htm",
+      "characters": 32898
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "raft-chapter-04",
+      "title": "4",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_004.htm",
+      "characters": 30782
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "raft-chapter-05",
+      "title": "5",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_005.htm",
+      "characters": 38276
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "raft-chapter-06",
+      "title": "6",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_006.htm",
+      "characters": 21927
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "raft-chapter-07",
+      "title": "7",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_007.htm",
+      "characters": 25013
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "raft-chapter-08",
+      "title": "8",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_008.htm",
+      "characters": 27387
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "raft-chapter-09",
+      "title": "9",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_009.htm",
+      "characters": 29064
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "raft-chapter-10",
+      "title": "10",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_010.htm",
+      "characters": 27235
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "raft-chapter-11",
+      "title": "11",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_011.htm",
+      "characters": 27164
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "raft-chapter-12",
+      "title": "12",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_012.htm",
+      "characters": 24694
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "raft-chapter-13",
+      "title": "13",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_013.htm",
+      "characters": 25454
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "raft-chapter-14",
+      "title": "14",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_014.htm",
+      "characters": 31785
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "raft-chapter-15",
+      "title": "15",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_015.htm",
+      "characters": 31382
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "raft-chapter-16",
+      "title": "16",
+      "sourcePath": "Stephen Baxter - Xeelee 01 - Raft_split_016.htm",
+      "characters": 20018
+    }
+  ]
+}

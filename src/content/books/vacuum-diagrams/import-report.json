@@ -1,0 +1,359 @@
+{
+  "input": "Vacuum_Diagrams_-_Stephen_Baxter.epub",
+  "format": "epub",
+  "title": "Vacuum Diagrams",
+  "private": true,
+  "generatedChapters": 34,
+  "characters": 775610,
+  "packagePath": "content.opf",
+  "spineEntries": 37,
+  "skipped": [
+    {
+      "sourcePath": "titlepage.xhtml",
+      "reason": "empty"
+    },
+    {
+      "sourcePath": "index_split_033.html",
+      "title": "About the Author",
+      "reason": "front-or-back-matter"
+    },
+    {
+      "sourcePath": "index_split_035.html",
+      "title": "Section 37",
+      "reason": "front-or-back-matter"
+    }
+  ],
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "vacuum-diagrams-xeelee-sequence-book-5",
+      "title": "Xeelee Sequence Book 5",
+      "sourcePath": "index_split_000.html",
+      "characters": 112
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "vacuum-diagrams-foreword",
+      "title": "Foreword",
+      "sourcePath": "index_split_001.html",
+      "characters": 910
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "vacuum-diagrams-prologue",
+      "title": "Prologue",
+      "sourcePath": "index_split_002.html",
+      "characters": 12560
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "vacuum-diagrams-part-1",
+      "title": "PART 1",
+      "sourcePath": "index_split_003.html",
+      "characters": 1585,
+      "volumeNumber": 1,
+      "volumeTitle": "PART 1",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "vacuum-diagrams-the-sun-people",
+      "title": "The Sun-People",
+      "sourcePath": "index_split_004.html",
+      "characters": 26191,
+      "volumeNumber": 1,
+      "volumeTitle": "PART 1",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "vacuum-diagrams-the-logic-pool",
+      "title": "The Logic Pool",
+      "sourcePath": "index_split_005.html",
+      "characters": 32540,
+      "volumeNumber": 1,
+      "volumeTitle": "PART 1",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "vacuum-diagrams-gossamer",
+      "title": "Gossamer",
+      "sourcePath": "index_split_006.html",
+      "characters": 38401,
+      "volumeNumber": 1,
+      "volumeTitle": "PART 1",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "vacuum-diagrams-cilia-of-gold",
+      "title": "Cilia-of-Gold",
+      "sourcePath": "index_split_007.html",
+      "characters": 51679,
+      "volumeNumber": 1,
+      "volumeTitle": "PART 1",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "vacuum-diagrams-lieserl",
+      "title": "Lieserl",
+      "sourcePath": "index_split_008.html",
+      "characters": 37854,
+      "volumeNumber": 1,
+      "volumeTitle": "PART 1",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "vacuum-diagrams-part-2",
+      "title": "PART 2",
+      "sourcePath": "index_split_009.html",
+      "characters": 22,
+      "volumeNumber": 2,
+      "volumeTitle": "PART 2",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "vacuum-diagrams-pilot",
+      "title": "Pilot",
+      "sourcePath": "index_split_010.html",
+      "characters": 31262,
+      "volumeNumber": 2,
+      "volumeTitle": "PART 2",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "vacuum-diagrams-the-xeelee-flower",
+      "title": "The Xeelee Flower",
+      "sourcePath": "index_split_011.html",
+      "characters": 21420,
+      "volumeNumber": 2,
+      "volumeTitle": "PART 2",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "vacuum-diagrams-more-than-time-or-distance",
+      "title": "More Than Time or Distance",
+      "sourcePath": "index_split_012.html",
+      "characters": 15904,
+      "volumeNumber": 2,
+      "volumeTitle": "PART 2",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "vacuum-diagrams-the-switch",
+      "title": "The Switch",
+      "sourcePath": "index_split_013.html",
+      "characters": 11824,
+      "volumeNumber": 2,
+      "volumeTitle": "PART 2",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "vacuum-diagrams-part-3",
+      "title": "PART 3",
+      "sourcePath": "index_split_014.html",
+      "characters": 19,
+      "volumeNumber": 3,
+      "volumeTitle": "PART 3",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "vacuum-diagrams-blue-shift",
+      "title": "Blue Shift",
+      "sourcePath": "index_split_015.html",
+      "characters": 37621,
+      "volumeNumber": 3,
+      "volumeTitle": "PART 3",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "vacuum-diagrams-the-quagma-datum",
+      "title": "The Quagma Datum",
+      "sourcePath": "index_split_016.html",
+      "characters": 34444,
+      "volumeNumber": 3,
+      "volumeTitle": "PART 3",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 18,
+      "slug": "vacuum-diagrams-planck-zero",
+      "title": "Planck Zero",
+      "sourcePath": "index_split_017.html",
+      "characters": 28744,
+      "volumeNumber": 3,
+      "volumeTitle": "PART 3",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 19,
+      "slug": "vacuum-diagrams-part-4",
+      "title": "PART 4",
+      "sourcePath": "index_split_018.html",
+      "characters": 17,
+      "volumeNumber": 4,
+      "volumeTitle": "PART 4",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 20,
+      "slug": "vacuum-diagrams-the-godel-sunflowers",
+      "title": "The Gödel Sunflowers",
+      "sourcePath": "index_split_019.html",
+      "characters": 28584,
+      "volumeNumber": 4,
+      "volumeTitle": "PART 4",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 21,
+      "slug": "vacuum-diagrams-vacuum-diagrams",
+      "title": "Vacuum Diagrams",
+      "sourcePath": "index_split_020.html",
+      "characters": 31310,
+      "volumeNumber": 4,
+      "volumeTitle": "PART 4",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 22,
+      "slug": "vacuum-diagrams-part-5",
+      "title": "PART 5",
+      "sourcePath": "index_split_021.html",
+      "characters": 974,
+      "volumeNumber": 5,
+      "volumeTitle": "PART 5",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 23,
+      "slug": "vacuum-diagrams-stowaway",
+      "title": "Stowaway",
+      "sourcePath": "index_split_022.html",
+      "characters": 25867,
+      "volumeNumber": 5,
+      "volumeTitle": "PART 5",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 24,
+      "slug": "vacuum-diagrams-the-tyranny-of-heaven",
+      "title": "The Tyranny of Heaven",
+      "sourcePath": "index_split_023.html",
+      "characters": 38161,
+      "volumeNumber": 5,
+      "volumeTitle": "PART 5",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 25,
+      "slug": "vacuum-diagrams-hero",
+      "title": "Hero",
+      "sourcePath": "index_split_024.html",
+      "characters": 28045,
+      "volumeNumber": 5,
+      "volumeTitle": "PART 5",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 26,
+      "slug": "vacuum-diagrams-part-6",
+      "title": "PART 6",
+      "sourcePath": "index_split_025.html",
+      "characters": 11,
+      "volumeNumber": 6,
+      "volumeTitle": "PART 6",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 27,
+      "slug": "vacuum-diagrams-secret-history",
+      "title": "Secret History",
+      "sourcePath": "index_split_026.html",
+      "characters": 24560,
+      "volumeNumber": 6,
+      "volumeTitle": "PART 6",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 28,
+      "slug": "vacuum-diagrams-part-7",
+      "title": "PART 7",
+      "sourcePath": "index_split_027.html",
+      "characters": 265,
+      "volumeNumber": 7,
+      "volumeTitle": "PART 7",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 29,
+      "slug": "vacuum-diagrams-shell",
+      "title": "Shell",
+      "sourcePath": "index_split_028.html",
+      "characters": 27545,
+      "volumeNumber": 7,
+      "volumeTitle": "PART 7",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 30,
+      "slug": "vacuum-diagrams-the-eighth-room",
+      "title": "The Eighth Room",
+      "sourcePath": "index_split_029.html",
+      "characters": 43230,
+      "volumeNumber": 7,
+      "volumeTitle": "PART 7",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 31,
+      "slug": "vacuum-diagrams-the-baryonic-lords",
+      "title": "The Baryonic Lords",
+      "sourcePath": "index_split_030.html",
+      "characters": 125565,
+      "volumeNumber": 7,
+      "volumeTitle": "PART 7",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 32,
+      "slug": "vacuum-diagrams-epilogue",
+      "title": "Epilogue",
+      "sourcePath": "index_split_031.html",
+      "characters": 15646,
+      "volumeNumber": 7,
+      "volumeTitle": "PART 7",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 33,
+      "slug": "vacuum-diagrams-the-xeelee-sequence-timeline",
+      "title": "The Xeelee Sequence-Timeline",
+      "sourcePath": "index_split_032.html",
+      "characters": 2647,
+      "volumeNumber": 7,
+      "volumeTitle": "PART 7",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 34,
+      "slug": "vacuum-diagrams-footnotes",
+      "title": "Footnotes",
+      "sourcePath": "index_split_034.html",
+      "characters": 91,
+      "volumeNumber": 7,
+      "volumeTitle": "PART 7",
+      "volumeUnitNumber": 7
+    }
+  ]
+}

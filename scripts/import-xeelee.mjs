@@ -1,105 +1,285 @@
 // @ts-nocheck
-// Xeelee Sequence（Stephen Baxter）私密书架导入器
+// Import Stephen Baxter's Xeelee books as password-protected reading content.
 //
-// 目标：把 Xeelee Sequence（含 Destiny's Children）作为「仅自己可读」的私密英文书架，
-// 与《三体》三部曲的私密阅读同一机制（book.md 中 private: true）。
+// Usage:
+//   node scripts/import-xeelee.mjs --from-dir tmp  # local EPUB/PDF files
+//   node scripts/import-xeelee.mjs --free          # author-authorized Raft short story
 //
-// 正文来源的边界（重要）：
-//   - 本导入器的 `free` 模式只收录作者授权免费发布的内容。当前仅接入 Infinity Plus
-//     （infinityplus.co.uk）上由作者授权免费发布的《Raft》短篇（系列最初构思，1989 年
-//     首发于 Interzone）。新增免费篇目时把条目加进 FREE_STORIES 并在源站确认授权声明。
-//   - 长篇小说的合法原文不在免费公开网页上；请使用官方电子书（如 Gollancz 的
-//     Xeelee: An Omnibus / Xeelee Sequence: The Complete Series）等自己持有的文件，
-//     用 `--from-file` 模式导入。导入器不会去盗版源抓取整册小说。
-//
-// 用法：
-//   node scripts/import-xeelee.mjs              # 收录 FREE_STORIES 中全部免费短篇
-//   node scripts/import-xeelee.mjs --from-file <path.txt> --slug <book-slug>
-//       # 从本地 UTF-8 文本导入一册（先按段落清理，尽量识别章节标题分行）
-//
-// 与 scripts/import-santi.mjs 相同的约定：只重建本系列自己的 src/content/books/<slug>/，
-// 不修改其他图书或文章；生成 import-report.json；源站改版会触发严格校验并中止。
-import { mkdir, mkdtemp, rename, rm, writeFile } from 'node:fs/promises';
-import { readFile } from 'node:fs/promises';
-import { dirname, join, resolve } from 'node:path';
+// Local source files are read in place and are never copied into the repository. The
+// importer rebuilds only the Xeelee book directories named in LOCAL_BOOKS.
+import { execFile as execFileCallback } from 'node:child_process';
+import { promisify } from 'node:util';
+import { mkdir, mkdtemp, readFile, rename, rm, writeFile } from 'node:fs/promises';
+import { dirname, join, posix, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { load as loadHtml } from 'cheerio';
+import { unzipSync } from 'fflate';
+import TurndownService from 'turndown';
 
+const execFile = promisify(execFileCallback);
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const userAgent = 'Tursom-Log-xeelee-importer/1.0';
+const userAgent = 'Tursom-Log-xeelee-importer/2.0';
+const textDecoder = new TextDecoder('utf-8');
 
 const author = 'Stephen Baxter';
 const groupSlug = 'xeelee-sequence';
 const groupTitle = 'Xeelee Sequence';
 const groupOrder = 40;
 const language = 'en';
+const sourceUrl = 'https://www.stephen-baxter.com/';
+const privateRightsNotice =
+  "Copyright Stephen Baxter. This extracted text is stored for the site owner's private reading only and must not be publicly distributed.";
 
-const pad3 = (value) => String(value).padStart(3, '0');
-
-// 系列书目事实清单（不含正文）。用于 --from-file 导入时给已知 slug 配默认元数据；
-// 也可作为后续分批导入的进度索引。kind: novel | novella | collection | short。
-// 年份为初版年份（维基百科 Xeelee Sequence 词条 + 作者官网书目）。
-const SERIES = [
-  // 主线
-  { slug: 'raft', title: 'Raft', year: 1991, kind: 'novel', seriesOrder: 1 },
+const LOCAL_BOOKS = [
   {
+    filename: 'Raft_-_Stephen_Baxter.epub',
+    format: 'epub',
+    slug: 'raft',
+    title: 'Raft',
+    subtitle: 'Xeelee Sequence 1',
+    publishedAt: '1991-01-01',
+    seriesOrder: 1,
+    summary:
+      'Rees leaves the Belt and discovers the fragile societies living in a universe where gravity is a billion times stronger than on Earth.',
+    minimumChapters: 16,
+    minimumCharacters: 400_000,
+  },
+  {
+    filename: '783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf',
+    format: 'pdf',
     slug: 'timelike-infinity',
     title: 'Timelike Infinity',
-    year: 1992,
-    kind: 'novel',
+    subtitle: 'Xeelee Sequence 2',
+    publishedAt: '1992-01-01',
     seriesOrder: 2,
+    summary:
+      'Human rebels use a wormhole sent back through time as they resist the Qax occupation of Earth.',
+    minimumChapters: 16,
+    minimumCharacters: 250_000,
   },
-  { slug: 'flux', title: 'Flux', year: 1993, kind: 'novel', seriesOrder: 3 },
-  { slug: 'ring', title: 'Ring', year: 1994, kind: 'novel', seriesOrder: 4 },
   {
+    filename: 'Flux_-_Stephen_Baxter.epub',
+    format: 'epub',
+    slug: 'flux',
+    title: 'Flux',
+    subtitle: 'Xeelee Sequence 3',
+    publishedAt: '1993-01-01',
+    seriesOrder: 3,
+    summary:
+      'Microscopic human descendants struggle to survive inside the turbulent mantle of a neutron star.',
+    minimumChapters: 29,
+    minimumCharacters: 500_000,
+  },
+  {
+    filename: 'Ring_-_Stephen_Baxter.epub',
+    format: 'epub',
+    slug: 'ring',
+    title: 'Ring',
+    subtitle: 'Xeelee Sequence 4',
+    publishedAt: '1994-01-01',
+    seriesOrder: 4,
+    summary:
+      'Across immense spans of time, human explorers pursue the Xeelee and confront the photino birds reshaping the universe.',
+    minimumChapters: 35,
+    minimumCharacters: 500_000,
+    volumePattern: /^PART\s+[IVX]+\b/i,
+    excludedTitles: new Set(['Annotation']),
+  },
+  {
+    filename: 'Vacuum_Diagrams_-_Stephen_Baxter.epub',
+    format: 'epub',
     slug: 'vacuum-diagrams',
     title: 'Vacuum Diagrams',
-    year: 1997,
-    kind: 'collection',
+    subtitle: 'Stories from the Xeelee Sequence',
+    publishedAt: '1997-01-01',
     seriesOrder: 5,
+    summary:
+      'A linked collection tracing humanity and the Xeelee across the vast chronology of the sequence.',
+    minimumChapters: 25,
+    minimumCharacters: 500_000,
+    volumePattern: /^PART\s+\d+\b/i,
   },
-  { slug: 'reality-dust', title: 'Reality Dust', year: 2000, kind: 'novella', seriesOrder: 6 },
   {
-    slug: 'riding-the-rock',
-    title: 'Riding the Rock',
-    year: 2002,
-    kind: 'novella',
-    seriesOrder: 7,
+    filename: 'Mayflower_II_-_Stephen_Baxter.epub',
+    format: 'epub',
+    slug: 'mayflower-ii',
+    title: 'Mayflower II',
+    subtitle: 'A Xeelee Sequence novella',
+    publishedAt: '2004-01-01',
+    seriesOrder: 6,
+    summary:
+      'A generation ship and its changing human society travel through thousands of years toward an uncertain refuge.',
+    minimumChapters: 10,
+    minimumCharacters: 100_000,
   },
-  { slug: 'mayflower-ii', title: 'Mayflower II', year: 2004, kind: 'novella', seriesOrder: 8 },
-  { slug: 'starfall', title: 'Starfall', year: 2009, kind: 'novella', seriesOrder: 9 },
   {
+    filename: 'Xeelee_Endurance_-_Stephen_Baxter.epub',
+    format: 'epub',
     slug: 'xeelee-endurance',
     title: 'Xeelee: Endurance',
-    year: 2022,
-    kind: 'collection',
-    seriesOrder: 10,
+    subtitle: 'Stories from the Xeelee Sequence',
+    publishedAt: '2015-01-01',
+    seriesOrder: 7,
+    summary:
+      "A collection spanning the Xeelee timeline, from Michael Poole and Titan to humanity in the universe's deep future.",
+    minimumChapters: 45,
+    minimumCharacters: 500_000,
+    sectionTitles: new Set([
+      'RETURN TO TITAN',
+      'STARFALL',
+      'REMEMBRANCE',
+      'ENDURANCE',
+      'THE SEER AND THE SILVERMAN',
+      'GRAVITY DREAMS',
+      'PERIANDRY’S QUEST',
+      'CLIMBING THE BLUE',
+      'THE TIME PIT',
+      'THE LOWLAND EXPEDITION',
+      'FORMIDABLE CARESS',
+      'THE XEELEE SEQUENCE – TIMELINE',
+    ]),
+    useVolumeTitleForUnnavigated: true,
   },
-  // Destiny's Children（同一宇宙）
-  { slug: 'coalescent', title: 'Coalescent', year: 2003, kind: 'novel', seriesOrder: 11 },
-  { slug: 'exultant', title: 'Exultant', year: 2004, kind: 'novel', seriesOrder: 12 },
-  { slug: 'transcendent', title: 'Transcendent', year: 2005, kind: 'novel', seriesOrder: 13 },
-  { slug: 'resplendent', title: 'Resplendent', year: 2006, kind: 'collection', seriesOrder: 14 },
+  {
+    filename: 'Xeelee__Vengeance_-_Stephen_Baxter.epub',
+    format: 'epub',
+    slug: 'xeelee-vengeance',
+    title: 'Xeelee: Vengeance',
+    subtitle: 'A Xeelee Sequence novel',
+    publishedAt: '2017-01-01',
+    seriesOrder: 8,
+    summary:
+      'Michael Poole faces a Xeelee incursion and a threat reaching across the history of the Solar System.',
+    minimumChapters: 68,
+    minimumCharacters: 500_000,
+    volumePattern: /^(ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN)$/i,
+    titleOverrides: { 'text/part0077.html': 'Coda' },
+  },
+  {
+    filename: 'Xeelee_Redemption_-_Stephen_Baxter.epub',
+    format: 'epub',
+    slug: 'xeelee-redemption',
+    title: 'Xeelee: Redemption',
+    subtitle: 'A Xeelee Sequence novel',
+    publishedAt: '2018-01-01',
+    seriesOrder: 9,
+    summary:
+      "Jophiel Poole and the crew of the Cauchy cross deep time in humanity's continuing struggle with the Xeelee.",
+    minimumChapters: 80,
+    minimumCharacters: 600_000,
+    volumePattern: /^(ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN)$/i,
+  },
 ];
 
-// 作者授权免费发布的短篇。url 所在页必须保留作者的免费发布授权/出处说明。
+const PROOFREADING_CORRECTIONS = {
+  raft: [
+    { from: 'a billon times larger', to: 'a billion times larger' },
+    { from: 'Jamie worked his controls', to: 'Jame worked his controls' },
+    { from: 'Palis squinted', to: 'Pallis squinted' },
+    { from: 'We’re progessing', to: 'We’re progressing' },
+    { from: 'reflex and adaptabilty', to: 'reflex and adaptability' },
+  ],
+  'timelike-infinity': [
+    { from: 'a salmon-pink backgrounds', to: 'a salmon-pink background' },
+    { from: 'the flitters lower hull', to: "the flitter's lower hull" },
+    { from: 'Schwarzchild', to: 'Schwarzschild', expected: 2 },
+    {
+      from: 'The intention of these rebels is surety',
+      to: 'The intention of these rebels is surely',
+    },
+    { from: "they certainty weren't", to: "they certainly weren't" },
+    { from: 'description for a special solution', to: 'description of a special solution' },
+    { from: 'rights-for- AIs', to: 'rights-for-AIs' },
+    { from: 'chance well have', to: "chance we'll have" },
+    { from: 'Then well have died', to: "Then we'll have died" },
+    { from: 'a miniscule base', to: 'a minuscule base' },
+    { from: 'for special longevity', to: 'for species longevity' },
+    { from: 'there was grandeur to be a Spline', to: 'there was grandeur in being a Spline' },
+    { from: 'Kerr- Newman', to: 'Kerr-Newman' },
+    { from: 'shortlived, exotic particles', to: 'short-lived, exotic particles' },
+    { from: 'intent on destroy ing humanity', to: 'intent on destroying humanity' },
+    { from: 'blue-violent rain', to: 'blue-violet rain' },
+  ],
+  flux: [
+    { from: 'All around her, filing the Air', to: 'All around her, filling the Air' },
+    {
+      from: 'Adda glided up the line to her, her face alert',
+      to: 'Adda glided up the line to her, his face alert',
+    },
+    { from: 'erupting from its comer', to: 'erupting from its corner' },
+    { from: 'returned to Para City', to: 'returned to Parz City' },
+    { from: 'Could it he causing the Glitches', to: 'Could it be causing the Glitches' },
+    { from: 'the torus of voracity', to: 'the torus of vorticity' },
+    {
+      from: 'It was a litany intended to conciliate and heal.',
+      to: 'It was a litany intended to conciliate and heal.\n\nThe two Human Beings, Waving strongly, joined the shoal of people converging on the Wheel. Around them, the shimmering vortex lines marched steadily across the sky, renewed and strong.',
+    },
+  ],
+  ring: [
+    { from: 'the skin peeked by liver-spots', to: 'the skin pocked by liver-spots' },
+    { from: 'from the comer of your eye', to: 'from the corner of your eye' },
+    { from: 'With modem technology', to: 'With modern technology' },
+    { from: 'laid a finder over his lips', to: 'laid a finger over his lips' },
+    { from: 'connective', to: 'convective', expected: 3 },
+    { from: 'through rime, and space', to: 'through time, and space' },
+    { from: 'lost-beyond recognition', to: 'lost beyond recognition' },
+    { from: 'Spinner-or-Rope', to: 'Spinner-of-Rope' },
+    { from: 'four stout walk about them', to: 'four stout walls about them' },
+    {
+      from: 'within the attaching superstructure. Spinner',
+      to: 'within the attaching superstructure, Spinner',
+    },
+    { from: 'gravitational tensing', to: 'gravitational lensing', expected: 2 },
+    { from: 'expressions tike mirror images', to: 'expressions like mirror images' },
+  ],
+  'mayflower-ii': [
+    { from: '\\`', to: '‘', expected: 368 },
+    { from: 'na�ve', to: 'naïve' },
+  ],
+  'xeelee-vengeance': [
+    { from: 'Marsdsen seemed', to: 'Marsden seemed' },
+    { from: 'in the planetory system', to: 'in the planetary system' },
+    { from: 'within the orbit of Nepture', to: 'within the orbit of Neptune' },
+    {
+      from: 'Martian space elevators are discussed in Leaving the Planet by Space Elevator by C. C. Edwards and P. Ragan (Lulu.com, 2006). Martian space elevators are discussed in Leaving the Planet by Space Elevator by C. C. Edwards and P. Ragan (Lulu.com, 2006).',
+      to: 'Martian space elevators are discussed in Leaving the Planet by Space Elevator by C. C. Edwards and P. Ragan (Lulu.com, 2006).',
+    },
+  ],
+  'xeelee-redemption': [
+    { from: 'a smatter of applause', to: 'a smattering of applause' },
+    { from: 'gatherred in the dips', to: 'gathered in the dips' },
+    { from: 'Different physic-al forces', to: 'Different physical forces' },
+    { from: 'Wheel’s constructon', to: 'Wheel’s construction' },
+    {
+      from: 'This is clearly deriving from your upload',
+      to: 'This is clearly derived from your upload',
+    },
+    { from: 'en routre', to: 'en route' },
+    { from: 'Jopohiel was impressed', to: 'Jophiel was impressed' },
+    { from: 'over anther right-angle', to: 'over another right-angle' },
+    { from: 'Certainly it is must be generations', to: 'Certainly it must be generations' },
+    { from: 'It did make made sense', to: 'It did make sense' },
+    {
+      from: 'If that’s not redemption for doesn’t heal him, nothing will be.',
+      to: 'If that’s not redemption for him, nothing will be.',
+    },
+  ],
+};
+
 const FREE_STORIES = [
   {
-    key: 'raft',
     bookSlug: 'xeelee-raft',
     title: 'Raft',
-    subtitle: 'Xeelee Sequence 最初构思的短篇',
+    subtitle: 'Xeelee Sequence original short story',
     url: 'https://www.infinityplus.co.uk/stories/raft.htm',
-    sourceName: 'Infinity Plus（作者授权免费发布）',
+    sourceName: 'Infinity Plus (author-authorized free publication)',
     rightsNotice:
-      '《Raft》短篇 © Stephen Baxter 1989/1997，经作者授权由 Infinity Plus 免费发布。' +
-      '本副本仅供站点主人私人阅读，请保留作者署名与原始出处，勿公开传播或再分发。',
-    editionLabel: '作者授权免费发布原文（短篇，1989 年首载 Interzone）',
+      "Raft copyright Stephen Baxter 1989/1997 and published free by Infinity Plus with the author's permission. Retain the author credit and source; do not redistribute this stored copy.",
+    editionLabel: 'Author-authorized short story, first published in Interzone in 1989',
     publishedAt: '1989-01-01',
     summary:
-      'Xeelee Sequence 最早构思的短篇（1989 年首载于 Interzone）：在引力异常增强的星云矿场，' +
-      '人类后裔栖身于由星际物质构成的「筏」上挣扎求生。作者后来以此为基础写出 1991 年' +
-      '同系列长篇《Raft》。',
+      'The original short-story conception of the Xeelee Sequence, later expanded into the 1991 novel of the same name.',
+    seriesOrder: 10,
     plan: [
       { slug: 'foreword', title: 'Foreword', unitType: 'preface' },
       { slug: 'story', title: 'Raft', unitType: 'chapter' },
@@ -112,68 +292,23 @@ const FREE_STORIES = [
   },
 ];
 
-function normalizeParagraph(value) {
+const pad3 = (value) => String(value).padStart(3, '0');
+
+function normalizeText(value) {
   return value.replace(/[\u00a0\s]+/g, ' ').trim();
 }
 
-async function fetchText(url) {
-  let lastError;
-  for (let attempt = 1; attempt <= 5; attempt += 1) {
-    try {
-      const response = await fetch(url, { headers: { 'user-agent': userAgent } });
-      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-      const bytes = Buffer.from(await response.arrayBuffer());
-      return new TextDecoder('utf-8').decode(bytes);
-    } catch (error) {
-      lastError = error;
-      if (attempt < 5) await new Promise((delay) => setTimeout(delay, 400 * attempt));
-    }
+function normalizeZipPath(value) {
+  const withoutFragment = value.split('#', 1)[0].replaceAll('\\', '/');
+  try {
+    return posix.normalize(decodeURIComponent(withoutFragment));
+  } catch {
+    return posix.normalize(withoutFragment);
   }
-  throw new Error(`Unable to download ${url}: ${lastError?.message || lastError}`);
 }
 
-function paragraphList(html) {
-  const document = loadHtml(html);
-  document('script, style, nav, noscript').remove();
-  const paragraphs = [];
-  document('body p').each((_, element) => {
-    const text = normalizeParagraph(document(element).text());
-    if (text) paragraphs.push(text);
-  });
-  return paragraphs;
-}
-
-// Infinity Plus 的免费短篇页：正文按 <p> 分段；前言以独立 "Foreword" 段开头，
-// 故事标题段之后是正文，正文末段以特定句子收尾，其后为页脚（作者简介等）。
-function extractFreeStory(source, html) {
-  const paragraphs = paragraphList(html);
-  const { forewordHeading, storyStart, storyEnd } = source.checks;
-  const forewordIndex = paragraphs.findIndex((text) => text === forewordHeading);
-  if (forewordIndex === -1) {
-    throw new Error(`${source.url} 未找到前言标题段「${forewordHeading}」`);
-  }
-  const storyStartIndex = paragraphs.findIndex((text) => text.startsWith(storyStart));
-  if (storyStartIndex === -1) {
-    throw new Error(`${source.url} 未找到正文起始段「${storyStart.slice(0, 40)}…」`);
-  }
-  const storyEndIndex = paragraphs.findIndex((text) => text.includes(storyEnd));
-  if (storyEndIndex === -1 || storyEndIndex < storyStartIndex) {
-    throw new Error(`${source.url} 未在正文中找到收尾句「…${storyEnd}」`);
-  }
-  // 前言正文 = Foreword 标题段之后、故事标题段之前的所有段（去掉孤立的故事标题段）
-  const preface = paragraphs
-    .slice(forewordIndex + 1, storyStartIndex)
-    .filter((text) => text !== source.title);
-  const story = paragraphs.slice(storyStartIndex, storyEndIndex + 1);
-  if (!preface.length || !story.length) {
-    throw new Error(
-      `${source.url} 前言或正文为空（前言 ${preface.length} 段，正文 ${story.length} 段）`,
-    );
-  }
-  return {
-    preface: preface.join('\n\n'),
-    story: story.join('\n\n'),
-  };
+function resolveZipPath(basePath, relativePath) {
+  return normalizeZipPath(posix.join(posix.dirname(basePath), relativePath));
 }
 
 function frontMatter(values) {
@@ -183,73 +318,634 @@ function frontMatter(values) {
     .join('\n');
 }
 
-function bookMetadata(source, chapterCount) {
+function bookMetadata(book, chapterCount) {
   return {
-    slug: source.bookSlug,
+    slug: book.slug,
     private: true,
-    title: source.title,
-    subtitle: source.subtitle,
+    title: book.title,
+    subtitle: book.subtitle,
     author,
     category: 'works',
     groupSlug,
     groupTitle,
     groupOrder,
-    seriesOrder: 1,
+    seriesOrder: book.seriesOrder,
     language,
-    editionLabel: source.editionLabel,
-    publishedAt: source.publishedAt,
-    summary: source.summary,
-    sourceUrl: source.url,
-    sourceName: source.sourceName,
-    rightsNotice: source.rightsNotice,
+    editionLabel: `User-supplied English ${book.format.toUpperCase()} text`,
+    publishedAt: book.publishedAt,
+    summary: book.summary,
+    sourceUrl,
+    sourceName: `Local file: ${book.filename}`,
+    rightsNotice: privateRightsNotice,
     cover: null,
     chapterCount,
   };
 }
 
-async function writeFreeStories() {
+function chapterUnitType(title) {
+  if (/^(acknowledg|dedication|foreword|preface|prologue)/i.test(title)) return 'preface';
+  if (/^(afterword|author('|’)s note|timeline|footnotes)/i.test(title)) return 'supplement';
+  return 'chapter';
+}
+
+function baseSlugForTitle(title, index) {
+  const chapter = title.match(/^(?:chapter\s+)?(\d+)$/i);
+  if (chapter) return `chapter-${String(Number(chapter[1])).padStart(2, '0')}`;
+  const normalized = title
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[’']/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+  return normalized || `section-${pad3(index)}`;
+}
+
+function assignSlugs(units, bookSlug) {
+  const counts = new Map();
+  for (const [index, unit] of units.entries()) {
+    const localBase = baseSlugForTitle(unit.title, index + 1);
+    const base = `${bookSlug}-${localBase}`;
+    const count = (counts.get(base) || 0) + 1;
+    counts.set(base, count);
+    unit.slug = count === 1 ? base : `${base}-${count}`;
+  }
+}
+
+function markdownText(value) {
+  return normalizeText(
+    value
+      .replace(/^#{1,6}\s+/g, '')
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+      .replace(/^\*\*(.*)\*\*$/g, '$1')
+      .replace(/^_(.*)_$/g, '$1'),
+  );
+}
+
+function stripLeadingTitle(markdown, title) {
+  const blocks = markdown.split(/\n{2,}/);
+  if (
+    blocks.length &&
+    markdownText(blocks[0]).toLowerCase() === normalizeText(title).toLowerCase()
+  ) {
+    blocks.shift();
+  }
+  return blocks.join('\n\n').trim();
+}
+
+function removePromotionalElements(document, root) {
+  const promotion = /^(?:OceanofPDF\.com|PDFDrive(?:\.com)?)$/i;
+  root.find('a[href]').each((_, element) => {
+    const anchor = document(element);
+    if (/oceanofpdf|pdfdrive/i.test(anchor.attr('href') || '')) anchor.remove();
+  });
+  root.find('*').each((_, element) => {
+    const current = document(element);
+    if (current.children().length === 0 && promotion.test(normalizeText(current.text()))) {
+      current.remove();
+    }
+  });
+}
+
+function cleanEpubHtml(rawHtml) {
+  const document = loadHtml(rawHtml, { xmlMode: false });
+  const root = document('body').first();
+  if (!root.length) return { html: '', text: '' };
+  root.find('script, style, nav, img, svg').remove();
+  removePromotionalElements(document, root);
+  root.find('[hidden], [aria-hidden="true"]').remove();
+  return { html: root.html() || '', text: normalizeText(root.text()) };
+}
+
+function titleFromHtml(html, fallback) {
+  const document = loadHtml(`<main>${html}</main>`, { xmlMode: false });
+  const heading = normalizeText(document('h1, h2, h3, h4, h5, h6').first().text());
+  if (heading) return heading;
+  const firstBlock = document('p, div')
+    .toArray()
+    .map((element) => normalizeText(document(element).clone().children().remove().end().text()))
+    .find((text) => text && text.length <= 100 && !/[.!?]$/.test(text));
+  return firstBlock || fallback;
+}
+
+function isExcludedEpubUnit(book, title, sourcePath, text) {
+  if (book.excludedTitles?.has(title)) return true;
+  if (
+    /^(cover|title|title page|copyright|contents|about the author|jacket blurb)$/i.test(title) ||
+    /^xeelee:\s+redemption$/i.test(title)
+  ) {
+    return true;
+  }
+  if (/^(also by|previous publications)/i.test(title)) return true;
+  if (/titlepage\.(?:x?html?|htm)$/i.test(sourcePath)) return true;
+  if (/^(?:table of )?contents/i.test(text) && text.length < 8_000) return true;
+  return false;
+}
+
+function epubHtmlToMarkdown(rawHtml, title, bookSlug, sourcePath, sourceSlugs) {
+  const document = loadHtml(`<main id="book-unit">${rawHtml}</main>`, { xmlMode: false });
+  const root = document('#book-unit');
+  root.find('script, style, nav, img, svg').remove();
+  removePromotionalElements(document, root);
+  root.find('a[href]').each((_, element) => {
+    const anchor = document(element);
+    const href = anchor.attr('href') || '';
+    if (!href || href.startsWith('#') || /^[a-z]+:/i.test(href)) return;
+    const [target, fragment] = href.split('#', 2);
+    const targetPath = resolveZipPath(sourcePath, target);
+    const targetSlug = sourceSlugs.get(targetPath);
+    if (targetSlug) {
+      anchor.attr('href', `/books/${bookSlug}/${targetSlug}/${fragment ? `#${fragment}` : ''}`);
+    } else {
+      anchor.replaceWith(anchor.text());
+    }
+  });
+  root.find('*').each((_, element) => {
+    const current = document(element);
+    for (const attribute of Object.keys(element.attribs || {})) {
+      if (current.is('a') && attribute === 'href') continue;
+      current.removeAttr(attribute);
+    }
+  });
+
+  const turndown = new TurndownService({
+    headingStyle: 'atx',
+    bulletListMarker: '-',
+    codeBlockStyle: 'fenced',
+    emDelimiter: '*',
+  });
+  turndown.keep(['sub', 'sup']);
+  const markdown = turndown
+    .turndown(root.html() || '')
+    .replace(/[ \t]+$/gm, '')
+    .replace(/^\s*(?:OceanofPDF\.com|PDFDrive(?:\.com)?)\s*$/gim, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  return stripLeadingTitle(markdown, title);
+}
+
+function parseEpubPackage(entries) {
+  const containerBytes = entries['META-INF/container.xml'];
+  if (!containerBytes) throw new Error('EPUB has no META-INF/container.xml');
+  const container = loadHtml(textDecoder.decode(containerBytes), { xmlMode: true });
+  const opfPath = normalizeZipPath(container('rootfile').attr('full-path') || '');
+  if (!opfPath || !entries[opfPath]) throw new Error(`EPUB package not found: ${opfPath}`);
+  const packageDocument = loadHtml(textDecoder.decode(entries[opfPath]), { xmlMode: true });
+  const manifest = new Map();
+  packageDocument('manifest > item').each((_, element) => {
+    const item = packageDocument(element);
+    const id = item.attr('id');
+    const href = item.attr('href');
+    if (id && href) {
+      manifest.set(id, {
+        path: resolveZipPath(opfPath, href),
+        mediaType: item.attr('media-type') || '',
+      });
+    }
+  });
+  const spine = packageDocument('spine > itemref')
+    .toArray()
+    .map((element) => manifest.get(packageDocument(element).attr('idref'))?.path)
+    .filter(Boolean);
+  const navigation = [...manifest.values()].find(
+    (item) => item.mediaType === 'application/x-dtbncx+xml' || item.path.endsWith('.ncx'),
+  );
+  const labels = new Map();
+  if (navigation && entries[navigation.path]) {
+    const ncx = loadHtml(textDecoder.decode(entries[navigation.path]), { xmlMode: true });
+    ncx('navPoint').each((_, element) => {
+      const point = ncx(element);
+      const label = normalizeText(point.children('navLabel').children('text').text());
+      const source = point.children('content').attr('src');
+      if (!label || !source) return;
+      const path = resolveZipPath(navigation.path, source);
+      if (!labels.has(path)) labels.set(path, label);
+    });
+  }
+  return { opfPath, spine, labels };
+}
+
+async function extractEpub(book, inputPath) {
+  const entries = unzipSync(new Uint8Array(await readFile(inputPath)));
+  const { opfPath, spine, labels } = parseEpubPackage(entries);
+  if (!spine.length) throw new Error(`${book.filename}: EPUB spine is empty`);
+
+  const rawUnits = [];
+  const skipped = [];
+  for (const [index, sourcePath] of spine.entries()) {
+    const bytes = entries[sourcePath];
+    if (!bytes) throw new Error(`${book.filename}: missing spine entry ${sourcePath}`);
+    const cleaned = cleanEpubHtml(textDecoder.decode(bytes));
+    const navigationTitle = labels.get(sourcePath);
+    const configuredTitle = book.titleOverrides?.[sourcePath];
+    const title = normalizeText(
+      configuredTitle ||
+        (navigationTitle && navigationTitle.toLowerCase() !== 'start'
+          ? navigationTitle
+          : titleFromHtml(cleaned.html, `Section ${index + 1}`)),
+    );
+    if (!cleaned.text) {
+      skipped.push({ sourcePath, reason: 'empty' });
+      continue;
+    }
+    if (isExcludedEpubUnit(book, title, sourcePath, cleaned.text)) {
+      skipped.push({ sourcePath, title, reason: 'front-or-back-matter' });
+      continue;
+    }
+    rawUnits.push({
+      title,
+      sourcePath,
+      html: cleaned.html,
+      hasNavigationTitle: Boolean(
+        configuredTitle || (navigationTitle && navigationTitle.toLowerCase() !== 'start'),
+      ),
+    });
+  }
+
+  const units = [];
+  let volumeNumber = 0;
+  let volumeTitle;
+  let volumeUnitNumber = 0;
+  for (const rawUnit of rawUnits) {
+    const preview = epubHtmlToMarkdown(
+      rawUnit.html,
+      rawUnit.title,
+      book.slug,
+      rawUnit.sourcePath,
+      new Map(),
+    );
+    const startsNamedSection = book.sectionTitles?.has(rawUnit.title);
+    const startsVolume = startsNamedSection || book.volumePattern?.test(rawUnit.title);
+    if (startsVolume) {
+      volumeNumber += 1;
+      volumeTitle = rawUnit.title;
+      volumeUnitNumber = 0;
+    }
+    if (startsNamedSection && markdownText(preview).length < 120) {
+      skipped.push({
+        sourcePath: rawUnit.sourcePath,
+        title: rawUnit.title,
+        reason: 'section-divider',
+      });
+      continue;
+    }
+    if (!preview) {
+      skipped.push({ sourcePath: rawUnit.sourcePath, title: rawUnit.title, reason: 'title-only' });
+      continue;
+    }
+    const title =
+      book.useVolumeTitleForUnnavigated && !rawUnit.hasNavigationTitle && volumeTitle
+        ? volumeUnitNumber === 0
+          ? volumeTitle
+          : `${volumeTitle} ${volumeUnitNumber + 1}`
+        : rawUnit.title;
+    volumeUnitNumber += 1;
+    units.push({
+      ...rawUnit,
+      title,
+      ...(volumeTitle ? { volumeNumber, volumeTitle, volumeUnitNumber } : {}),
+    });
+  }
+  assignSlugs(units, book.slug);
+  const sourceSlugs = new Map(units.map((unit) => [unit.sourcePath, unit.slug]));
+  for (const unit of units) {
+    unit.markdown = epubHtmlToMarkdown(
+      unit.html,
+      unit.title,
+      book.slug,
+      unit.sourcePath,
+      sourceSlugs,
+    );
+    delete unit.html;
+  }
+  return { units, skipped, packagePath: opfPath, spineEntries: spine.length };
+}
+
+function pdfParagraphs(value) {
+  return value
+    .split(/\n\s*\n/)
+    .map((block) =>
+      normalizeText(block)
+        .replace(/([A-Za-z])-\s+([a-z])/g, '$1-$2')
+        .replace(/—\s+/g, '—')
+        .replace(/^\*\*\*$/, '* * *'),
+    )
+    .filter(Boolean)
+    .join('\n\n');
+}
+
+async function extractTimelikeInfinity(book, inputPath) {
+  let stdout;
+  try {
+    ({ stdout } = await execFile('pdftotext', ['-layout', inputPath, '-'], {
+      encoding: 'utf8',
+      maxBuffer: 20 * 1024 * 1024,
+    }));
+  } catch (error) {
+    throw new Error(`Unable to extract ${book.filename}; pdftotext is required: ${error.message}`);
+  }
+  const pages = stdout.split('\f');
+  const cleanedPages = pages.map((page) => {
+    const lines = page.replaceAll('\r', '').split('\n');
+    while (lines.length && !lines[0].trim()) lines.shift();
+    if (normalizeText(lines[0] || '') === book.title) lines.shift();
+    return lines
+      .filter((line) => !/^file:\/\//.test(line.trim()))
+      .join('\n')
+      .trim();
+  });
+  const lines = cleanedPages.join('\n').split('\n');
+  const headings = [];
+  for (const [index, line] of lines.entries()) {
+    const match = line.trim().match(/^Chapter (\d+)$/);
+    if (match) headings.push({ number: Number(match[1]), index });
+  }
+  const distinctHeadings = headings.filter(
+    (heading, index) => heading.number === index + 1 && heading.number <= 16,
+  );
+  if (distinctHeadings.length !== 16) {
+    throw new Error(
+      `${book.filename}: expected 16 chapter headings, found ${distinctHeadings.length}`,
+    );
+  }
+  const aboutAuthorIndex = lines.findIndex(
+    (line, index) => index > distinctHeadings.at(-1).index && line.trim() === 'About the Author',
+  );
+  const units = [
+    {
+      title: 'Dedication',
+      slug: `${book.slug}-dedication`,
+      sourcePath: book.filename,
+      markdown: 'To my niece, Jessica Bourg',
+    },
+  ];
+  for (const [index, heading] of distinctHeadings.entries()) {
+    const end = distinctHeadings[index + 1]?.index || aboutAuthorIndex;
+    if (end <= heading.index)
+      throw new Error(`${book.filename}: invalid Chapter ${heading.number}`);
+    units.push({
+      title: `Chapter ${heading.number}`,
+      slug: `${book.slug}-chapter-${String(heading.number).padStart(2, '0')}`,
+      sourcePath: book.filename,
+      markdown: pdfParagraphs(lines.slice(heading.index + 1, end).join('\n')),
+    });
+  }
+  return {
+    units,
+    skipped: [{ title: 'About the Author', reason: 'back-matter' }],
+    pages: pages.filter((page) => page.trim()).length,
+  };
+}
+
+function applyProofreadingCorrections(book, extraction) {
+  for (const unit of extraction.units) {
+    unit.markdown = unit.markdown.replace(/(?<=\p{L})\\-(?=\p{L})/gu, '-');
+  }
+
+  for (const correction of PROOFREADING_CORRECTIONS[book.slug] || []) {
+    const expected = correction.expected ?? 1;
+    const occurrences = extraction.units.reduce(
+      (count, unit) => count + unit.markdown.split(correction.from).length - 1,
+      0,
+    );
+    if (occurrences !== expected) {
+      throw new Error(
+        `${book.filename}: proofreading correction ${JSON.stringify(correction.from)} matched ${occurrences} times; expected ${expected}`,
+      );
+    }
+    for (const unit of extraction.units) {
+      unit.markdown = unit.markdown.replaceAll(correction.from, correction.to);
+    }
+  }
+}
+
+function validateExtraction(book, extraction) {
+  const characters = extraction.units.reduce((total, unit) => total + unit.markdown.length, 0);
+  const empty = extraction.units.filter((unit) => !unit.markdown.trim());
+  const duplicateSlugs = extraction.units
+    .map((unit) => unit.slug)
+    .filter((slug, index, slugs) => slugs.indexOf(slug) !== index);
+  const invalidUnits = extraction.units.filter(
+    (unit) =>
+      /\uFFFD/.test(unit.markdown) ||
+      /(?:OceanofPDF|PDFDrive|file:\/\/)/i.test(unit.markdown) ||
+      /\]\((?![#/]|[a-z][a-z0-9+.-]*:)[^)]+\)/i.test(unit.markdown) ||
+      /(?<=\p{L})\\-(?=\p{L})/u.test(unit.markdown),
+  );
+  if (invalidUnits.length) {
+    throw new Error(
+      `${book.filename}: failed text quality checks in: ${invalidUnits.map((unit) => unit.title).join(', ')}`,
+    );
+  }
+  if (extraction.units.length < book.minimumChapters) {
+    throw new Error(
+      `${book.filename}: extracted ${extraction.units.length} units, expected at least ${book.minimumChapters}`,
+    );
+  }
+  if (characters < book.minimumCharacters) {
+    throw new Error(
+      `${book.filename}: extracted ${characters} characters, expected at least ${book.minimumCharacters}`,
+    );
+  }
+  if (empty.length) throw new Error(`${book.filename}: extracted empty reading units`);
+  if (duplicateSlugs.length) {
+    throw new Error(`${book.filename}: duplicate chapter slugs: ${duplicateSlugs.join(', ')}`);
+  }
+  return characters;
+}
+
+async function writeLocalBook(workspace, book, extraction) {
+  const outputRoot = join(workspace, book.slug);
+  const chapterDirectory = join(outputRoot, 'chapters');
+  await mkdir(chapterDirectory, { recursive: true });
+  for (const [index, unit] of extraction.units.entries()) {
+    const chapterNumber = index + 1;
+    const metadata = {
+      bookSlug: book.slug,
+      chapterNumber,
+      slug: unit.slug,
+      title: unit.title,
+      sourcePath: `${book.filename}${unit.sourcePath === book.filename ? '' : `#${unit.sourcePath}`}`,
+      volumeNumber: unit.volumeNumber,
+      volumeTitle: unit.volumeTitle,
+      volumeUnitNumber: unit.volumeUnitNumber,
+      unitType: chapterUnitType(unit.title),
+    };
+    await writeFile(
+      join(chapterDirectory, `${pad3(chapterNumber)}-${unit.slug}.md`),
+      `---\n${frontMatter(metadata)}\n---\n\n${unit.markdown}\n`,
+    );
+  }
+  await writeFile(
+    join(outputRoot, 'book.md'),
+    `---\n${frontMatter(bookMetadata(book, extraction.units.length))}\n---\n`,
+  );
+  const report = {
+    input: book.filename,
+    format: book.format,
+    title: book.title,
+    private: true,
+    generatedChapters: extraction.units.length,
+    characters: extraction.characters,
+    ...(extraction.packagePath ? { packagePath: extraction.packagePath } : {}),
+    ...(extraction.spineEntries ? { spineEntries: extraction.spineEntries } : {}),
+    ...(extraction.pages ? { pages: extraction.pages } : {}),
+    skipped: extraction.skipped,
+    chapters: extraction.units.map((unit, index) => ({
+      chapterNumber: index + 1,
+      slug: unit.slug,
+      title: unit.title,
+      sourcePath: unit.sourcePath,
+      characters: unit.markdown.length,
+      ...(unit.volumeNumber
+        ? {
+            volumeNumber: unit.volumeNumber,
+            volumeTitle: unit.volumeTitle,
+            volumeUnitNumber: unit.volumeUnitNumber,
+          }
+        : {}),
+    })),
+  };
+  await writeFile(join(outputRoot, 'import-report.json'), `${JSON.stringify(report, null, 2)}\n`);
+}
+
+async function importLocalBooks(inputDirectory) {
   const workspace = await mkdtemp(join(repositoryRoot, '.xeelee-import-'));
   try {
-    const reports = [];
+    const imported = [];
+    const chapterSlugs = new Set();
+    for (const book of LOCAL_BOOKS) {
+      const inputPath = join(inputDirectory, book.filename);
+      console.log(`Extracting ${book.title} from ${inputPath}`);
+      const extraction =
+        book.format === 'epub'
+          ? await extractEpub(book, inputPath)
+          : await extractTimelikeInfinity(book, inputPath);
+      applyProofreadingCorrections(book, extraction);
+      for (const unit of extraction.units) {
+        if (chapterSlugs.has(unit.slug)) {
+          throw new Error(`${book.filename}: globally duplicate chapter slug: ${unit.slug}`);
+        }
+        chapterSlugs.add(unit.slug);
+      }
+      extraction.characters = validateExtraction(book, extraction);
+      await writeLocalBook(workspace, book, extraction);
+      imported.push({
+        slug: book.slug,
+        title: book.title,
+        chapters: extraction.units.length,
+        characters: extraction.characters,
+      });
+      console.log(
+        `  ${extraction.units.length} reading units, ${extraction.characters.toLocaleString('en')} characters`,
+      );
+    }
+    for (const item of imported) {
+      const target = join(repositoryRoot, 'src/content/books', item.slug);
+      await rm(target, { recursive: true, force: true });
+      await mkdir(dirname(target), { recursive: true });
+      await rename(join(workspace, item.slug), target);
+    }
+    console.log(`Imported ${imported.length} private Xeelee books.`);
+    console.log(
+      'Skipped duplicate source: Xeelee An Omnibus (Raft, Timelike Infinity, Flux, Ring).azw3',
+    );
+  } finally {
+    await rm(workspace, { recursive: true, force: true });
+  }
+}
+
+async function fetchText(url) {
+  let lastError;
+  for (let attempt = 1; attempt <= 5; attempt += 1) {
+    try {
+      const response = await fetch(url, { headers: { 'user-agent': userAgent } });
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      return textDecoder.decode(Buffer.from(await response.arrayBuffer()));
+    } catch (error) {
+      lastError = error;
+      if (attempt < 5) await new Promise((done) => setTimeout(done, 400 * attempt));
+    }
+  }
+  throw new Error(`Unable to download ${url}: ${lastError?.message || lastError}`);
+}
+
+function extractFreeStory(source, html) {
+  const document = loadHtml(html);
+  document('script, style, nav, noscript').remove();
+  const paragraphs = document('body p')
+    .toArray()
+    .map((element) => normalizeText(document(element).text()))
+    .filter(Boolean);
+  const forewordIndex = paragraphs.indexOf(source.checks.forewordHeading);
+  const storyStartIndex = paragraphs.findIndex((text) => text.startsWith(source.checks.storyStart));
+  const storyEndIndex = paragraphs.findIndex(
+    (text, index) => index >= storyStartIndex && text.includes(source.checks.storyEnd),
+  );
+  if (forewordIndex < 0 || storyStartIndex < 0 || storyEndIndex < storyStartIndex) {
+    throw new Error(`${source.url}: source structure did not match the expected story boundaries`);
+  }
+  return [
+    paragraphs
+      .slice(forewordIndex + 1, storyStartIndex)
+      .filter((text) => text !== source.title)
+      .join('\n\n'),
+    paragraphs.slice(storyStartIndex, storyEndIndex + 1).join('\n\n'),
+  ];
+}
+
+async function importFreeStories() {
+  const workspace = await mkdtemp(join(repositoryRoot, '.xeelee-import-'));
+  try {
     for (const source of FREE_STORIES) {
+      const bodies = extractFreeStory(source, await fetchText(source.url));
       const outputRoot = join(workspace, source.bookSlug);
       const chapterDirectory = join(outputRoot, 'chapters');
       await mkdir(chapterDirectory, { recursive: true });
-      console.log(`Downloading ${source.title} from ${source.url}…`);
-      const html = await fetchText(source.url);
-      const { preface, story } = extractFreeStory(source, html);
-      const bodies = [preface, story];
-      const plan = source.plan;
-      if (bodies.length !== plan.length) {
-        throw new Error(`${source.bookSlug} 计划与正文数不一致`);
-      }
-      for (const [index, unit] of plan.entries()) {
-        const metadata = {
-          bookSlug: source.bookSlug,
-          chapterNumber: index + 1,
-          slug: unit.slug,
-          title: unit.title,
-          unitType: unit.unitType,
-          sourcePath: source.url,
-        };
-        const filename = `${pad3(index + 1)}-${unit.slug}.md`;
+      for (const [index, unit] of source.plan.entries()) {
         await writeFile(
-          join(chapterDirectory, filename),
-          `---\n${frontMatter(metadata)}\n---\n\n${bodies[index]}\n`,
+          join(chapterDirectory, `${pad3(index + 1)}-${unit.slug}.md`),
+          `---\n${frontMatter({
+            bookSlug: source.bookSlug,
+            chapterNumber: index + 1,
+            slug: unit.slug,
+            title: unit.title,
+            unitType: unit.unitType,
+            sourcePath: source.url,
+          })}\n---\n\n${bodies[index]}\n`,
         );
       }
       await writeFile(
         join(outputRoot, 'book.md'),
-        `---\n${frontMatter(bookMetadata(source, bodies.length))}\n---\n`,
+        `---\n${frontMatter({
+          slug: source.bookSlug,
+          private: true,
+          title: source.title,
+          subtitle: source.subtitle,
+          author,
+          category: 'works',
+          groupSlug,
+          groupTitle,
+          groupOrder,
+          seriesOrder: source.seriesOrder,
+          language,
+          editionLabel: source.editionLabel,
+          publishedAt: source.publishedAt,
+          summary: source.summary,
+          sourceUrl: source.url,
+          sourceName: source.sourceName,
+          rightsNotice: source.rightsNotice,
+          cover: null,
+          chapterCount: bodies.length,
+        })}\n---\n`,
       );
-      const characters = bodies.reduce((total, body) => total + body.length, 0);
       const report = {
         sourceUrl: source.url,
         title: source.title,
         language,
         generatedChapters: bodies.length,
-        characters,
-        chapters: plan.map((unit, index) => ({
+        characters: bodies.reduce((total, body) => total + body.length, 0),
+        chapters: source.plan.map((unit, index) => ({
           chapterNumber: index + 1,
           slug: unit.slug,
           title: unit.title,
@@ -261,64 +957,28 @@ async function writeFreeStories() {
         join(outputRoot, 'import-report.json'),
         `${JSON.stringify(report, null, 2)}\n`,
       );
-      reports.push({
-        slug: source.bookSlug,
-        title: source.title,
-        chapters: bodies.length,
-        characters,
-      });
-      console.log(`Imported ${source.bookSlug}: ${bodies.length} units, ${characters} chars`);
-    }
-
-    for (const report of reports) {
-      const contentTarget = join(repositoryRoot, 'src/content/books', report.slug);
-      await rm(contentTarget, { recursive: true, force: true });
-      await mkdir(dirname(contentTarget), { recursive: true });
-      await rename(join(workspace, report.slug), contentTarget);
-      console.log(`  ${report.title} → src/content/books/${report.slug}/`);
+      const target = join(repositoryRoot, 'src/content/books', source.bookSlug);
+      await rm(target, { recursive: true, force: true });
+      await rename(outputRoot, target);
+      console.log(`Imported private short story ${source.bookSlug}.`);
     }
   } finally {
     await rm(workspace, { recursive: true, force: true });
   }
 }
 
-// 本地文件导入（实验性）：从 UTF-8 纯文本导入一册。仅处理你自己持有的正版/授权文本。
-// 章节识别采用启发式：短行 + 无句末标点 + 前后空行 视为标题；识别不出时按 ~4000 词分卷。
-async function importFromFile(textPath, slug) {
-  const text = await readFile(textPath, 'utf8');
-  const paragraphs = text
-    .split(/\r?\n+/)
-    .map((paragraph) => normalizeParagraph(paragraph))
-    .filter(Boolean);
-  if (!paragraphs.length) throw new Error(`${textPath} 为空`);
-  console.log(`--from-file 模式为实验功能：从 ${textPath} 读取了 ${paragraphs.length} 段`);
-  console.log('请人工核对章节切分后再提交；正文应为你自己持有的正版/授权文本。');
-  const series = SERIES.find((entry) => entry.slug === slug);
-  if (!series) {
-    console.log(
-      `提示：slug "${slug}" 不在 SERIES 清单中，将生成占位元数据（请随后手工补齐 book.md）。`,
-    );
-  }
-  // 章节识别未实装前，先输出可读性统计，避免误写坏数据。
-  console.log(`未切分章节，跳过写入。可先用 free 模式或提供章节化文本。`);
-}
-
 async function main() {
   const args = process.argv.slice(2);
-  const fromFileIndex = args.indexOf('--from-file');
-  if (fromFileIndex !== -1) {
-    const textPath = args[fromFileIndex + 1];
-    const slugIndex = args.indexOf('--slug');
-    const slug = slugIndex !== -1 ? args[slugIndex + 1] : undefined;
-    if (!textPath || !slug) {
-      throw new Error(
-        '用法：node scripts/import-xeelee.mjs --from-file <path.txt> --slug <book-slug>',
-      );
-    }
-    await importFromFile(textPath, slug);
+  if (args.includes('--free')) {
+    await importFreeStories();
     return;
   }
-  await writeFreeStories();
+  const directoryIndex = args.indexOf('--from-dir');
+  const inputDirectory = resolve(
+    repositoryRoot,
+    directoryIndex >= 0 ? args[directoryIndex + 1] || '' : 'tmp',
+  );
+  await importLocalBooks(inputDirectory);
 }
 
 main().catch((error) => {

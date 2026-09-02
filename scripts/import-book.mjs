@@ -134,11 +134,15 @@ function htmlToMarkdown(html, title, sourcePath, chapterSlugs) {
   root.find('a[href]').each((_, element) => {
     const anchor = document(element);
     const href = anchor.attr('href');
-    if (!href || href.startsWith('#')) return;
+    if (!href || href.startsWith('#') || /^[a-z]+:/i.test(href)) return;
     const [target] = href.split('#', 2);
     const targetPath = resolveZipPath(join(dirname(sourcePath), target));
     const targetSlug = chapterSlugs.get(targetPath);
-    if (targetSlug) anchor.attr('href', `/books/${bookSlug}/${targetSlug}/`);
+    if (targetSlug) {
+      anchor.attr('href', `/books/${bookSlug}/${targetSlug}/`);
+    } else {
+      anchor.replaceWith(anchor.text());
+    }
   });
   const firstHeading = root.find('h1, h2, h3').first();
   if (

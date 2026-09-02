@@ -8,7 +8,7 @@ category: "works"
 groupSlug: "xeelee-sequence"
 groupTitle: "Xeelee Sequence"
 groupOrder: 40
-seriesOrder: 1
+seriesOrder: 10
 language: "en"
 editionLabel: "作者授权免费发布原文（短篇，1989 年首载 Interzone）"
 publishedAt: "1989-01-01"

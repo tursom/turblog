@@ -12,6 +12,16 @@ const privateBookSlugs = [
   'three-body',
   'three-body-dark-forest',
   'three-body-deaths-end',
+  'raft',
+  'timelike-infinity',
+  'flux',
+  'ring',
+  'vacuum-diagrams',
+  'mayflower-ii',
+  'xeelee-endurance',
+  'xeelee-vengeance',
+  'xeelee-redemption',
+  'xeelee-raft',
   'daode-yu-fazhi-7-shang',
   'daode-yu-fazhi-7-xia',
   'daode-yu-fazhi-8-shang',
@@ -128,7 +138,7 @@ test('book shelf groups series and filters books locally', async ({ page }) => {
   await page.goto(`${baseUrl}/books/`);
 
   await expect(page.locator('h1')).toHaveText('图书');
-  await expect(page.locator('[data-book-group]')).toHaveCount(6);
+  await expect(page.locator('[data-book-group]')).toHaveCount(7);
   await expect(page.getByRole('link', { name: '枪炮、病菌与钢铁', exact: true })).toHaveCount(1);
   await expect(page.locator('a[href="/posts/go-atomic-generics/"]')).toHaveCount(0);
 

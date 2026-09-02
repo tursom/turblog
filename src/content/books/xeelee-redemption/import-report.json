@@ -1,0 +1,925 @@
+{
+  "input": "Xeelee_Redemption_-_Stephen_Baxter.epub",
+  "format": "epub",
+  "title": "Xeelee: Redemption",
+  "private": true,
+  "generatedChapters": 89,
+  "characters": 796059,
+  "packagePath": "OEBPS/content.opf",
+  "spineEntries": 94,
+  "skipped": [
+    {
+      "sourcePath": "OEBPS/Text/cover_page.xhtml",
+      "reason": "empty"
+    },
+    {
+      "sourcePath": "OEBPS/Text/part0001.xhtml",
+      "title": "XEELEE: REDEMPTION",
+      "reason": "front-or-back-matter"
+    },
+    {
+      "sourcePath": "OEBPS/Text/part0002.xhtml",
+      "title": "Contents",
+      "reason": "front-or-back-matter"
+    },
+    {
+      "sourcePath": "OEBPS/Text/part0091.xhtml",
+      "title": "ALSO BY STEPHEN BAXTER FROM GOLLANCZ:",
+      "reason": "front-or-back-matter"
+    },
+    {
+      "sourcePath": "OEBPS/Text/part0092.xhtml",
+      "title": "Copyright",
+      "reason": "front-or-back-matter"
+    }
+  ],
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "xeelee-redemption-dedication",
+      "title": "Dedication",
+      "sourcePath": "OEBPS/Text/part0000.xhtml",
+      "characters": 44
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "xeelee-redemption-one",
+      "title": "ONE",
+      "sourcePath": "OEBPS/Text/part0003.xhtml",
+      "characters": 69,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "xeelee-redemption-chapter-01",
+      "title": "1",
+      "sourcePath": "OEBPS/Text/part0004.xhtml",
+      "characters": 742,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "xeelee-redemption-chapter-02",
+      "title": "2",
+      "sourcePath": "OEBPS/Text/part0005.xhtml",
+      "characters": 19262,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "xeelee-redemption-chapter-03",
+      "title": "3",
+      "sourcePath": "OEBPS/Text/part0006.xhtml",
+      "characters": 22594,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "xeelee-redemption-chapter-04",
+      "title": "4",
+      "sourcePath": "OEBPS/Text/part0007.xhtml",
+      "characters": 22442,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "xeelee-redemption-chapter-05",
+      "title": "5",
+      "sourcePath": "OEBPS/Text/part0008.xhtml",
+      "characters": 14207,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "xeelee-redemption-chapter-06",
+      "title": "6",
+      "sourcePath": "OEBPS/Text/part0009.xhtml",
+      "characters": 5099,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "xeelee-redemption-chapter-07",
+      "title": "7",
+      "sourcePath": "OEBPS/Text/part0010.xhtml",
+      "characters": 7538,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 8
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "xeelee-redemption-chapter-08",
+      "title": "8",
+      "sourcePath": "OEBPS/Text/part0011.xhtml",
+      "characters": 6334,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 9
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "xeelee-redemption-chapter-09",
+      "title": "9",
+      "sourcePath": "OEBPS/Text/part0012.xhtml",
+      "characters": 11095,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 10
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "xeelee-redemption-chapter-10",
+      "title": "10",
+      "sourcePath": "OEBPS/Text/part0013.xhtml",
+      "characters": 6675,
+      "volumeNumber": 1,
+      "volumeTitle": "ONE",
+      "volumeUnitNumber": 11
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "xeelee-redemption-two",
+      "title": "TWO",
+      "sourcePath": "OEBPS/Text/part0014.xhtml",
+      "characters": 172,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "xeelee-redemption-chapter-11",
+      "title": "11",
+      "sourcePath": "OEBPS/Text/part0015.xhtml",
+      "characters": 4477,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "xeelee-redemption-chapter-12",
+      "title": "12",
+      "sourcePath": "OEBPS/Text/part0016.xhtml",
+      "characters": 20051,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "xeelee-redemption-chapter-13",
+      "title": "13",
+      "sourcePath": "OEBPS/Text/part0017.xhtml",
+      "characters": 8662,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "xeelee-redemption-chapter-14",
+      "title": "14",
+      "sourcePath": "OEBPS/Text/part0018.xhtml",
+      "characters": 6214,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 18,
+      "slug": "xeelee-redemption-chapter-15",
+      "title": "15",
+      "sourcePath": "OEBPS/Text/part0019.xhtml",
+      "characters": 15064,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 19,
+      "slug": "xeelee-redemption-chapter-16",
+      "title": "16",
+      "sourcePath": "OEBPS/Text/part0020.xhtml",
+      "characters": 3094,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 20,
+      "slug": "xeelee-redemption-chapter-17",
+      "title": "17",
+      "sourcePath": "OEBPS/Text/part0021.xhtml",
+      "characters": 20243,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 8
+    },
+    {
+      "chapterNumber": 21,
+      "slug": "xeelee-redemption-chapter-18",
+      "title": "18",
+      "sourcePath": "OEBPS/Text/part0022.xhtml",
+      "characters": 17727,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 9
+    },
+    {
+      "chapterNumber": 22,
+      "slug": "xeelee-redemption-chapter-19",
+      "title": "19",
+      "sourcePath": "OEBPS/Text/part0023.xhtml",
+      "characters": 9155,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 10
+    },
+    {
+      "chapterNumber": 23,
+      "slug": "xeelee-redemption-chapter-20",
+      "title": "20",
+      "sourcePath": "OEBPS/Text/part0024.xhtml",
+      "characters": 12746,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 11
+    },
+    {
+      "chapterNumber": 24,
+      "slug": "xeelee-redemption-chapter-21",
+      "title": "21",
+      "sourcePath": "OEBPS/Text/part0025.xhtml",
+      "characters": 9371,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 12
+    },
+    {
+      "chapterNumber": 25,
+      "slug": "xeelee-redemption-chapter-22",
+      "title": "22",
+      "sourcePath": "OEBPS/Text/part0026.xhtml",
+      "characters": 8460,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 13
+    },
+    {
+      "chapterNumber": 26,
+      "slug": "xeelee-redemption-chapter-23",
+      "title": "23",
+      "sourcePath": "OEBPS/Text/part0027.xhtml",
+      "characters": 7627,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 14
+    },
+    {
+      "chapterNumber": 27,
+      "slug": "xeelee-redemption-chapter-24",
+      "title": "24",
+      "sourcePath": "OEBPS/Text/part0028.xhtml",
+      "characters": 18710,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 15
+    },
+    {
+      "chapterNumber": 28,
+      "slug": "xeelee-redemption-chapter-25",
+      "title": "25",
+      "sourcePath": "OEBPS/Text/part0029.xhtml",
+      "characters": 5869,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 16
+    },
+    {
+      "chapterNumber": 29,
+      "slug": "xeelee-redemption-chapter-26",
+      "title": "26",
+      "sourcePath": "OEBPS/Text/part0030.xhtml",
+      "characters": 4075,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 17
+    },
+    {
+      "chapterNumber": 30,
+      "slug": "xeelee-redemption-chapter-27",
+      "title": "27",
+      "sourcePath": "OEBPS/Text/part0031.xhtml",
+      "characters": 8254,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 18
+    },
+    {
+      "chapterNumber": 31,
+      "slug": "xeelee-redemption-chapter-28",
+      "title": "28",
+      "sourcePath": "OEBPS/Text/part0032.xhtml",
+      "characters": 8410,
+      "volumeNumber": 2,
+      "volumeTitle": "TWO",
+      "volumeUnitNumber": 19
+    },
+    {
+      "chapterNumber": 32,
+      "slug": "xeelee-redemption-three",
+      "title": "THREE",
+      "sourcePath": "OEBPS/Text/part0033.xhtml",
+      "characters": 241,
+      "volumeNumber": 3,
+      "volumeTitle": "THREE",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 33,
+      "slug": "xeelee-redemption-chapter-29",
+      "title": "29",
+      "sourcePath": "OEBPS/Text/part0034.xhtml",
+      "characters": 17450,
+      "volumeNumber": 3,
+      "volumeTitle": "THREE",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 34,
+      "slug": "xeelee-redemption-chapter-30",
+      "title": "30",
+      "sourcePath": "OEBPS/Text/part0035.xhtml",
+      "characters": 5997,
+      "volumeNumber": 3,
+      "volumeTitle": "THREE",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 35,
+      "slug": "xeelee-redemption-chapter-31",
+      "title": "31",
+      "sourcePath": "OEBPS/Text/part0036.xhtml",
+      "characters": 10886,
+      "volumeNumber": 3,
+      "volumeTitle": "THREE",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 36,
+      "slug": "xeelee-redemption-chapter-32",
+      "title": "32",
+      "sourcePath": "OEBPS/Text/part0037.xhtml",
+      "characters": 12472,
+      "volumeNumber": 3,
+      "volumeTitle": "THREE",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 37,
+      "slug": "xeelee-redemption-four",
+      "title": "FOUR",
+      "sourcePath": "OEBPS/Text/part0038.xhtml",
+      "characters": 176,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 38,
+      "slug": "xeelee-redemption-chapter-33",
+      "title": "33",
+      "sourcePath": "OEBPS/Text/part0039.xhtml",
+      "characters": 14978,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 39,
+      "slug": "xeelee-redemption-chapter-34",
+      "title": "34",
+      "sourcePath": "OEBPS/Text/part0040.xhtml",
+      "characters": 1913,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 40,
+      "slug": "xeelee-redemption-chapter-35",
+      "title": "35",
+      "sourcePath": "OEBPS/Text/part0041.xhtml",
+      "characters": 8362,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 41,
+      "slug": "xeelee-redemption-chapter-36",
+      "title": "36",
+      "sourcePath": "OEBPS/Text/part0042.xhtml",
+      "characters": 1686,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 42,
+      "slug": "xeelee-redemption-chapter-37",
+      "title": "37",
+      "sourcePath": "OEBPS/Text/part0043.xhtml",
+      "characters": 12401,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 43,
+      "slug": "xeelee-redemption-chapter-38",
+      "title": "38",
+      "sourcePath": "OEBPS/Text/part0044.xhtml",
+      "characters": 4678,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 44,
+      "slug": "xeelee-redemption-chapter-39",
+      "title": "39",
+      "sourcePath": "OEBPS/Text/part0045.xhtml",
+      "characters": 10543,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 8
+    },
+    {
+      "chapterNumber": 45,
+      "slug": "xeelee-redemption-chapter-40",
+      "title": "40",
+      "sourcePath": "OEBPS/Text/part0046.xhtml",
+      "characters": 10313,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 9
+    },
+    {
+      "chapterNumber": 46,
+      "slug": "xeelee-redemption-chapter-41",
+      "title": "41",
+      "sourcePath": "OEBPS/Text/part0047.xhtml",
+      "characters": 11531,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 10
+    },
+    {
+      "chapterNumber": 47,
+      "slug": "xeelee-redemption-chapter-42",
+      "title": "42",
+      "sourcePath": "OEBPS/Text/part0048.xhtml",
+      "characters": 9186,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 11
+    },
+    {
+      "chapterNumber": 48,
+      "slug": "xeelee-redemption-chapter-43",
+      "title": "43",
+      "sourcePath": "OEBPS/Text/part0049.xhtml",
+      "characters": 3286,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 12
+    },
+    {
+      "chapterNumber": 49,
+      "slug": "xeelee-redemption-chapter-44",
+      "title": "44",
+      "sourcePath": "OEBPS/Text/part0050.xhtml",
+      "characters": 4743,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 13
+    },
+    {
+      "chapterNumber": 50,
+      "slug": "xeelee-redemption-chapter-45",
+      "title": "45",
+      "sourcePath": "OEBPS/Text/part0051.xhtml",
+      "characters": 6177,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 14
+    },
+    {
+      "chapterNumber": 51,
+      "slug": "xeelee-redemption-chapter-46",
+      "title": "46",
+      "sourcePath": "OEBPS/Text/part0052.xhtml",
+      "characters": 5605,
+      "volumeNumber": 4,
+      "volumeTitle": "FOUR",
+      "volumeUnitNumber": 15
+    },
+    {
+      "chapterNumber": 52,
+      "slug": "xeelee-redemption-five",
+      "title": "FIVE",
+      "sourcePath": "OEBPS/Text/part0053.xhtml",
+      "characters": 332,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 53,
+      "slug": "xeelee-redemption-chapter-47",
+      "title": "47",
+      "sourcePath": "OEBPS/Text/part0054.xhtml",
+      "characters": 5118,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 54,
+      "slug": "xeelee-redemption-chapter-48",
+      "title": "48",
+      "sourcePath": "OEBPS/Text/part0055.xhtml",
+      "characters": 14506,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 55,
+      "slug": "xeelee-redemption-chapter-49",
+      "title": "49",
+      "sourcePath": "OEBPS/Text/part0056.xhtml",
+      "characters": 9017,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 56,
+      "slug": "xeelee-redemption-chapter-50",
+      "title": "50",
+      "sourcePath": "OEBPS/Text/part0057.xhtml",
+      "characters": 5375,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 57,
+      "slug": "xeelee-redemption-chapter-51",
+      "title": "51",
+      "sourcePath": "OEBPS/Text/part0058.xhtml",
+      "characters": 10957,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 58,
+      "slug": "xeelee-redemption-chapter-52",
+      "title": "52",
+      "sourcePath": "OEBPS/Text/part0059.xhtml",
+      "characters": 9975,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 59,
+      "slug": "xeelee-redemption-chapter-53",
+      "title": "53",
+      "sourcePath": "OEBPS/Text/part0060.xhtml",
+      "characters": 16077,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 8
+    },
+    {
+      "chapterNumber": 60,
+      "slug": "xeelee-redemption-chapter-54",
+      "title": "54",
+      "sourcePath": "OEBPS/Text/part0061.xhtml",
+      "characters": 7063,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 9
+    },
+    {
+      "chapterNumber": 61,
+      "slug": "xeelee-redemption-chapter-55",
+      "title": "55",
+      "sourcePath": "OEBPS/Text/part0062.xhtml",
+      "characters": 4460,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 10
+    },
+    {
+      "chapterNumber": 62,
+      "slug": "xeelee-redemption-chapter-56",
+      "title": "56",
+      "sourcePath": "OEBPS/Text/part0063.xhtml",
+      "characters": 16277,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 11
+    },
+    {
+      "chapterNumber": 63,
+      "slug": "xeelee-redemption-chapter-57",
+      "title": "57",
+      "sourcePath": "OEBPS/Text/part0064.xhtml",
+      "characters": 9456,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 12
+    },
+    {
+      "chapterNumber": 64,
+      "slug": "xeelee-redemption-chapter-58",
+      "title": "58",
+      "sourcePath": "OEBPS/Text/part0065.xhtml",
+      "characters": 6511,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 13
+    },
+    {
+      "chapterNumber": 65,
+      "slug": "xeelee-redemption-chapter-59",
+      "title": "59",
+      "sourcePath": "OEBPS/Text/part0066.xhtml",
+      "characters": 12238,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 14
+    },
+    {
+      "chapterNumber": 66,
+      "slug": "xeelee-redemption-chapter-60",
+      "title": "60",
+      "sourcePath": "OEBPS/Text/part0067.xhtml",
+      "characters": 7881,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 15
+    },
+    {
+      "chapterNumber": 67,
+      "slug": "xeelee-redemption-chapter-61",
+      "title": "61",
+      "sourcePath": "OEBPS/Text/part0068.xhtml",
+      "characters": 8604,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 16
+    },
+    {
+      "chapterNumber": 68,
+      "slug": "xeelee-redemption-chapter-62",
+      "title": "62",
+      "sourcePath": "OEBPS/Text/part0069.xhtml",
+      "characters": 5656,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 17
+    },
+    {
+      "chapterNumber": 69,
+      "slug": "xeelee-redemption-chapter-63",
+      "title": "63",
+      "sourcePath": "OEBPS/Text/part0070.xhtml",
+      "characters": 4887,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 18
+    },
+    {
+      "chapterNumber": 70,
+      "slug": "xeelee-redemption-chapter-64",
+      "title": "64",
+      "sourcePath": "OEBPS/Text/part0071.xhtml",
+      "characters": 12410,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 19
+    },
+    {
+      "chapterNumber": 71,
+      "slug": "xeelee-redemption-chapter-65",
+      "title": "65",
+      "sourcePath": "OEBPS/Text/part0072.xhtml",
+      "characters": 9760,
+      "volumeNumber": 5,
+      "volumeTitle": "FIVE",
+      "volumeUnitNumber": 20
+    },
+    {
+      "chapterNumber": 72,
+      "slug": "xeelee-redemption-six",
+      "title": "SIX",
+      "sourcePath": "OEBPS/Text/part0073.xhtml",
+      "characters": 66,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 73,
+      "slug": "xeelee-redemption-chapter-66",
+      "title": "66",
+      "sourcePath": "OEBPS/Text/part0074.xhtml",
+      "characters": 12342,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 74,
+      "slug": "xeelee-redemption-chapter-67",
+      "title": "67",
+      "sourcePath": "OEBPS/Text/part0075.xhtml",
+      "characters": 11018,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 75,
+      "slug": "xeelee-redemption-chapter-68",
+      "title": "68",
+      "sourcePath": "OEBPS/Text/part0076.xhtml",
+      "characters": 5193,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 76,
+      "slug": "xeelee-redemption-chapter-69",
+      "title": "69",
+      "sourcePath": "OEBPS/Text/part0077.xhtml",
+      "characters": 10728,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 5
+    },
+    {
+      "chapterNumber": 77,
+      "slug": "xeelee-redemption-chapter-70",
+      "title": "70",
+      "sourcePath": "OEBPS/Text/part0078.xhtml",
+      "characters": 13004,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 6
+    },
+    {
+      "chapterNumber": 78,
+      "slug": "xeelee-redemption-chapter-71",
+      "title": "71",
+      "sourcePath": "OEBPS/Text/part0079.xhtml",
+      "characters": 12067,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 7
+    },
+    {
+      "chapterNumber": 79,
+      "slug": "xeelee-redemption-chapter-72",
+      "title": "72",
+      "sourcePath": "OEBPS/Text/part0080.xhtml",
+      "characters": 26207,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 8
+    },
+    {
+      "chapterNumber": 80,
+      "slug": "xeelee-redemption-chapter-73",
+      "title": "73",
+      "sourcePath": "OEBPS/Text/part0081.xhtml",
+      "characters": 12223,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 9
+    },
+    {
+      "chapterNumber": 81,
+      "slug": "xeelee-redemption-chapter-74",
+      "title": "74",
+      "sourcePath": "OEBPS/Text/part0082.xhtml",
+      "characters": 2763,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 10
+    },
+    {
+      "chapterNumber": 82,
+      "slug": "xeelee-redemption-chapter-75",
+      "title": "75",
+      "sourcePath": "OEBPS/Text/part0083.xhtml",
+      "characters": 741,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 11
+    },
+    {
+      "chapterNumber": 83,
+      "slug": "xeelee-redemption-chapter-76",
+      "title": "76",
+      "sourcePath": "OEBPS/Text/part0084.xhtml",
+      "characters": 5574,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 12
+    },
+    {
+      "chapterNumber": 84,
+      "slug": "xeelee-redemption-chapter-77",
+      "title": "77",
+      "sourcePath": "OEBPS/Text/part0085.xhtml",
+      "characters": 11911,
+      "volumeNumber": 6,
+      "volumeTitle": "SIX",
+      "volumeUnitNumber": 13
+    },
+    {
+      "chapterNumber": 85,
+      "slug": "xeelee-redemption-seven",
+      "title": "SEVEN",
+      "sourcePath": "OEBPS/Text/part0086.xhtml",
+      "characters": 455,
+      "volumeNumber": 7,
+      "volumeTitle": "SEVEN",
+      "volumeUnitNumber": 1
+    },
+    {
+      "chapterNumber": 86,
+      "slug": "xeelee-redemption-chapter-78",
+      "title": "78",
+      "sourcePath": "OEBPS/Text/part0087.xhtml",
+      "characters": 20385,
+      "volumeNumber": 7,
+      "volumeTitle": "SEVEN",
+      "volumeUnitNumber": 2
+    },
+    {
+      "chapterNumber": 87,
+      "slug": "xeelee-redemption-chapter-79",
+      "title": "79",
+      "sourcePath": "OEBPS/Text/part0088.xhtml",
+      "characters": 11770,
+      "volumeNumber": 7,
+      "volumeTitle": "SEVEN",
+      "volumeUnitNumber": 3
+    },
+    {
+      "chapterNumber": 88,
+      "slug": "xeelee-redemption-chapter-80",
+      "title": "80",
+      "sourcePath": "OEBPS/Text/part0089.xhtml",
+      "characters": 485,
+      "volumeNumber": 7,
+      "volumeTitle": "SEVEN",
+      "volumeUnitNumber": 4
+    },
+    {
+      "chapterNumber": 89,
+      "slug": "xeelee-redemption-afterword",
+      "title": "Afterword",
+      "sourcePath": "OEBPS/Text/part0090.xhtml",
+      "characters": 5461,
+      "volumeNumber": 7,
+      "volumeTitle": "SEVEN",
+      "volumeUnitNumber": 5
+    }
+  ]
+}

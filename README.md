@@ -79,7 +79,7 @@ pnpm import:book /path/to/book.epub
 
 《三体》三部曲（地球往事三部曲）由专用导入器 `pnpm import:santi` 生成：正文来自努努书坊（kanunu8.com）的《三体（全三册）》在线阅读页面，分别整理为 `three-body`、`three-body-dark-forest`、`three-body-deaths-end` 三册（《三体》35 个标题章节 + 后记、《黑暗森林》序章 + 上中下部、《死神永生》六部），同一书架分组并设为私密阅读；导入器只重建这三册自己的 `src/content/books/` 目录，不修改其他图书或文章。整理时会统一半角标点为全角并修正流传文本中已确认的转录错误（如 1/l 混淆、“威摄/威慑”“执道/轨道”）。三体系列仍在版权保护期内，本整理版仅供站点主人私人阅读，请勿公开传播或另作他用；源站改版会触发导入器的严格校验，需要更新脚本顶部的结构声明后才能再次导入。
 
-Xeelee Sequence（Stephen Baxter 的科幻系列）私密英文书架由专用导入器 `pnpm import:xeelee` 生成：`free` 模式只收录作者授权免费发布的内容（当前为 Infinity Plus 上作者授权的《Raft》短篇，即系列最初构思，见 `xeelee-raft` 册），每册 `private: true`、`language: en`，归属同一书架分组；长篇小说的合法原文不在免费公开网页上，请使用自己持有的官方电子书（如 Gollancz 的合集）用 `--from-file` 模式导入。脚本只重建本系列自己的目录，不修改其他图书或文章；源站改版会触发严格校验并中止。
+Xeelee Sequence（Stephen Baxter 的科幻系列）私密英文书架由专用导入器 `pnpm import:xeelee` 生成。默认从项目的 `tmp/` 读取用户提供的 EPUB/PDF，导入 `Raft`、`Timelike Infinity`、`Flux`、`Ring`、`Vacuum Diagrams`、`Mayflower II`、`Xeelee: Endurance`、`Xeelee: Vengeance` 与 `Xeelee: Redemption` 共 9 本书；`Timelike Infinity` 的 PDF 提取依赖系统命令 `pdftotext`。AZW3 合集中的前四册与单册素材重复，因此不会重复生成书目，只用于交叉校对文本完整性。脚本清理原电子书中的封面页、目录、广告和出版信息，按 EPUB spine/NCX 或 PDF 章节生成 Markdown 和导入报告；可确定的底本/转换错误以带命中次数检查的规则修正，并在替换输出前检查最小章节数与字符数、乱码、广告残留、无效相对链接和重复章节 slug。每册均设置 `private: true`、`language: en`。原始电子书保留在 Git 忽略的 `tmp/`，不会复制到仓库；也可用 `pnpm import:xeelee -- --from-dir /path/to/files` 指定目录。`pnpm import:xeelee -- --free` 仍可单独重建 Infinity Plus 上作者授权免费发布的《Raft》原始短篇（`xeelee-raft`）。
 
 中学政治课本由专用导入器 `pnpm import:textbooks` 生成：初中《道德与法治》六三制各册与高中《思想政治》必修/选择性必修各册，正文来自国家中小学智慧教育平台（basic.smartedu.cn）官方电子教材 PDF 的文本层，按「单元 / 课 / 框」结构整理成书籍与章节 Markdown，封面取 PDF 首页。官方电子教材版权页及每页均标注“仅供个人学习使用，未经授权不得另做他用”，本仓库整理版本同样仅限本地个人学习使用，请勿公开部署或传播；正文插图未收录。个别册次（如最新修订版下册）在平台上仅存于需登录鉴权的存储桶，导入器会跳过并在结束时报告，届时请更换为公开的册次或以其他方式获取。
 

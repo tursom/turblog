@@ -1,0 +1,136 @@
+{
+  "input": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+  "format": "pdf",
+  "title": "Timelike Infinity",
+  "private": true,
+  "generatedChapters": 17,
+  "characters": 397572,
+  "pages": 174,
+  "skipped": [
+    {
+      "title": "About the Author",
+      "reason": "back-matter"
+    }
+  ],
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "timelike-infinity-dedication",
+      "title": "Dedication",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 26
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "timelike-infinity-chapter-01",
+      "title": "Chapter 1",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 22645
+    },
+    {
+      "chapterNumber": 3,
+      "slug": "timelike-infinity-chapter-02",
+      "title": "Chapter 2",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 21490
+    },
+    {
+      "chapterNumber": 4,
+      "slug": "timelike-infinity-chapter-03",
+      "title": "Chapter 3",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 25720
+    },
+    {
+      "chapterNumber": 5,
+      "slug": "timelike-infinity-chapter-04",
+      "title": "Chapter 4",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 26123
+    },
+    {
+      "chapterNumber": 6,
+      "slug": "timelike-infinity-chapter-05",
+      "title": "Chapter 5",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 20989
+    },
+    {
+      "chapterNumber": 7,
+      "slug": "timelike-infinity-chapter-06",
+      "title": "Chapter 6",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 16124
+    },
+    {
+      "chapterNumber": 8,
+      "slug": "timelike-infinity-chapter-07",
+      "title": "Chapter 7",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 24597
+    },
+    {
+      "chapterNumber": 9,
+      "slug": "timelike-infinity-chapter-08",
+      "title": "Chapter 8",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 26654
+    },
+    {
+      "chapterNumber": 10,
+      "slug": "timelike-infinity-chapter-09",
+      "title": "Chapter 9",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 22992
+    },
+    {
+      "chapterNumber": 11,
+      "slug": "timelike-infinity-chapter-10",
+      "title": "Chapter 10",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 36767
+    },
+    {
+      "chapterNumber": 12,
+      "slug": "timelike-infinity-chapter-11",
+      "title": "Chapter 11",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 33355
+    },
+    {
+      "chapterNumber": 13,
+      "slug": "timelike-infinity-chapter-12",
+      "title": "Chapter 12",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 32223
+    },
+    {
+      "chapterNumber": 14,
+      "slug": "timelike-infinity-chapter-13",
+      "title": "Chapter 13",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 28022
+    },
+    {
+      "chapterNumber": 15,
+      "slug": "timelike-infinity-chapter-14",
+      "title": "Chapter 14",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 26540
+    },
+    {
+      "chapterNumber": 16,
+      "slug": "timelike-infinity-chapter-15",
+      "title": "Chapter 15",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 20236
+    },
+    {
+      "chapterNumber": 17,
+      "slug": "timelike-infinity-chapter-16",
+      "title": "Chapter 16",
+      "sourcePath": "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf",
+      "characters": 13069
+    }
+  ]
+}

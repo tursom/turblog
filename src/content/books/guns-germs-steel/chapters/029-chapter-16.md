@@ -83,7 +83,7 @@ sourcePath: "text/part0028.html"
 
 [1\. 东京湾：某些外国人沿用的殖民主义者对在中国和越南之间的北部湾的称呼。——译者](/books/guns-germs-steel/chapter-16/)
 
-[2\. 西里伯斯岛：印度尼西亚中部苏拉威西岛的旧称。——译者](XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX)
+2\. 西里伯斯岛：印度尼西亚中部苏拉威西岛的旧称。——译者
 
 [3\. 赫梯文字：赫梯为公元前17世纪左右在小亚细亚及叙利亚建立的强大古国，后为亚述人征服。赫梯语据信属印欧语系，其文字为楔形文字与象形文字并存。——译者](/books/guns-germs-steel/chapter-16/)
 
