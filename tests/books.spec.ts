@@ -19,6 +19,7 @@ const privateBookSlugs = [
   'flux',
   'flux-zh',
   'ring',
+  'ring-zh',
   'vacuum-diagrams',
   'mayflower-ii',
   'xeelee-endurance',
@@ -351,6 +352,45 @@ test('Flux offers complete bidirectional Chinese links', async ({ page }) => {
   await expect(page.getByRole('link', { name: '阅读英文原文' })).toHaveAttribute(
     'href',
     '/books/flux/flux-chapter-29/',
+  );
+});
+
+test('Ring offers complete bidirectional Chinese links', async ({ page }) => {
+  await serveBuiltSite(page);
+
+  await page.goto(`${baseUrl}/books/ring/ring-ring-by-stephen-baxter/`);
+  await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+    'href',
+    '/books/ring-zh/ring-ring-by-stephen-baxter-zh/',
+  );
+
+  await page.goto(`${baseUrl}/books/ring-zh/ring-ring-by-stephen-baxter-zh/`);
+  await expect(page.locator('.article-header h1')).toHaveText('献词');
+  await expect(page.getByRole('link', { name: '阅读英文原文' })).toHaveAttribute(
+    'href',
+    '/books/ring/ring-ring-by-stephen-baxter/',
+  );
+
+  await page.goto(`${baseUrl}/books/ring/ring-chapter-01/`);
+  await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+    'href',
+    '/books/ring-zh/ring-chapter-01-zh/',
+  );
+
+  await page.goto(`${baseUrl}/books/ring-zh/`);
+  await expect(page.locator('.book-toc a')).toHaveCount(38);
+
+  await page.goto(`${baseUrl}/books/ring/ring-timeline/`);
+  await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+    'href',
+    '/books/ring-zh/ring-timeline-zh/',
+  );
+
+  await page.goto(`${baseUrl}/books/ring-zh/ring-timeline-zh/`);
+  await expect(page.locator('.article-header h1')).toHaveText('年表');
+  await expect(page.getByRole('link', { name: '阅读英文原文' })).toHaveAttribute(
+    'href',
+    '/books/ring/ring-timeline/',
   );
 });
 

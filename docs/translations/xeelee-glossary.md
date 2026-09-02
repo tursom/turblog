@@ -313,6 +313,102 @@
 | Surfboard                      | 冲浪板           | 借助磁场高速运动的器具                       |
 | Wheel                          | 轮               | 宗教符号及刑具；依语境译“轮刑”               |
 
+## 《环》人物、组织与社会
+
+| 原文                         | 项目采用译名                 | 备注                           |
+| ---------------------------- | ---------------------------- | ------------------------------ |
+| Louise Ye Armonk             | 路易丝·叶·阿蒙克             | “大北方号”总工程师             |
+| Mark Wu                      | 马克·吴                      | 社会工程师；后成为虚拟人       |
+| Mark Bassett Friar Armonk Wu | 马克·巴塞特·弗赖尔·阿蒙克·吴 | 原文使用全名时保留全部组成部分 |
+| Lieserl                      | 莉泽尔                       | 名字取自爱因斯坦之女 Lieserl   |
+| Garry Uvarov                 | 加里·乌瓦罗夫                | 医生与优生学家                 |
+| Garry Benson Deng Uvarov     | 加里·本森·邓·乌瓦罗夫        | 原文完整姓名                   |
+| Morrow                       | 莫罗                         | 人名；兼有英文“明日”意味       |
+| Spinner-of-Rope / Spinner    | 纺绳者／纺绳                 | 森林人的技艺名                 |
+| Arrow Maker / Maker          | 制箭者／制箭                 | 森林人的技艺名                 |
+| Constancy-of-Purpose         | 矢志不移                     | 甲板人的理念名                 |
+| Trapper-of-Frogs / Trapper   | 捕蛙者／捕蛙                 | 森林人的技艺名                 |
+| Painter-of-Faces             | 绘面者                       | 森林人的技艺名                 |
+| Perpetuation                 | 永续                         | 甲板人的理念名                 |
+| Serena Milpitas              | 塞雷娜·米尔皮塔斯            | 初始总工程师                   |
+| Kevan Scholes                | 凯文·斯科尔斯                | 莉泽尔的长期联络员             |
+| Sam Gillibrand               | 萨姆·吉利布兰德              | 路易丝的首席助手               |
+| Superet                      | 苏佩雷特                     | 组织专名；不意译为“超越会”     |
+| Holy Superet Light Church    | 神圣苏佩雷特光明教会         | 苏佩雷特后期的宗教化组织       |
+| Planners / Planner           | 规划官                       | “大北方号”上的统治官僚群体     |
+| forest people / forest folk  | 森林人                       | 森林甲板居民的中性称谓         |
+| Deck folk                    | 甲板人                       | 居住在甲板区的人群             |
+| Undermen / Underpeople       | 地下人                       | 森林人对甲板区居民的称谓       |
+
+## 《环》飞船、地点与设施
+
+| 原文                        | 项目采用译名         | 备注                                 |
+| --------------------------- | -------------------- | ------------------------------------ |
+| Great Northern / Northern   | “大北方号”／“北方号” | 世代飞船；短称仍加书名号             |
+| SS Great Britain / Britain  | “大不列颠号”         | 伊桑巴德·金德姆·布鲁内尔的历史蒸汽船 |
+| Lightrider                  | “驭光者号”           | 近太阳飞行器                         |
+| Port Sol                    | 太阳港               | 太阳系外缘的星际港口                 |
+| Earthport                   | 地球港               | 地月 L4 点的虫洞界面设施             |
+| New Sol                     | 新太阳               | 新宇宙中的超大质量天体               |
+| Thoth                       | 托特                 | 近太阳自由落体栖居地                 |
+| Poole Park                  | 普尔公园             | “大北方号”第四扇区地点               |
+| Port Cassini                | 卡西尼港             | 泰坦上的聚居地                       |
+| Tau Ceti                    | 天仓五               | 首次可写“鲸鱼座 τ 星（天仓五）”      |
+| Great Attractor / Attractor | 巨引源               | 通行天文学译名；不可译“大吸引子”     |
+| Deck Zero / One / Two       | 零号／一号／二号甲板 | 飞船的编号层级                       |
+| the Decks                   | 甲板区／各层甲板     | 社会区域／物理复数依语境区分         |
+| Lock / Locks                | 闸舱                 | 森林与甲板区之间的垂直交通设施       |
+| Sector / Segment            | 扇区／弓形区         | 飞船环形甲板的两种不同分区           |
+| lifedome                    | 生命穹顶             | 飞船的封闭生态居住区                 |
+| skydome / sky-dome          | 天穹罩               | 生命穹顶的透明外罩                   |
+
+## 《环》物理、文明与技术
+
+| 原文                              | 项目采用译名         | 备注                                   |
+| --------------------------------- | -------------------- | -------------------------------------- |
+| photino                           | 光微子               | 光子的超对称伙伴；区别“光子”和“中微子” |
+| photino bird                      | 光微子鸟             | 暗物质生命；已有中文社区用法           |
+| dark matter / baryonic matter     | 暗物质／重子物质     | `baryonic life` 译“重子生命”           |
+| Ring / Bolder's Ring              | 环／博尔德尔环       | 由宇宙弦构成的齐利巨型造物             |
+| cosmic string / string            | 宇宙弦／弦           | 时空拓扑缺陷，不译“字符串”             |
+| string loop / cusp                | 宇宙弦环／尖点       | 后文可简称“弦环”                       |
+| Great Attractor                   | 巨引源               | 环产生的宇宙尺度引力结构               |
+| GUTdrive / GUTship                | GUT 驱动器／GUT 飞船 | 首次可展开为“大统一理论（GUT）”        |
+| wormhole Interface                | 虫洞界面             | 沿用《类时无限》；大写专称不译“接口”   |
+| nightfighter                      | 暗夜战斗机           | 齐利人的飞船类别                       |
+| discontinuity drive               | 间断驱动器           | 亚光速常规空间推进系统                 |
+| hyperdrive / hyperspace           | 超空间驱动器／超空间 | 不与间断驱动器混用                     |
+| domain wall                       | 畴壁                 | 宇宙学拓扑缺陷                         |
+| waldo / waldoes                   | 遥操作器             | 与齐利控制装置耦合的人类控制盒         |
+| Virtual                           | 虚拟人               | 指自主软件人格时；投影或环境依语境译   |
+| AntiSenescence / AS               | 抗衰老（AS）         | 沿用《类时无限》                       |
+| starbow                           | 星弓                 | 高速运动造成的星光畸变                 |
+| event / trajectory                | 事件／轨迹           | 各部标题中的相对论概念                 |
+| timelike / spacelike trajectory   | 类时轨迹／类空轨迹   | 不译“时间型／空间型”                   |
+| timelike infinity                 | 类时无穷远           | 物理概念；书名仍为《类时无限》         |
+| Kerr metric                       | 克尔度规             | 通行物理译名                           |
+| inertial drag                     | 惯性拖曳             | 旋转质量的参考系拖曳效应               |
+| event horizon / ergosphere        | 事件视界／能层       | 克尔时空中的不同区域                   |
+| super-radiant scattering          | 超辐射散射           | 环的旋转能量放大机制                   |
+| conical spacetime / angle deficit | 锥形时空／亏角       | 宇宙弦周围的几何性质                   |
+| intercommutation                  | 互换重联             | 宇宙弦自交后的重联过程                 |
+| gravity wave / gravitational wave | 重力波／引力波       | 恒星内部 g 模／时空辐射，严格区分      |
+| stellar evolution                 | 恒星演化             | 不译“恒星进化”                         |
+| helium / carbon / oxygen flash    | 氦闪／碳闪／氧闪     | 恒星演化阶段                           |
+| Very Massive Object (VMO)         | 超大质量天体（VMO）  | 新太阳所属天体类别                     |
+| Lethe                             | 勒忒                 | 神话专名及誓语；不一律改写成“见鬼”     |
+
+## 《环》分部标题
+
+| 原文                          | 项目采用译名        |
+| ----------------------------- | ------------------- |
+| PART I Event: System          | 第一部 事件：太阳系 |
+| PART II Trajectory: Timelike  | 第二部 轨迹：类时   |
+| PART III Event: Sol           | 第三部 事件：太阳   |
+| PART IV Trajectory: Spacelike | 第四部 轨迹：类空   |
+| PART V Event: Ring            | 第五部 事件：环     |
+| PART VI Event: New Sol        | 第六部 事件：新太阳 |
+
 ## 检索依据
 
 - [《筏》剧情概述](http://www.starwarschina.com/forum.php?mod=viewthread&tid=48352&ordertype=2&mobile=2)：社区逐章概述，附有明确译名表。本项目据此采用《筏》、带、博尔德尔环、鼹鼠、轮班，帕利斯、戈弗、里斯、罗奇、戈德等人名，以及“樵夫”“骸骨人”等称谓。该页面不是正式出版物。

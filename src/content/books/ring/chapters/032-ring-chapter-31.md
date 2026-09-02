@@ -2,6 +2,7 @@
 bookSlug: "ring"
 chapterNumber: 32
 slug: "ring-chapter-31"
+parallelSlug: "ring-chapter-31-zh"
 title: "31"
 sourcePath: "Ring_-_Stephen_Baxter.epub#index_split_037.xhtml"
 volumeNumber: 5

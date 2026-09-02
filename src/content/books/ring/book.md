@@ -12,6 +12,8 @@ groupOrder: 40
 seriesOrder: 4
 language: "en"
 editionLabel: "User-supplied English EPUB text"
+alternateEditionSlug: "ring-zh"
+alternateEditionLabel: "中文试译"
 publishedAt: "1994-01-01"
 summary: "Across immense spans of time, human explorers pursue the Xeelee and confront the photino birds reshaping the universe."
 sourceUrl: "https://www.stephen-baxter.com/"

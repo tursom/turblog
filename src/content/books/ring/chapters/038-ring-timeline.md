@@ -2,6 +2,7 @@
 bookSlug: "ring"
 chapterNumber: 38
 slug: "ring-timeline"
+parallelSlug: "ring-timeline-zh"
 title: "TIMELINE"
 sourcePath: "Ring_-_Stephen_Baxter.epub#index_split_044.xhtml"
 volumeNumber: 6

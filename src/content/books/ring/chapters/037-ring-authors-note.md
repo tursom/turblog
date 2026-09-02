@@ -2,6 +2,7 @@
 bookSlug: "ring"
 chapterNumber: 37
 slug: "ring-authors-note"
+parallelSlug: "ring-authors-note-zh"
 title: "AUTHOR'S NOTE"
 sourcePath: "Ring_-_Stephen_Baxter.epub#index_split_043.xhtml"
 volumeNumber: 6
