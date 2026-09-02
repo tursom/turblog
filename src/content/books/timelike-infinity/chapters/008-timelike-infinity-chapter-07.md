@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-07"
 title: "Chapter 7"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-07-zh"
 ---
 
 Michael Poole brought the Crab's boat down near the grassy lip of the craft from the future, close to the wreckage of a lifeboat.

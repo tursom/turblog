@@ -13,8 +13,11 @@ const privateBookSlugs = [
   'three-body-dark-forest',
   'three-body-deaths-end',
   'raft',
+  'raft-zh',
   'timelike-infinity',
+  'timelike-infinity-zh',
   'flux',
+  'flux-zh',
   'ring',
   'vacuum-diagrams',
   'mayflower-ii',
@@ -138,14 +141,16 @@ test('book shelf groups series and filters books locally', async ({ page }) => {
   await page.goto(`${baseUrl}/books/`);
 
   await expect(page.locator('h1')).toHaveText('图书');
-  await expect(page.locator('[data-book-group]')).toHaveCount(7);
+  await expect(page.locator('[data-book-group]')).toHaveCount(8);
   await expect(page.getByRole('link', { name: '枪炮、病菌与钢铁', exact: true })).toHaveCount(1);
   await expect(page.locator('a[href="/posts/go-atomic-generics/"]')).toHaveCount(0);
 
   const textbookSeries = page.locator('[data-book-group]', { hasText: '道德与法治' });
   await expect(textbookSeries.locator('.book-edition-list li')).toHaveCount(6);
 
-  const xeeleeSeries = page.locator('[data-book-group]', { hasText: 'Xeelee Sequence' });
+  const xeeleeSeries = page.locator(
+    '[data-book-group][aria-labelledby="book-group-xeelee-sequence"]',
+  );
   await expect(xeeleeSeries.locator('.book-group-count')).toHaveText('10 部');
   await expect(xeeleeSeries.locator('.book-edition-list a > span')).toHaveText([
     'Raft',
@@ -207,6 +212,145 @@ test('Capital offers Chinese and German editions with parallel chapter links', a
   await expect(page.getByRole('link', { name: '阅读德文原文' })).toHaveAttribute(
     'href',
     '/books/capital-de/volume-01-chapter-01-de/',
+  );
+});
+
+test('Raft offers bidirectional English and Chinese chapter links', async ({ page }) => {
+  await serveBuiltSite(page);
+
+  await page.goto(`${baseUrl}/books/raft/raft-acknowledgment/`);
+  await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+    'href',
+    '/books/raft-zh/raft-acknowledgment-zh/',
+  );
+
+  await page.goto(`${baseUrl}/books/raft-zh/raft-acknowledgment-zh/`);
+  await expect(page.locator('.article-header h1')).toHaveText('致谢');
+  await expect(page.getByRole('link', { name: '阅读英文原文' })).toHaveAttribute(
+    'href',
+    '/books/raft/raft-acknowledgment/',
+  );
+  await expect(page.locator('.prose')).toContainText('拉里·尼文');
+
+  await page.goto(`${baseUrl}/books/raft/raft-chapter-01/`);
+  await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+    'href',
+    '/books/raft-zh/raft-chapter-01-zh/',
+  );
+
+  await page.goto(`${baseUrl}/books/raft-zh/raft-chapter-01-zh/`);
+  await expect(page.locator('.article-header h1')).toHaveText('第1章');
+  await expect(page.getByRole('link', { name: '阅读英文原文' })).toHaveAttribute(
+    'href',
+    '/books/raft/raft-chapter-01/',
+  );
+  await expect(page.locator('.prose')).toContainText('铸造厂发生内爆');
+
+  await page.goto(`${baseUrl}/books/raft/raft-chapter-02/`);
+  await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+    'href',
+    '/books/raft-zh/raft-chapter-02-zh/',
+  );
+
+  await page.goto(`${baseUrl}/books/raft-zh/raft-chapter-02-zh/`);
+  await expect(page.locator('.article-header h1')).toHaveText('第2章');
+  await expect(page.getByRole('link', { name: '阅读英文原文' })).toHaveAttribute(
+    'href',
+    '/books/raft/raft-chapter-02/',
+  );
+
+  await page.goto(`${baseUrl}/books/raft-zh/`);
+  await expect(page.locator('.book-toc a')).toHaveCount(17);
+
+  await page.goto(`${baseUrl}/books/raft/raft-chapter-16/`);
+  await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+    'href',
+    '/books/raft-zh/raft-chapter-16-zh/',
+  );
+
+  await page.goto(`${baseUrl}/books/raft-zh/raft-chapter-16-zh/`);
+  await expect(page.locator('.article-header h1')).toHaveText('第16章');
+  await expect(page.getByRole('link', { name: '阅读英文原文' })).toHaveAttribute(
+    'href',
+    '/books/raft/raft-chapter-16/',
+  );
+});
+
+test('Timelike Infinity offers complete bidirectional Chinese links', async ({ page }) => {
+  await serveBuiltSite(page);
+
+  await page.goto(`${baseUrl}/books/timelike-infinity/timelike-infinity-dedication/`);
+  await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+    'href',
+    '/books/timelike-infinity-zh/timelike-infinity-dedication-zh/',
+  );
+
+  await page.goto(`${baseUrl}/books/timelike-infinity-zh/timelike-infinity-dedication-zh/`);
+  await expect(page.locator('.article-header h1')).toHaveText('献词');
+  await expect(page.getByRole('link', { name: '阅读英文原文' })).toHaveAttribute(
+    'href',
+    '/books/timelike-infinity/timelike-infinity-dedication/',
+  );
+
+  await page.goto(`${baseUrl}/books/timelike-infinity/timelike-infinity-chapter-01/`);
+  await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+    'href',
+    '/books/timelike-infinity-zh/timelike-infinity-chapter-01-zh/',
+  );
+
+  await page.goto(`${baseUrl}/books/timelike-infinity-zh/`);
+  await expect(page.locator('.book-toc a')).toHaveCount(17);
+
+  await page.goto(`${baseUrl}/books/timelike-infinity/timelike-infinity-chapter-16/`);
+  await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+    'href',
+    '/books/timelike-infinity-zh/timelike-infinity-chapter-16-zh/',
+  );
+
+  await page.goto(`${baseUrl}/books/timelike-infinity-zh/timelike-infinity-chapter-16-zh/`);
+  await expect(page.locator('.article-header h1')).toHaveText('第16章');
+  await expect(page.getByRole('link', { name: '阅读英文原文' })).toHaveAttribute(
+    'href',
+    '/books/timelike-infinity/timelike-infinity-chapter-16/',
+  );
+});
+
+test('Flux offers complete bidirectional Chinese links', async ({ page }) => {
+  await serveBuiltSite(page);
+
+  await page.goto(`${baseUrl}/books/flux/flux-xeelee-sequence-book-3/`);
+  await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+    'href',
+    '/books/flux-zh/flux-xeelee-sequence-book-3-zh/',
+  );
+
+  await page.goto(`${baseUrl}/books/flux-zh/flux-xeelee-sequence-book-3-zh/`);
+  await expect(page.locator('.article-header h1')).toHaveText('卷首');
+  await expect(page.getByRole('link', { name: '阅读英文原文' })).toHaveAttribute(
+    'href',
+    '/books/flux/flux-xeelee-sequence-book-3/',
+  );
+
+  await page.goto(`${baseUrl}/books/flux/flux-chapter-01/`);
+  await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+    'href',
+    '/books/flux-zh/flux-chapter-01-zh/',
+  );
+
+  await page.goto(`${baseUrl}/books/flux-zh/`);
+  await expect(page.locator('.book-toc a')).toHaveCount(30);
+
+  await page.goto(`${baseUrl}/books/flux/flux-chapter-29/`);
+  await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+    'href',
+    '/books/flux-zh/flux-chapter-29-zh/',
+  );
+
+  await page.goto(`${baseUrl}/books/flux-zh/flux-chapter-29-zh/`);
+  await expect(page.locator('.article-header h1')).toHaveText('第29章');
+  await expect(page.getByRole('link', { name: '阅读英文原文' })).toHaveAttribute(
+    'href',
+    '/books/flux/flux-chapter-29/',
   );
 });
 

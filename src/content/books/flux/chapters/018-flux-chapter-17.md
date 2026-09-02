@@ -5,6 +5,7 @@ slug: "flux-chapter-17"
 title: "17"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_017.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-17-zh"
 ---
 
 AFTER SHE'D ENDURED A BRIEF, unsettled sleep in Deni's cramped quarters, a messenger from the Committee called for Dura. The messenger was a small, rather sad man in a scuffed tunic; his skin was thin and pale and his eyes were bruised-looking, discolored deep inside the cups. Perhaps he had spent too much of his life doing close work inside the City, Dura thought, shut away from fresh Air.

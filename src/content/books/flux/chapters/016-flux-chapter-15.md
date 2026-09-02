@@ -5,6 +5,7 @@ slug: "flux-chapter-15"
 title: "15"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_015.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-15-zh"
 ---
 
 BZYA INVITED FARR TO VISIT him at his home, deep in the Downside belly of the City.

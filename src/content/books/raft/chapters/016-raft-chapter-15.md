@@ -5,6 +5,7 @@ slug: "raft-chapter-15"
 title: "15"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_015.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-15-zh"
 ---
 
 THE CROWDED SHIP’S FIRST few hours after the fall were nearly unbearable. The air stank of vomit and urine, and people of all ages swarmed about the chamber, scrambling, shrieking and fighting.

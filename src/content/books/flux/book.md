@@ -12,6 +12,8 @@ groupOrder: 40
 seriesOrder: 3
 language: "en"
 editionLabel: "User-supplied English EPUB text"
+alternateEditionSlug: "flux-zh"
+alternateEditionLabel: "中文试译"
 publishedAt: "1993-01-01"
 summary: "Microscopic human descendants struggle to survive inside the turbulent mantle of a neutron star."
 sourceUrl: "https://www.stephen-baxter.com/"

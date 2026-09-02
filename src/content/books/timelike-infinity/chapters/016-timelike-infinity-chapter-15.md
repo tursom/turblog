@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-15"
 title: "Chapter 15"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-15-zh"
 ---
 
 The lifedome of the Crab was swallowed by the receding darkness of the Interface portal. Michael, staring up through the dome, found himself cowering.

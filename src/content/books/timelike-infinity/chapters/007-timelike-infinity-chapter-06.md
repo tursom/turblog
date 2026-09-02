@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-06"
 title: "Chapter 6"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-06-zh"
 ---
 
 The GUT ship Hermit Crab swept backside-first through a powered orbit around the swollen cheek of Jupiter.

@@ -5,6 +5,7 @@ slug: "flux-chapter-26"
 title: "26"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_026.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-26-zh"
 ---
 
 THE STARS — ALL EXCEPT *the* Star — had disappeared, dragging all the light from the sky. The Star, with its ring and its huge, bleeding companion, hung in an emptied sky...

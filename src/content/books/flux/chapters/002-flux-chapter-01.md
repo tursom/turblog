@@ -5,6 +5,7 @@ slug: "flux-chapter-01"
 title: "1"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_001.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-01-zh"
 ---
 
 DURA WOKE WITH A START.

@@ -5,6 +5,7 @@ slug: "raft-chapter-16"
 title: "16"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_016.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-16-zh"
 ---
 
 AS THE FLIGHT THROUGH SPACE wore on, again and again Rees was drawn to the hull’s small window space.

@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-11"
 title: "Chapter 11"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-11-zh"
 ---
 
 Harry's voice was strained. "Michael. The Spline is attacking the earth-craft."

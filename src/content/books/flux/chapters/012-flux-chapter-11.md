@@ -5,6 +5,7 @@ slug: "flux-chapter-11"
 title: "11"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_011.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-11-zh"
 ---
 
 THE CHAMBER WHERE THEY WERE TO board the Bell was at the very base of the City. The chamber had walls, an upper surface — but no floor. Farr, following Hosch and Bzya, clung to guide ropes and gazed down into clear Air, drinking in its freshness after days of the stale stenches of the Harbor. He was aware of the immense mass of the City above him; it creaked softly, like some brooding animal.

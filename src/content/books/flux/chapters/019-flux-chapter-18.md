@@ -5,6 +5,7 @@ slug: "flux-chapter-18"
 title: "18"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_018.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-18-zh"
 ---
 
 WAKEFULNESS INTRUDED SLOWLY on Mur.

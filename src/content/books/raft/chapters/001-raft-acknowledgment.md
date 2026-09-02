@@ -5,6 +5,7 @@ slug: "raft-acknowledgment"
 title: "Acknowledgment"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_000.htm"
 unitType: "preface"
+parallelSlug: "raft-acknowledgment-zh"
 ---
 
 **Raft**

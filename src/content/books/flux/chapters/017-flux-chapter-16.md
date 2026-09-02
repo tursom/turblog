@@ -5,6 +5,7 @@ slug: "flux-chapter-16"
 title: "16"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_016.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-16-zh"
 ---
 
 THE DRIVER OF THE CAR FROM PARZ City was Deni Maxx, the junior doctor who had treated Adda. Dura wanted to rush to her, to demand news of Farr and Adda.

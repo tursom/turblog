@@ -5,6 +5,7 @@ slug: "flux-chapter-20"
 title: "20"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_020.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-20-zh"
 ---
 
 *THREE METERS DEEP.*

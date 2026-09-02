@@ -12,6 +12,8 @@ groupOrder: 40
 seriesOrder: 2
 language: "en"
 editionLabel: "User-supplied English PDF text"
+alternateEditionSlug: "timelike-infinity-zh"
+alternateEditionLabel: "中文试译"
 publishedAt: "1992-01-01"
 summary: "Human rebels use a wormhole sent back through time as they resist the Qax occupation of Earth."
 sourceUrl: "https://www.stephen-baxter.com/"

@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-09"
 title: "Chapter 9"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-09-zh"
 ---
 
 The Friend of Wigner, Jaar, was waiting for Michael Poole at the entrance to the Crab's grounded boat.

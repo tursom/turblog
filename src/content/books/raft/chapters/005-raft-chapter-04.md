@@ -5,6 +5,7 @@ slug: "raft-chapter-04"
 title: "4"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_004.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-04-zh"
 ---
 
 A HANDBELL SHAKEN SOMEWHERE told him that the shift was over. Rees peeled off his protective gloves and with an expert eye surveyed the lab; after his efforts its floor and walls now gleamed in the light of the globes fixed to the ceiling.

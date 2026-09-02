@@ -5,6 +5,7 @@ slug: "flux-chapter-19"
 title: "19"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_019.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-19-zh"
 ---
 
 DURA MADE SURE IT WAS SHE, not Farr, whom Hork chose to go on the journey into the underMantle.

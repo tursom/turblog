@@ -5,6 +5,7 @@ slug: "raft-chapter-11"
 title: "11"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_011.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-11-zh"
 ---
 
 THE ASSAULT OF THE MINE craft on the Raft had been under way for only thirty minutes, but already the air around the Platform was filled with the cries of wounded.

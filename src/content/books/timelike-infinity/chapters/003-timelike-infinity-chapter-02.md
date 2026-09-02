@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-02"
 title: "Chapter 2"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-02-zh"
 ---
 
 Michael Poole's father, Harry, twinkled into existence in the middle of the Hermit Crab's lifedome. Glimmering pixels cast highlights onto the bare domed ceiling before coalescing into a stocky, smiling, smooth-faced figure, dressed in a single-piece, sky-blue suit. "It's good to see you, son. You're looking well."

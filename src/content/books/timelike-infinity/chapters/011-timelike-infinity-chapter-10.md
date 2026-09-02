@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-10"
 title: "Chapter 10"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-10-zh"
 ---
 
 "Michael." Harry Poole's voice was soft but insistent. "Michael, wake up. It's started."

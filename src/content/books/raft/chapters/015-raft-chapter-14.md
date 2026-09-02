@@ -5,6 +5,7 @@ slug: "raft-chapter-14"
 title: "14"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_014.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-14-zh"
 ---
 
 ACAGE OF SCAFFOLDING obscured the Bridge’s clean lines. Crew members crawled over the scaffolding fixing steam jets to the Bridge’s hull. Rees, with Hollerbach and Grye, walked around the perimeter of the work area. Rees eyed the project with a critical eye. “We’re too slow, damn it.”

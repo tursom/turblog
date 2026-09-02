@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-04"
 title: "Chapter 4"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-04-zh"
 ---
 
 With her message to Michael Poole dispatched and still crawling over the Solar System at mere lightspeed, Miriam Berg sat on coarse English grass, waiting for the Wigner girl Shira.

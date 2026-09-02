@@ -5,6 +5,7 @@ slug: "flux-chapter-12"
 title: "12"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_012.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-12-zh"
 ---
 
 THE HUGE LUMBER CARAVAN WAS visible for many days before it reached Qos Frenk's ceiling-farm.

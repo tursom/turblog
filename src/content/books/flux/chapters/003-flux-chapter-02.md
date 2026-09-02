@@ -5,6 +5,7 @@ slug: "flux-chapter-02"
 title: "2"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_002.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-02-zh"
 ---
 
 TEN HUMAN BEINGS — Dura with Farr in tow, Adda, the newly widowed Philas, and six other adults — climbed out of the site of the devastated encampment. They Waved steadily across the Magfield and toward the Crust, in search of food.

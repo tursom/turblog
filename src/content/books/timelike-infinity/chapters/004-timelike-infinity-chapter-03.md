@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-03"
 title: "Chapter 3"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-03-zh"
 ---
 
 Again Jasoft Parz was suspended in space before a Spline ship.

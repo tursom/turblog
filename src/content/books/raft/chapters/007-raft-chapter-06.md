@@ -5,6 +5,7 @@ slug: "raft-chapter-06"
 title: "6"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_006.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-06-zh"
 ---
 
 THE SCIENTIST SECOND CLASS STOOD in the doorway of the Bridge. He watched the new Third Class approach and tried to hide a smile. The young man’s uniform was so obviously new, he stared with such awe at the Bridge’s silver hull, and his pallor was undisputable evidence of his Thousandth Shift celebration, which had finished probably mere hours earlier... The Second Class felt quite old as he remembered his own Thousandth Shift, his own arrival at the Bridge, a good three thousand shifts ago.

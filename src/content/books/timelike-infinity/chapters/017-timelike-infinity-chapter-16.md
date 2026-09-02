@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-16"
 title: "Chapter 16"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-16-zh"
 ---
 
 Chains of events threaded the future.

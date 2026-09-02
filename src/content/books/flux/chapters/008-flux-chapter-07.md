@@ -5,6 +5,7 @@ slug: "flux-chapter-07"
 title: "7"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_007.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-07-zh"
 ---
 
 TOBA GRUDGINGLY OFFERED to let Dura and Farr stay at his home in the City while Adda's injuries were treated at the Hospital. At first Dura refused, but Toba gave her a look of exasperation. "You haven't any choice," he said heavily. "Believe me. If you had, I'd tell you about it; I've got my own life to get back to, eventually... Look, you've nowhere to go, you've no money — not even any clothes."

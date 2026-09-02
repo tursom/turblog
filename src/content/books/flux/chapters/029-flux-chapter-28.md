@@ -5,6 +5,7 @@ slug: "flux-chapter-28"
 title: "28"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_028.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-28-zh"
 ---
 
 THE INTERFACE WAS GLOWING.

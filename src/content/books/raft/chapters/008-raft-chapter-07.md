@@ -5,6 +5,7 @@ slug: "raft-chapter-07"
 title: "7"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_007.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-07-zh"
 ---
 
 THE ROTATION OF THE TETHERED tree was peaceful, soothing. Pallis sat by the warm trunk of the tree, chewing slowly on his flight rations.

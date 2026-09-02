@@ -9,7 +9,7 @@
 // importer rebuilds only the Xeelee book directories named in LOCAL_BOOKS.
 import { execFile as execFileCallback } from 'node:child_process';
 import { promisify } from 'node:util';
-import { mkdir, mkdtemp, readFile, rename, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises';
 import { dirname, join, posix, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { load as loadHtml } from 'cheerio';
@@ -318,7 +318,7 @@ function frontMatter(values) {
     .join('\n');
 }
 
-function bookMetadata(book, chapterCount) {
+function bookMetadata(book, chapterCount, translation) {
   return {
     slug: book.slug,
     private: true,
@@ -333,6 +333,8 @@ function bookMetadata(book, chapterCount) {
     seriesOrder: book.seriesOrder,
     language,
     editionLabel: `User-supplied English ${book.format.toUpperCase()} text`,
+    alternateEditionSlug: translation?.bookSlug,
+    alternateEditionLabel: translation ? '中文试译' : undefined,
     publishedAt: book.publishedAt,
     summary: book.summary,
     sourceUrl,
@@ -341,6 +343,27 @@ function bookMetadata(book, chapterCount) {
     cover: null,
     chapterCount,
   };
+}
+
+async function translationFor(book) {
+  const bookSlug = `${book.slug}-zh`;
+  const translationRoot = join(repositoryRoot, 'src/content/books', bookSlug);
+  try {
+    await readFile(join(translationRoot, 'book.md'), 'utf8');
+    const chapterFiles = await readdir(join(translationRoot, 'chapters'));
+    const parallelSlugs = new Map(
+      chapterFiles
+        .filter((filename) => /^\d{3}-.+-zh\.md$/.test(filename))
+        .map((filename) => {
+          const translationSlug = filename.replace(/^\d{3}-/, '').replace(/\.md$/, '');
+          return [translationSlug.replace(/-zh$/, ''), translationSlug];
+        }),
+    );
+    return parallelSlugs.size ? { bookSlug, parallelSlugs } : undefined;
+  } catch (error) {
+    if (error?.code === 'ENOENT') return undefined;
+    throw error;
+  }
 }
 
 function chapterUnitType(title) {
@@ -755,7 +778,7 @@ function validateExtraction(book, extraction) {
   return characters;
 }
 
-async function writeLocalBook(workspace, book, extraction) {
+async function writeLocalBook(workspace, book, extraction, translation) {
   const outputRoot = join(workspace, book.slug);
   const chapterDirectory = join(outputRoot, 'chapters');
   await mkdir(chapterDirectory, { recursive: true });
@@ -771,6 +794,7 @@ async function writeLocalBook(workspace, book, extraction) {
       volumeTitle: unit.volumeTitle,
       volumeUnitNumber: unit.volumeUnitNumber,
       unitType: chapterUnitType(unit.title),
+      parallelSlug: translation?.parallelSlugs.get(unit.slug),
     };
     await writeFile(
       join(chapterDirectory, `${pad3(chapterNumber)}-${unit.slug}.md`),
@@ -779,7 +803,7 @@ async function writeLocalBook(workspace, book, extraction) {
   }
   await writeFile(
     join(outputRoot, 'book.md'),
-    `---\n${frontMatter(bookMetadata(book, extraction.units.length))}\n---\n`,
+    `---\n${frontMatter(bookMetadata(book, extraction.units.length, translation))}\n---\n`,
   );
   const report = {
     input: book.filename,
@@ -830,7 +854,8 @@ async function importLocalBooks(inputDirectory) {
         chapterSlugs.add(unit.slug);
       }
       extraction.characters = validateExtraction(book, extraction);
-      await writeLocalBook(workspace, book, extraction);
+      const translation = await translationFor(book);
+      await writeLocalBook(workspace, book, extraction, translation);
       imported.push({
         slug: book.slug,
         title: book.title,

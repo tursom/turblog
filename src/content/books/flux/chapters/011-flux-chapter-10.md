@@ -5,6 +5,7 @@ slug: "flux-chapter-10"
 title: "10"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_010.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-10-zh"
 ---
 
 "YOU DUMB UPFLUXER JETFART!" Hosch screamed in Farr's face. "When I want a whole damn tree trunk fed into this hopper I'll tell you about it!" Now the Harbor supervisor shoved his bony face forward and his tone descended into a barely audible, infinitely menacing hiss. "But until I do... and if it wouldn't trouble you too much... maybe you could split the wood just a *little* more finely. Or..." — foul-smelling photons seeping from his mouth — "maybe you'd like to follow your handiwork into the hopper and finish your work in there? Eh?"

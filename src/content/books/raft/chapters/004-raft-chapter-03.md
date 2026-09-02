@@ -5,6 +5,7 @@ slug: "raft-chapter-03"
 title: "3"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_003.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-03-zh"
 ---
 
 HOLLERBACH LIFTED HIS HEAD from the lab report, eyes smarting. He removed his spectacles, set them on the desk top before him, and began methodically to massage the ridge of bone between his eyes. “Oh, do sit down, Mith,” he said wearily.

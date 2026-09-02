@@ -5,6 +5,7 @@ slug: "flux-chapter-05"
 title: "5"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_005.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-05-zh"
 ---
 
 DURA EMERGED RELUCTANTLY from sleep.

@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-14"
 title: "Chapter 14"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-14-zh"
 ---
 
 From a scarred, bruised socket in the elephant-gray hide of the Spline, a three-yard-wide eyeball popped into space, trailing a length of thick optic nerve. Antibody drones, squabbling and scrambling over each other, swarmed over the translucent surface of the eyeball and along the length of the nerve trunk. Red laser light sparked from the mouths of a dozen of the drones, sawing at the trunk; at last the trunk parted, with fully a yard of its length disintegrating into laser-sliced fragments. The warship surged up toward the blue mouth of the Interface portal; drones, scrabbling to hang on, slid away from the abandoned eyeball and from the severed trunk, still spitting at each other with tiny, fierce bolts of laser light.

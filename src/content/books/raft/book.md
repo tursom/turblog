@@ -12,6 +12,8 @@ groupOrder: 40
 seriesOrder: 1
 language: "en"
 editionLabel: "User-supplied English EPUB text"
+alternateEditionSlug: "raft-zh"
+alternateEditionLabel: "中文试译"
 publishedAt: "1991-01-01"
 summary: "Rees leaves the Belt and discovers the fragile societies living in a universe where gravity is a billion times stronger than on Earth."
 sourceUrl: "https://www.stephen-baxter.com/"

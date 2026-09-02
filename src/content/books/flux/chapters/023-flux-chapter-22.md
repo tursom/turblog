@@ -5,6 +5,7 @@ slug: "flux-chapter-22"
 title: "22"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_022.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-22-zh"
 ---
 
 CRIS MIXXAX CLIMBED ONTO his board. The wood under his bare feet was polished, warm, familiar; his soles gripped the ridged surface, and the ribs of Corestuff embedded in the wood felt like cold, hard bones. He flexed his knees experimentally. Electron gas hissed around his ankles and toes as the board cut through the flux lines. The Magfield felt springy, solid.

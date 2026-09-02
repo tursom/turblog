@@ -5,6 +5,7 @@ slug: "flux-chapter-13"
 title: "13"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_013.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-13-zh"
 ---
 
 ACCOMPANIED BY A NERVOUS-LOOKING nurse from the Hospital of the Common Good, the injured old upfluxer diffidently entered the Palace Garden. When Muub spotted him he beckoned to the nurse — over the heads of curious courtiers — that she should bring the upfluxer to join him at the Fount. Then he turned back to the slow ballet of the superfluid fountain.

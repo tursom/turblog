@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-01"
 title: "Chapter 1"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-01-zh"
 ---
 
 The flitter rose from Occupied Earth like a stone thrown from a blue bowl. The little cylindrical craft tumbled slowly as it climbed, sparkling.

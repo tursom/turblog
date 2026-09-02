@@ -5,6 +5,7 @@ slug: "flux-chapter-27"
 title: "27"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_027.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-27-zh"
 ---
 
 BLUE XEELEE LIGHT ILLUMINATED the Air. Fragments of shattered vortex lines hailed around Adda. He Waved furiously, squirming in the Air to avoid the deadly sleet, disregarding the pain in his back and legs. But even Waving wasn't reliable; the strength and direction of the Magfield was changing almost whimsically, and he had to be constantly aware of its newest orientation, of which way his Waving would take him among the lethal vortex fragments.

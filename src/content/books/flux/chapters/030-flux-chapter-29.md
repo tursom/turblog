@@ -5,6 +5,7 @@ slug: "flux-chapter-29"
 title: "29"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_029.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-29-zh"
 ---
 
 TOBA MIXXAX, HIS ROUND FACE PALE in the heat, stuck his head out of his Air-car. "Sounds like Mur and Lea are arguing again."

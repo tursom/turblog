@@ -5,6 +5,7 @@ slug: "raft-chapter-13"
 title: "13"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_013.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-13-zh"
 ---
 
 ON CLOUDS OF STEAM the plate ship swam toward the Belt. Sheen and Grye stood at the entrance to the Quartermaster’s and watched it approach with its cargo of Boneys. Sheen felt dread build up in her, and she shuddered.

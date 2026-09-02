@@ -5,6 +5,7 @@ slug: "flux-chapter-08"
 title: "8"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_008.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-08-zh"
 ---
 
 CLUTCHING HIS SURFBOARD, Cris led Farr through the heart of the City.

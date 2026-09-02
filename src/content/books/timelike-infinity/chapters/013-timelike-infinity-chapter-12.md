@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-12"
 title: "Chapter 12"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-12-zh"
 ---
 
 Michael Poole followed Jasoft Parz, the strange bureaucrat from the future, through the entrails of the dead Spline.

@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-05"
 title: "Chapter 5"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-05-zh"
 ---
 
 The flitter nestled against the Spline's stomach lining; small, clawlike clamps extended from the flitter's lower hull and embedded themselves in hardened flesh.

@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-08"
 title: "Chapter 8"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-08-zh"
 ---
 
 Parz, alone, curled tightly, floated in Spline entoptic fluid.

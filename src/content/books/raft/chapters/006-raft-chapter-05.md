@@ -5,6 +5,7 @@ slug: "raft-chapter-05"
 title: "5"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_005.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-05-zh"
 ---
 
 AFTER REES’S INTERVIEW WITH Hollerbach Grye took him to a dormitory building. There was room for about fifty people in the long, flat building, and Rees, overwhelmed by self-consciousness, trailed the fussy Scientist down an aisle between two rows of simple pallets. Beside each pallet was a small cupboard and a rack on which clothes could be hung; Rees found himself staring curiously at the few personal possessions scattered on the floor and cupboard tops — combs and razors, small mirrors, simple sewing kits, here and there photographs of families or young women. One young man — another Science apprentice, judging by the crimson strands woven into his coveralls — lounged on a pallet. He raised narrow eyebrows at Rees’s unkempt appearance, but he nodded, friendly enough. Rees nodded back, his cheeks burning, and hurried after Grye.

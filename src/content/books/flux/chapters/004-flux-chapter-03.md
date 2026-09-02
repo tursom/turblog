@@ -5,6 +5,7 @@ slug: "flux-chapter-03"
 title: "3"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_003.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-03-zh"
 ---
 
 THEY MOVED IN SILENCE.

@@ -5,6 +5,7 @@ slug: "timelike-infinity-chapter-13"
 title: "Chapter 13"
 sourcePath: "783418290-Stephen-Baxter-Xeelee-2-Timelike-Infinity-PDFDrive.pdf"
 unitType: "chapter"
+parallelSlug: "timelike-infinity-chapter-13-zh"
 ---
 
 At the zenith the Interface portal was a tiny, growing flower of electric blue. The Spline ship was already within the thousand-mile region of exotic space, the squeezed vacuum that surrounded the wormhole mouth.

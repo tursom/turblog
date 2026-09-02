@@ -5,6 +5,7 @@ slug: "flux-chapter-06"
 title: "6"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_006.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-06-zh"
 ---
 
 MUUB ARRIVED AT THE RECEPTION Gallery shortly before the start of the Grand Tribute. He moved to the front of the Gallery, so that he could see down the full depth of Pall Mall, and selected a body-cocoon close to Vice-Chair Hork's customary place. A servant drifted around him for a few moments, adjusting the cocoon so it fit snugly, and offered him drinks and other refreshments. Muub, unable to shake off weariness, found the harmless little man as irritating as an itch, and he chased him away.

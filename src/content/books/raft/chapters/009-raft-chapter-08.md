@@ -5,6 +5,7 @@ slug: "raft-chapter-08"
 title: "8"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_008.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-08-zh"
 ---
 
 THE WINCH MECHANISM IMPELLED the chair toward the star kernel. Rees closed his eyes, relaxed his muscles and tried to blank out his mind.

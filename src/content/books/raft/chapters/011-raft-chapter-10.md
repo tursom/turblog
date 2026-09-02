@@ -5,6 +5,7 @@ slug: "raft-chapter-10"
 title: "10"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_010.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-10-zh"
 ---
 
 ITS TORMENTORS FAR BEHIND, the great beast moved cautiously through the air; the flukes turned with slow strength, and the vast body shuddered. It was as if it were exploring the dull pain of the punctures it had suffered. Through the translucent walls of the body Rees could see triple eyes turn fully backwards, as if the whale were inspecting its own interior.

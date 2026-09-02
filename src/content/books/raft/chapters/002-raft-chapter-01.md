@@ -5,6 +5,7 @@ slug: "raft-chapter-01"
 title: "1"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_001.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-01-zh"
 ---
 
 IT WAS WHEN THE FOUNDRY IMPLODED that Rees’s curiosity about his world became unbearable.

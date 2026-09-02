@@ -5,6 +5,7 @@ slug: "raft-chapter-12"
 title: "12"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_012.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-12-zh"
 ---
 
 THE BELT WAS A SHABBY TOY hanging in the air above Pallis. Two plate craft hovered between Pallis’s tree and the Belt; every few minutes they emitted puffs of steam and spurted a few yards through the clouds. Miners glared down from the craft across the intervening yards at the tree.

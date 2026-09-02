@@ -5,6 +5,7 @@ slug: "raft-chapter-02"
 title: "2"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_002.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-02-zh"
 ---
 
 THE TREE WAS A WHEEL OF WOOD and foliage fifty yards wide. Its rotation slowing, it lowered itself reluctantly into the gravity well of the star kernel.

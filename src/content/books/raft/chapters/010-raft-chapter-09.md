@@ -5,6 +5,7 @@ slug: "raft-chapter-09"
 title: "9"
 sourcePath: "Raft_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 01 - Raft_split_009.htm"
 unitType: "chapter"
+parallelSlug: "raft-chapter-09-zh"
 ---
 
 JAME BROUGHT THE PLATE to a smooth landing on the crackling surface of the worldlet. Silently he set to work unlashing the batches of iron from the net.

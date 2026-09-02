@@ -5,6 +5,7 @@ slug: "flux-chapter-21"
 title: "21"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_021.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-21-zh"
 ---
 
 IN THE INTERIOR OF THE STAR there were no sharp boundaries, merely gradual changes in the dominant form of matter as pressures and densities increased. So there was no dramatic plunge, no great impacts as the "Flying Pig" hauled itself deeper: just a slow, depressing diminution of the last vestiges of Air-light. And the glow cast by the wood-lamps fixed to the walls was no substitute; with its smoky greenness and long, flickering shadows, the gloom in the cabin was quite sinister.

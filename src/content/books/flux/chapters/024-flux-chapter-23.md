@@ -5,6 +5,7 @@ slug: "flux-chapter-23"
 title: "23"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_023.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-23-zh"
 ---
 
 ALL AROUND THE CITY, cooling fragments of the Quantum Sea, huge and threatening, streamed upward from the Pole.

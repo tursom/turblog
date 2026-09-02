@@ -5,6 +5,7 @@ slug: "flux-chapter-14"
 title: "14"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_014.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-14-zh"
 ---
 
 "*X**EELEE."*

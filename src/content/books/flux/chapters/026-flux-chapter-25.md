@@ -5,6 +5,7 @@ slug: "flux-chapter-25"
 title: "25"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_025.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-25-zh"
 ---
 
 WITH A FINAL HEAVE FROM the team of volunteers, the patient was loaded through the kicked-out Hospital wall and into the car waiting in the Air beyond. Adda watched the car recede cautiously from the Hospital, and then turn to join the streams of refugees fleeing to the upflux.

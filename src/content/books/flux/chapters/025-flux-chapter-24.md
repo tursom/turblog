@@ -5,6 +5,7 @@ slug: "flux-chapter-24"
 title: "24"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_024.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-24-zh"
 ---
 
 HORK RAN HIS THICK FINGERS AROUND the seam of the door. Then, impatient, Waving to give himself leverage, he laid his hands flat against the door and shoved.

@@ -5,6 +5,7 @@ slug: "flux-chapter-04"
 title: "4"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_004.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-04-zh"
 ---
 
 TOBA MIXXAX HAULED on his reins. The leather ropes sighed through the sealant membranes set in the face of the car, and he could see through the clearwood window — and feel in the rapid slackening of tension in the reins — how eagerly the team of Air-pigs accepted the break.

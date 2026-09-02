@@ -5,6 +5,7 @@ slug: "flux-chapter-09"
 title: "9"
 sourcePath: "Flux_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 03 - Flux_split_009.htm"
 unitType: "chapter"
+parallelSlug: "flux-chapter-09-zh"
 ---
 
 AFTER A FEW DAYS TOBA RETURNED, and told Dura and Farr that he had booked them into a labor stall in the Market. Dura was given to understand that Toba had done them yet another favor by this, and yet he kept his eyes averted as he discussed it with them, and when they ate Cris seemed embarrassed into an unusual silence. Ito fussed around the upfluxers, her eyecups deep and dark.
