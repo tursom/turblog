@@ -3,6 +3,11 @@ slug: "guns-germs-steel"
 title: "枪炮、病菌与钢铁"
 subtitle: "人类社会的命运"
 author: "贾雷德·戴蒙德"
+category: "works"
+groupSlug: "guns-germs-steel"
+groupTitle: "枪炮、病菌与钢铁"
+groupOrder: 30
+seriesOrder: 1
 language: "zh-CN"
 publishedAt: "2006-03-31T16:00:00+00:00"
 translator: "谢延光"

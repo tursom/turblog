@@ -4,6 +4,11 @@ private: true
 title: "道德与法治"
 subtitle: "九年级下册"
 author: "教育部组织编写"
+category: "textbook"
+groupSlug: "daode-yu-fazhi"
+groupTitle: "道德与法治"
+groupOrder: 100
+seriesOrder: 6
 language: "zh-CN"
 editionLabel: "人民教育出版社"
 summary: "义务教育教科书《道德与法治》九年级下册，教育部组织编写。全书共 3 个单元：我们共同的世界；世界舞台上的中国；走向未来的少年。"

@@ -3,6 +3,11 @@ slug: "capital-zh"
 title: "资本论"
 subtitle: "三卷本 · 中文译文"
 author: "卡尔·马克思"
+category: "works"
+groupSlug: "capital"
+groupTitle: "资本论"
+groupOrder: 10
+seriesOrder: 1
 translator: "中共中央马克思恩格斯列宁斯大林著作编译局"
 language: "zh-CN"
 editionLabel: "中文译文"

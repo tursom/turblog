@@ -4,6 +4,11 @@ private: true
 title: "思想政治"
 subtitle: "必修1 中国特色社会主义"
 author: "教育部组织编写"
+category: "textbook"
+groupSlug: "sixiang-zhengzhi"
+groupTitle: "思想政治"
+groupOrder: 110
+seriesOrder: 1
 language: "zh-CN"
 editionLabel: "统编版 · 人民教育出版社"
 summary: "普通高中教科书《思想政治》必修1 中国特色社会主义，教育部组织编写。全书共 4 课：社会主义从空想到科学、从理论到实践的发展、只有社会主义才能救中国、只有中国特色社会主义才能发展中国、只有坚持和发展中国特色社会主义才能实现中华民族伟大复兴。"

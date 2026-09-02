@@ -3,6 +3,11 @@ slug: "mao-selected-works"
 title: "毛泽东选集"
 subtitle: "第一至第五卷"
 author: "毛泽东"
+category: "works"
+groupSlug: "mao-selected-works"
+groupTitle: "毛泽东选集"
+groupOrder: 20
+seriesOrder: 1
 language: "zh-CN"
 editionLabel: "五卷本电子整理版"
 summary: "收录《毛泽东选集》第一至第五卷，共二百二十九篇文章，按各卷原有次序编排。"

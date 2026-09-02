@@ -4,6 +4,11 @@ private: true
 title: "道德与法治"
 subtitle: "九年级上册"
 author: "教育部组织编写"
+category: "textbook"
+groupSlug: "daode-yu-fazhi"
+groupTitle: "道德与法治"
+groupOrder: 100
+seriesOrder: 5
 language: "zh-CN"
 editionLabel: "2022年版课标修订 · 人民教育出版社"
 summary: "义务教育教科书《道德与法治》九年级上册，教育部组织编写。全书共 4 个单元：坚持党的全面领导；进入新时代；奋进新征程；共圆中国梦。"

@@ -4,6 +4,11 @@ private: true
 title: "思想政治"
 subtitle: "必修4 哲学与文化"
 author: "教育部组织编写"
+category: "textbook"
+groupSlug: "sixiang-zhengzhi"
+groupTitle: "思想政治"
+groupOrder: 110
+seriesOrder: 4
 language: "zh-CN"
 editionLabel: "统编版 · 人民教育出版社"
 summary: "普通高中教科书《思想政治》必修4 哲学与文化，教育部组织编写。全书共 3 个单元：探索世界与把握规律；认识社会与价值选择；文化传承与文化创新。"

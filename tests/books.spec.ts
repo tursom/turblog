@@ -120,21 +120,59 @@ test('private chapter owner can put an exact share token in the URL', async ({ p
   await expect(page.getByRole('button', { name: '复制本章分享链接' })).toHaveCount(0);
 });
 
-test('book shelf and chapter pages stay separate from ordinary posts', async ({ page }) => {
+test('book shelf groups series and filters books locally', async ({ page }) => {
   await serveBuiltSite(page);
   await page.goto(`${baseUrl}/books/`);
 
   await expect(page.locator('h1')).toHaveText('图书');
+  await expect(page.locator('[data-book-group]')).toHaveCount(5);
   await expect(page.getByRole('link', { name: '枪炮、病菌与钢铁', exact: true })).toHaveCount(1);
   await expect(page.locator('a[href="/posts/go-atomic-generics/"]')).toHaveCount(0);
+
+  const textbookSeries = page.locator('[data-book-group]', { hasText: '道德与法治' });
+  await expect(textbookSeries.locator('.book-edition-list li')).toHaveCount(6);
+
+  const search = page.getByRole('searchbox', { name: '搜索图书' });
+  await search.fill('德文原文');
+  await expect(page.locator('[data-book-group]:visible')).toHaveCount(1);
+  await expect(page.getByText('1 组', { exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Das Kapital，Drei Bände/ })).toBeVisible();
+
+  await search.fill('');
+  await page.getByRole('button', { name: '教材', exact: true }).click();
+  await expect(page.locator('[data-book-group]:visible')).toHaveCount(2);
+  await expect(page.getByText('2 组', { exact: true })).toBeVisible();
+});
+
+test('book contents can collapse volumes and filter chapter titles', async ({ page }) => {
+  await serveBuiltSite(page);
+  await page.goto(`${baseUrl}/books/mao-selected-works/`);
+
+  await expect(page.locator('.book-toc-volume')).toHaveCount(5);
+  await expect(page.locator('.book-toc-volume').first()).toHaveAttribute('open', '');
+
+  await page.getByRole('searchbox', { name: '筛选本书目录' }).fill('中国社会各阶级的分析');
+  await expect(page.locator('[data-book-toc-item]:visible')).toHaveCount(1);
+  await expect(page.locator('[data-book-toc-count]')).toHaveText('1 项');
+});
+
+test('last opened book chapter appears on the shelf', async ({ page }) => {
+  await serveBuiltSite(page);
+  await page.goto(`${baseUrl}/books/guns-germs-steel/chapter-01/`);
+  await page.goto(`${baseUrl}/books/`);
+
+  const recent = page.locator('[data-continue-reading]');
+  await expect(recent).toBeVisible();
+  await expect(recent).toContainText('枪炮、病菌与钢铁');
+  await expect(recent.locator('a')).toHaveAttribute('href', '/books/guns-germs-steel/chapter-01/');
 });
 
 test('Capital offers Chinese and German editions with parallel chapter links', async ({ page }) => {
   await serveBuiltSite(page);
   await page.goto(`${baseUrl}/books/`);
 
-  await expect(page.getByRole('link', { name: '资本论', exact: true })).toHaveCount(1);
-  await expect(page.getByRole('link', { name: 'Das Kapital', exact: true })).toHaveCount(1);
+  await expect(page.getByRole('link', { name: /资本论，三卷本 · 中文译文/ })).toHaveCount(1);
+  await expect(page.getByRole('link', { name: /Das Kapital，Drei Bände/ })).toHaveCount(1);
 
   await page.goto(`${baseUrl}/books/capital-zh/volume-01-chapter-01/`);
   await expect(page.locator('h1')).toHaveText('第一章 商品');

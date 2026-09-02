@@ -52,7 +52,16 @@ cover: null
 
 ## 导入图书
 
-图书使用独立的 `src/content/books/` 集合，不会出现在普通文章首页、归档、标签或 RSS 中。每本书有一个书籍详情页和多个独立章节页，入口为 `/books/`。
+图书使用独立的 `src/content/books/` 集合，不会出现在普通文章首页、归档、标签或 RSS 中。每本书有一个书籍详情页和多个独立章节页，入口为 `/books/`。书架按作品或系列分组，并在浏览器内提供书名、作者、版本筛选；打开章节后会把每本书最后阅读的位置保存在当前浏览器的 `localStorage` 中。
+
+每本书的 Front Matter 需要提供以下书架字段：
+
+- `category`：`works` 或 `textbook`
+- `groupSlug`、`groupTitle`：同一作品、系列或不同版本使用相同值
+- `groupOrder`：顶层书架分组顺序，同组必须一致
+- `seriesOrder`：组内册次或版本顺序
+
+单本书也使用独立的 `groupSlug`。构建时会拒绝同一 `groupSlug` 下标题、分类或排序不一致的内容。
 
 仓库提供 EPUB 离线导入器。它读取本地 EPUB 的 `content.opf`、`toc.ncx`、XHTML 正文和图片，生成书籍 Markdown、章节 Markdown、封面/插图和导入报告：
 

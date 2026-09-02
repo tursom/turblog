@@ -4,6 +4,11 @@ private: true
 title: "思想政治"
 subtitle: "必修3 政治与法治"
 author: "教育部组织编写"
+category: "textbook"
+groupSlug: "sixiang-zhengzhi"
+groupTitle: "思想政治"
+groupOrder: 110
+seriesOrder: 3
 language: "zh-CN"
 editionLabel: "统编版 · 人民教育出版社"
 summary: "普通高中教科书《思想政治》必修3 政治与法治，教育部组织编写。全书共 3 个单元：中国共产党的领导；人民当家作主；全面依法治国。"

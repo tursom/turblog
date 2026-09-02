@@ -68,7 +68,14 @@ const pageTitle = `${chapter.data.title} · ${book.data.title}`;
     >
   </div>
   <div class="article-layout book-reader-layout">
-    <article class="article-page">
+    <article
+      class="article-page"
+      data-reading-progress
+      data-reading-book-slug={book.data.slug}
+      data-reading-book-title={book.data.title}
+      data-reading-book-subtitle={book.data.subtitle}
+      data-reading-chapter-title={chapter.data.title}
+    >
       <header class="article-header book-chapter-header">
         <div class="post-meta detail">
           <span>{book.data.title}</span><span aria-hidden="true">·</span><span
@@ -143,6 +150,35 @@ const pageTitle = `${chapter.data.title} · ${book.data.title}`;
   </div>
   <BookChapterViewCounts />
   <script>
+    const readingPage = document.querySelector<HTMLElement>('[data-reading-progress]');
+    if (readingPage) {
+      try {
+        const key = 'tursom-book-progress-v1';
+        const saved = JSON.parse(localStorage.getItem(key) ?? '[]');
+        const previous = Array.isArray(saved) ? saved : [];
+        const bookSlug = readingPage.dataset.readingBookSlug ?? '';
+        const current = {
+          bookSlug,
+          bookTitle: readingPage.dataset.readingBookTitle ?? '',
+          bookSubtitle: readingPage.dataset.readingBookSubtitle || undefined,
+          chapterTitle: readingPage.dataset.readingChapterTitle ?? '',
+          path: location.pathname,
+          updatedAt: Date.now(),
+        };
+        localStorage.setItem(
+          key,
+          JSON.stringify(
+            [
+              current,
+              ...previous.filter(
+                (item) => item && typeof item === 'object' && item.bookSlug !== bookSlug,
+              ),
+            ].slice(0, 20),
+          ),
+        );
+      } catch {}
+    }
+
     const shareButton = document.querySelector<HTMLButtonElement>('[data-book-share]');
     const shareStatus = document.querySelector<HTMLElement>('[data-book-share-status]');
 

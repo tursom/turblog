@@ -4,6 +4,11 @@ private: true
 title: "思想政治"
 subtitle: "选择性必修1 当代国际政治与经济"
 author: "教育部组织编写"
+category: "textbook"
+groupSlug: "sixiang-zhengzhi"
+groupTitle: "思想政治"
+groupOrder: 110
+seriesOrder: 5
 language: "zh-CN"
 editionLabel: "统编版 · 人民教育出版社"
 summary: "普通高中教科书《思想政治》选择性必修1 当代国际政治与经济，教育部组织编写。全书共 4 个单元：各具特色的国家；世界多极化；经济全球化；国际组织。"

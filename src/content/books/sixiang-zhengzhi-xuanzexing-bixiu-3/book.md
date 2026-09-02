@@ -4,6 +4,11 @@ private: true
 title: "思想政治"
 subtitle: "选择性必修3 逻辑与思维"
 author: "教育部组织编写"
+category: "textbook"
+groupSlug: "sixiang-zhengzhi"
+groupTitle: "思想政治"
+groupOrder: 110
+seriesOrder: 7
 language: "zh-CN"
 editionLabel: "统编版 · 人民教育出版社"
 summary: "普通高中教科书《思想政治》选择性必修3 逻辑与思维，教育部组织编写。全书共 4 个单元：树立科学思维观念；遵循逻辑思维规则；运用辩证思维方法；提高创新思维能力。"

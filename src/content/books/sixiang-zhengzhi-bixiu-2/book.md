@@ -4,6 +4,11 @@ private: true
 title: "思想政治"
 subtitle: "必修2 经济与社会"
 author: "教育部组织编写"
+category: "textbook"
+groupSlug: "sixiang-zhengzhi"
+groupTitle: "思想政治"
+groupOrder: 110
+seriesOrder: 2
 language: "zh-CN"
 editionLabel: "统编版 · 人民教育出版社"
 summary: "普通高中教科书《思想政治》必修2 经济与社会，教育部组织编写。全书共 2 个单元：生产资料所有制与经济体制；经济发展与社会进步。"

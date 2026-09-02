@@ -4,6 +4,11 @@ private: true
 title: "道德与法治"
 subtitle: "七年级上册"
 author: "教育部组织编写"
+category: "textbook"
+groupSlug: "daode-yu-fazhi"
+groupTitle: "道德与法治"
+groupOrder: 100
+seriesOrder: 1
 language: "zh-CN"
 editionLabel: "2022年版课标修订 · 人民教育出版社"
 summary: "义务教育教科书《道德与法治》七年级上册，教育部组织编写。全书共 4 个单元：少年有梦；成长的时空；珍爱我们的生命；追求美好人生。"

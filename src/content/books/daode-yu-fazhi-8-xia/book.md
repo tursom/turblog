@@ -4,6 +4,11 @@ private: true
 title: "道德与法治"
 subtitle: "八年级下册"
 author: "教育部组织编写"
+category: "textbook"
+groupSlug: "daode-yu-fazhi"
+groupTitle: "道德与法治"
+groupOrder: 100
+seriesOrder: 4
 language: "zh-CN"
 editionLabel: "2022年版课标修订 · 人民教育出版社"
 summary: "义务教育教科书《道德与法治》八年级下册，教育部组织编写。全书共 5 个单元：坚持宪法至上；理解权利义务；认识国家制度；走近国家机构；建设法治中国。"

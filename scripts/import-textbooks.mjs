@@ -693,6 +693,13 @@ function toChineseNumeral(number) {
 
 async function importBook(book, workspace, warnings) {
   const { id, slug, title, subtitle, editionLabel, kind } = book;
+  const groupSlug = kind === 'junior' ? 'daode-yu-fazhi' : 'sixiang-zhengzhi';
+  const groupTitle = kind === 'junior' ? '道德与法治' : '思想政治';
+  const groupOrder = kind === 'junior' ? 100 : 110;
+  const seriesOrder =
+    BOOKS.filter((candidate) => candidate.kind === kind).findIndex(
+      (candidate) => candidate.slug === slug,
+    ) + 1;
   console.log(`\n=== ${title} ${subtitle} ===`);
 
   const detail = await fetchJson(`${detailJsonBase}/${id}.json`);
@@ -818,6 +825,11 @@ async function importBook(book, workspace, warnings) {
       title,
       subtitle,
       author: '教育部组织编写',
+      category: 'textbook',
+      groupSlug,
+      groupTitle,
+      groupOrder,
+      seriesOrder,
       language: 'zh-CN',
       editionLabel,
       summary: summaryParts.join(''),

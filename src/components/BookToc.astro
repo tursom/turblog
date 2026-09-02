@@ -29,37 +29,62 @@ const volumeGroups: VolumeGroup[] | null =
     : null;
 ---
 
-<nav class="book-toc" aria-label="图书目录">
-  <p class="toc-title">目录</p>
+<nav class="book-toc" aria-label="图书目录" data-book-toc>
+  <div class="book-toc-header">
+    <p class="toc-title">目录</p>
+    <span data-book-toc-count>{chapters.length} 项</span>
+  </div>
+  <div class="book-toc-search" data-book-toc-controls hidden>
+    <input
+      type="search"
+      aria-label="筛选本书目录"
+      placeholder="筛选章节标题"
+      autocomplete="off"
+      data-book-toc-search
+    />
+    <button type="button" data-book-toc-clear aria-label="清除目录筛选" title="清除目录筛选" hidden>
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
   {
     volumeGroups ? (
-      volumeGroups.map((group) => (
-        <section class="book-toc-volume">
-          <h3>{group.title}</h3>
-          <ol>
-            {group.chapters.map((chapter) => (
-              <li class:list={{ active: chapter.data.slug === currentSlug }}>
-                <a
-                  href={chapterPath(book, chapter)}
-                  aria-current={chapter.data.slug === currentSlug ? 'page' : undefined}
-                >
-                  <span class="book-toc-number">
-                    {String(chapter.data.volumeUnitNumber ?? chapter.data.chapterNumber).padStart(
-                      2,
-                      '0',
-                    )}
-                  </span>
-                  <span>{chapter.data.title}</span>
-                </a>
-              </li>
-            ))}
-          </ol>
-        </section>
-      ))
+      volumeGroups.map((group, index) => {
+        const containsCurrent = group.chapters.some((chapter) => chapter.data.slug === currentSlug);
+        return (
+          <details
+            class="book-toc-volume"
+            data-book-toc-volume
+            open={currentSlug ? containsCurrent : index === 0}
+          >
+            <summary>
+              <h3>{group.title}</h3>
+              <span>{group.chapters.length}</span>
+            </summary>
+            <ol>
+              {group.chapters.map((chapter) => (
+                <li class:list={{ active: chapter.data.slug === currentSlug }} data-book-toc-item>
+                  <a
+                    href={chapterPath(book, chapter)}
+                    aria-current={chapter.data.slug === currentSlug ? 'page' : undefined}
+                  >
+                    <span class="book-toc-number">
+                      {String(chapter.data.volumeUnitNumber ?? chapter.data.chapterNumber).padStart(
+                        2,
+                        '0',
+                      )}
+                    </span>
+                    <span>{chapter.data.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </details>
+        );
+      })
     ) : (
       <ol>
         {chapters.map((chapter) => (
-          <li class:list={{ active: chapter.data.slug === currentSlug }}>
+          <li class:list={{ active: chapter.data.slug === currentSlug }} data-book-toc-item>
             <a
               href={chapterPath(book, chapter)}
               aria-current={chapter.data.slug === currentSlug ? 'page' : undefined}
@@ -74,4 +99,48 @@ const volumeGroups: VolumeGroup[] | null =
       </ol>
     )
   }
+  <p class="book-toc-empty" data-book-toc-empty hidden>没有匹配的章节。</p>
 </nav>
+
+<script>
+  function normalizeTocSearch(value: string): string {
+    return value.normalize('NFKC').toLocaleLowerCase().trim();
+  }
+
+  for (const toc of document.querySelectorAll<HTMLElement>('[data-book-toc]')) {
+    const controls = toc.querySelector<HTMLElement>('[data-book-toc-controls]');
+    const search = toc.querySelector<HTMLInputElement>('[data-book-toc-search]');
+    const clear = toc.querySelector<HTMLButtonElement>('[data-book-toc-clear]');
+    const count = toc.querySelector<HTMLElement>('[data-book-toc-count]');
+    const empty = toc.querySelector<HTMLElement>('[data-book-toc-empty]');
+    const items = [...toc.querySelectorAll<HTMLElement>('[data-book-toc-item]')];
+    const volumes = [...toc.querySelectorAll<HTMLDetailsElement>('[data-book-toc-volume]')];
+
+    if (controls) controls.hidden = false;
+
+    function applyFilter() {
+      const query = normalizeTocSearch(search?.value ?? '');
+      let visible = 0;
+      for (const item of items) {
+        item.hidden = Boolean(query) && !normalizeTocSearch(item.textContent ?? '').includes(query);
+        if (!item.hidden) visible += 1;
+      }
+      for (const volume of volumes) {
+        const hasMatch = Boolean(volume.querySelector('[data-book-toc-item]:not([hidden])'));
+        volume.hidden = Boolean(query) && !hasMatch;
+        if (query && hasMatch) volume.open = true;
+      }
+      if (clear) clear.hidden = !query;
+      if (count) count.textContent = `${visible} 项`;
+      if (empty) empty.hidden = visible !== 0;
+    }
+
+    search?.addEventListener('input', applyFilter);
+    clear?.addEventListener('click', () => {
+      if (!search) return;
+      search.value = '';
+      search.focus();
+      applyFilter();
+    });
+  }
+</script>

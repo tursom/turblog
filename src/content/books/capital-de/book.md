@@ -3,6 +3,11 @@ slug: "capital-de"
 title: "Das Kapital"
 subtitle: "Drei Bände · Deutscher Originaltext"
 author: "Karl Marx"
+category: "works"
+groupSlug: "capital"
+groupTitle: "资本论"
+groupOrder: 10
+seriesOrder: 2
 language: "de"
 editionLabel: "德文原文"
 alternateEditionSlug: "capital-zh"

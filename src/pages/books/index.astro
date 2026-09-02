@@ -1,9 +1,10 @@
 ---
 import SiteLayout from '@/layouts/SiteLayout.astro';
-import BookCard from '@/components/BookCard.astro';
-import { getBooks } from '@/lib/books';
+import BookShelfGroup from '@/components/BookShelfGroup.astro';
+import { getBookGroups } from '@/lib/books';
 
-const books = await getBooks();
+const groups = await getBookGroups();
+const bookCount = groups.reduce((total, group) => total + group.books.length, 0);
 ---
 
 <SiteLayout title="图书" description="独立整理的图书阅读空间。">
@@ -13,15 +14,153 @@ const books = await getBooks();
   <section class="page-intro compact-intro">
     <span class="eyebrow">BOOKSHELF</span>
     <h1>图书</h1>
-    <p>与技术文章分开的长期阅读空间，共 {books.length} 本。</p>
+    <p>与技术文章分开的长期阅读空间，共 {groups.length} 组、{bookCount} 册。</p>
   </section>
+
+  <section class="bookshelf-controls" data-bookshelf-controls hidden aria-label="筛选图书">
+    <div class="bookshelf-search">
+      <label class="sr-only" for="bookshelf-search">搜索图书</label>
+      <input
+        id="bookshelf-search"
+        type="search"
+        placeholder="搜索书名、作者或册次"
+        autocomplete="off"
+        data-bookshelf-search
+      />
+      <button type="button" data-bookshelf-clear aria-label="清除搜索" title="清除搜索" hidden>
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="bookshelf-filter" role="group" aria-label="图书分类">
+      <button type="button" data-category-filter="all" aria-pressed="true">全部</button>
+      <button type="button" data-category-filter="works" aria-pressed="false">著作</button>
+      <button type="button" data-category-filter="textbook" aria-pressed="false">教材</button>
+    </div>
+    <span class="bookshelf-result-count" data-bookshelf-result-count aria-live="polite">
+      {groups.length} 组
+    </span>
+  </section>
+
+  <section class="continue-reading" data-continue-reading hidden aria-labelledby="continue-heading">
+    <div class="section-heading">
+      <div>
+        <span class="section-kicker">RECENT</span><h2 id="continue-heading">继续阅读</h2>
+      </div>
+    </div>
+    <ol data-continue-reading-list></ol>
+  </section>
+
   <section class="book-list" aria-label="图书列表">
     {
-      books.length === 0 ? (
+      groups.length === 0 ? (
         <p class="empty-state">这里还没有图书。</p>
       ) : (
-        books.map((book) => <BookCard book={book} />)
+        groups.map((group) => <BookShelfGroup group={group} />)
       )
     }
+    <p class="empty-state" data-bookshelf-empty hidden>没有符合条件的图书。</p>
   </section>
+
+  <script>
+    const controls = document.querySelector<HTMLElement>('[data-bookshelf-controls]');
+    const search = document.querySelector<HTMLInputElement>('[data-bookshelf-search]');
+    const clear = document.querySelector<HTMLButtonElement>('[data-bookshelf-clear]');
+    const resultCount = document.querySelector<HTMLElement>('[data-bookshelf-result-count]');
+    const empty = document.querySelector<HTMLElement>('[data-bookshelf-empty]');
+    const categoryButtons = [
+      ...document.querySelectorAll<HTMLButtonElement>('[data-category-filter]'),
+    ];
+    const bookGroups = [...document.querySelectorAll<HTMLElement>('[data-book-group]')];
+    let activeCategory = 'all';
+
+    function normalizeSearch(value: string): string {
+      return value.normalize('NFKC').toLocaleLowerCase().trim();
+    }
+
+    function applyBookshelfFilters() {
+      const query = normalizeSearch(search?.value ?? '');
+      let visible = 0;
+      for (const group of bookGroups) {
+        const categoryMatches =
+          activeCategory === 'all' || group.dataset.category === activeCategory;
+        const searchMatches =
+          !query ||
+          normalizeSearch(group.dataset.search ?? group.textContent ?? '').includes(query);
+        group.hidden = !(categoryMatches && searchMatches);
+        if (!group.hidden) visible += 1;
+      }
+      if (clear) clear.hidden = !query;
+      if (resultCount) resultCount.textContent = `${visible} 组`;
+      if (empty) empty.hidden = visible !== 0;
+    }
+
+    if (controls) controls.hidden = false;
+    search?.addEventListener('input', applyBookshelfFilters);
+    clear?.addEventListener('click', () => {
+      if (!search) return;
+      search.value = '';
+      search.focus();
+      applyBookshelfFilters();
+    });
+    for (const button of categoryButtons) {
+      button.addEventListener('click', () => {
+        activeCategory = button.dataset.categoryFilter ?? 'all';
+        for (const candidate of categoryButtons) {
+          candidate.setAttribute('aria-pressed', String(candidate === button));
+        }
+        applyBookshelfFilters();
+      });
+    }
+
+    interface ReadingProgress {
+      bookSlug: string;
+      bookTitle: string;
+      bookSubtitle?: string;
+      chapterTitle: string;
+      path: string;
+      updatedAt: number;
+    }
+
+    function isReadingProgress(value: unknown): value is ReadingProgress {
+      if (!value || typeof value !== 'object') return false;
+      const item = value as Record<string, unknown>;
+      return (
+        typeof item.bookSlug === 'string' &&
+        typeof item.bookTitle === 'string' &&
+        typeof item.chapterTitle === 'string' &&
+        typeof item.path === 'string' &&
+        /^\/books\/[a-z0-9-]+\/[a-z0-9-]+\/$/.test(item.path) &&
+        typeof item.updatedAt === 'number'
+      );
+    }
+
+    try {
+      const saved = JSON.parse(localStorage.getItem('tursom-book-progress-v1') ?? '[]');
+      const recent = Array.isArray(saved)
+        ? saved
+            .filter(isReadingProgress)
+            .sort((a, b) => b.updatedAt - a.updatedAt)
+            .slice(0, 3)
+        : [];
+      const section = document.querySelector<HTMLElement>('[data-continue-reading]');
+      const list = document.querySelector<HTMLOListElement>('[data-continue-reading-list]');
+      if (section && list && recent.length > 0) {
+        for (const item of recent) {
+          const row = document.createElement('li');
+          const link = document.createElement('a');
+          const book = document.createElement('strong');
+          const chapter = document.createElement('span');
+          link.href = item.path;
+          book.textContent = item.bookSubtitle
+            ? `${item.bookTitle} · ${item.bookSubtitle}`
+            : item.bookTitle;
+          chapter.textContent = item.chapterTitle;
+          link.append(book, chapter);
+          row.append(link);
+          list.append(row);
+        }
+        section.hidden = false;
+      }
+    } catch {}
+  </script>
 </SiteLayout>

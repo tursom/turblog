@@ -4,6 +4,11 @@ private: true
 title: "思想政治"
 subtitle: "选择性必修2 法律与生活"
 author: "教育部组织编写"
+category: "textbook"
+groupSlug: "sixiang-zhengzhi"
+groupTitle: "思想政治"
+groupOrder: 110
+seriesOrder: 6
 language: "zh-CN"
 editionLabel: "统编版 · 人民教育出版社"
 summary: "普通高中教科书《思想政治》选择性必修2 法律与生活，教育部组织编写。全书共 4 个单元：民事权利与义务；家庭与婚姻；就业与创业；社会争议解决。"
