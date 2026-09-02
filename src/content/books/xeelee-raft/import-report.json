@@ -1,0 +1,23 @@
+{
+  "sourceUrl": "https://www.infinityplus.co.uk/stories/raft.htm",
+  "title": "Raft",
+  "language": "en",
+  "generatedChapters": 2,
+  "characters": 34442,
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "slug": "foreword",
+      "title": "Foreword",
+      "sourceUrl": "https://www.infinityplus.co.uk/stories/raft.htm",
+      "characters": 715
+    },
+    {
+      "chapterNumber": 2,
+      "slug": "story",
+      "title": "Raft",
+      "sourceUrl": "https://www.infinityplus.co.uk/stories/raft.htm",
+      "characters": 33727
+    }
+  ]
+}
