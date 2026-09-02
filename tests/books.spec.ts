@@ -200,11 +200,10 @@ test('Three-Body trilogy shelves as one series with volume-grouped chapter TOCs'
     ['三体Ⅲ·死神永生', '/books/three-body-deaths-end/'],
   ];
   for (const [title, href] of editions) {
-    await expect(series.locator(`a[href="${href}"]`)).toHaveAttribute(
-      'aria-label',
-      `${title}，网络电子文本整理版`,
-    );
+    await expect(series.locator(`a[href="${href}"]`)).toHaveAttribute('aria-label', title);
+    await expect(series.locator(`a[href="${href}"] span`)).toHaveText(title);
   }
+  await expect(series.locator('.book-group-count')).toHaveText('3 部');
 
   await page.goto(`${baseUrl}/books/three-body-dark-forest/`);
   await expect(page.locator('.book-toc-volume')).toHaveCount(4);
