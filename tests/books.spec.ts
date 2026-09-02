@@ -145,6 +145,21 @@ test('book shelf groups series and filters books locally', async ({ page }) => {
   const textbookSeries = page.locator('[data-book-group]', { hasText: '道德与法治' });
   await expect(textbookSeries.locator('.book-edition-list li')).toHaveCount(6);
 
+  const xeeleeSeries = page.locator('[data-book-group]', { hasText: 'Xeelee Sequence' });
+  await expect(xeeleeSeries.locator('.book-group-count')).toHaveText('10 部');
+  await expect(xeeleeSeries.locator('.book-edition-list a > span')).toHaveText([
+    'Raft',
+    'Timelike Infinity',
+    'Flux',
+    'Ring',
+    'Vacuum Diagrams',
+    'Mayflower II',
+    'Xeelee: Endurance',
+    'Xeelee: Vengeance',
+    'Xeelee: Redemption',
+    'Raft (Short Story)',
+  ]);
+
   const search = page.getByRole('searchbox', { name: '搜索图书' });
   await search.fill('德文原文');
   await expect(page.locator('[data-book-group]:visible')).toHaveCount(1);

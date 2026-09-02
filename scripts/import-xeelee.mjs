@@ -269,7 +269,7 @@ const PROOFREADING_CORRECTIONS = {
 const FREE_STORIES = [
   {
     bookSlug: 'xeelee-raft',
-    title: 'Raft',
+    title: 'Raft (Short Story)',
     subtitle: 'Xeelee Sequence original short story',
     url: 'https://www.infinityplus.co.uk/stories/raft.htm',
     sourceName: 'Infinity Plus (author-authorized free publication)',
@@ -328,6 +328,7 @@ function bookMetadata(book, chapterCount) {
     category: 'works',
     groupSlug,
     groupTitle,
+    groupType: 'series',
     groupOrder,
     seriesOrder: book.seriesOrder,
     language,
@@ -926,6 +927,7 @@ async function importFreeStories() {
           category: 'works',
           groupSlug,
           groupTitle,
+          groupType: 'series',
           groupOrder,
           seriesOrder: source.seriesOrder,
           language,

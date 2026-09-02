@@ -9,15 +9,7 @@ const { group } = Astro.props;
 const representative = group.books.find((book) => book.data.cover) ?? group.books[0];
 const authors = [...new Set(group.books.map((book) => book.data.author))];
 const isSeries = group.books.length > 1;
-// 同一作品的多版本（书名或副标题不同，靠版本/副标题区分）与同一系列的不同作品
-// （书名互异、其余标签又完全相同、只能靠书名区分，如《三体》三部曲）
-const distinctTitles = new Set(group.books.map((book) => book.data.title)).size > 1;
-const seriesLabels = new Set(
-  group.books.map(
-    (book) => book.data.subtitle ?? book.data.editionLabel ?? book.data.title,
-  ),
-).size;
-const worksSeries = isSeries && distinctTitles && seriesLabels === 1;
+const worksSeries = isSeries && group.type === 'series';
 const itemLabel = group.category === 'textbook' ? '册' : worksSeries ? '部' : '个版本';
 const headingId = `book-group-${group.slug}`;
 const searchText = group.books

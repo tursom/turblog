@@ -6,6 +6,7 @@ author: "刘慈欣"
 category: "works"
 groupSlug: "three-body-trilogy"
 groupTitle: "三体三部曲"
+groupType: "series"
 groupOrder: 15
 seriesOrder: 3
 language: "zh-CN"

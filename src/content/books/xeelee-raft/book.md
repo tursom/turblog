@@ -1,12 +1,13 @@
 ---
 slug: "xeelee-raft"
 private: true
-title: "Raft"
+title: "Raft (Short Story)"
 subtitle: "Xeelee Sequence 最初构思的短篇"
 author: "Stephen Baxter"
 category: "works"
 groupSlug: "xeelee-sequence"
 groupTitle: "Xeelee Sequence"
+groupType: "series"
 groupOrder: 40
 seriesOrder: 10
 language: "en"

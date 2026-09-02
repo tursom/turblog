@@ -348,6 +348,7 @@ function bookMetadata(book, chapterCount) {
     category: 'works',
     groupSlug,
     groupTitle,
+    groupType: 'series',
     groupOrder,
     seriesOrder: book.seriesOrder,
     language: 'zh-CN',

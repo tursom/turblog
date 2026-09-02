@@ -8,6 +8,7 @@ export interface BookGroup {
   slug: string;
   title: string;
   category: BookCategory;
+  type: Book['data']['groupType'];
   order: number;
   books: Book[];
   chapterCount: number;
@@ -37,6 +38,7 @@ export async function getBookGroups(): Promise<BookGroup[]> {
       if (
         existing.title !== book.data.groupTitle ||
         existing.category !== book.data.category ||
+        existing.type !== book.data.groupType ||
         existing.order !== book.data.groupOrder
       ) {
         throw new Error(`图书分组 ${book.data.groupSlug} 的元数据不一致`);
@@ -50,6 +52,7 @@ export async function getBookGroups(): Promise<BookGroup[]> {
       slug: book.data.groupSlug,
       title: book.data.groupTitle,
       category: book.data.category,
+      type: book.data.groupType,
       order: book.data.groupOrder,
       books: [book],
       chapterCount: book.data.chapterCount,

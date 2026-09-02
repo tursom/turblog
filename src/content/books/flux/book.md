@@ -7,6 +7,7 @@ author: "Stephen Baxter"
 category: "works"
 groupSlug: "xeelee-sequence"
 groupTitle: "Xeelee Sequence"
+groupType: "series"
 groupOrder: 40
 seriesOrder: 3
 language: "en"

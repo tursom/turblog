@@ -28,6 +28,7 @@ const books = defineCollection({
     category: z.enum(['works', 'textbook']),
     groupSlug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
     groupTitle: z.string().min(1),
+    groupType: z.enum(['editions', 'series']).default('editions'),
     groupOrder: z.number().int().positive(),
     seriesOrder: z.number().int().positive(),
     translator: z.string().optional(),
