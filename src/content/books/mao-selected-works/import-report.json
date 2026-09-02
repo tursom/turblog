@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-01T02:35:10.828Z",
+  "generatedAt": "2026-09-01T16:21:12.506Z",
   "sourceRevision": "f23ff5c48d976561f888c6ce8c594725d5670e38",
   "title": "毛泽东选集",
   "language": "zh-CN",
   "volumes": 5,
   "generatedChapters": 229,
-  "characters": 1229720,
+  "characters": 1230713,
   "chapters": [
     {
       "chapterNumber": 1,
@@ -13,7 +13,7 @@
       "title": "中国社会各阶级的分析",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/000-%E4%B8%AD%E5%9B%BD%E7%A4%BE%E4%BC%9A%E5%90%84%E9%98%B6%E7%BA%A7%E7%9A%84%E5%88%86%E6%9E%90.md",
-      "characters": 6682
+      "characters": 6715
     },
     {
       "chapterNumber": 2,
@@ -21,7 +21,7 @@
       "title": "湖南农民运动考察报告",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/001-%E6%B9%96%E5%8D%97%E5%86%9C%E6%B0%91%E8%BF%90%E5%8A%A8%E8%80%83%E5%AF%9F%E6%8A%A5%E5%91%8A.md",
-      "characters": 21034
+      "characters": 21088
     },
     {
       "chapterNumber": 3,
@@ -29,7 +29,7 @@
       "title": "中国的红色政权为什么能够存在？",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/002-%E4%B8%AD%E5%9B%BD%E7%9A%84%E7%BA%A2%E8%89%B2%E6%94%BF%E6%9D%83%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E5%A4%9F%E5%AD%98%E5%9C%A8%EF%BC%9F.md",
-      "characters": 6656
+      "characters": 6678
     },
     {
       "chapterNumber": 4,
@@ -37,7 +37,7 @@
       "title": "井冈山的斗争",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/003-%E4%BA%95%E5%86%88%E5%B1%B1%E7%9A%84%E6%96%97%E4%BA%89.md",
-      "characters": 18471
+      "characters": 18530
     },
     {
       "chapterNumber": 5,
@@ -45,7 +45,7 @@
       "title": "关于纠正党内的错误思想",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/004-%E5%85%B3%E4%BA%8E%E7%BA%A0%E6%AD%A3%E5%85%9A%E5%86%85%E7%9A%84%E9%94%99%E8%AF%AF%E6%80%9D%E6%83%B3.md",
-      "characters": 6892
+      "characters": 6874
     },
     {
       "chapterNumber": 6,
@@ -53,7 +53,7 @@
       "title": "星星之火，可以燎原",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/005-%E6%98%9F%E6%98%9F%E4%B9%8B%E7%81%AB%EF%BC%8C%E5%8F%AF%E4%BB%A5%E7%87%8E%E5%8E%9F.md",
-      "characters": 8267
+      "characters": 8308
     },
     {
       "chapterNumber": 7,
@@ -61,7 +61,7 @@
       "title": "反对本本主义",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/006-%E5%8F%8D%E5%AF%B9%E6%9C%AC%E6%9C%AC%E4%B8%BB%E4%B9%89.md",
-      "characters": 5359
+      "characters": 5352
     },
     {
       "chapterNumber": 8,
@@ -69,7 +69,7 @@
       "title": "必须注意经济工作",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/007-%E5%BF%85%E9%A1%BB%E6%B3%A8%E6%84%8F%E7%BB%8F%E6%B5%8E%E5%B7%A5%E4%BD%9C.md",
-      "characters": 5218
+      "characters": 5195
     },
     {
       "chapterNumber": 9,
@@ -77,7 +77,7 @@
       "title": "怎样分析农村阶级",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/008-%E6%80%8E%E6%A0%B7%E5%88%86%E6%9E%90%E5%86%9C%E6%9D%91%E9%98%B6%E7%BA%A7.md",
-      "characters": 1336
+      "characters": 1304
     },
     {
       "chapterNumber": 10,
@@ -85,7 +85,7 @@
       "title": "我们的经济政策",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/009-%E6%88%91%E4%BB%AC%E7%9A%84%E7%BB%8F%E6%B5%8E%E6%94%BF%E7%AD%96.md",
-      "characters": 3350
+      "characters": 3319
     },
     {
       "chapterNumber": 11,
@@ -93,7 +93,7 @@
       "title": "关心群众生活，注意工作方法",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/010-%E5%85%B3%E5%BF%83%E7%BE%A4%E4%BC%97%E7%94%9F%E6%B4%BB%EF%BC%8C%E6%B3%A8%E6%84%8F%E5%B7%A5%E4%BD%9C%E6%96%B9%E6%B3%95.md",
-      "characters": 3735
+      "characters": 3717
     },
     {
       "chapterNumber": 12,
@@ -101,7 +101,7 @@
       "title": "论反对日本帝国主义的策略",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/011-%E8%AE%BA%E5%8F%8D%E5%AF%B9%E6%97%A5%E6%9C%AC%E5%B8%9D%E5%9B%BD%E4%B8%BB%E4%B9%89%E7%9A%84%E7%AD%96%E7%95%A5.md",
-      "characters": 21069
+      "characters": 21156
     },
     {
       "chapterNumber": 13,
@@ -109,7 +109,7 @@
       "title": "中国革命战争的战略问题",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/012-%E4%B8%AD%E5%9B%BD%E9%9D%A9%E5%91%BD%E6%88%98%E4%BA%89%E7%9A%84%E6%88%98%E7%95%A5%E9%97%AE%E9%A2%98.md",
-      "characters": 49554
+      "characters": 49660
     },
     {
       "chapterNumber": 14,
@@ -117,7 +117,7 @@
       "title": "关于蒋介石声明的声明",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/013-%E5%85%B3%E4%BA%8E%E8%92%8B%E4%BB%8B%E7%9F%B3%E5%A3%B0%E6%98%8E%E7%9A%84%E5%A3%B0%E6%98%8E.md",
-      "characters": 5237
+      "characters": 5232
     },
     {
       "chapterNumber": 15,
@@ -125,7 +125,7 @@
       "title": "中国共产党在抗日时期的任务",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/014-%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A%E5%9C%A8%E6%8A%97%E6%97%A5%E6%97%B6%E6%9C%9F%E7%9A%84%E4%BB%BB%E5%8A%A1.md",
-      "characters": 14725
+      "characters": 14778
     },
     {
       "chapterNumber": 16,
@@ -133,7 +133,7 @@
       "title": "为争取千百万群众进入抗日民族统一战线而斗争",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/015-%E4%B8%BA%E4%BA%89%E5%8F%96%E5%8D%83%E7%99%BE%E4%B8%87%E7%BE%A4%E4%BC%97%E8%BF%9B%E5%85%A5%E6%8A%97%E6%97%A5%E6%B0%91%E6%97%8F%E7%BB%9F%E4%B8%80%E6%88%98%E7%BA%BF%E8%80%8C%E6%96%97%E4%BA%89.md",
-      "characters": 6667
+      "characters": 6689
     },
     {
       "chapterNumber": 17,
@@ -141,7 +141,7 @@
       "title": "实践论",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/016-%E5%AE%9E%E8%B7%B5%E8%AE%BA.md",
-      "characters": 11153
+      "characters": 11158
     },
     {
       "chapterNumber": 18,
@@ -149,7 +149,7 @@
       "title": "矛盾论",
       "volumeNumber": 1,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/017-%E7%9F%9B%E7%9B%BE%E8%AE%BA.md",
-      "characters": 27682
+      "characters": 27758
     },
     {
       "chapterNumber": 19,
@@ -157,7 +157,7 @@
       "title": "反对日本进攻的方针、办法和前途",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/018-%E5%8F%8D%E5%AF%B9%E6%97%A5%E6%9C%AC%E8%BF%9B%E6%94%BB%E7%9A%84%E6%96%B9%E9%92%88%E3%80%81%E5%8A%9E%E6%B3%95%E5%92%8C%E5%89%8D%E9%80%94.md",
-      "characters": 5301
+      "characters": 5287
     },
     {
       "chapterNumber": 20,
@@ -165,7 +165,7 @@
       "title": "为动员一切力量争取抗战胜利而斗争",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/019-%E4%B8%BA%E5%8A%A8%E5%91%98%E4%B8%80%E5%88%87%E5%8A%9B%E9%87%8F%E4%BA%89%E5%8F%96%E6%8A%97%E6%88%98%E8%83%9C%E5%88%A9%E8%80%8C%E6%96%97%E4%BA%89.md",
-      "characters": 3616
+      "characters": 3609
     },
     {
       "chapterNumber": 21,
@@ -181,7 +181,7 @@
       "title": "国共合作成立后的迫切任务",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/021-%E5%9B%BD%E5%85%B1%E5%90%88%E4%BD%9C%E6%88%90%E7%AB%8B%E5%90%8E%E7%9A%84%E8%BF%AB%E5%88%87%E4%BB%BB%E5%8A%A1.md",
-      "characters": 6945
+      "characters": 6947
     },
     {
       "chapterNumber": 23,
@@ -189,7 +189,7 @@
       "title": "和英国记者贝特兰的谈话",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/022-%E5%92%8C%E8%8B%B1%E5%9B%BD%E8%AE%B0%E8%80%85%E8%B4%9D%E7%89%B9%E5%85%B0%E7%9A%84%E8%B0%88%E8%AF%9D.md",
-      "characters": 8122
+      "characters": 8100
     },
     {
       "chapterNumber": 24,
@@ -197,7 +197,7 @@
       "title": "上海太原失陷以后抗日战争的形势和任务",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/023-%E4%B8%8A%E6%B5%B7%E5%A4%AA%E5%8E%9F%E5%A4%B1%E9%99%B7%E4%BB%A5%E5%90%8E%E6%8A%97%E6%97%A5%E6%88%98%E4%BA%89%E7%9A%84%E5%BD%A2%E5%8A%BF%E5%92%8C%E4%BB%BB%E5%8A%A1.md",
-      "characters": 10080
+      "characters": 10116
     },
     {
       "chapterNumber": 25,
@@ -205,7 +205,7 @@
       "title": "陕甘宁边区政府第八路军后方留守处布告",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/024-%E9%99%95%E7%94%98%E5%AE%81%E8%BE%B9%E5%8C%BA%E6%94%BF%E5%BA%9C%E7%AC%AC%E5%85%AB%E8%B7%AF%E5%86%9B%E5%90%8E%E6%96%B9%E7%95%99%E5%AE%88%E5%A4%84%E5%B8%83%E5%91%8A.md",
-      "characters": 1779
+      "characters": 1752
     },
     {
       "chapterNumber": 26,
@@ -221,7 +221,7 @@
       "title": "论持久战",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/026-%E8%AE%BA%E6%8C%81%E4%B9%85%E6%88%98.md",
-      "characters": 52508
+      "characters": 52588
     },
     {
       "chapterNumber": 28,
@@ -229,7 +229,7 @@
       "title": "中国共产党在民族战争中的地位",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/027-%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A%E5%9C%A8%E6%B0%91%E6%97%8F%E6%88%98%E4%BA%89%E4%B8%AD%E7%9A%84%E5%9C%B0%E4%BD%8D.md",
-      "characters": 10797
+      "characters": 10801
     },
     {
       "chapterNumber": 29,
@@ -237,7 +237,7 @@
       "title": "统一战线中的独立自主问题",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/028-%E7%BB%9F%E4%B8%80%E6%88%98%E7%BA%BF%E4%B8%AD%E7%9A%84%E7%8B%AC%E7%AB%8B%E8%87%AA%E4%B8%BB%E9%97%AE%E9%A2%98.md",
-      "characters": 2510
+      "characters": 2495
     },
     {
       "chapterNumber": 30,
@@ -245,7 +245,7 @@
       "title": "战争和战略问题",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/029-%E6%88%98%E4%BA%89%E5%92%8C%E6%88%98%E7%95%A5%E9%97%AE%E9%A2%98.md",
-      "characters": 11482
+      "characters": 11540
     },
     {
       "chapterNumber": 31,
@@ -253,7 +253,7 @@
       "title": "五四运动",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/030-%E4%BA%94%E5%9B%9B%E8%BF%90%E5%8A%A8.md",
-      "characters": 1560
+      "characters": 1544
     },
     {
       "chapterNumber": 32,
@@ -261,7 +261,7 @@
       "title": "青年运动的方向",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/031-%E9%9D%92%E5%B9%B4%E8%BF%90%E5%8A%A8%E7%9A%84%E6%96%B9%E5%90%91.md",
-      "characters": 5990
+      "characters": 5994
     },
     {
       "chapterNumber": 33,
@@ -269,7 +269,7 @@
       "title": "反对投降活动",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/032-%E5%8F%8D%E5%AF%B9%E6%8A%95%E9%99%8D%E6%B4%BB%E5%8A%A8.md",
-      "characters": 3355
+      "characters": 3362
     },
     {
       "chapterNumber": 34,
@@ -277,23 +277,23 @@
       "title": "必须制裁反动派",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/033-%E5%BF%85%E9%A1%BB%E5%88%B6%E8%A3%81%E5%8F%8D%E5%8A%A8%E6%B4%BE.md",
-      "characters": 2942
+      "characters": 2922
     },
     {
       "chapterNumber": 35,
       "slug": "volume-02-article-017",
-      "title": "关于国际新形势对新华日报⑴记者的谈话",
+      "title": "关于国际新形势对新华日报记者的谈话",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/034-%E5%85%B3%E4%BA%8E%E5%9B%BD%E9%99%85%E6%96%B0%E5%BD%A2%E5%8A%BF%E5%AF%B9%E6%96%B0%E5%8D%8E%E6%97%A5%E6%8A%A5%E8%AE%B0%E8%80%85%E7%9A%84%E8%B0%88%E8%AF%9D.md",
-      "characters": 4394
+      "characters": 4439
     },
     {
       "chapterNumber": 36,
       "slug": "volume-02-article-018",
-      "title": "和中央社、扫荡报、新民报⑴三记者的谈话",
+      "title": "和中央社、扫荡报、新民报三记者的谈话",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/035-%E5%92%8C%E4%B8%AD%E5%A4%AE%E7%A4%BE%E3%80%81%E6%89%AB%E8%8D%A1%E6%8A%A5%E3%80%81%E6%96%B0%E6%B0%91%E6%8A%A5%E4%B8%89%E8%AE%B0%E8%80%85%E7%9A%84%E8%B0%88%E8%AF%9D.md",
-      "characters": 3662
+      "characters": 3711
     },
     {
       "chapterNumber": 37,
@@ -301,7 +301,7 @@
       "title": "苏联利益和人类利益的一致",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/036-%E8%8B%8F%E8%81%94%E5%88%A9%E7%9B%8A%E5%92%8C%E4%BA%BA%E7%B1%BB%E5%88%A9%E7%9B%8A%E7%9A%84%E4%B8%80%E8%87%B4.md",
-      "characters": 6068
+      "characters": 6070
     },
     {
       "chapterNumber": 38,
@@ -309,7 +309,7 @@
       "title": "《共产党人》发刊词",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/037-%E3%80%8A%E5%85%B1%E4%BA%A7%E5%85%9A%E4%BA%BA%E3%80%8B%E5%8F%91%E5%88%8A%E8%AF%8D.md",
-      "characters": 8600
+      "characters": 8581
     },
     {
       "chapterNumber": 39,
@@ -333,7 +333,7 @@
       "title": "中国革命和中国共产党",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/040-%E4%B8%AD%E5%9B%BD%E9%9D%A9%E5%91%BD%E5%92%8C%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A.md",
-      "characters": 22799
+      "characters": 22871
     },
     {
       "chapterNumber": 42,
@@ -341,7 +341,7 @@
       "title": "斯大林是中国人民的朋友",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/041-%E6%96%AF%E5%A4%A7%E6%9E%97%E6%98%AF%E4%B8%AD%E5%9B%BD%E4%BA%BA%E6%B0%91%E7%9A%84%E6%9C%8B%E5%8F%8B.md",
-      "characters": 973
+      "characters": 938
     },
     {
       "chapterNumber": 43,
@@ -349,7 +349,7 @@
       "title": "纪念白求恩",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/042-%E7%BA%AA%E5%BF%B5%E7%99%BD%E6%B1%82%E6%81%A9.md",
-      "characters": 1368
+      "characters": 1337
     },
     {
       "chapterNumber": 44,
@@ -357,7 +357,7 @@
       "title": "新民主主义论",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/043-%E6%96%B0%E6%B0%91%E4%B8%BB%E4%B8%BB%E4%B9%89%E8%AE%BA.md",
-      "characters": 32524
+      "characters": 32593
     },
     {
       "chapterNumber": 45,
@@ -365,7 +365,7 @@
       "title": "克服投降危险，力争时局好转",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/044-%E5%85%8B%E6%9C%8D%E6%8A%95%E9%99%8D%E5%8D%B1%E9%99%A9%EF%BC%8C%E5%8A%9B%E4%BA%89%E6%97%B6%E5%B1%80%E5%A5%BD%E8%BD%AC.md",
-      "characters": 1886
+      "characters": 1854
     },
     {
       "chapterNumber": 46,
@@ -373,7 +373,7 @@
       "title": "团结一切抗日力量，反对反共顽固派",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/045-%E5%9B%A2%E7%BB%93%E4%B8%80%E5%88%87%E6%8A%97%E6%97%A5%E5%8A%9B%E9%87%8F%EF%BC%8C%E5%8F%8D%E5%AF%B9%E5%8F%8D%E5%85%B1%E9%A1%BD%E5%9B%BA%E6%B4%BE.md",
-      "characters": 4150
+      "characters": 4168
     },
     {
       "chapterNumber": 47,
@@ -381,7 +381,7 @@
       "title": "向国民党的十点要求",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/046-%E5%90%91%E5%9B%BD%E6%B0%91%E5%85%9A%E7%9A%84%E5%8D%81%E7%82%B9%E8%A6%81%E6%B1%82.md",
-      "characters": 3675
+      "characters": 3664
     },
     {
       "chapterNumber": 48,
@@ -389,7 +389,7 @@
       "title": "《中国工人》发刊词",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/047-%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%B7%A5%E4%BA%BA%E3%80%8B%E5%8F%91%E5%88%8A%E8%AF%8D.md",
-      "characters": 932
+      "characters": 897
     },
     {
       "chapterNumber": 49,
@@ -397,7 +397,7 @@
       "title": "必须强调团结和进步",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/048-%E5%BF%85%E9%A1%BB%E5%BC%BA%E8%B0%83%E5%9B%A2%E7%BB%93%E5%92%8C%E8%BF%9B%E6%AD%A5.md",
-      "characters": 1105
+      "characters": 1084
     },
     {
       "chapterNumber": 50,
@@ -405,7 +405,7 @@
       "title": "新民主主义的宪政",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/049-%E6%96%B0%E6%B0%91%E4%B8%BB%E4%B8%BB%E4%B9%89%E7%9A%84%E5%AE%AA%E6%94%BF.md",
-      "characters": 6405
+      "characters": 6408
     },
     {
       "chapterNumber": 51,
@@ -421,7 +421,7 @@
       "title": "目前抗日统一战线中的策略问题",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/051-%E7%9B%AE%E5%89%8D%E6%8A%97%E6%97%A5%E7%BB%9F%E4%B8%80%E6%88%98%E7%BA%BF%E4%B8%AD%E7%9A%84%E7%AD%96%E7%95%A5%E9%97%AE%E9%A2%98.md",
-      "characters": 5667
+      "characters": 5635
     },
     {
       "chapterNumber": 53,
@@ -429,7 +429,7 @@
       "title": "放手发展抗日力量，抵抗反共顽固派的进攻",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/052-%E6%94%BE%E6%89%8B%E5%8F%91%E5%B1%95%E6%8A%97%E6%97%A5%E5%8A%9B%E9%87%8F%EF%BC%8C%E6%8A%B5%E6%8A%97%E5%8F%8D%E5%85%B1%E9%A1%BD%E5%9B%BA%E6%B4%BE%E7%9A%84%E8%BF%9B%E6%94%BB.md",
-      "characters": 4024
+      "characters": 4025
     },
     {
       "chapterNumber": 54,
@@ -445,7 +445,7 @@
       "title": "论政策",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/054-%E8%AE%BA%E6%94%BF%E7%AD%96.md",
-      "characters": 5420
+      "characters": 5405
     },
     {
       "chapterNumber": 56,
@@ -453,7 +453,7 @@
       "title": "为皖南事变发表的命令和谈话",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/055-%E4%B8%BA%E7%9A%96%E5%8D%97%E4%BA%8B%E5%8F%98%E5%8F%91%E8%A1%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E5%92%8C%E8%B0%88%E8%AF%9D.md",
-      "characters": 4089
+      "characters": 4069
     },
     {
       "chapterNumber": 57,
@@ -461,7 +461,7 @@
       "title": "打退第二次反共高潮后的时局",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/056-%E6%89%93%E9%80%80%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%8F%8D%E5%85%B1%E9%AB%98%E6%BD%AE%E5%90%8E%E7%9A%84%E6%97%B6%E5%B1%80.md",
-      "characters": 1879
+      "characters": 1864
     },
     {
       "chapterNumber": 58,
@@ -469,7 +469,7 @@
       "title": "关于打退第二次反共高潮的总结",
       "volumeNumber": 2,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/057-%E5%85%B3%E4%BA%8E%E6%89%93%E9%80%80%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%8F%8D%E5%85%B1%E9%AB%98%E6%BD%AE%E7%9A%84%E6%80%BB%E7%BB%93.md",
-      "characters": 3634
+      "characters": 3631
     },
     {
       "chapterNumber": 59,
@@ -477,7 +477,7 @@
       "title": "《农村调查》的序言和跋",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/058-%E3%80%8A%E5%86%9C%E6%9D%91%E8%B0%83%E6%9F%A5%E3%80%8B%E7%9A%84%E5%BA%8F%E8%A8%80%E5%92%8C%E8%B7%8B.md",
-      "characters": 3420
+      "characters": 3402
     },
     {
       "chapterNumber": 60,
@@ -485,7 +485,7 @@
       "title": "改造我们的学习",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/059-%E6%94%B9%E9%80%A0%E6%88%91%E4%BB%AC%E7%9A%84%E5%AD%A6%E4%B9%A0.md",
-      "characters": 5468
+      "characters": 5446
     },
     {
       "chapterNumber": 61,
@@ -493,7 +493,7 @@
       "title": "揭破远东慕尼黑的阴谋",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/060-%E6%8F%AD%E7%A0%B4%E8%BF%9C%E4%B8%9C%E6%85%95%E5%B0%BC%E9%BB%91%E7%9A%84%E9%98%B4%E8%B0%8B.md",
-      "characters": 784
+      "characters": 749
     },
     {
       "chapterNumber": 62,
@@ -517,7 +517,7 @@
       "title": "整顿党的作风",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/063-%E6%95%B4%E9%A1%BF%E5%85%9A%E7%9A%84%E4%BD%9C%E9%A3%8E.md",
-      "characters": 11867
+      "characters": 11862
     },
     {
       "chapterNumber": 65,
@@ -525,7 +525,7 @@
       "title": "反对党八股",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/064-%E5%8F%8D%E5%AF%B9%E5%85%9A%E5%85%AB%E8%82%A1.md",
-      "characters": 11307
+      "characters": 11330
     },
     {
       "chapterNumber": 66,
@@ -533,7 +533,7 @@
       "title": "在延安文艺座谈会上的讲话",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/065-%E5%9C%A8%E5%BB%B6%E5%AE%89%E6%96%87%E8%89%BA%E5%BA%A7%E8%B0%88%E4%BC%9A%E4%B8%8A%E7%9A%84%E8%AE%B2%E8%AF%9D.md",
-      "characters": 20862
+      "characters": 20880
     },
     {
       "chapterNumber": 67,
@@ -541,7 +541,7 @@
       "title": "一个极其重要的政策",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/066-%E4%B8%80%E4%B8%AA%E6%9E%81%E5%85%B6%E9%87%8D%E8%A6%81%E7%9A%84%E6%94%BF%E7%AD%96.md",
-      "characters": 2448
+      "characters": 2424
     },
     {
       "chapterNumber": 68,
@@ -549,7 +549,7 @@
       "title": "第二次世界大战的转折点",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/067-%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98%E7%9A%84%E8%BD%AC%E6%8A%98%E7%82%B9.md",
-      "characters": 3230
+      "characters": 3195
     },
     {
       "chapterNumber": 69,
@@ -565,7 +565,7 @@
       "title": "抗日时期的经济问题和财政问题",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/069-%E6%8A%97%E6%97%A5%E6%97%B6%E6%9C%9F%E7%9A%84%E7%BB%8F%E6%B5%8E%E9%97%AE%E9%A2%98%E5%92%8C%E8%B4%A2%E6%94%BF%E9%97%AE%E9%A2%98.md",
-      "characters": 3647
+      "characters": 3620
     },
     {
       "chapterNumber": 71,
@@ -573,7 +573,7 @@
       "title": "关于领导方法的若干问题",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/070-%E5%85%B3%E4%BA%8E%E9%A2%86%E5%AF%BC%E6%96%B9%E6%B3%95%E7%9A%84%E8%8B%A5%E5%B9%B2%E9%97%AE%E9%A2%98.md",
-      "characters": 3563
+      "characters": 3532
     },
     {
       "chapterNumber": 72,
@@ -581,7 +581,7 @@
       "title": "质问国民党",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/071-%E8%B4%A8%E9%97%AE%E5%9B%BD%E6%B0%91%E5%85%9A.md",
-      "characters": 4414
+      "characters": 4389
     },
     {
       "chapterNumber": 73,
@@ -589,7 +589,7 @@
       "title": "开展根据地的减租、生产和拥政爱民运动",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/072-%E5%BC%80%E5%B1%95%E6%A0%B9%E6%8D%AE%E5%9C%B0%E7%9A%84%E5%87%8F%E7%A7%9F%E3%80%81%E7%94%9F%E4%BA%A7%E5%92%8C%E6%8B%A5%E6%94%BF%E7%88%B1%E6%B0%91%E8%BF%90%E5%8A%A8.md",
-      "characters": 2398
+      "characters": 2369
     },
     {
       "chapterNumber": 74,
@@ -597,7 +597,7 @@
       "title": "评国民党十一中全会和三届二次国民参政会",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/073-%E8%AF%84%E5%9B%BD%E6%B0%91%E5%85%9A%E5%8D%81%E4%B8%80%E4%B8%AD%E5%85%A8%E4%BC%9A%E5%92%8C%E4%B8%89%E5%B1%8A%E4%BA%8C%E6%AC%A1%E5%9B%BD%E6%B0%91%E5%8F%82%E6%94%BF%E4%BC%9A.md",
-      "characters": 8955
+      "characters": 8943
     },
     {
       "chapterNumber": 75,
@@ -605,7 +605,7 @@
       "title": "组织起来",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/074-%E7%BB%84%E7%BB%87%E8%B5%B7%E6%9D%A5.md",
-      "characters": 5510
+      "characters": 5486
     },
     {
       "chapterNumber": 76,
@@ -613,7 +613,7 @@
       "title": "学习和时局",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/075-%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%97%B6%E5%B1%80.md",
-      "characters": 32939
+      "characters": 35700
     },
     {
       "chapterNumber": 77,
@@ -621,7 +621,7 @@
       "title": "为人民服务",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/076-%E4%B8%BA%E4%BA%BA%E6%B0%91%E6%9C%8D%E5%8A%A1.md",
-      "characters": 1208
+      "characters": 1184
     },
     {
       "chapterNumber": 78,
@@ -629,7 +629,7 @@
       "title": "评蒋介石在双十节的演说",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/077-%E8%AF%84%E8%92%8B%E4%BB%8B%E7%9F%B3%E5%9C%A8%E5%8F%8C%E5%8D%81%E8%8A%82%E7%9A%84%E6%BC%94%E8%AF%B4.md",
-      "characters": 2585
+      "characters": 2558
     },
     {
       "chapterNumber": 79,
@@ -637,7 +637,7 @@
       "title": "文化工作中的统一战线",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/078-%E6%96%87%E5%8C%96%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E7%BB%9F%E4%B8%80%E6%88%98%E7%BA%BF.md",
-      "characters": 1358
+      "characters": 1325
     },
     {
       "chapterNumber": 80,
@@ -653,7 +653,7 @@
       "title": "游击区也能够进行生产",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/080-%E6%B8%B8%E5%87%BB%E5%8C%BA%E4%B9%9F%E8%83%BD%E5%A4%9F%E8%BF%9B%E8%A1%8C%E7%94%9F%E4%BA%A7.md",
-      "characters": 1991
+      "characters": 1955
     },
     {
       "chapterNumber": 82,
@@ -661,7 +661,7 @@
       "title": "两个中国之命运",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/081-%E4%B8%A4%E4%B8%AA%E4%B8%AD%E5%9B%BD%E4%B9%8B%E5%91%BD%E8%BF%90.md",
-      "characters": 1832
+      "characters": 1800
     },
     {
       "chapterNumber": 83,
@@ -669,7 +669,7 @@
       "title": "论联合政府",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/082-%E8%AE%BA%E8%81%94%E5%90%88%E6%94%BF%E5%BA%9C.md",
-      "characters": 44888
+      "characters": 44951
     },
     {
       "chapterNumber": 84,
@@ -677,7 +677,7 @@
       "title": "愚公移山",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/083-%E6%84%9A%E5%85%AC%E7%A7%BB%E5%B1%B1.md",
-      "characters": 2447
+      "characters": 2423
     },
     {
       "chapterNumber": 85,
@@ -685,7 +685,7 @@
       "title": "论军队生产自给，兼论整风和生产两大运动的重要性",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/084-%E8%AE%BA%E5%86%9B%E9%98%9F%E7%94%9F%E4%BA%A7%E8%87%AA%E7%BB%99%EF%BC%8C%E5%85%BC%E8%AE%BA%E6%95%B4%E9%A3%8E%E5%92%8C%E7%94%9F%E4%BA%A7%E4%B8%A4%E5%A4%A7%E8%BF%90%E5%8A%A8%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7.md",
-      "characters": 2766
+      "characters": 2730
     },
     {
       "chapterNumber": 86,
@@ -693,7 +693,7 @@
       "title": "赫尔利和蒋介石的双簧已经破产",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/085-%E8%B5%AB%E5%B0%94%E5%88%A9%E5%92%8C%E8%92%8B%E4%BB%8B%E7%9F%B3%E7%9A%84%E5%8F%8C%E7%B0%A7%E5%B7%B2%E7%BB%8F%E7%A0%B4%E4%BA%A7.md",
-      "characters": 2321
+      "characters": 2296
     },
     {
       "chapterNumber": 87,
@@ -701,7 +701,7 @@
       "title": "评赫尔利政策的危险",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/086-%E8%AF%84%E8%B5%AB%E5%B0%94%E5%88%A9%E6%94%BF%E7%AD%96%E7%9A%84%E5%8D%B1%E9%99%A9.md",
-      "characters": 1120
+      "characters": 1087
     },
     {
       "chapterNumber": 88,
@@ -709,7 +709,7 @@
       "title": "给福斯特同志的电报",
       "volumeNumber": 3,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/087-%E7%BB%99%E7%A6%8F%E6%96%AF%E7%89%B9%E5%90%8C%E5%BF%97%E7%9A%84%E7%94%B5%E6%8A%A5.md",
-      "characters": 906
+      "characters": 871
     },
     {
       "chapterNumber": 89,
@@ -725,7 +725,7 @@
       "title": "抗日战争胜利后的时局和我们的方针",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/089-%E6%8A%97%E6%97%A5%E6%88%98%E4%BA%89%E8%83%9C%E5%88%A9%E5%90%8E%E7%9A%84%E6%97%B6%E5%B1%80%E5%92%8C%E6%88%91%E4%BB%AC%E7%9A%84%E6%96%B9%E9%92%88.md",
-      "characters": 9457
+      "characters": 9487
     },
     {
       "chapterNumber": 91,
@@ -733,7 +733,7 @@
       "title": "蒋介石在挑动内战",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/090-%E8%92%8B%E4%BB%8B%E7%9F%B3%E5%9C%A8%E6%8C%91%E5%8A%A8%E5%86%85%E6%88%98.md",
-      "characters": 2733
+      "characters": 2718
     },
     {
       "chapterNumber": 92,
@@ -741,7 +741,7 @@
       "title": "第十八集团军总司令给蒋介石的两个电报",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/091-%E7%AC%AC%E5%8D%81%E5%85%AB%E9%9B%86%E5%9B%A2%E5%86%9B%E6%80%BB%E5%8F%B8%E4%BB%A4%E7%BB%99%E8%92%8B%E4%BB%8B%E7%9F%B3%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%94%B5%E6%8A%A5.md",
-      "characters": 4331
+      "characters": 4319
     },
     {
       "chapterNumber": 93,
@@ -749,7 +749,7 @@
       "title": "评蒋介石发言人谈话",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/092-%E8%AF%84%E8%92%8B%E4%BB%8B%E7%9F%B3%E5%8F%91%E8%A8%80%E4%BA%BA%E8%B0%88%E8%AF%9D.md",
-      "characters": 2541
+      "characters": 2519
     },
     {
       "chapterNumber": 94,
@@ -757,7 +757,7 @@
       "title": "中共中央关于同国民党进行和平谈判的通知",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/093-%E4%B8%AD%E5%85%B1%E4%B8%AD%E5%A4%AE%E5%85%B3%E4%BA%8E%E5%90%8C%E5%9B%BD%E6%B0%91%E5%85%9A%E8%BF%9B%E8%A1%8C%E5%92%8C%E5%B9%B3%E8%B0%88%E5%88%A4%E7%9A%84%E9%80%9A%E7%9F%A5.md",
-      "characters": 2532
+      "characters": 2517
     },
     {
       "chapterNumber": 95,
@@ -765,7 +765,7 @@
       "title": "关于重庆谈判",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/094-%E5%85%B3%E4%BA%8E%E9%87%8D%E5%BA%86%E8%B0%88%E5%88%A4.md",
-      "characters": 7670
+      "characters": 7660
     },
     {
       "chapterNumber": 96,
@@ -773,7 +773,7 @@
       "title": "国民党进攻的真相",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/095-%E5%9B%BD%E6%B0%91%E5%85%9A%E8%BF%9B%E6%94%BB%E7%9A%84%E7%9C%9F%E7%9B%B8.md",
-      "characters": 3071
+      "characters": 3061
     },
     {
       "chapterNumber": 97,
@@ -789,7 +789,7 @@
       "title": "一九四六年解放区工作的方针",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/097-%E4%B8%80%E4%B9%9D%E5%9B%9B%E5%85%AD%E5%B9%B4%E8%A7%A3%E6%94%BE%E5%8C%BA%E5%B7%A5%E4%BD%9C%E7%9A%84%E6%96%B9%E9%92%88.md",
-      "characters": 2887
+      "characters": 2870
     },
     {
       "chapterNumber": 99,
@@ -797,7 +797,7 @@
       "title": "建立巩固的东北根据地",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/098-%E5%BB%BA%E7%AB%8B%E5%B7%A9%E5%9B%BA%E7%9A%84%E4%B8%9C%E5%8C%97%E6%A0%B9%E6%8D%AE%E5%9C%B0.md",
-      "characters": 2936
+      "characters": 2908
     },
     {
       "chapterNumber": 100,
@@ -813,15 +813,15 @@
       "title": "以自卫战争粉碎蒋介石的进攻",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/100-%E4%BB%A5%E8%87%AA%E5%8D%AB%E6%88%98%E4%BA%89%E7%B2%89%E7%A2%8E%E8%92%8B%E4%BB%8B%E7%9F%B3%E7%9A%84%E8%BF%9B%E6%94%BB.md",
-      "characters": 4354
+      "characters": 4323
     },
     {
       "chapterNumber": 102,
       "slug": "volume-04-article-013",
-      "title": "和美国记者安娜·路易斯·斯特朗⑴的谈话",
+      "title": "和美国记者安娜·路易斯·斯特朗的谈话",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/101-%E5%92%8C%E7%BE%8E%E5%9B%BD%E8%AE%B0%E8%80%85%E5%AE%89%E5%A8%9C%C2%B7%E8%B7%AF%E6%98%93%E6%96%AF%C2%B7%E6%96%AF%E7%89%B9%E6%9C%97%E7%9A%84%E8%B0%88%E8%AF%9D.md",
-      "characters": 3949
+      "characters": 3970
     },
     {
       "chapterNumber": 103,
@@ -829,7 +829,7 @@
       "title": "集中优势兵力，各个歼灭敌人",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/102-%E9%9B%86%E4%B8%AD%E4%BC%98%E5%8A%BF%E5%85%B5%E5%8A%9B%EF%BC%8C%E5%90%84%E4%B8%AA%E6%AD%BC%E7%81%AD%E6%95%8C%E4%BA%BA.md",
-      "characters": 2982
+      "characters": 2974
     },
     {
       "chapterNumber": 104,
@@ -837,7 +837,7 @@
       "title": "美国“调解”真相和中国内战前途",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/103-%E7%BE%8E%E5%9B%BD%E2%80%9C%E8%B0%83%E8%A7%A3%E2%80%9D%E7%9C%9F%E7%9B%B8%E5%92%8C%E4%B8%AD%E5%9B%BD%E5%86%85%E6%88%98%E5%89%8D%E9%80%94.md",
-      "characters": 1932
+      "characters": 1915
     },
     {
       "chapterNumber": 105,
@@ -845,7 +845,7 @@
       "title": "三个月总结",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/104-%E4%B8%89%E4%B8%AA%E6%9C%88%E6%80%BB%E7%BB%93.md",
-      "characters": 3925
+      "characters": 3917
     },
     {
       "chapterNumber": 106,
@@ -853,7 +853,7 @@
       "title": "迎接中国革命的新高潮",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/105-%E8%BF%8E%E6%8E%A5%E4%B8%AD%E5%9B%BD%E9%9D%A9%E5%91%BD%E7%9A%84%E6%96%B0%E9%AB%98%E6%BD%AE.md",
-      "characters": 5370
+      "characters": 5372
     },
     {
       "chapterNumber": 107,
@@ -861,7 +861,7 @@
       "title": "中共中央关于暂时放弃延安和保卫陕甘宁边区的两个文件",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/106-%E4%B8%AD%E5%85%B1%E4%B8%AD%E5%A4%AE%E5%85%B3%E4%BA%8E%E6%9A%82%E6%97%B6%E6%94%BE%E5%BC%83%E5%BB%B6%E5%AE%89%E5%92%8C%E4%BF%9D%E5%8D%AB%E9%99%95%E7%94%98%E5%AE%81%E8%BE%B9%E5%8C%BA%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%96%87%E4%BB%B6.md",
-      "characters": 2016
+      "characters": 1996
     },
     {
       "chapterNumber": 108,
@@ -869,7 +869,7 @@
       "title": "关于西北战场的作战方针",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/107-%E5%85%B3%E4%BA%8E%E8%A5%BF%E5%8C%97%E6%88%98%E5%9C%BA%E7%9A%84%E4%BD%9C%E6%88%98%E6%96%B9%E9%92%88.md",
-      "characters": 958
+      "characters": 926
     },
     {
       "chapterNumber": 109,
@@ -877,7 +877,7 @@
       "title": "蒋介石政府已处在全民的包围中",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/108-%E8%92%8B%E4%BB%8B%E7%9F%B3%E6%94%BF%E5%BA%9C%E5%B7%B2%E5%A4%84%E5%9C%A8%E5%85%A8%E6%B0%91%E7%9A%84%E5%8C%85%E5%9B%B4%E4%B8%AD.md",
-      "characters": 3054
+      "characters": 3036
     },
     {
       "chapterNumber": 110,
@@ -885,7 +885,7 @@
       "title": "解放战争第二年的战略方针",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/109-%E8%A7%A3%E6%94%BE%E6%88%98%E4%BA%89%E7%AC%AC%E4%BA%8C%E5%B9%B4%E7%9A%84%E6%88%98%E7%95%A5%E6%96%B9%E9%92%88.md",
-      "characters": 3916
+      "characters": 3889
     },
     {
       "chapterNumber": 111,
@@ -893,7 +893,7 @@
       "title": "中国人民解放军宣言",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/110-%E4%B8%AD%E5%9B%BD%E4%BA%BA%E6%B0%91%E8%A7%A3%E6%94%BE%E5%86%9B%E5%AE%A3%E8%A8%80.md",
-      "characters": 3546
+      "characters": 3536
     },
     {
       "chapterNumber": 112,
@@ -901,7 +901,7 @@
       "title": "中国人民解放军总部关于重行颁布三大纪律八项注意的训令",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/111-%E4%B8%AD%E5%9B%BD%E4%BA%BA%E6%B0%91%E8%A7%A3%E6%94%BE%E5%86%9B%E6%80%BB%E9%83%A8%E5%85%B3%E4%BA%8E%E9%87%8D%E8%A1%8C%E9%A2%81%E5%B8%83%E4%B8%89%E5%A4%A7%E7%BA%AA%E5%BE%8B%E5%85%AB%E9%A1%B9%E6%B3%A8%E6%84%8F%E7%9A%84%E8%AE%AD%E4%BB%A4.md",
-      "characters": 747
+      "characters": 715
     },
     {
       "chapterNumber": 113,
@@ -909,7 +909,7 @@
       "title": "目前形势和我们的任务",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/112-%E7%9B%AE%E5%89%8D%E5%BD%A2%E5%8A%BF%E5%92%8C%E6%88%91%E4%BB%AC%E7%9A%84%E4%BB%BB%E5%8A%A1.md",
-      "characters": 13626
+      "characters": 13643
     },
     {
       "chapterNumber": 114,
@@ -925,7 +925,7 @@
       "title": "关于目前党的政策中的几个重要问题",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/114-%E5%85%B3%E4%BA%8E%E7%9B%AE%E5%89%8D%E5%85%9A%E7%9A%84%E6%94%BF%E7%AD%96%E4%B8%AD%E7%9A%84%E5%87%A0%E4%B8%AA%E9%87%8D%E8%A6%81%E9%97%AE%E9%A2%98.md",
-      "characters": 4246
+      "characters": 4221
     },
     {
       "chapterNumber": 116,
@@ -933,7 +933,7 @@
       "title": "军队内部的民主运动",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/115-%E5%86%9B%E9%98%9F%E5%86%85%E9%83%A8%E7%9A%84%E6%B0%91%E4%B8%BB%E8%BF%90%E5%8A%A8.md",
-      "characters": 894
+      "characters": 866
     },
     {
       "chapterNumber": 117,
@@ -941,7 +941,7 @@
       "title": "在不同地区实施土地法的不同策略",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/116-%E5%9C%A8%E4%B8%8D%E5%90%8C%E5%9C%B0%E5%8C%BA%E5%AE%9E%E6%96%BD%E5%9C%9F%E5%9C%B0%E6%B3%95%E7%9A%84%E4%B8%8D%E5%90%8C%E7%AD%96%E7%95%A5.md",
-      "characters": 1229
+      "characters": 1204
     },
     {
       "chapterNumber": 118,
@@ -957,7 +957,7 @@
       "title": "新解放区土地改革要点",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/118-%E6%96%B0%E8%A7%A3%E6%94%BE%E5%8C%BA%E5%9C%9F%E5%9C%B0%E6%94%B9%E9%9D%A9%E8%A6%81%E7%82%B9.md",
-      "characters": 985
+      "characters": 949
     },
     {
       "chapterNumber": 120,
@@ -973,7 +973,7 @@
       "title": "关于民族资产阶级和开明绅士问题",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/120-%E5%85%B3%E4%BA%8E%E6%B0%91%E6%97%8F%E8%B5%84%E4%BA%A7%E9%98%B6%E7%BA%A7%E5%92%8C%E5%BC%80%E6%98%8E%E7%BB%85%E5%A3%AB%E9%97%AE%E9%A2%98.md",
-      "characters": 2278
+      "characters": 2246
     },
     {
       "chapterNumber": 122,
@@ -981,7 +981,7 @@
       "title": "评西北大捷兼论解放军的新式整军运动",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/121-%E8%AF%84%E8%A5%BF%E5%8C%97%E5%A4%A7%E6%8D%B7%E5%85%BC%E8%AE%BA%E8%A7%A3%E6%94%BE%E5%86%9B%E7%9A%84%E6%96%B0%E5%BC%8F%E6%95%B4%E5%86%9B%E8%BF%90%E5%8A%A8.md",
-      "characters": 4345
+      "characters": 4333
     },
     {
       "chapterNumber": 123,
@@ -989,7 +989,7 @@
       "title": "关于情况的通报",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/122-%E5%85%B3%E4%BA%8E%E6%83%85%E5%86%B5%E7%9A%84%E9%80%9A%E6%8A%A5.md",
-      "characters": 4819
+      "characters": 4808
     },
     {
       "chapterNumber": 124,
@@ -997,7 +997,7 @@
       "title": "在晋绥干部会议上的讲话",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/123-%E5%9C%A8%E6%99%8B%E7%BB%A5%E5%B9%B2%E9%83%A8%E4%BC%9A%E8%AE%AE%E4%B8%8A%E7%9A%84%E8%AE%B2%E8%AF%9D.md",
-      "characters": 8021
+      "characters": 8002
     },
     {
       "chapterNumber": 125,
@@ -1005,7 +1005,7 @@
       "title": "对晋绥日报编辑人员的谈话",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/124-%E5%AF%B9%E6%99%8B%E7%BB%A5%E6%97%A5%E6%8A%A5%E7%BC%96%E8%BE%91%E4%BA%BA%E5%91%98%E7%9A%84%E8%B0%88%E8%AF%9D.md",
-      "characters": 2889
+      "characters": 2859
     },
     {
       "chapterNumber": 126,
@@ -1013,7 +1013,7 @@
       "title": "再克洛阳后给洛阳前线指挥部的电报",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/125-%E5%86%8D%E5%85%8B%E6%B4%9B%E9%98%B3%E5%90%8E%E7%BB%99%E6%B4%9B%E9%98%B3%E5%89%8D%E7%BA%BF%E6%8C%87%E6%8C%A5%E9%83%A8%E7%9A%84%E7%94%B5%E6%8A%A5.md",
-      "characters": 1217
+      "characters": 1182
     },
     {
       "chapterNumber": 127,
@@ -1029,15 +1029,15 @@
       "title": "一九四八年的土地改革工作和整党工作",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/127-%E4%B8%80%E4%B9%9D%E5%9B%9B%E5%85%AB%E5%B9%B4%E7%9A%84%E5%9C%9F%E5%9C%B0%E6%94%B9%E9%9D%A9%E5%B7%A5%E4%BD%9C%E5%92%8C%E6%95%B4%E5%85%9A%E5%B7%A5%E4%BD%9C.md",
-      "characters": 3257
+      "characters": 3224
     },
     {
       "chapterNumber": 129,
       "slug": "volume-04-article-040",
-      "title": "关于辽沈战役⑴的作战方针",
+      "title": "关于辽沈战役的作战方针",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/128-%E5%85%B3%E4%BA%8E%E8%BE%BD%E6%B2%88%E6%88%98%E5%BD%B9%E7%9A%84%E4%BD%9C%E6%88%98%E6%96%B9%E9%92%88.md",
-      "characters": 3771
+      "characters": 3798
     },
     {
       "chapterNumber": 130,
@@ -1053,7 +1053,7 @@
       "title": "中共中央关于九月会议的通知",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/130-%E4%B8%AD%E5%85%B1%E4%B8%AD%E5%A4%AE%E5%85%B3%E4%BA%8E%E4%B9%9D%E6%9C%88%E4%BC%9A%E8%AE%AE%E7%9A%84%E9%80%9A%E7%9F%A5.md",
-      "characters": 5775
+      "characters": 5776
     },
     {
       "chapterNumber": 132,
@@ -1061,7 +1061,7 @@
       "title": "关于淮海战役的的作战方针",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/131-%E5%85%B3%E4%BA%8E%E6%B7%AE%E6%B5%B7%E6%88%98%E5%BD%B9%E7%9A%84%E7%9A%84%E4%BD%9C%E6%88%98%E6%96%B9%E9%92%88.md",
-      "characters": 2911
+      "characters": 2893
     },
     {
       "chapterNumber": 133,
@@ -1069,7 +1069,7 @@
       "title": "全世界革命力量团结起来，反对帝国主义的侵略",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/132-%E5%85%A8%E4%B8%96%E7%95%8C%E9%9D%A9%E5%91%BD%E5%8A%9B%E9%87%8F%E5%9B%A2%E7%BB%93%E8%B5%B7%E6%9D%A5%EF%BC%8C%E5%8F%8D%E5%AF%B9%E5%B8%9D%E5%9B%BD%E4%B8%BB%E4%B9%89%E7%9A%84%E4%BE%B5%E7%95%A5.md",
-      "characters": 2329
+      "characters": 2293
     },
     {
       "chapterNumber": 134,
@@ -1077,15 +1077,15 @@
       "title": "中国军事形势的重大变化",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/133-%E4%B8%AD%E5%9B%BD%E5%86%9B%E4%BA%8B%E5%BD%A2%E5%8A%BF%E7%9A%84%E9%87%8D%E5%A4%A7%E5%8F%98%E5%8C%96.md",
-      "characters": 1491
+      "characters": 1463
     },
     {
       "chapterNumber": 135,
       "slug": "volume-04-article-046",
-      "title": "关于平津战役⑴的作战方针",
+      "title": "关于平津战役的作战方针",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/134-%E5%85%B3%E4%BA%8E%E5%B9%B3%E6%B4%A5%E6%88%98%E5%BD%B9%E7%9A%84%E4%BD%9C%E6%88%98%E6%96%B9%E9%92%88.md",
-      "characters": 3102
+      "characters": 3132
     },
     {
       "chapterNumber": 136,
@@ -1093,7 +1093,7 @@
       "title": "敦促杜聿明等投降书",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/135-%E6%95%A6%E4%BF%83%E6%9D%9C%E8%81%BF%E6%98%8E%E7%AD%89%E6%8A%95%E9%99%8D%E4%B9%A6.md",
-      "characters": 1638
+      "characters": 1611
     },
     {
       "chapterNumber": 137,
@@ -1101,7 +1101,7 @@
       "title": "将革命进行到底",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/136-%E5%B0%86%E9%9D%A9%E5%91%BD%E8%BF%9B%E8%A1%8C%E5%88%B0%E5%BA%95.md",
-      "characters": 5962
+      "characters": 5944
     },
     {
       "chapterNumber": 138,
@@ -1109,7 +1109,7 @@
       "title": "评战犯求和",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/137-%E8%AF%84%E6%88%98%E7%8A%AF%E6%B1%82%E5%92%8C.md",
-      "characters": 2817
+      "characters": 2793
     },
     {
       "chapterNumber": 139,
@@ -1117,7 +1117,7 @@
       "title": "中共中央毛泽东主席关于时局的声明",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/138-%E4%B8%AD%E5%85%B1%E4%B8%AD%E5%A4%AE%E6%AF%9B%E6%B3%BD%E4%B8%9C%E4%B8%BB%E5%B8%AD%E5%85%B3%E4%BA%8E%E6%97%B6%E5%B1%80%E7%9A%84%E5%A3%B0%E6%98%8E.md",
-      "characters": 2732
+      "characters": 2710
     },
     {
       "chapterNumber": 140,
@@ -1133,7 +1133,7 @@
       "title": "中共发言人关于命令国民党反动政府重新逮捕前日本侵华军总司令冈村宁次和逮捕国民党内战罪犯的谈话",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/140-%E4%B8%AD%E5%85%B1%E5%8F%91%E8%A8%80%E4%BA%BA%E5%85%B3%E4%BA%8E%E5%91%BD%E4%BB%A4%E5%9B%BD%E6%B0%91%E5%85%9A%E5%8F%8D%E5%8A%A8%E6%94%BF%E5%BA%9C%E9%87%8D%E6%96%B0%E9%80%AE%E6%8D%95%E5%89%8D%E6%97%A5%E6%9C%AC%E4%BE%B5%E5%8D%8E%E5%86%9B%E6%80%BB%E5%8F%B8%E4%BB%A4%E5%86%88%E6%9D%91%E5%AE%81%E6%AC%A1%E5%92%8C%E9%80%AE%E6%8D%95%E5%9B%BD%E6%B0%91%E5%85%9A%E5%86%85%E6%88%98%E7%BD%AA%E7%8A%AF%E7%9A%84%E8%B0%88%E8%AF%9D.md",
-      "characters": 4549
+      "characters": 4550
     },
     {
       "chapterNumber": 142,
@@ -1141,7 +1141,7 @@
       "title": "中共发言人关于和平条件必须包括惩办日本战犯和国民党战犯的声明",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/141-%E4%B8%AD%E5%85%B1%E5%8F%91%E8%A8%80%E4%BA%BA%E5%85%B3%E4%BA%8E%E5%92%8C%E5%B9%B3%E6%9D%A1%E4%BB%B6%E5%BF%85%E9%A1%BB%E5%8C%85%E6%8B%AC%E6%83%A9%E5%8A%9E%E6%97%A5%E6%9C%AC%E6%88%98%E7%8A%AF%E5%92%8C%E5%9B%BD%E6%B0%91%E5%85%9A%E6%88%98%E7%8A%AF%E7%9A%84%E5%A3%B0%E6%98%8E.md",
-      "characters": 2487
+      "characters": 2456
     },
     {
       "chapterNumber": 143,
@@ -1149,7 +1149,7 @@
       "title": "把军队变为工作队",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/142-%E6%8A%8A%E5%86%9B%E9%98%9F%E5%8F%98%E4%B8%BA%E5%B7%A5%E4%BD%9C%E9%98%9F.md",
-      "characters": 1704
+      "characters": 1676
     },
     {
       "chapterNumber": 144,
@@ -1157,7 +1157,7 @@
       "title": "四分五裂的反动派为什么还要空喊“全面和平”？",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/143-%E5%9B%9B%E5%88%86%E4%BA%94%E8%A3%82%E7%9A%84%E5%8F%8D%E5%8A%A8%E6%B4%BE%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E8%A6%81%E7%A9%BA%E5%96%8A%E2%80%9C%E5%85%A8%E9%9D%A2%E5%92%8C%E5%B9%B3%E2%80%9D%EF%BC%9F.md",
-      "characters": 3307
+      "characters": 3315
     },
     {
       "chapterNumber": 145,
@@ -1173,7 +1173,7 @@
       "title": "评国民党对战争责任问题的几种答案",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/145-%E8%AF%84%E5%9B%BD%E6%B0%91%E5%85%9A%E5%AF%B9%E6%88%98%E4%BA%89%E8%B4%A3%E4%BB%BB%E9%97%AE%E9%A2%98%E7%9A%84%E5%87%A0%E7%A7%8D%E7%AD%94%E6%A1%88.md",
-      "characters": 4671
+      "characters": 4650
     },
     {
       "chapterNumber": 147,
@@ -1181,7 +1181,7 @@
       "title": "在中国共产党第七届中央委员会第二次全体会议上的报告",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/146-%E5%9C%A8%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A%E7%AC%AC%E4%B8%83%E5%B1%8A%E4%B8%AD%E5%A4%AE%E5%A7%94%E5%91%98%E4%BC%9A%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%85%A8%E4%BD%93%E4%BC%9A%E8%AE%AE%E4%B8%8A%E7%9A%84%E6%8A%A5%E5%91%8A.md",
-      "characters": 9699
+      "characters": 9682
     },
     {
       "chapterNumber": 148,
@@ -1189,7 +1189,7 @@
       "title": "党委会的工作方法",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/147-%E5%85%9A%E5%A7%94%E4%BC%9A%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%96%B9%E6%B3%95.md",
-      "characters": 3092
+      "characters": 3064
     },
     {
       "chapterNumber": 149,
@@ -1197,7 +1197,7 @@
       "title": "南京政府向何处去？",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/148-%E5%8D%97%E4%BA%AC%E6%94%BF%E5%BA%9C%E5%90%91%E4%BD%95%E5%A4%84%E5%8E%BB%EF%BC%9F.md",
-      "characters": 1921
+      "characters": 1899
     },
     {
       "chapterNumber": 150,
@@ -1205,7 +1205,7 @@
       "title": "向全国进军的命令",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/149-%E5%90%91%E5%85%A8%E5%9B%BD%E8%BF%9B%E5%86%9B%E7%9A%84%E5%91%BD%E4%BB%A4.md",
-      "characters": 6991
+      "characters": 6959
     },
     {
       "chapterNumber": 151,
@@ -1213,15 +1213,15 @@
       "title": "中国人民解放军布告",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/150-%E4%B8%AD%E5%9B%BD%E4%BA%BA%E6%B0%91%E8%A7%A3%E6%94%BE%E5%86%9B%E5%B8%83%E5%91%8A.md",
-      "characters": 1609
+      "characters": 1573
     },
     {
       "chapterNumber": 152,
       "slug": "volume-04-article-063",
-      "title": "中国人民解放军总部发言人为英国军舰暴行⑴发表的声明",
+      "title": "中国人民解放军总部发言人为英国军舰暴行发表的声明",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/151-%E4%B8%AD%E5%9B%BD%E4%BA%BA%E6%B0%91%E8%A7%A3%E6%94%BE%E5%86%9B%E6%80%BB%E9%83%A8%E5%8F%91%E8%A8%80%E4%BA%BA%E4%B8%BA%E8%8B%B1%E5%9B%BD%E5%86%9B%E8%88%B0%E6%9A%B4%E8%A1%8C%E5%8F%91%E8%A1%A8%E7%9A%84%E5%A3%B0%E6%98%8E.md",
-      "characters": 1742
+      "characters": 1771
     },
     {
       "chapterNumber": 153,
@@ -1229,7 +1229,7 @@
       "title": "在新政治协商会议筹备会上的讲话",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/152-%E5%9C%A8%E6%96%B0%E6%94%BF%E6%B2%BB%E5%8D%8F%E5%95%86%E4%BC%9A%E8%AE%AE%E7%AD%B9%E5%A4%87%E4%BC%9A%E4%B8%8A%E7%9A%84%E8%AE%B2%E8%AF%9D.md",
-      "characters": 2896
+      "characters": 2871
     },
     {
       "chapterNumber": 154,
@@ -1237,7 +1237,7 @@
       "title": "论人民民主专政--纪念中国共产党二十八周年",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/153-%E8%AE%BA%E4%BA%BA%E6%B0%91%E6%B0%91%E4%B8%BB%E4%B8%93%E6%94%BF--%E7%BA%AA%E5%BF%B5%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A%E4%BA%8C%E5%8D%81%E5%85%AB%E5%91%A8%E5%B9%B4.md",
-      "characters": 9589
+      "characters": 9591
     },
     {
       "chapterNumber": 155,
@@ -1245,7 +1245,7 @@
       "title": "丢掉幻想，准备斗争",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/154-%E4%B8%A2%E6%8E%89%E5%B9%BB%E6%83%B3%EF%BC%8C%E5%87%86%E5%A4%87%E6%96%97%E4%BA%89.md",
-      "characters": 4923
+      "characters": 4914
     },
     {
       "chapterNumber": 156,
@@ -1253,7 +1253,7 @@
       "title": "别了，司徒雷登",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/155-%E5%88%AB%E4%BA%86%EF%BC%8C%E5%8F%B8%E5%BE%92%E9%9B%B7%E7%99%BB.md",
-      "characters": 5379
+      "characters": 5382
     },
     {
       "chapterNumber": 157,
@@ -1261,7 +1261,7 @@
       "title": "“友谊”，还是侵略？",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/156-%E2%80%9C%E5%8F%8B%E8%B0%8A%E2%80%9D%EF%BC%8C%E8%BF%98%E6%98%AF%E4%BE%B5%E7%95%A5%EF%BC%9F.md",
-      "characters": 2292
+      "characters": 2278
     },
     {
       "chapterNumber": 158,
@@ -1269,7 +1269,7 @@
       "title": "为什么要讨论白皮书？",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/157-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AE%A8%E8%AE%BA%E7%99%BD%E7%9A%AE%E4%B9%A6%EF%BC%9F.md",
-      "characters": 3942
+      "characters": 3914
     },
     {
       "chapterNumber": 159,
@@ -1277,7 +1277,7 @@
       "title": "唯心历史观的破产",
       "volumeNumber": 4,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/158-%E5%94%AF%E5%BF%83%E5%8E%86%E5%8F%B2%E8%A7%82%E7%9A%84%E7%A0%B4%E4%BA%A7.md",
-      "characters": 5898
+      "characters": 5906
     },
     {
       "chapterNumber": 160,
@@ -1325,7 +1325,7 @@
       "title": "为争取国家财政经济状况的基本好转而斗争",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/164-%E4%B8%BA%E4%BA%89%E5%8F%96%E5%9B%BD%E5%AE%B6%E8%B4%A2%E6%94%BF%E7%BB%8F%E6%B5%8E%E7%8A%B6%E5%86%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%A5%BD%E8%BD%AC%E8%80%8C%E6%96%97%E4%BA%89.md",
-      "characters": 3888
+      "characters": 3859
     },
     {
       "chapterNumber": 166,
@@ -1341,7 +1341,7 @@
       "title": "做一个完全的革命派",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/166-%E5%81%9A%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%85%A8%E7%9A%84%E9%9D%A9%E5%91%BD%E6%B4%BE.md",
-      "characters": 2812
+      "characters": 2779
     },
     {
       "chapterNumber": 168,
@@ -1373,7 +1373,7 @@
       "title": "中共中央政治局扩大会议决议要点",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/170-%E4%B8%AD%E5%85%B1%E4%B8%AD%E5%A4%AE%E6%94%BF%E6%B2%BB%E5%B1%80%E6%89%A9%E5%A4%A7%E4%BC%9A%E8%AE%AE%E5%86%B3%E8%AE%AE%E8%A6%81%E7%82%B9.md",
-      "characters": 2224
+      "characters": 2195
     },
     {
       "chapterNumber": 172,
@@ -1413,7 +1413,7 @@
       "title": "关于“三反”、“五反”的斗争",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/175-%E5%85%B3%E4%BA%8E%E2%80%9C%E4%B8%89%E5%8F%8D%E2%80%9D%E3%80%81%E2%80%9C%E4%BA%94%E5%8F%8D%E2%80%9D%E7%9A%84%E6%96%97%E4%BA%89.md",
-      "characters": 3236
+      "characters": 3205
     },
     {
       "chapterNumber": 177,
@@ -1437,7 +1437,7 @@
       "title": "中共中央关于西藏工作方针的指示",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/178-%E4%B8%AD%E5%85%B1%E4%B8%AD%E5%A4%AE%E5%85%B3%E4%BA%8E%E8%A5%BF%E8%97%8F%E5%B7%A5%E4%BD%9C%E6%96%B9%E9%92%88%E7%9A%84%E6%8C%87%E7%A4%BA.md",
-      "characters": 2087
+      "characters": 2054
     },
     {
       "chapterNumber": 180,
@@ -1501,7 +1501,7 @@
       "title": "批判离开总路线的右倾观点",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/186-%E6%89%B9%E5%88%A4%E7%A6%BB%E5%BC%80%E6%80%BB%E8%B7%AF%E7%BA%BF%E7%9A%84%E5%8F%B3%E5%80%BE%E8%A7%82%E7%82%B9.md",
-      "characters": 1137
+      "characters": 1104
     },
     {
       "chapterNumber": 188,
@@ -1533,7 +1533,7 @@
       "title": "反对党内的资产阶级思想",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/190-%E5%8F%8D%E5%AF%B9%E5%85%9A%E5%86%85%E7%9A%84%E8%B5%84%E4%BA%A7%E9%98%B6%E7%BA%A7%E6%80%9D%E6%83%B3.md",
-      "characters": 5191
+      "characters": 5160
     },
     {
       "chapterNumber": 192,
@@ -1541,7 +1541,7 @@
       "title": "改造资本主义工商业的必经之路",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/191-%E6%94%B9%E9%80%A0%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E5%B7%A5%E5%95%86%E4%B8%9A%E7%9A%84%E5%BF%85%E7%BB%8F%E4%B9%8B%E8%B7%AF.md",
-      "characters": 1700
+      "characters": 1667
     },
     {
       "chapterNumber": 193,
@@ -1557,7 +1557,7 @@
       "title": "批判梁漱溟的反动思想",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/193-%E6%89%B9%E5%88%A4%E6%A2%81%E6%BC%B1%E6%BA%9F%E7%9A%84%E5%8F%8D%E5%8A%A8%E6%80%9D%E6%83%B3.md",
-      "characters": 6000
+      "characters": 5977
     },
     {
       "chapterNumber": 195,
@@ -1565,7 +1565,7 @@
       "title": "关于农业互助合作的两次谈话",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/194-%E5%85%B3%E4%BA%8E%E5%86%9C%E4%B8%9A%E4%BA%92%E5%8A%A9%E5%90%88%E4%BD%9C%E7%9A%84%E4%B8%A4%E6%AC%A1%E8%B0%88%E8%AF%9D.md",
-      "characters": 5516
+      "characters": 5483
     },
     {
       "chapterNumber": 196,
@@ -1573,7 +1573,7 @@
       "title": "关于中华人民共和国宪法草案",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/195-%E5%85%B3%E4%BA%8E%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%AE%AA%E6%B3%95%E8%8D%89%E6%A1%88.md",
-      "characters": 4403
+      "characters": 4374
     },
     {
       "chapterNumber": 197,
@@ -1589,7 +1589,7 @@
       "title": "关于《红楼梦》研究问题的信",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/197-%E5%85%B3%E4%BA%8E%E3%80%8A%E7%BA%A2%E6%A5%BC%E6%A2%A6%E3%80%8B%E7%A0%94%E7%A9%B6%E9%97%AE%E9%A2%98%E7%9A%84%E4%BF%A1.md",
-      "characters": 832
+      "characters": 799
     },
     {
       "chapterNumber": 199,
@@ -1629,7 +1629,7 @@
       "title": "关于农业合作化问题",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/202-%E5%85%B3%E4%BA%8E%E5%86%9C%E4%B8%9A%E5%90%88%E4%BD%9C%E5%8C%96%E9%97%AE%E9%A2%98.md",
-      "characters": 14995
+      "characters": 14964
     },
     {
       "chapterNumber": 204,
@@ -1645,7 +1645,7 @@
       "title": "农业合作化的一场辩论和当前的阶级斗争",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/204-%E5%86%9C%E4%B8%9A%E5%90%88%E4%BD%9C%E5%8C%96%E7%9A%84%E4%B8%80%E5%9C%BA%E8%BE%A9%E8%AE%BA%E5%92%8C%E5%BD%93%E5%89%8D%E7%9A%84%E9%98%B6%E7%BA%A7%E6%96%97%E4%BA%89.md",
-      "characters": 14588
+      "characters": 14559
     },
     {
       "chapterNumber": 206,
@@ -1653,7 +1653,7 @@
       "title": "《中国农村的社会主义高潮》的序言",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/205-%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%86%9C%E6%9D%91%E7%9A%84%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E9%AB%98%E6%BD%AE%E3%80%8B%E7%9A%84%E5%BA%8F%E8%A8%80.md",
-      "characters": 4360
+      "characters": 4329
     },
     {
       "chapterNumber": 207,
@@ -1661,7 +1661,7 @@
       "title": "《中国农村的社会主义高潮》的按语",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/206-%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%86%9C%E6%9D%91%E7%9A%84%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E9%AB%98%E6%BD%AE%E3%80%8B%E7%9A%84%E6%8C%89%E8%AF%AD.md",
-      "characters": 20070
+      "characters": 20041
     },
     {
       "chapterNumber": 208,
@@ -1669,7 +1669,7 @@
       "title": "征询对农业十七条的意见",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/207-%E5%BE%81%E8%AF%A2%E5%AF%B9%E5%86%9C%E4%B8%9A%E5%8D%81%E4%B8%83%E6%9D%A1%E7%9A%84%E6%84%8F%E8%A7%81.md",
-      "characters": 2252
+      "characters": 2219
     },
     {
       "chapterNumber": 209,
@@ -1677,7 +1677,7 @@
       "title": "加快手工业的社会主义改造",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/208-%E5%8A%A0%E5%BF%AB%E6%89%8B%E5%B7%A5%E4%B8%9A%E7%9A%84%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%94%B9%E9%80%A0.md",
-      "characters": 1646
+      "characters": 1613
     },
     {
       "chapterNumber": 210,
@@ -1685,7 +1685,7 @@
       "title": "论十大关系",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/209-%E8%AE%BA%E5%8D%81%E5%A4%A7%E5%85%B3%E7%B3%BB.md",
-      "characters": 13628
+      "characters": 13597
     },
     {
       "chapterNumber": 211,
@@ -1725,7 +1725,7 @@
       "title": "在中国共产党第八届中央委员会第二次全体会议上的讲话",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/214-%E5%9C%A8%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A%E7%AC%AC%E5%85%AB%E5%B1%8A%E4%B8%AD%E5%A4%AE%E5%A7%94%E5%91%98%E4%BC%9A%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%85%A8%E4%BD%93%E4%BC%9A%E8%AE%AE%E4%B8%8A%E7%9A%84%E8%AE%B2%E8%AF%9D.md",
-      "characters": 10868
+      "characters": 10841
     },
     {
       "chapterNumber": 216,
@@ -1733,7 +1733,7 @@
       "title": "在省市自治区党委书记会议上的讲话",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/215-%E5%9C%A8%E7%9C%81%E5%B8%82%E8%87%AA%E6%B2%BB%E5%8C%BA%E5%85%9A%E5%A7%94%E4%B9%A6%E8%AE%B0%E4%BC%9A%E8%AE%AE%E4%B8%8A%E7%9A%84%E8%AE%B2%E8%AF%9D.md",
-      "characters": 21251
+      "characters": 21227
     },
     {
       "chapterNumber": 217,
@@ -1741,7 +1741,7 @@
       "title": "关于正确处理人民内部矛盾的问题",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/216-%E5%85%B3%E4%BA%8E%E6%AD%A3%E7%A1%AE%E5%A4%84%E7%90%86%E4%BA%BA%E6%B0%91%E5%86%85%E9%83%A8%E7%9F%9B%E7%9B%BE%E7%9A%84%E9%97%AE%E9%A2%98.md",
-      "characters": 25006
+      "characters": 24973
     },
     {
       "chapterNumber": 218,
@@ -1749,7 +1749,7 @@
       "title": "在中国共产党全国宣传工作会议上的讲话",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/217-%E5%9C%A8%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A%E5%85%A8%E5%9B%BD%E5%AE%A3%E4%BC%A0%E5%B7%A5%E4%BD%9C%E4%BC%9A%E8%AE%AE%E4%B8%8A%E7%9A%84%E8%AE%B2%E8%AF%9D.md",
-      "characters": 10311
+      "characters": 10278
     },
     {
       "chapterNumber": 219,
@@ -1757,7 +1757,7 @@
       "title": "坚持艰苦奋斗，密切联系群众",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/218-%E5%9D%9A%E6%8C%81%E8%89%B0%E8%8B%A6%E5%A5%8B%E6%96%97%EF%BC%8C%E5%AF%86%E5%88%87%E8%81%94%E7%B3%BB%E7%BE%A4%E4%BC%97.md",
-      "characters": 2260
+      "characters": 2229
     },
     {
       "chapterNumber": 220,
@@ -1797,7 +1797,7 @@
       "title": "打退资产阶级右派的进攻",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/223-%E6%89%93%E9%80%80%E8%B5%84%E4%BA%A7%E9%98%B6%E7%BA%A7%E5%8F%B3%E6%B4%BE%E7%9A%84%E8%BF%9B%E6%94%BB.md",
-      "characters": 10275
+      "characters": 10244
     },
     {
       "chapterNumber": 225,
@@ -1805,7 +1805,7 @@
       "title": "一九五七年夏季的形势",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/224-%E4%B8%80%E4%B9%9D%E4%BA%94%E4%B8%83%E5%B9%B4%E5%A4%8F%E5%AD%A3%E7%9A%84%E5%BD%A2%E5%8A%BF.md",
-      "characters": 6063
+      "characters": 6030
     },
     {
       "chapterNumber": 226,
@@ -1813,7 +1813,7 @@
       "title": "做革命的促进派",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/225-%E5%81%9A%E9%9D%A9%E5%91%BD%E7%9A%84%E4%BF%83%E8%BF%9B%E6%B4%BE.md",
-      "characters": 8959
+      "characters": 8930
     },
     {
       "chapterNumber": 227,
@@ -1821,7 +1821,7 @@
       "title": "坚定地相信群众的大多数",
       "volumeNumber": 5,
       "sourcePath": "https://github.com/weiyinfu/MaoZeDongAnthology/blob/f23ff5c48d976561f888c6ce8c594725d5670e38/src/226-%E5%9D%9A%E5%AE%9A%E5%9C%B0%E7%9B%B8%E4%BF%A1%E7%BE%A4%E4%BC%97%E7%9A%84%E5%A4%A7%E5%A4%9A%E6%95%B0.md",
-      "characters": 10077
+      "characters": 10044
     },
     {
       "chapterNumber": 228,

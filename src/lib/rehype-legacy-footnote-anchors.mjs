@@ -87,6 +87,48 @@ function restoreGermanFootnoteImage(node) {
   node.children = [{ type: 'text', value: `(${marker})` }];
 }
 
+/** @param {HastNode[]} nodes */
+function adaptTitleFootnotePlaceholders(nodes) {
+  for (const node of nodes) {
+    if (node.tagName !== 'p' || !node.children || !node.properties) continue;
+    const placeholder = node.children.find((child) => {
+      if (child.properties && 'dataTitleFootnotePlaceholder' in child.properties) {
+        return true;
+      }
+      return (
+        child.type === 'raw' &&
+        typeof child.value === 'string' &&
+        /^<span data-title-footnote-placeholder=["']\d+["']>$/u.test(child.value)
+      );
+    });
+    const rawValue = typeof placeholder?.value === 'string' ? placeholder.value : '';
+    const number =
+      placeholder?.properties?.dataTitleFootnotePlaceholder ??
+      rawValue.match(/data-title-footnote-placeholder=["'](\d+)["']/u)?.[1];
+    if (typeof number !== 'string' && typeof number !== 'number') continue;
+
+    const reference = node.children.find(
+      (child) =>
+        child.tagName === 'sup' && child.children?.[0]?.properties?.dataFootnoteRef !== undefined,
+    )?.children?.[0];
+    const referenceId = reference?.properties?.id;
+    const targetId = reference?.properties?.href;
+    if (typeof referenceId !== 'string' || typeof targetId !== 'string') continue;
+
+    node.properties.hidden = true;
+    const target = nodes.find((candidate) => candidate.properties?.id === targetId.slice(1));
+    if (target?.properties) target.properties.dataFootnotePreviewTarget = 'standard';
+    for (const candidate of nodes) {
+      if (
+        candidate.properties?.dataFootnoteBackref !== undefined &&
+        candidate.properties.href === `#${referenceId}`
+      ) {
+        candidate.properties.href = `#title-fnref-${number}`;
+      }
+    }
+  }
+}
+
 /** @param {HastNode} tree */
 function finishLegacyFootnotes(tree) {
   /** @type {HastNode[]} */
@@ -97,6 +139,7 @@ function finishLegacyFootnotes(tree) {
     node.children?.forEach(collect);
   };
   collect(tree);
+  adaptTitleFootnotePlaceholders(nodes);
 
   let ids = new Set(
     nodes.map((node) => node.properties?.id).filter((id) => typeof id === 'string'),

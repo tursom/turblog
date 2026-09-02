@@ -51,6 +51,12 @@ const bookChapters = defineCollection({
     chapterNumber: z.number().int().positive(),
     slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
     title: z.string(),
+    titleFootnote: z
+      .object({
+        number: z.number().int().positive(),
+        offset: z.number().int().nonnegative(),
+      })
+      .optional(),
     sourcePath: z.string().min(1),
     volumeNumber: z.number().int().positive().optional(),
     volumeTitle: z.string().min(1).optional(),

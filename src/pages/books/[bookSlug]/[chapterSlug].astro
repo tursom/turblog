@@ -46,10 +46,16 @@ interface Props {
 const { book, chapters, chapter, previous, next } = Astro.props;
 const { Content, headings } = await render(chapter);
 const readingTime = readingMinutes(chapter.body ?? '');
+const titleFootnote = chapter.data.titleFootnote;
+const titleStart = titleFootnote
+  ? chapter.data.title.slice(0, titleFootnote.offset)
+  : chapter.data.title;
+const titleEnd = titleFootnote ? chapter.data.title.slice(titleFootnote.offset) : '';
+const pageTitle = `${chapter.data.title} · ${book.data.title}`;
 ---
 
 <SiteLayout
-  title={`${chapter.data.title} · ${book.data.title}`}
+  title={pageTitle}
   description={book.data.summary}
   ogImageUrl={book.data.cover ?? undefined}
   pageType="article"
@@ -75,7 +81,23 @@ const readingTime = readingMinutes(chapter.body ?? '');
             aria-live="polite">— 次访问</span
           >
         </div>
-        <h1>{chapter.data.title}</h1>
+        <h1>
+          {titleStart}{
+            titleFootnote && (
+              <sup class="title-footnote">
+                <a
+                  href={`#user-content-fn-${titleFootnote.number}`}
+                  id={`title-fnref-${titleFootnote.number}`}
+                  data-footnote-ref
+                  data-footnote-preview-ref
+                  aria-describedby="footnote-label"
+                >
+                  {titleFootnote.number}
+                </a>
+              </sup>
+            )
+          }{titleEnd}
+        </h1>
         <p class="book-chapter-source">
           第 {String(chapter.data.chapterNumber).padStart(2, '0')} 个阅读单元
         </p>

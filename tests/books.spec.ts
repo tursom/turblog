@@ -165,6 +165,36 @@ test('Mao selected works provides five grouped volumes and pinned source text', 
   await expect(page.locator('.article-header h1')).toHaveText('中国社会各阶级的分析');
   await expect(page.locator('.prose h1')).toHaveCount(0);
   await expect(page.locator('.prose')).toContainText('谁是我们的敌人？谁是我们的朋友？');
+
+  const firstReference = page.locator('#user-content-fnref-1');
+  const firstNote = page.locator('#user-content-fn-1');
+  const preview = page.locator('[data-footnote-preview-panel]');
+  await expect(firstReference).toHaveText('1');
+  await expect(firstReference).toHaveAttribute('href', '#user-content-fn-1');
+  await expect(firstNote).toContainText('国家主义派指中国青年党');
+  await expect(page.locator('.prose')).not.toContainText('国家主义派⑴');
+
+  await firstReference.hover();
+  await expect(preview).toBeVisible();
+  await expect(preview).toContainText('国家主义派指中国青年党');
+
+  await page.goto(`${baseUrl}/books/mao-selected-works/volume-02-article-017/`);
+  const titleReference = page.locator('.article-header h1 #title-fnref-1');
+  await expect(page.locator('.article-header h1')).toHaveText(
+    '关于国际新形势对新华日报1记者的谈话',
+  );
+  await expect(titleReference).toHaveAttribute('href', '#user-content-fn-1');
+  await expect(page.locator('[data-title-footnote-placeholder]')).toBeHidden();
+  await expect(page.locator('#user-content-fn-1 [data-footnote-backref]')).toHaveAttribute(
+    'href',
+    '#title-fnref-1',
+  );
+  await titleReference.hover();
+  await expect(preview).toContainText('《新华日报》是中国共产党在国民党统治区公开出版的机关报');
+
+  await page.goto(`${baseUrl}/books/mao-selected-works/volume-05-article-006/`);
+  await expect(page.locator('#user-content-fnref-1')).toHaveAttribute('href', '#user-content-fn-1');
+  await expect(page.locator('#user-content-fn-3')).toContainText('土地改革运动');
 });
 
 test('Capital footnotes jump to the note and back to the reference', async ({ page }) => {

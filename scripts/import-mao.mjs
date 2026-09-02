@@ -13,6 +13,23 @@ const sourceArchiveUrl = `https://codeload.github.com/weiyinfu/MaoZeDongAntholog
 const sourceBlobRoot = `${sourceRepository}/blob/${sourceRevision}`;
 const userAgent = 'Tursom-Log-mao-importer/1.0';
 const bookSlug = 'mao-selected-works';
+const parenthesizedFootnoteNumbers = [...'⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇'];
+
+const sourceFootnoteCorrections = new Map([
+  [
+    '007-必须注意经济工作.md',
+    [['跟着查田运动的开展而开展的检举运动，', '跟着查田运动的开展而开展的检举运动⑷，']],
+  ],
+  [
+    '035-和中央社、扫荡报、新民报三记者的谈话.md',
+    [['和注〔6〕。〔9〕见', '和注〔6〕。\n　　〔9〕见']],
+  ],
+  [
+    '195-关于中华人民共和国宪法草案.md',
+    [['到民国元年的《中华民国临时约法》[1]', '到民国元年的《中华民国临时约法》[2]']],
+  ],
+  ['206-《中国农村的社会主义高潮》的按语.md', [["所谓“倒宣传”'1'", '所谓“倒宣传”[1]']]],
+]);
 
 const volumes = [
   { number: 1, title: '第一卷 国内革命战争时期', firstSourceIndex: 0, lastSourceIndex: 17 },
@@ -58,19 +75,142 @@ function sourceUrl(filename) {
   return `${sourceBlobRoot}/src/${encodeURIComponent(filename)}`;
 }
 
-function parseArticle(markdown, filename) {
-  const normalized = markdown.replace(/^\uFEFF/u, '').replace(/\r\n?/g, '\n');
+function applySourceFootnoteCorrections(markdown, filename) {
+  let corrected = markdown;
+  for (const [from, to] of sourceFootnoteCorrections.get(filename) ?? []) {
+    if (!corrected.includes(from)) throw new Error(`${filename} no longer contains ${from}`);
+    corrected = corrected.replace(from, to);
+  }
+  return corrected;
+}
+
+function extractTitleFootnote(title) {
+  const markerIndex = [...title].findIndex((character) =>
+    parenthesizedFootnoteNumbers.includes(character),
+  );
+  if (markerIndex === -1) return { title };
+
+  const characters = [...title];
+  const marker = characters[markerIndex];
+  characters.splice(markerIndex, 1);
+  return {
+    title: characters.join(''),
+    titleFootnote: {
+      number: parenthesizedFootnoteNumbers.indexOf(marker) + 1,
+      offset: markerIndex,
+    },
+  };
+}
+
+function noteNumber(line) {
+  const match = line.match(/^\s*(?:〔(\d+)[〕）]|\[(\d+)\]|（(\d+)）)/u);
+  return match ? Number(match[1] ?? match[2] ?? match[3]) : null;
+}
+
+function convertUnlinkedFootnoteMarkers(body) {
+  if (!/[⑴-⒇]/u.test(body)) return body;
+  let converted = body;
+  parenthesizedFootnoteNumbers.forEach((marker, index) => {
+    converted = converted
+      .split(marker)
+      .join(`<sup class="source-footnote-marker" aria-label="注 ${index + 1}">${index + 1}</sup>`);
+  });
+  return converted.replace(
+    /[（(](2[1-9]|[3-9]\d)[）)]/gu,
+    (_, number) => `<sup class="source-footnote-marker" aria-label="注 ${number}">${number}</sup>`,
+  );
+}
+
+function replaceFootnoteReferences(body, noteNumbers, volumeNumber, titleFootnote, filename) {
+  let converted = body;
+  const referenceCounts = new Map();
+
+  for (const number of noteNumbers) {
+    const markers =
+      volumeNumber <= 4
+        ? number <= parenthesizedFootnoteNumbers.length
+          ? [parenthesizedFootnoteNumbers[number - 1]]
+          : [`（${number}）`, `(${number})`, `〔${number}〕`]
+        : [`[${number}]`];
+    let count = 0;
+    for (const marker of markers) {
+      const occurrences = converted.split(marker).length - 1;
+      if (!occurrences) continue;
+      converted = converted.split(marker).join(`[^${number}]`);
+      count += occurrences;
+    }
+    if (titleFootnote?.number === number) count += 1;
+    referenceCounts.set(number, count);
+  }
+
+  const missing = [...referenceCounts].filter(([, count]) => count === 0).map(([number]) => number);
+  if (missing.length) {
+    throw new Error(`${filename} has notes without references: ${missing.join(', ')}`);
+  }
+  return converted;
+}
+
+function convertFootnotes(body, volumeNumber, titleFootnote, filename) {
+  const lines = body.split('\n');
+  const separatorIndex = lines.findIndex((line) => /^\s*-{5,}\s*$/u.test(line));
+  if (separatorIndex === -1) return convertUnlinkedFootnoteMarkers(body);
+
+  const headingIndex = lines.findIndex(
+    (line, index) => index > separatorIndex && /^\s*注\s*释\s*$/u.test(line),
+  );
+  if (headingIndex === -1) return convertUnlinkedFootnoteMarkers(body);
+
+  const notes = lines.slice(headingIndex + 1);
+  const noteNumbers = notes.map(noteNumber).filter((number) => number !== null);
+  if (!noteNumbers.length) return convertUnlinkedFootnoteMarkers(body);
+  if (new Set(noteNumbers).size !== noteNumbers.length) {
+    throw new Error(`${filename} contains duplicate note definitions`);
+  }
+
+  const main = replaceFootnoteReferences(
+    lines.slice(0, separatorIndex).join('\n').trimEnd(),
+    noteNumbers,
+    volumeNumber,
+    titleFootnote,
+    filename,
+  );
+  const definitions = convertUnlinkedFootnoteMarkers(
+    notes
+      .map((line) => {
+        const number = noteNumber(line);
+        return number === null
+          ? line
+          : line.replace(/^\s*(?:〔\d+[〕）]|\[\d+\]|（\d+）)\s*/u, `[^${number}]: `);
+      })
+      .join('\n')
+      .trim(),
+  );
+  const titlePlaceholder = titleFootnote
+    ? `<span data-title-footnote-placeholder="${titleFootnote.number}"></span>[^${titleFootnote.number}]\n\n`
+    : '';
+
+  return `${titlePlaceholder}${main}\n\n${definitions}\n`;
+}
+
+function parseArticle(markdown, filename, volumeNumber) {
+  const normalized = applySourceFootnoteCorrections(markdown, filename)
+    .replace(/^\uFEFF/u, '')
+    .replace(/\r\n?/g, '\n');
   const lines = normalized.split('\n');
   const firstContentLine = lines.findIndex((line) => line.trim());
   const titleMatch = lines[firstContentLine]?.match(/^#\s+(.+?)\s*$/u);
   if (!titleMatch) throw new Error(`${filename} does not start with a level-one title`);
 
+  const parsedTitle = extractTitleFootnote(titleMatch[1].trim());
   const body = lines
     .slice(firstContentLine + 1)
     .join('\n')
     .trim();
   if (!body) throw new Error(`${filename} produced no text`);
-  return { title: titleMatch[1].trim(), body: `${body}\n` };
+  return {
+    ...parsedTitle,
+    body: convertFootnotes(`${body}\n`, volumeNumber, parsedTitle.titleFootnote, filename),
+  };
 }
 
 function volumeForSourceIndex(sourceIndex) {
@@ -111,9 +251,10 @@ async function writeBook(sourceDirectory, outputRoot) {
     const slug = `volume-${String(volume.number).padStart(2, '0')}-article-${String(
       volumeUnitNumber,
     ).padStart(3, '0')}`;
-    const { title, body } = parseArticle(
+    const { title, titleFootnote, body } = parseArticle(
       await readFile(join(sourceDirectory, filename), 'utf8'),
       filename,
+      volume.number,
     );
 
     await writeFile(
@@ -123,6 +264,7 @@ async function writeBook(sourceDirectory, outputRoot) {
         chapterNumber,
         slug,
         title,
+        titleFootnote,
         sourcePath: sourceUrl(filename),
         volumeNumber: volume.number,
         volumeTitle: volume.title,
