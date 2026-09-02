@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-27-zh"
 ---
 
 They came down on the Cache from above the ecliptic, the plane of Mars’s orbit.

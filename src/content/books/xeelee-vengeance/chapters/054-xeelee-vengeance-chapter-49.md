@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 8
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-49-zh"
 ---
 
 As soon as his consciousness returned to his body in the Grand Martian sanatorium, Poole was able to push back the cover of his couch and stand unaided, despite the close attention of a couple of med-equipped bots that seemed oddly disappointed at a lack of ill effects or disorientation. He grabbed a skinsuit, donned it. He made sure that he still had access to Nicola’s Virtual, the Mars globe encased within its shell of cherry-red light; sure enough, it floated in the air at his shoulder.

@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 9
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-50-zh"
 ---
 
 At the start of the second day Jack Grantt floated the idea of going to Cydonia, to do what they could to help co-ordinate the evacuation there. Though his own family had long been evacuated Grantt had grown increasingly anxious about the fate of friends, colleagues, students in the region.

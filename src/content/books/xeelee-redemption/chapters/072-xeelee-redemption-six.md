@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-six-zh"
 ---
 
 In case of emergency, break laws of physics.

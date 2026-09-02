@@ -5,6 +5,7 @@ slug: "xeelee-redemption-dedication"
 title: "Dedication"
 sourcePath: "Xeelee_Redemption_-_Stephen_Baxter.epub#OEBPS/Text/part0000.xhtml"
 unitType: "preface"
+parallelSlug: "xeelee-redemption-dedication-zh"
 ---
 
 To my mother

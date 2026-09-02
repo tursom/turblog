@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "PART 1"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-lieserl-zh"
 ---
 
 A.D. 3951

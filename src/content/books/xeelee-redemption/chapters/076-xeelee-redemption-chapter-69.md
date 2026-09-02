@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-69-zh"
 ---
 
 Back on Deck One.

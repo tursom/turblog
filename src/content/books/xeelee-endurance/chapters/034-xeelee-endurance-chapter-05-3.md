@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "GRAVITY DREAMS"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-05-3-zh"
 ---
 
 Vala had requested an hour’s break to gather more data, and her thoughts, before she made any decision. She rushed off, leaving Coton in a small cabin aboard the Marshal’s flitter – so small it was like a cell, he thought, and sparsely furnished.

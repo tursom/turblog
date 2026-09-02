@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 9
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-08-zh"
 ---
 
 Walking any distance was surprisingly difficult.

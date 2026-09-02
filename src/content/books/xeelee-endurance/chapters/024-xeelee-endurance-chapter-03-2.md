@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "ENDURANCE"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-03-2-zh"
 ---
 
 Another month and the Endurance, assembled in Earth orbit, was ready to fly.

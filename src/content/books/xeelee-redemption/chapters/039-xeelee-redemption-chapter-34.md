@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-34-zh"
 ---
 
 The journey continued.

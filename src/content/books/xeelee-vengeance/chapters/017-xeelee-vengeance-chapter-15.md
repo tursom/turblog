@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 10
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-15-zh"
 ---
 
 The three of them huddled in the flitter cabin, windows opaqued, coffee mugs in their hands. Mitch Gibson had produced silver survival blankets that they draped over their shoulders.

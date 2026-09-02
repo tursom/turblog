@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-67-zh"
 ---
 
 ‘I knew it,’ said Michael Poole. ‘As soon as Nicola and Asher suggested it, I knew they were right. This mountaintop had to be a construction shack.’

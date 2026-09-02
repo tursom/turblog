@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 14
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-59-zh"
 ---
 
 Like the journey from Deck One to High Australia, the journey of the Cauchy convoy to their new destination was simple in principle.

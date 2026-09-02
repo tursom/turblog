@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 10
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-51-zh"
 ---
 
 In a battered rover, Poole soon found the location: a broken-open dome, already evacuated.

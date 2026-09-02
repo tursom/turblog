@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "ONE"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-05-zh"
 ---
 
 Darkness.

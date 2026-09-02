@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "PART 2"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-the-xeelee-flower-zh"
 ---
 
 A.D. 4922

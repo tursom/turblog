@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 12
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-17-zh"
 ---
 
 First they had to travel from Mercury’s orbit to the surface of the Sun: not an inconsiderable distance in itself, nearly sixty million kilometres, forty per cent of Earth’s distance from the star. And, given the stress on their systems, human and mechanical, the sooner that distance was spanned the better.

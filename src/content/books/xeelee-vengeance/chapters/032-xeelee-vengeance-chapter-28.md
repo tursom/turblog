@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-28-zh"
 ---
 
 So Poole, for once, took the left-hand pilot’s seat. Without further comment, for sake of disturbing the crew’s uneasy truce, Grantt strapped in to his right.

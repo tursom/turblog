@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-13-zh"
 ---
 
 An hour later.

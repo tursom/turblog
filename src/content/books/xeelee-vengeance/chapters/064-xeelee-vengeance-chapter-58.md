@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-58-zh"
 ---
 
 It was November, in this year ad 3650. And there was fire in the sky of Earth.

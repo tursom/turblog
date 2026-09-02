@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-70-zh"
 ---
 
 It took them two more days to prepare. To finish the stripping-down and checking out of the flyer itself. To select and load their gear. Two days in which the remainder of the crew started the process of moving the trucks and other gear which sustained their lives westward, away from the Deck hatch installation, and the sullen Xeelee.

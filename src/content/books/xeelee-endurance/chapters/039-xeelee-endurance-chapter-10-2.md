@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "GRAVITY DREAMS"
 volumeUnitNumber: 10
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-10-2-zh"
 ---
 
 Croq, a small, plump, confident man, was Vala’s contact at the Palace of the Assimilation.

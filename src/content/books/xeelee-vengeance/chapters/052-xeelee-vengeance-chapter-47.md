@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-47-zh"
 ---
 
 Heading for the other side of the planet, the flitter rose up out of the atmosphere for a brief suborbital hop. Grantt made the most of their few minutes of weightlessness to get out of his couch, stretch in the air, hand Poole a ration packet.

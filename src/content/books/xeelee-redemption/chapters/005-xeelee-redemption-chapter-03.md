@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "ONE"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-03-zh"
 ---
 
 ‘You know why we’re here,’ Max Ward said.

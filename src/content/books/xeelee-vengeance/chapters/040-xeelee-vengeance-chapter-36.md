@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 12
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-36-zh"
 ---
 
 Six hours after the Hellas impact, Poole and Nicola pulled the Hermit Crab out of its dry dock in Martian orbit. At two gravities thrust, they raced to intercept the second and third Probes, which were still following their direct route from the Martian L5 point to Earth and Moon.

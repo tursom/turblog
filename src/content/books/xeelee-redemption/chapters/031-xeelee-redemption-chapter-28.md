@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 19
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-28-zh"
 ---
 
 ‘My name is Jophiel Poole. This first entry is being made – you can check the precise timings – one hour after the nova light reached this world. Perhaps fifty minutes since dawn at this location, the Ghost Plateau.

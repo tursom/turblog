@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "PART 7"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-epilogue-zh"
 ---
 
 EVE

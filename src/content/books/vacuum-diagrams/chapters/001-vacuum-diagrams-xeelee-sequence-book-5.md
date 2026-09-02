@@ -5,6 +5,7 @@ slug: "vacuum-diagrams-xeelee-sequence-book-5"
 title: "Xeelee Sequence Book 5"
 sourcePath: "Vacuum_Diagrams_-_Stephen_Baxter.epub#index_split_000.html"
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-xeelee-sequence-book-5-zh"
 ---
 
 Vacuum Diagrams

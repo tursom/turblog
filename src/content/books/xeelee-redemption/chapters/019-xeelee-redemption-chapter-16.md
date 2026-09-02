@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 7
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-16-zh"
 ---
 
 After the first month on Ghost Plateau, as Susan Chen called it – a month the Cauchy crew spent mostly securing their physical survival – Chen said she had a proposal for them.

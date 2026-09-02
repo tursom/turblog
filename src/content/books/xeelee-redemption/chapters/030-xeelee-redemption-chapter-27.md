@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 18
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-27-zh"
 ---
 
 A breathless silence.

@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "SEVEN"
 volumeUnitNumber: 5
 unitType: "supplement"
+parallelSlug: "xeelee-redemption-afterword-zh"
 ---
 
 Work on this novel came at a difficult time in my personal life. I’m very grateful for the sympathy and support of the Gollancz team, especially Marcus Gipps and Craig Leyenaar, of my agent, Christopher Schelling of Selectric Artists, of Elizabeth Dobson for an excellent and invaluable copy-edit, and Paul McAuley for a discerning proof-read.

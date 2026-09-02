@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "PART 7"
 volumeUnitNumber: 2
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-shell-zh"
 ---
 
 A.D. 4,101,214

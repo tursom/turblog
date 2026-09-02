@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 12
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-11-zh"
 ---
 
 So we climbed the flank of the cryovolcano, paralleling the trail followed by the ice spiders, who continued to toil up the slope hauling the last useful fragments of our gondola. We were laden too with our improvised gear – rope cradles, bags of ice-rock chunks for ballast, food packs. Miriam even wore a pack containing the pick of her precious science samples.

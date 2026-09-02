@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 10
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-19-zh"
 ---
 
 It happened at the beginning of the ship’s day.

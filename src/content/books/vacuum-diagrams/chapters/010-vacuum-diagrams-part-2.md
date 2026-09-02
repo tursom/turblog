@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "PART 2"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-part-2-zh"
 ---
 
 ERA: Squeem Occupation

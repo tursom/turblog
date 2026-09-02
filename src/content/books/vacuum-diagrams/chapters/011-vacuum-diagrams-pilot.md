@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "PART 2"
 volumeUnitNumber: 2
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-pilot-zh"
 ---
 
 A.D. 4874

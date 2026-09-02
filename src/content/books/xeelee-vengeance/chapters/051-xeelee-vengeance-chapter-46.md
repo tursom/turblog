@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-46-zh"
 ---
 
 So, the next day, Poole descended to Cydonia. And Jack Grantt took him flying over Elysium Planitia.

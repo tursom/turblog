@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "PART 4"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-vacuum-diagrams-zh"
 ---
 
 A.D. 21124

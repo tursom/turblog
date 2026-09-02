@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 9
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-54-zh"
 ---
 
 Poole reached out a hand, as if to touch the silver hide within the wooden cage, but pulled back. ‘It’s as if it has been crucified.’

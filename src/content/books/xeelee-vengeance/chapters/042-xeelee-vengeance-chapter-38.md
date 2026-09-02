@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 14
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-38-zh"
 ---
 
 Six hours out from Earth. Less than twenty light-seconds, just a few million kilometres. Earth and Moon were clearly visible in Poole’s sky, the disc of Earth less than a degree across.

@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "GRAVITY DREAMS"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-01-3-zh"
 ---
 
 ‘Massive sensor dysfunction!’

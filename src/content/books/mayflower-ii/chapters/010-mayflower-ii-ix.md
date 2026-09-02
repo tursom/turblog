@@ -5,6 +5,7 @@ slug: "mayflower-ii-ix"
 title: "IX"
 sourcePath: "Mayflower_II_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 08 - Mayflower II_split_009.html"
 unitType: "chapter"
+parallelSlug: "mayflower-ii-ix-zh"
 ---
 
 Andres came to him. He could see her face clearly, that worn-smooth expressionless skin. The rest of her body was a blur, a suggestion.

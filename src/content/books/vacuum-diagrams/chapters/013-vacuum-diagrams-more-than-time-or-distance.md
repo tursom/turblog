@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "PART 2"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-more-than-time-or-distance-zh"
 ---
 
 A.D. 5024

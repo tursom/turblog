@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "ENDURANCE"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-04-2-zh"
 ---
 
 Engineer Tasqer visited Mellborn alone.

@@ -5,6 +5,7 @@ slug: "mayflower-ii-ii"
 title: "II"
 sourcePath: "Mayflower_II_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 08 - Mayflower II_split_002.html"
 unitType: "chapter"
+parallelSlug: "mayflower-ii-ii-zh"
 ---
 
 Soon Port Sol fell away, and even the other Ships were lost against the stars, and it was as if Ship Three was alone in the universe.

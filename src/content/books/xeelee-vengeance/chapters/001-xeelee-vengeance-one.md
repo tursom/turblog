@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "ONE"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-one-zh"
 ---
 
 The wormholes are gateways to other times, other places.

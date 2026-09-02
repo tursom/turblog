@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-10-zh"
 ---
 
 At last the Crab docked at the Geostationary Node of the Sahel space elevator, in orbit over Africa. Here they had to wait for a tether-climber ride to the ground.

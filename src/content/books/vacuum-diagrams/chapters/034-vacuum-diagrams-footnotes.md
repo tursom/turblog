@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "PART 7"
 volumeUnitNumber: 7
 unitType: "supplement"
+parallelSlug: "vacuum-diagrams-footnotes-zh"
 ---
 
 \[1\] See Timelike Infinity

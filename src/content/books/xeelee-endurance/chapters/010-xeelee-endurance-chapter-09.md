@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 10
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-09-zh"
 ---
 
 The days are very long on Titan, and by the time we got back to the gondola nothing seemed to have changed about the landscape or the sky – not a diffuse shadow had shifted. We found Poole and Dzik, surrounded by alien mystery, happily fixing big balloon wheels to axles slung beneath the crumpled hull. Boys will be boys.

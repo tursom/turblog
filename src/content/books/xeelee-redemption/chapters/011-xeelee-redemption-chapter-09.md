@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "ONE"
 volumeUnitNumber: 10
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-09-zh"
 ---
 
 The trial of Flammarion Grantt was to take place in the Island’s amphitheatre, open under the greenship’s ‘sky’, built to accommodate all fifty of the ship’s crew.

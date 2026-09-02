@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "PART 5"
 volumeUnitNumber: 2
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-stowaway-zh"
 ---
 
 A.D. 104,858

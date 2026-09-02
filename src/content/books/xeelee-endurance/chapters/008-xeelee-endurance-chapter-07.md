@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 8
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-07-zh"
 ---
 
 The foam drained away, leaving the four of us sitting in a row. We had landed on Titan the way we had entered its atmosphere, backside first, and now we lay on our backs with the gondola tilted over, so that I was falling against Miriam Berg, and the mass of Bill Dzik was weighing on me. The gondola’s hull had reverted to opacity so that we lay in a close-packed pearly shell, but there was internal light and the various data slates were working, though they were filled with alarming banks of red.

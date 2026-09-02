@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "SEVEN"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-seven-zh"
 ---
 
 We are just a handful of people in this desolate, remote place. And yet here a new epoch is born. They are listening to us, you know – listening in the halls of history. And we will be remembered forever.

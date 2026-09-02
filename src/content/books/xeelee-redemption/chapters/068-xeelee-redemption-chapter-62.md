@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 17
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-62-zh"
 ---
 
 They allowed seven more days to prepare for the expedition into the rainforest. Temporary habitats were set up, the trucks and other gear were checked over. Their passengers received some attention. Nicola and Asher even ran non-intrusive probes through the hull-plate shell containing their pet dark-matter larva, as Max called it. Trying to detect if it was still alive. And Jophiel briefed their captive Ghost, alone in the truck that was its prison.

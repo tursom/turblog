@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "SEVEN"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-66-zh"
 ---
 
 Poole and Miriam stood in the gentle gravity, facing each other. One projected from Jovian orbit, the other from the Oort Cloud.

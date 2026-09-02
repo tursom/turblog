@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "ENDURANCE"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-01-2-zh"
 ---
 
 Chael smiled at Mara. Beside Chael stood the sullen Engineer he had introduced only as Tasqer. And with them, in Mara’s living room, stood the Virtual avatar of Jasoft Parz, probably the most powerful human being in the Qax dominion of mankind.

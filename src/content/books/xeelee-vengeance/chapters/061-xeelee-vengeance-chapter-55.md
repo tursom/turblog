@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-55-zh"
 ---
 
 When he went to see her, in the small bamboo hut she’d been assigned inside Gallia as a polite nod to her Virtual privacy, Muriel sweetened the pill with new reports from Earth and the inner System.

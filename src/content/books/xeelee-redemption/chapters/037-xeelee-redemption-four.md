@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-four-zh"
 ---
 
 This is a key time in human history, Alia, a high-water mark of human ambition. We’ve been privileged to see it, I suppose. But now we must fall back.

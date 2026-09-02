@@ -8,6 +8,7 @@ volumeNumber: 3
 volumeTitle: "THREE"
 volumeUnitNumber: 7
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-25-zh"
 ---
 
 There was no easy way to get by scheduled transport from Hellas to Cydonia, in the northern hemisphere, where Grantt had his base. So Poole used family money to hire another airship, big enough for a dozen passengers, inside which the two of them rattled around for the three days’ journey.

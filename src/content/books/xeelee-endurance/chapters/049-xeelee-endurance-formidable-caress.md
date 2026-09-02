@@ -8,6 +8,7 @@ volumeNumber: 11
 volumeTitle: "FORMIDABLE CARESS"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-formidable-caress-zh"
 ---
 
 As the women tried to pull her away, Ama hammered with her fist on the blank wall of the Building. ‘Let me inside! Oh, let me inside!’

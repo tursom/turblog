@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 9
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-14-zh"
 ---
 
 The flitter was called Lar III, named like the rest of the station’s shuttles after the Lares, mythical children of Mercury and Larunda. The little ship was piloted to the planet’s surface by Mitch Gibson, somewhat roughly, with squirts of the main drive and bumps and bangs of the attitude control system. Nicola glowered in silent disapproval at his clumsy handling.

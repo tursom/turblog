@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-04-zh"
 ---
 
 Released from my cell of suspended animation, embittered, angry, I chose to be alone.

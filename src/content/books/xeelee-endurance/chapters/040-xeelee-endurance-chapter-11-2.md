@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "GRAVITY DREAMS"
 volumeUnitNumber: 11
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-11-2-zh"
 ---
 
 The Raft was an oval shadow against dull crimson.

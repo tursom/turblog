@@ -5,6 +5,7 @@ slug: "mayflower-ii-vi"
 title: "VI"
 sourcePath: "Mayflower_II_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 08 - Mayflower II_split_006.html"
 unitType: "chapter"
+parallelSlug: "mayflower-ii-vi-zh"
 ---
 
 ‘… Rusel. Rusel!’ The voice was harsh - Andres’s voice.

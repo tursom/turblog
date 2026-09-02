@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 9
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-33-zh"
 ---
 
 Once the flitter eased out of the lesion and rejoined the mother ship, the Bellona raced after the diamond missile from the Cache – the one that was heading to Mars. The Bellona’s GUTdrive was easily able to outrun the Probe’s two hundred and fifty kilometres per second, at which rate the diamond mass would take about eleven days to reach Mars itself.

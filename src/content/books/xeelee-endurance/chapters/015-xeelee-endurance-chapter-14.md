@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 15
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-14-zh"
 ---
 
 So, while a suddenly revived Michael Poole floated around in other-space, the original Poole and his not-lover Miriam Berg engaged in a furious row with Harry. Despite the circumstances, I found all this amusing.

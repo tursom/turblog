@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "GRAVITY DREAMS"
 volumeUnitNumber: 14
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-14-2-zh"
 ---
 
 The whale ploughed steadily towards the Core of Cores. The crew huddled behind the whale’s face, singing their eerie repetitive chants.

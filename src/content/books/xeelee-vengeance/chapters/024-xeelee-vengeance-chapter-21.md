@@ -8,6 +8,7 @@ volumeNumber: 3
 volumeTitle: "THREE"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-21-zh"
 ---
 
 When they arrived, Harry Poole, clutching a drink, was pacing the floor of Muriel’s reception room.

@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-05-zh"
 ---
 
 Fifteen minutes after cutting loose from the Crab, the gondola encountered the first wisps of Titan’s upper atmosphere, thin and cold, faintly blue all around us. Still a thousand kilometres above the ground, I could feel the first faltering in the gondola’s headlong speed. Titan’s air is massive and deep, and I was falling backside first straight into it.

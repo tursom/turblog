@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-03-zh"
 ---
 
 Harry Poole said, ‘You know our business, Jovik. Our wormhole engineering is laying down rapid-transit routes through the System, which will open up a whole family of worlds to colonisation and development. But we have grander ambitions than that.’

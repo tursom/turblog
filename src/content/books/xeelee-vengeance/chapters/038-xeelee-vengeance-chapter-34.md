@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 10
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-34-zh"
 ---
 
 Nicola cleared out of the lifedome for the duration of the conference.

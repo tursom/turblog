@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 8
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-32-zh"
 ---
 
 Jack Grantt spoke of the deep past of the universe.

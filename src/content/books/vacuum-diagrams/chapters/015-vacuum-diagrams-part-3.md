@@ -8,6 +8,7 @@ volumeNumber: 3
 volumeTitle: "PART 3"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-part-3-zh"
 ---
 
 ERA: Qax Occupation

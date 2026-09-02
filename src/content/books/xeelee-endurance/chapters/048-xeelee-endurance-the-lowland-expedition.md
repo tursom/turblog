@@ -8,6 +8,7 @@ volumeNumber: 10
 volumeTitle: "THE LOWLAND EXPEDITION"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-the-lowland-expedition-zh"
 ---
 
 Enna relished her flights in the spotting balloon.

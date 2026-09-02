@@ -22,7 +22,7 @@
 | Timelike Infinity  | 《类时无限》                  | 已有中文剧情概述采用                                   |
 | Flux               | 《通量》                      | 已有社区剧情概述采用                                   |
 | Ring               | 《环》                        | 项目暂译                                               |
-| Vacuum Diagrams    | 《真空图景》                  | 项目暂译                                               |
+| Vacuum Diagrams    | 《真空图》                    | 已有中文资料采用                                         |
 | Mayflower II       | 《五月花二号》                | 项目暂译                                               |
 | Xeelee: Endurance  | 《Xeelee：坚忍》              | 项目暂译                                               |
 | Xeelee: Vengeance  | 《Xeelee：复仇》              | 项目暂译                                               |
@@ -409,18 +409,117 @@
 | PART V Event: Ring            | 第五部 事件：环     |
 | PART VI Event: New Sol        | 第六部 事件：新太阳 |
 
+## 《真空图》篇名
+
+| 原文                       | 项目采用译名     | 备注                 |
+| -------------------------- | ---------------- | -------------------- |
+| The Sun-People             | 《太阳人》       | 项目暂译             |
+| The Logic Pool             | 《逻辑之池》     | 已有中文社区译名     |
+| Gossamer                   | 《蛛丝》         | 已有中文发表／社区译名 |
+| Cilia-of-Gold              | 《金色纤毛》     | 项目暂译             |
+| Lieserl                    | 《莉泽尔》       | 沿用《环》人物译名   |
+| Pilot                      | 《飞行员》       | 项目暂译             |
+| The Xeelee Flower          | 《齐利花》       | 沿用既有术语         |
+| More Than Time or Distance | 《超越时间或距离》 | 项目暂译           |
+| The Switch                 | 《开关》         | 项目暂译             |
+| Blue Shift                 | 《蓝移》         | 项目暂译             |
+| The Quagma Datum           | 《夸克玛数据》   | 已有中文社区译名     |
+| Planck Zero                | 《普朗克零点》   | 项目暂译             |
+| The Gödel Sunflowers       | 《哥德尔向日葵》 | 项目暂译             |
+| Vacuum Diagrams            | 《真空图》       | 已有中文资料采用     |
+| Stowaway                   | 《偷渡者》       | 项目暂译             |
+| The Tyranny of Heaven      | 《天国暴政》     | 项目暂译             |
+| Hero                       | 《英雄》         | 项目暂译             |
+| Secret History             | 《秘史》         | 项目暂译             |
+| Shell                      | 《壳》           | 项目暂译             |
+| The Eighth Room            | 《第八间房》     | 项目暂译             |
+| The Baryonic Lords         | 《重子领主》     | 项目暂译             |
+
+## 《五月花二号》人物与组织
+
+| 原文                             | 项目采用译名   | 备注                     |
+| -------------------------------- | -------------- | ------------------------ |
+| Rusel                            | 鲁塞尔         | 项目暂译                 |
+| Diluc                            | 迪卢克         | 项目暂译                 |
+| Lora                             | 洛拉           | 项目暂译                 |
+| Pharaoh Andres                  | 法老安德烈斯   | 项目暂译                 |
+| Tila                             | 蒂拉           | 项目暂译                 |
+| Ruul                             | 鲁尔           | 项目暂译                 |
+| Hilin                            | 希林           | 项目暂译                 |
+| Pirius                           | 皮里厄斯       | 项目暂译                 |
+| Torec                            | 托雷克         | 项目暂译                 |
+| Interim Coalition of Governance | 临时统治联盟   | 已有中文年表资料采用     |
+| Port Sol                         | 太阳港         | 沿用《环》               |
+| Mayflower II / Mayflower         | “五月花二号”   | 飞船名；简称仍加中文引号 |
+
+## 《Xeelee：坚忍》篇名
+
+| 原文                         | 项目采用译名   | 备注                   |
+| ---------------------------- | -------------- | ---------------------- |
+| Return to Titan              | 《重返泰坦》   | 项目暂译               |
+| Starfall                     | 《星落》       | 项目暂译               |
+| Remembrance                  | 《铭记》       | 项目暂译               |
+| Endurance                    | 《坚忍》       | 与合集书名保持一致     |
+| The Seer and the Silverman   | 《先知与银人》 | 项目暂译               |
+| Gravity Dreams               | 《引力之梦》   | 项目暂译               |
+| Periandry’s Quest            | 《佩里安德里的追寻》 | 项目暂译         |
+| Climbing the Blue            | 《攀登蔚蓝》   | 已有中文年表译名       |
+| The Time Pit                 | 《时间坑》     | 已有中文年表译名       |
+| The Lowland Expedition       | 《低地探险》   | 已有中文年表译名       |
+| Formidable Caress            | 《强力爱抚》   | 项目暂译               |
+
+## 《Xeelee：复仇》人物与飞船
+
+| 原文                    | 项目采用译名     | 备注                         |
+| ----------------------- | ---------------- | ---------------------------- |
+| Michael Poole           | 迈克尔·普尔     | 沿用《类时无限》             |
+| Harry Poole             | 哈里·普尔       | 沿用《类时无限》             |
+| Nicola Emry             | 尼古拉·埃姆里   | 项目暂译                     |
+| Shamiso Emry            | 沙米索·埃姆里   | 项目暂译                     |
+| Miriam Berg             | 米丽娅姆·伯格   | 沿用《类时无限》             |
+| Grantt                  | 格兰特           | 项目暂译                     |
+| Muriel                  | 穆丽尔           | 项目暂译                     |
+| Marsden                 | 马斯登           | 项目暂译                     |
+| Jack Raoul              | 杰克·拉乌尔     | 项目暂译                     |
+| Jovik Emry              | 乔维克·埃姆里   | 项目暂译                     |
+| Hermit Crab / Crab      | “寄居蟹号”       | 沿用《类时无限》             |
+| Cauchy                  | “柯西号”         | 沿用《类时无限》             |
+| Gea                     | “盖娅号”         | 项目暂译                     |
+| Island                  | “岛屿号”         | 项目暂译                     |
+
+## 《Xeelee：救赎》人物与设施
+
+| 原文              | 项目采用译名   | 备注                         |
+| ----------------- | -------------- | ---------------------------- |
+| Jophiel Poole     | 乔菲尔·普尔   | 迈克尔·普尔的虚拟人副本     |
+| Michael Poole     | 迈克尔·普尔   | 沿用前册                     |
+| Nicola Emry       | 尼古拉·埃姆里 | 沿用《Xeelee：复仇》         |
+| Asher             | 阿舍           | 项目暂译                     |
+| Max Ward          | 马克斯·沃德   | 项目暂译                     |
+| Chinelo           | 奇内洛         | 项目暂译                     |
+| Susan Harris      | 苏珊·哈里斯   | 项目暂译                     |
+| Goober            | 古伯           | 项目暂译                     |
+| Flammarion        | 弗拉马里翁     | 项目暂译                     |
+| the Wheel         | 轮             | 专名；与《通量》的“轮”统一   |
+| Cauchy            | “柯西号”       | 沿用前册                     |
+| Gea               | “盖娅号”       | 沿用《Xeelee：复仇》         |
+| Island            | “岛屿号”       | 沿用《Xeelee：复仇》         |
+| Silver Ghost      | 银幽灵         | 文明／个体称谓               |
+
 ## 检索依据
 
 - [《筏》剧情概述](http://www.starwarschina.com/forum.php?mod=viewthread&tid=48352&ordertype=2&mobile=2)：社区逐章概述，附有明确译名表。本项目据此采用《筏》、带、博尔德尔环、鼹鼠、轮班，帕利斯、戈弗、里斯、罗奇、戈德等人名，以及“樵夫”“骸骨人”等称谓。该页面不是正式出版物。
 - [《类时无限》剧情概述](http://www.starwarschina.com/thread-48412-1-1.html)：社区剧情概述，附有人物、组织、飞船、文明与技术译名表。本项目据此采用迈克尔·普尔、米丽娅姆·伯格、卡克斯人、斯普莱恩人、维格纳的朋友、界面计划、异常物质等译名。该页面不是正式出版物。
 - [《通量》剧情概述](http://www.starwarschina.com/thread-48513-1-1.html)：社区剧情概述，附有人物、组织、地点、科技与中子星环境译名表。本项目据此采用《通量》、杜拉、法尔、阿达、帕兹城、上通量族、频率突变、内核物、间断驱动器等译名。该页面不是正式出版物。
 - [史蒂芬·巴克斯特小说系列](https://www.douban.com/note/771703959/)：整理了部分正式刊载短篇及书目信息，可确认中文世界存在《蛛丝》《蓝色虚幻》《猎户座防线》等零散译本，但不能据此推定整套系列已有统一译名。
-- [Xeelee - 百度百科](https://baike.baidu.com/item/Xeelee/7258125)：记录“泽利”“西利”“爱克斯利”“埃克希里”等多种音译，仅用于确认译名分歧。
+- [《真空图》书目信息](https://baike.baidu.com/item/%E5%8F%B2%E8%92%82%E8%8A%AC%C2%B7%E5%B7%B4%E5%85%8B%E6%96%AF%E7%89%B9/7093989)：用于确认 `Vacuum Diagrams` 的中文书名《真空图》；篇目译名另以零散中文发表和社区资料交叉确认。
+- [Xeelee 中文作品年表](https://tieba.baidu.com/p/7212786079)：检索摘要可确认《逻辑之池》《蛛丝》《夸克玛数据》《五月花二号》等中文用法；页面本身不是正式出版物。
+- [Xeelee - 百度百科](https://baike.baidu.com/item/Xeelee/7258125)：记录“泽利”“西利”“爱克斯利”“埃克希里”等多种音译，仅用于确认译名分歧，并可确认《五月花二号》的中文书名。
 - SearXNG 对《筏》和《类时无限》的检索结果还显示另一组社区概述统一采用“齐利序列”。近期中文介绍则更常使用“泽利系列”。在找到正式全系列中文版本或权利人命名以前，书架继续保留 `Xeelee` 原文。
 
 ## 待确认项
 
-- `Xeelee` 的系列名称继续保留原文；《类时无限》正文采用该书中文社区概述中的“齐利人”。
-- `Ring` 等尚无可靠完整中文书目记录的书名，应在通读后根据主题复核。
+- `Xeelee` 的系列名称继续保留原文；正文沿用前四册已经采用的“齐利人”。
+- 《Xeelee：坚忍》等尚无可靠完整中文书目记录的书名，应在通读后根据主题复核。
 - `Jame`、`Sheen` 等没有出现在现有译名表中的人名读音。
 - 零散正式发表短篇中的术语能否与长篇上下文直接共用。

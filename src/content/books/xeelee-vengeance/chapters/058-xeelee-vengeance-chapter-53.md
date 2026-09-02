@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 12
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-53-zh"
 ---
 
 Harry Poole, with Jack Grantt, stood waiting for his son near a rest station in the ruins of Cydonia. As Poole walked up he felt the ground shudder. The tremors were almost continuous now. It felt as if massive trains were crashing through tunnels dug deep in the Martian ground, day and night.

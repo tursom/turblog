@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 17
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-26-zh"
 ---
 
 And from one flitter, suddenly he was aboard another. Sitting alongside Michael, his now twelve-years-younger template.

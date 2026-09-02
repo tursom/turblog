@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-29-zh"
 ---
 
 For the first few minutes Poole gave the rover its head. He tried sharp turns and emergency stops, and ran the vehicle up to its advised limit, of a hundred kilometres an hour. The virtual absence of a downward gravity pull was confusing, but it was a little like driving on a low-gravity world like Earth’s Moon, even Io. The ingenious adhesive wheels worked smoothly, so far as he could tell.

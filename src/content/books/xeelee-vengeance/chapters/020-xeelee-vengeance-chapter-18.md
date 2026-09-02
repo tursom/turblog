@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 13
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-18-zh"
 ---
 
 The so-called convection zone – the outer layer of the Sun’s deep, stratified structure – was indeed a cauldron, a great spherical pot of boiling material wrapped around the Sun. A cauldron more than a hundred thousand kilometres deep.

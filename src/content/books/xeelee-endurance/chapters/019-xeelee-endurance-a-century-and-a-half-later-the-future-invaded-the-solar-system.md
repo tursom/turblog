@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 19
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-a-century-and-a-half-later-the-future-invaded-the-solar-system-zh"
 ---
 
 It had been humanity’s own fault; everyone recognised that. Under the leadership of Michael Poole, the ‘Interface project’ – a link to a future a millennium and a half ahead, created by towing a wormhole mouth across interstellar space behind Poole’s GUTship Cauchy – had been completed. Why had Poole’s wormhole time bridge been built? There were endless justifications: what power could a glimpse of the future afford? But the truth was that it had been built for little more than the sheer joy of it. Poole did it because he could.

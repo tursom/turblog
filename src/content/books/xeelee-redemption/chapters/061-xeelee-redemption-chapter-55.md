@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 10
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-55-zh"
 ---
 
 Jophiel thought that the smartest decision Michael Poole made in the aftermath of the discovery of the Ghost was to decree two full days of rest before they took another step forward. All of them, travellers, locals – and one representative of an entirely alien species – had been through huge conceptual shocks. If Jophiel had learned one thing, in the tangled history he shared with Michael going back to the first irruption of the Xeelee into the Solar System, it was that the effects of such upheavals took time to work through the soul.

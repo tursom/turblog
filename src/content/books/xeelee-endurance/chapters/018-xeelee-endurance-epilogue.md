@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 18
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-epilogue-zh"
 ---
 
 It didn’t take the Virtual Poole long to check out the status of his fragile craft.

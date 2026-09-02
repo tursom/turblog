@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 15
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-46-zh"
 ---
 
 The earthquake hit four days later.

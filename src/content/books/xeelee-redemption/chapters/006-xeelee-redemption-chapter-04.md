@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "ONE"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-04-zh"
 ---
 
 The central purpose of Gea was the collection and processing of data.

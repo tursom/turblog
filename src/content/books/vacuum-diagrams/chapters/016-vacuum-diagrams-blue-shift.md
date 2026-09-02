@@ -8,6 +8,7 @@ volumeNumber: 3
 volumeTitle: "PART 3"
 volumeUnitNumber: 2
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-blue-shift-zh"
 ---
 
 A.D. 5406

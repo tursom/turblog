@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-15-zh"
 ---
 
 The other lifedome was a cylinder twice the width and height of the Island’s relatively modest hemisphere, and multiple decks showed within its interior.

@@ -8,6 +8,7 @@ volumeNumber: 12
 volumeTitle: "THE XEELEE SEQUENCE – TIMELINE"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-the-xeelee-sequence-timeline-zh"
 ---
 
 ### Singularity: Big Bang

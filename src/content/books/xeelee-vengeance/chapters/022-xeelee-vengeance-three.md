@@ -8,6 +8,7 @@ volumeNumber: 3
 volumeTitle: "THREE"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-three-zh"
 ---
 
 The girl from the future told me that the sky is full of dying worlds.

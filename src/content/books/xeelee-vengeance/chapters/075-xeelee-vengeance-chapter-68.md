@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "SEVEN"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-68-zh"
 ---
 
 His family acted as if they hadn’t noticed his absence. But he was sure that was just an act. His habit of disappearing was tolerated, barely.

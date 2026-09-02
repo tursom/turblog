@@ -5,6 +5,7 @@ slug: "vacuum-diagrams-prologue"
 title: "Prologue"
 sourcePath: "Vacuum_Diagrams_-_Stephen_Baxter.epub#index_split_002.html"
 unitType: "preface"
+parallelSlug: "vacuum-diagrams-prologue-zh"
 ---
 
 Eve

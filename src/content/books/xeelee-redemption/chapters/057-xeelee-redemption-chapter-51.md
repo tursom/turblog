@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-51-zh"
 ---
 
 They flew low over rusty plains. Briny-looking lakes. It resembled Mars, Jophiel thought – or at any rate a partially terraformed Mars, one dream that had never been fulfilled before the Xeelee came.

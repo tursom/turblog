@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "PERIANDRY’S QUEST"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-periandrys-quest-zh"
 ---
 
 The funerary procession drew up in the courtyard of the great House. Through a screen of bubbling clouds the blueshifted light of Old Earth’s sky washed coldly down over the shuffling people, and the stars spun through their crisp two-minute cycles.

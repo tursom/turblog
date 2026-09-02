@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "ENDURANCE"
 volumeUnitNumber: 2
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-02-2-zh"
 ---
 
 The flitter rose from Occupied Earth like a stone thrown from a blue bowl.

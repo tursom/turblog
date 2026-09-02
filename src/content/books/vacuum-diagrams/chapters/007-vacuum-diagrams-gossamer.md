@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "PART 1"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-gossamer-zh"
 ---
 
 A.D. 3825

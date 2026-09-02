@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 16
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-15-zh"
 ---
 
 Poole frowned. ‘What business?’

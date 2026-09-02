@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 11
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-52-zh"
 ---
 
 When he had the time, while he waited for the Carnot to arrive, Poole followed the global picture.

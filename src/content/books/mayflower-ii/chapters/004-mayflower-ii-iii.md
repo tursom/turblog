@@ -5,6 +5,7 @@ slug: "mayflower-ii-iii"
 title: "III"
 sourcePath: "Mayflower_II_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 08 - Mayflower II_split_003.html"
 unitType: "chapter"
+parallelSlug: "mayflower-ii-iii-zh"
 ---
 
 As the days stretched to weeks, and the weeks to months, Rusel continued to throw himself into work - and there was plenty of it for everybody.

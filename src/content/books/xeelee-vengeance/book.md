@@ -12,6 +12,8 @@ groupOrder: 40
 seriesOrder: 8
 language: "en"
 editionLabel: "User-supplied English EPUB text"
+alternateEditionSlug: "xeelee-vengeance-zh"
+alternateEditionLabel: "中文试译"
 publishedAt: "2017-01-01"
 summary: "Michael Poole faces a Xeelee incursion and a threat reaching across the history of the Solar System."
 sourceUrl: "https://www.stephen-baxter.com/"

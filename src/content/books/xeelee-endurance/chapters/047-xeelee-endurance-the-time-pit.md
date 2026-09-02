@@ -8,6 +8,7 @@ volumeNumber: 9
 volumeTitle: "THE TIME PIT"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-the-time-pit-zh"
 ---
 
 The Mechanist balloons, fast and grey, drifted over the ruins of Old Foro. Belo couldn’t even see the crude bombs they dropped until they came streaking down out of the blueshifted air to splash fire. But the Mechanists’ advance was driving Belo and the last of his troopers towards the Shelf’s edge, where the river Foo, running with blood, plunged into the abyss.

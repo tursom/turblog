@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 14
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-45-zh"
 ---
 
 It was on the following day, the eleventh since the crash, that Jophiel and Nicola finally got out of the lifedome themselves, and walked on the surface of the Wheel.

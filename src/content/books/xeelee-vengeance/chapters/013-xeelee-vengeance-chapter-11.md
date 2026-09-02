@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-11-zh"
 ---
 
 At Goonhilly, Harry himself met Poole and Nicola at the monorail station. There wasn’t room for them all in the small car he had brought, so Gea, with a smile and a promise to meet later, winked politely out of existence.

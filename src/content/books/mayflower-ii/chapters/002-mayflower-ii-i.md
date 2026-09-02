@@ -5,6 +5,7 @@ slug: "mayflower-ii-i"
 title: "I"
 sourcePath: "Mayflower_II_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 08 - Mayflower II_split_001.html"
 unitType: "chapter"
+parallelSlug: "mayflower-ii-i-zh"
 ---
 
 Twenty days before the end of his world, Rusel heard that he was to be saved.

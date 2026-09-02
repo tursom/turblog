@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 7
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-48-zh"
 ---
 
 ad 3649–3650

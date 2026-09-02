@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 2
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-01-zh"
 ---
 
 ‘There’s always been something wrong with Titan.’

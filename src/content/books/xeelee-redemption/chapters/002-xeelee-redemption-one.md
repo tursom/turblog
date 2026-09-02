@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "ONE"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-one-zh"
 ---
 
 There have always been engineers in my family.

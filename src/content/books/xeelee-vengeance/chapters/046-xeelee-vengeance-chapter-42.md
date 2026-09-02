@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 18
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-42-zh"
 ---
 
 They crossed a shining, empty floor, under a vaulting roof supported by crystal pillars. The Iglesia de la Concepción, itself a millennium old, was extraordinarily beautiful, Poole thought.

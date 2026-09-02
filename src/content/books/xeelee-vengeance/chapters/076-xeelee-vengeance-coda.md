@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "SEVEN"
 volumeUnitNumber: 7
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-coda-zh"
 ---
 
 In the pale rocket light the face of Michael Poole Bazalget was like an upturned coin, but his mouth was set with a kind of determination, his eyes shadowed. I felt unaccountably disturbed. I wondered what this child, and his own children after him, would do with the world.

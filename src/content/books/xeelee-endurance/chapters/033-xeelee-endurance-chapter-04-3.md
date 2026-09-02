@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "GRAVITY DREAMS"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-04-3-zh"
 ---
 
 As the whale flotilla closed in on the Forest, alarm whistles blasted and wooden rattles were spun. Lura crouched down in the lead tree’s foliage with the Mole tucked under her belly. Pesten was beside her, and old Jorg came scrambling up the tether from his fire-pots. But Lura felt very exposed up here.

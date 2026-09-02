@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 11
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-20-zh"
 ---
 
 Nicola led them into her shelter, that old flitter hull.

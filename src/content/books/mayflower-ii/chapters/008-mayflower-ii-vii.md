@@ -5,6 +5,7 @@ slug: "mayflower-ii-vii"
 title: "VII"
 sourcePath: "Mayflower_II_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 08 - Mayflower II_split_007.html"
 unitType: "chapter"
+parallelSlug: "mayflower-ii-vii-zh"
 ---
 
 Rusel was woken from his long slumber by the face of a boy, a face twisted with anger - an anger directed at him.

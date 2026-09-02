@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 1
 unitType: "preface"
+parallelSlug: "xeelee-endurance-prologue-zh"
 ---
 
 The spacecraft from Earth sailed through rings of ice.

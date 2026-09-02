@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "PART 4"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-part-4-zh"
 ---
 
 ERA: Assimilation

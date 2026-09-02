@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "ONE"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-05-zh"
 ---
 
 After a fusion-powered limp through Jovian space, the Crab Junior had to make a slow, cautious final approach to Io, such was the volume of traffic around the little moon. With the big GUTships abandoned for now, there were only small craft available for the evacuation, flitters and yachts and other special-purpose vessels, all of them fusion-propelled – and each capable of lifting only a handful of refugees.

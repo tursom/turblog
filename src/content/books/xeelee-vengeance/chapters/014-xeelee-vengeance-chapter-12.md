@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 7
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-12-zh"
 ---
 
 After a rest stop at their quarters, Gea guided the visitors to a meeting room in the building’s subterranean levels, where they were shepherded into a kind of viewing room, walled off by soundproof glass.

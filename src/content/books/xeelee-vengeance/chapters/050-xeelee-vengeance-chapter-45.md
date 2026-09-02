@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-45-zh"
 ---
 
 At Phobos, Poole saw as soon as he arrived in the Assimilator’s Claw, the Martian branch of humanity was building a navy.

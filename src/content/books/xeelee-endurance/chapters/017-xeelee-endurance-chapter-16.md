@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 17
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-16-zh"
 ---
 
 So, harnessed to a spider oblivious of the impending fate of its vast and ancient project, we rose into the dark. It had taken us days to descend to this place, and would take us days to return to the surface, where, Harry promised, he would have a fresh balloon waiting to pick us up.

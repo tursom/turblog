@@ -5,6 +5,7 @@ slug: "vacuum-diagrams-foreword"
 title: "Foreword"
 sourcePath: "Vacuum_Diagrams_-_Stephen_Baxter.epub#index_split_001.html"
 unitType: "preface"
+parallelSlug: "vacuum-diagrams-foreword-zh"
 ---
 
 VACUUM DIAGRAMS IS A NOVEL BASED ON the short stories which — together with my novels Raft (1991), Timelike Infinity (1992), Flux (1993), and Ring (1994) — comprise my "Xeelee Sequence" Future History.

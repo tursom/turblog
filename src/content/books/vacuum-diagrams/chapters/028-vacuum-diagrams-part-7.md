@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "PART 7"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-part-7-zh"
 ---
 
 ERA: Photino Victory

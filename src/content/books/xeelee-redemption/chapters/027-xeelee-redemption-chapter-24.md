@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 15
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-24-zh"
 ---
 
 Where a storm was raging.

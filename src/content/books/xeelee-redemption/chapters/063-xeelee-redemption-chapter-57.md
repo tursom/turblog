@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 12
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-57-zh"
 ---
 
 The pyramid was a place of narrow shafts, cut low through the stone, wide enough for two or three of them to pass side by side, if they ducked beneath the low ceilings.

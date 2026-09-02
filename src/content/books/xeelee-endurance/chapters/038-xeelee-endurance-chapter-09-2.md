@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "GRAVITY DREAMS"
 volumeUnitNumber: 9
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-09-2-zh"
 ---
 
 As the shifts had worn away the whale riders hadn’t disturbed Lura’s lengthy conversations with her machine, and the eerie figures it seemed to speak for. Lura supposed they were kept back by superstition or fear – as she felt only a little less, she suspected. But the riders were becoming increasingly disturbed by the Mole’s pronouncements. They went off towards the whale’s vast inverted face, so they could talk away from their captives.

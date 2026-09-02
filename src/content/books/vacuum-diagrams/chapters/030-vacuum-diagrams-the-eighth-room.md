@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "PART 7"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-the-eighth-room-zh"
 ---
 
 A.D. 4,101,266

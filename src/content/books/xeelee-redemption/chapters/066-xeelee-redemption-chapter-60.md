@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 15
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-60-zh"
 ---
 
 On the one hundred and fifty-seventh day since the strut, Jophiel was summoned again to Asher’s truck.

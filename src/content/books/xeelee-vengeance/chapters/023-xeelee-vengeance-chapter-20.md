@@ -8,6 +8,7 @@ volumeNumber: 3
 volumeTitle: "THREE"
 volumeUnitNumber: 2
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-20-zh"
 ---
 
 ad 3647

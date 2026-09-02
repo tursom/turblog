@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "ONE"
 volumeUnitNumber: 7
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-06-zh"
 ---
 
 The wormhole portal, when they got to it, was surrounded by a cloud of ships, a rough sphere. Many of these were GUTships of the classic design, each a gaunt pole topped and tailed by lifedome and lump of comet ice. Because of the threat of the quagma phantoms, the ships were immobilised save for their secondary attitude-control thrusters. But Poole knew that some of the ships, including flitters belonging to the UN’s Federal Police, might be armed.

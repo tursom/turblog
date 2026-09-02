@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-02-zh"
 ---
 
 ‘If it’s an expert on Titan you want,’ I said, ‘keep looking.’

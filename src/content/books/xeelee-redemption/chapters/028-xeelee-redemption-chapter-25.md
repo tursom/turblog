@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 16
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-25-zh"
 ---
 
 Tracking down Asher and Nicola was a trivial task for the Cauchy flitter’s smart systems. Just as Nicola had said, they had finished up in a loose, highly elliptical, highly inclined orbit around Goober c. Asher’s skinsuit had a beacon – and she had fixed a separate beacon to the mysterious trophy she had extracted from the Ghosts’ station at the star.

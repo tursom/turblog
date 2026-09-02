@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-08-zh"
 ---
 
 It turned out not to be a foolish question.

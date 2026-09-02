@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "PART 2"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-the-switch-zh"
 ---
 
 A.D. 5066

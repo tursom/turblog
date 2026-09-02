@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 9
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-18-zh"
 ---
 
 Nicola had lightweight fold-out chairs in her pack. She set these out in a circle, where the Gourd crew had been. Harris had coffee; Jophiel accepted a Virtual cup, finding it a relief to sit and escape the clutch of gravity.

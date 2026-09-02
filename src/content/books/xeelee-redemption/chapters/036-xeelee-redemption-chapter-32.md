@@ -8,6 +8,7 @@ volumeNumber: 3
 volumeTitle: "THREE"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-32-zh"
 ---
 
 The big lens-shaped box crowded out the suite.

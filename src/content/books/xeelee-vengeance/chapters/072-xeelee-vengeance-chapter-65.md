@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "SEVEN"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-65-zh"
 ---
 
 Inside Chiron, exiled Martians had carved out a hollow world.

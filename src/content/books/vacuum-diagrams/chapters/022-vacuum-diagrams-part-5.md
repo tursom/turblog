@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "PART 5"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-part-5-zh"
 ---
 
 ERA: The War to End Wars

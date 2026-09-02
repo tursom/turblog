@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "ENDURANCE"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-05-2-zh"
 ---
 
 Chael invited Mara to join him on his weekly inspection tour of the new exotic-matter facility in the Mellborn urban area. After Yarraranj, Mara was deeply reluctant, but the way Chael phrased it she sensed this was a command, not an invitation.

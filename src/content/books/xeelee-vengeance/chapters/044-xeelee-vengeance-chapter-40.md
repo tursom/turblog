@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 16
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-40-zh"
 ---
 
 Tenerife, one of a scatter of islands on the breast of the Atlantic, looked from the air like a dusty jewel, green and grey, surrounded by the steel blue of the ocean. Its core was Teide, a volcanic summit, not quite dormant, a cratered mound of ash layers more than three kilometres high that looked very lunar. Teide was, Poole learned, looking it up, the third largest volcano on the planet. And a glittering modern city stood on terraces cut into the broad summit of the mountain, connected by monorail links to the coastal plain, shining threads against grey ash. The mountain city was called Achinet. The coastal plain was, this bright morning, a muddle of structure, of towns, roads, parkland, the detail too fine for Poole to resolve from the air. But that was where the wave would hit first.

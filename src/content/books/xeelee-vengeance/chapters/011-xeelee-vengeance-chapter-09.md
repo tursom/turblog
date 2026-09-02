@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-09-zh"
 ---
 
 Poole’s GUTship, Hermit Crab, was hastily refurbished at a base on Himalia.

@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "GRAVITY DREAMS"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-03-3-zh"
 ---
 
 Vala received two contradictory summonses. They came two standard days after the arrival of the Second Coalition flotilla.

@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 7
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-31-zh"
 ---
 
 It was a raindrop, as they had come to call them. An apparently perfect silvered sphere a few metres across.

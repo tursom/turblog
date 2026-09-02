@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 11
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-16-zh"
 ---
 
 It took Mitch Gibson’s Mercury-shadow hermits less than a week to rig up a crewed capsule inside the existing infrastructure of the Sun Probe. Poole wasn’t particularly surprised; the engineering of human survival was a much less novel technological feat than that of delivering a functioning scientific probe to the inner layers of the Sun in the first place. Once they’d grasped the mission, in fact, the Larunda team had enjoyed the challenge.

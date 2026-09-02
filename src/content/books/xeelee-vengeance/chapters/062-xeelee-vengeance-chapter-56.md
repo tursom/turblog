@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-56-zh"
 ---
 
 He decided to try it out on Nicola first.

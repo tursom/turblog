@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-50-zh"
 ---
 
 With Nicola, inevitably, at the controls, the flyer lifted smoothly off the tilted rock surface of the rim.

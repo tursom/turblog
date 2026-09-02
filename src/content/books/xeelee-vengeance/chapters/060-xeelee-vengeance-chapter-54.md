@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 2
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-54-zh"
 ---
 
 ad 3650

@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "PART 4"
 volumeUnitNumber: 2
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-the-godel-sunflowers-zh"
 ---
 
 A.D. 10515

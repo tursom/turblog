@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 7
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-06-zh"
 ---
 
 So we drifted over Titan’s frozen landscape, heading for the south pole. For now Michael Poole kept us stuck in that unexpanded hull, and indeed inside our suits, though we removed our helmets, while the crew put the gondola through a fresh series of post-entry checks. I had nothing to do but stare out through the transparent walls at the very Earthlike clouds that littered the murky sky, or over my shoulder at the landscape that unfolded beneath me.

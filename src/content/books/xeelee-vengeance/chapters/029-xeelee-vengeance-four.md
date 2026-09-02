@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-four-zh"
 ---
 
 ‘Look at it this way. I still cut my lawn. Now, my evolutionary divergence from the grass is, what, half a billion years deep, more? And yet we communicate . . . It asks me if I want it to grow over five centimetres, or start colonising the verges. It tells me this by actually doing it, you see. I say no, with my mower and my strimmer. So we communicate – not in symbols, but with the primal elements of all life forms, space to grow, food, life, death.’

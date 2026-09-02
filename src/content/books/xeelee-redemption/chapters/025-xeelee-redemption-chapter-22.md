@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 13
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-22-zh"
 ---
 
 For Jophiel, it started with a shadow on the face of Goober’s Star.

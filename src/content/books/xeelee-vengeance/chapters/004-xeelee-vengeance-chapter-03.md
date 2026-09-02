@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "ONE"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-03-zh"
 ---
 
 Even Harry seemed to forget the politics, his corporate role. He, or his Virtual avatar, drifted to the window, gaping in fascination at the thing, black and huge, that was emerging from the shining blue portal.

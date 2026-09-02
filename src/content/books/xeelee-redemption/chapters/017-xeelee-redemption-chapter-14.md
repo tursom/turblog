@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-14-zh"
 ---
 
 In the last stages, a cratered ground fled beneath the prow of the lifedome. Goober’s Star cast long shadows. Above, at this altitude, only thin clouds were draped over a black sky – ice clouds, perhaps, very high, Jophiel realised. This really was like descending on Mars, on Olympus Mons.

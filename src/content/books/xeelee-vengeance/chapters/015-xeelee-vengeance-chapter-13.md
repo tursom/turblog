@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 8
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-13-zh"
 ---
 
 The Poole Industries orbital base at Mercury was called Larunda. Poole and Nicola debarked from the Hermit Crab in the flitter, and crossed space to the habitat.

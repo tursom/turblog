@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 19
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-64-zh"
 ---
 
 As soon as they touched down, even as they threw open the doors of the flyer, Max Ward began issuing orders about guard rotas and perimeters.

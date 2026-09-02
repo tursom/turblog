@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "ONE"
 volumeUnitNumber: 9
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-08-zh"
 ---
 
 Twenty-four hours later – ordinary, wet-human-pace hours – Jophiel Poole walked with Nicola Emry over a parkland of healthy green grass.

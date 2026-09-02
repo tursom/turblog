@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 14
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-23-zh"
 ---
 
 In a flash, Jophiel was back in the Island lifedome. Rooted to the rock of Goober c. The planet’s one hundred and forty per cent gravity settled heavily on his Virtual bones.

@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 12
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-21-zh"
 ---
 
 The face of Goober’s Star, twisted and torn by convulsing magnetic fields, was an ocean of light that filled one apparently transparent wall of this chamber. What were evidently instruments or data recorders cluttered the room: enigmatic Ghost technology, a mass of silver baubles and string. But there were no Ghosts working here.

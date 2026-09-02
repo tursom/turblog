@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-30-zh"
 ---
 
 They had to get to the Cache’s hull breach before it closed again – ideally, Poole thought wryly, they needed to get in and out of the interior before the breach closed.

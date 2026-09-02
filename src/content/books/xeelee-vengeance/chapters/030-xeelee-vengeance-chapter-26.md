@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 2
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-26-zh"
 ---
 
 ad 3648

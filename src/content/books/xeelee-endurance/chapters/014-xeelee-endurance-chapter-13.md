@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 14
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-13-zh"
 ---
 
 They allowed me to eat and drink, and void my bladder. Moving around was difficult, the cold water dense and syrupy; every movement I made was accompanied by the whir of servomotors as the suit laboured to assist me. I was reassured to know that the GUTengine was still functioning, and that my suit cells had been recharged. In principle I could stay alive long enough to get back to the Hermit Crab. All I had to do was find my way out of the core of this world, up through eight hundred kilometres of ice and ocean … I clung to the relief of the moment, and put off my fears over what was to come next.

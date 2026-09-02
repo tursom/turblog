@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "ENDURANCE"
 volumeUnitNumber: 7
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-07-2-zh"
 ---
 
 The Endurance was launched on schedule, hauling its massive wormhole Interface away into deep space at high accelerations, leaving the partner Interface patiently orbiting Jupiter. Even now nobody in Mara’s circle knew what the true purpose of the Qax Governor’s experiment had been – not even Chael, as far as she could tell, not even her beautiful idiot of a son.

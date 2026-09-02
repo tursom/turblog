@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 2
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-07-zh"
 ---
 
 Nicola guided the flitter in towards Gallia Three, working her way through a crowd of other refugee-laden craft: more flitters, larger fusion-drive scows – slow freighters designed to carry cargoes of ore and ice – even a couple of gaunt GUTships, nudged this way by their manoeuvring and attitude control systems. One of these ships had brought Harry here, Poole knew. Not for the first time in his life, his father had overtaken him.

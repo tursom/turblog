@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "PART 7"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-the-baryonic-lords-zh"
 ---
 
 A.D. 4,101,284

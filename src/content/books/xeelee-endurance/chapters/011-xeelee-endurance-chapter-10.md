@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 11
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-10-zh"
 ---
 
 ‘Dzik is dead,’ I said. ‘And so are we.’ I turned on Michael Poole, fists bunched in the thick gloves. ‘You and your absurd ambition – it was always going to kill you one day, and now it’s killed us all.’

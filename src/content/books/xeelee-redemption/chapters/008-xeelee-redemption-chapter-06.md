@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "ONE"
 volumeUnitNumber: 7
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-06-zh"
 ---
 
 Some kind of canteen. Crowded tables, wall dispensers, bots quietly serving.

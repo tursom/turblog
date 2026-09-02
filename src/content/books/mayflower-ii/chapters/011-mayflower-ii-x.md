@@ -5,6 +5,7 @@ slug: "mayflower-ii-x"
 title: "X"
 sourcePath: "Mayflower_II_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 08 - Mayflower II_split_010.html"
 unitType: "chapter"
+parallelSlug: "mayflower-ii-x-zh"
 ---
 
 Twenty-five thousand years after the end of his world, Rusel heard that he was to be saved.

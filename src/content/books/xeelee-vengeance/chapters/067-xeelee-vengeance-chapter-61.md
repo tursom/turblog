@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 9
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-61-zh"
 ---
 
 Poole’s scheme was conceptually simple. And, he believed, despite a lack of prototyping or testing, physically plausible, given that it made use of two experimental wormhole systems that had already been opened up, stabilised, traversed. It was the scale of it that staggered most people who had worked on it.

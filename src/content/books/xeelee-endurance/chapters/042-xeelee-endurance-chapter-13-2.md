@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "GRAVITY DREAMS"
 volumeUnitNumber: 13
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-13-2-zh"
 ---
 
 Coton at last drifted to sleep.

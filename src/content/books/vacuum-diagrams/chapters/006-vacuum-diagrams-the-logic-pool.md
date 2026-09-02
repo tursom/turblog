@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "PART 1"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-the-logic-pool-zh"
 ---
 
 A.D. 3698

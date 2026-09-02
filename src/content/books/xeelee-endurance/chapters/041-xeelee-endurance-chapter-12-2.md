@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "GRAVITY DREAMS"
 volumeUnitNumber: 12
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-12-2-zh"
 ---
 
 ‘We’re in the Marshal’s flitter, deep in the system of the neutron star, Lura. There isn’t much to see. The neutron star is a dull ember, but its huge density twists space. Vala said that if you tried to measure pi by dividing the star’s circumference by its diameter, you’d be out by about ten per cent. I’m not sure what that means … We’ve already done some close passes around the star. I thought I could feel the tides, and the hull groaned—’

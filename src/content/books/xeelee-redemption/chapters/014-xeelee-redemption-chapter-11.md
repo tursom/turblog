@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 2
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-11-zh"
 ---
 
 Ship elapsed time since launch: (Cauchy) 7 years 226 days

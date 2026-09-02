@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "PART 5"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-hero-zh"
 ---
 
 A.D. 193,474

@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 10
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-74-zh"
 ---
 
 Once they were outside the Nest, while the others cared for Nicola, Jophiel was dispatched to bring Max back.

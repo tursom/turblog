@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "PART 1"
 volumeUnitNumber: 2
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-the-sun-people-zh"
 ---
 
 A.D. 3672

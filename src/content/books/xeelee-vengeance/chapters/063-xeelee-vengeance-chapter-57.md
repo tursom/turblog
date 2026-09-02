@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-57-zh"
 ---
 
 With Nicola’s help, he quickly worked up his proposal into a compact briefing.

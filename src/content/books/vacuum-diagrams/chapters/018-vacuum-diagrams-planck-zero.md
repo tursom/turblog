@@ -8,6 +8,7 @@ volumeNumber: 3
 volumeTitle: "PART 3"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-planck-zero-zh"
 ---
 
 A.D. 5653

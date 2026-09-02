@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-44-zh"
 ---
 
 The next morning, the elderly artificial sentience Gea was the nominal chair of the opening session of the meeting of what was formally a subcommittee of the World Senate. Shamiso Emry was here; she nodded gravely to Poole.

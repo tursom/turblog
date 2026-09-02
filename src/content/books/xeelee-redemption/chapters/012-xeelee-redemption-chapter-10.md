@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "ONE"
 volumeUnitNumber: 11
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-10-zh"
 ---
 
 Ward snapped out orders. A handful of crew broke away, hurrying to monitoring stations.

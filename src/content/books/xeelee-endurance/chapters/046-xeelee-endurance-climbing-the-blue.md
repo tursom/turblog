@@ -8,6 +8,7 @@ volumeNumber: 8
 volumeTitle: "CLIMBING THE BLUE"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-climbing-the-blue-zh"
 ---
 
 ‘Everything about our world is made,’ said the Natural Philosopher. ‘Made by intelligence, perhaps even built by human hands! Tonight I will prove it to you – prove it, at least, to those with minds flexible enough to understand …’

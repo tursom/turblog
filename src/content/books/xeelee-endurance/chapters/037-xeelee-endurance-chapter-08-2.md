@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "GRAVITY DREAMS"
 volumeUnitNumber: 8
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-08-2-zh"
 ---
 
 Coton lay on his pallet, propped up on pillows, outside Vala’s tetrahedral house. His talks with Lura were draining, and after a half-hour session he always felt as if he hadn’t slept for days.

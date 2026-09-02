@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "PART 1"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-part-1-zh"
 ---
 
 ERA: Expansion

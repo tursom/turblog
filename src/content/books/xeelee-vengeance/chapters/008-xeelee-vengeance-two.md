@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-two-zh"
 ---
 
 ‘But the future is irrelevant.’

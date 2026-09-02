@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "SEVEN"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-80-zh"
 ---
 
 Timelike infinity

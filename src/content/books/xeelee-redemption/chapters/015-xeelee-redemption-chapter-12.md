@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-12-zh"
 ---
 
 Asher stood alone at the centre of the amphitheatre, in the sudden gloom, amid a slightly intimidated hush.

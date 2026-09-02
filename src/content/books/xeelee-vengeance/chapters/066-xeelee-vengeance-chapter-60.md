@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 8
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-60-zh"
 ---
 
 ‘Strap in,’ said Nicola.

@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "ONE"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-04-zh"
 ---
 
 Poole frantically tried to establish a decent link to Inachus Base, at Babbar Patera on Io. At first all he could get was a scratchy head-and-shoulders Virtual image of Melia, senior artificial mind at the base, and even that was prone to breaking up into a fluttering cloud of pixels. And the time delay between her responses, of a second or so, was heart-breaking. It was the kind of delay suffered between Earth and its Moon, and an indication of how far Poole still had to travel to get back from the wormhole site to Io. Such was the scale of the Jovian system.

@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "THE SEER AND THE SILVERMAN"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-the-seer-and-the-silverman-zh"
 ---
 
 Donn’s mother’s screaming filled the lifedome. ‘He’s gone. The Ghosts have taken him. Lethe, Benj is gone!’

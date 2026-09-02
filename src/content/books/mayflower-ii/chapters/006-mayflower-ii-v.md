@@ -5,6 +5,7 @@ slug: "mayflower-ii-v"
 title: "V"
 sourcePath: "Mayflower_II_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 08 - Mayflower II_split_005.html"
 unitType: "chapter"
+parallelSlug: "mayflower-ii-v-zh"
 ---
 
 He would remember that difficult visit again, much later, when a boy came to find him.

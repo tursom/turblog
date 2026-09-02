@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-35-zh"
 ---
 
 Ship elapsed time since launch: 19 years 259 days

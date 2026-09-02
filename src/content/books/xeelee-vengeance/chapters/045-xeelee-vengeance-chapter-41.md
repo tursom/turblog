@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 17
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-41-zh"
 ---
 
 So, once again, Michael Poole descended to Tenerife, this time incarnate.

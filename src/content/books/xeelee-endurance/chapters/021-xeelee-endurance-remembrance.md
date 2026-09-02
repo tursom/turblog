@@ -8,6 +8,7 @@ volumeNumber: 3
 volumeTitle: "REMEMBRANCE"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-remembrance-zh"
 ---
 
 ‘I am the Rememberer,’ said the old man. ‘The last in a line centuries long. This is what was passed on to me, by those who remembered before me.

@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 11
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-63-zh"
 ---
 
 So Poole searched for Nicola.

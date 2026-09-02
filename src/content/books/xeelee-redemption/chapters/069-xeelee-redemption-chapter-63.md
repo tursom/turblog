@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 18
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-63-zh"
 ---
 
 Poole was predictably electrified by the notion of a work shack, and a transit route for the Xeelee. He immediately dispatched small drone craft across the landscape of the cupworld – and to the summit of Central Mountain, which, he agreed, was the most likely place to find a Xeelee portal.

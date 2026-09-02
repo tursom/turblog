@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "PART 6"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-part-6-zh"
 ---
 
 ERA: Flight

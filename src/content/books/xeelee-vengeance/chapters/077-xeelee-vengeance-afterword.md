@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "SEVEN"
 volumeUnitNumber: 8
 unitType: "supplement"
+parallelSlug: "xeelee-vengeance-afterword-zh"
 ---
 
 This novel and its sequel, Redemption, are a pendant to my ‘Xeelee Sequence’ of stories and novels. The epigraphs to the sections are taken from earlier works in the Sequence.

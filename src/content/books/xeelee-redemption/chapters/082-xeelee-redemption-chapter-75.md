@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 11
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-75-zh"
 ---
 
 He was the last human.

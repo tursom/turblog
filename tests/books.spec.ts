@@ -21,11 +21,17 @@ const privateBookSlugs = [
   'ring',
   'ring-zh',
   'vacuum-diagrams',
+  'vacuum-diagrams-zh',
   'mayflower-ii',
+  'mayflower-ii-zh',
   'xeelee-endurance',
+  'xeelee-endurance-zh',
   'xeelee-vengeance',
+  'xeelee-vengeance-zh',
   'xeelee-redemption',
+  'xeelee-redemption-zh',
   'xeelee-raft',
+  'si-ren-jian-1',
   'daode-yu-fazhi-7-shang',
   'daode-yu-fazhi-7-xia',
   'daode-yu-fazhi-8-shang',
@@ -392,6 +398,99 @@ test('Ring offers complete bidirectional Chinese links', async ({ page }) => {
     'href',
     '/books/ring/ring-timeline/',
   );
+});
+
+test('remaining Xeelee books offer complete bidirectional Chinese editions', async ({ page }) => {
+  await serveBuiltSite(page);
+
+  const editions = [
+    {
+      englishBook: 'vacuum-diagrams',
+      chineseBook: 'vacuum-diagrams-zh',
+      count: 34,
+      firstEnglish: 'vacuum-diagrams-xeelee-sequence-book-5',
+      firstChinese: 'vacuum-diagrams-xeelee-sequence-book-5-zh',
+      firstTitle: 'Xeelee 系列 第5册',
+      lastEnglish: 'vacuum-diagrams-footnotes',
+      lastChinese: 'vacuum-diagrams-footnotes-zh',
+      lastTitle: '脚注',
+    },
+    {
+      englishBook: 'mayflower-ii',
+      chineseBook: 'mayflower-ii-zh',
+      count: 11,
+      firstEnglish: 'mayflower-ii-mayflower-ii',
+      firstChinese: 'mayflower-ii-mayflower-ii-zh',
+      firstTitle: '五月花二号',
+      lastEnglish: 'mayflower-ii-x',
+      lastChinese: 'mayflower-ii-x-zh',
+      lastTitle: 'X',
+    },
+    {
+      englishBook: 'xeelee-endurance',
+      chineseBook: 'xeelee-endurance-zh',
+      count: 50,
+      firstEnglish: 'xeelee-endurance-prologue',
+      firstChinese: 'xeelee-endurance-prologue-zh',
+      firstTitle: '序章',
+      lastEnglish: 'xeelee-endurance-the-xeelee-sequence-timeline',
+      lastChinese: 'xeelee-endurance-the-xeelee-sequence-timeline-zh',
+      lastTitle: 'Xeelee 系列年表',
+    },
+    {
+      englishBook: 'xeelee-vengeance',
+      chineseBook: 'xeelee-vengeance-zh',
+      count: 77,
+      firstEnglish: 'xeelee-vengeance-one',
+      firstChinese: 'xeelee-vengeance-one-zh',
+      firstTitle: '第一部',
+      lastEnglish: 'xeelee-vengeance-afterword',
+      lastChinese: 'xeelee-vengeance-afterword-zh',
+      lastTitle: '后记',
+    },
+    {
+      englishBook: 'xeelee-redemption',
+      chineseBook: 'xeelee-redemption-zh',
+      count: 89,
+      firstEnglish: 'xeelee-redemption-dedication',
+      firstChinese: 'xeelee-redemption-dedication-zh',
+      firstTitle: '献词',
+      lastEnglish: 'xeelee-redemption-afterword',
+      lastChinese: 'xeelee-redemption-afterword-zh',
+      lastTitle: '后记',
+    },
+  ];
+
+  for (const edition of editions) {
+    await page.goto(`${baseUrl}/books/${edition.englishBook}/${edition.firstEnglish}/`);
+    await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+      'href',
+      `/books/${edition.chineseBook}/${edition.firstChinese}/`,
+    );
+
+    await page.goto(`${baseUrl}/books/${edition.chineseBook}/`);
+    await expect(page.locator('.book-toc a')).toHaveCount(edition.count);
+
+    await page.goto(`${baseUrl}/books/${edition.chineseBook}/${edition.firstChinese}/`);
+    await expect(page.locator('.article-header h1')).toHaveText(edition.firstTitle);
+    await expect(page.getByRole('link', { name: '阅读英文原文' })).toHaveAttribute(
+      'href',
+      `/books/${edition.englishBook}/${edition.firstEnglish}/`,
+    );
+
+    await page.goto(`${baseUrl}/books/${edition.englishBook}/${edition.lastEnglish}/`);
+    await expect(page.getByRole('link', { name: '阅读中文试译' })).toHaveAttribute(
+      'href',
+      `/books/${edition.chineseBook}/${edition.lastChinese}/`,
+    );
+
+    await page.goto(`${baseUrl}/books/${edition.chineseBook}/${edition.lastChinese}/`);
+    await expect(page.locator('.article-header h1')).toHaveText(edition.lastTitle);
+    await expect(page.getByRole('link', { name: '阅读英文原文' })).toHaveAttribute(
+      'href',
+      `/books/${edition.englishBook}/${edition.lastEnglish}/`,
+    );
+  }
 });
 
 test('Three-Body trilogy shelves as one series with volume-grouped chapter TOCs', async ({

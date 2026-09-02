@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 8
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-17-zh"
 ---
 
 The three of them were to be flown down from Ghost Plateau into a feature about eight hundred kilometres to the planet’s east, which Susan, who among other things had done her best to compile a global map of Goober c, called ‘Xeelee Valley Number Five’.

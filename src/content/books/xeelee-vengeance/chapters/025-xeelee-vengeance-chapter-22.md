@@ -8,6 +8,7 @@ volumeNumber: 3
 volumeTitle: "THREE"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-22-zh"
 ---
 
 She spoke softly and steadily, her account supplemented with details supplied by Gea, who had actually witnessed some of the distant-in-time, resonant events Muriel described.

@@ -8,6 +8,7 @@ volumeNumber: 3
 volumeTitle: "THREE"
 volumeUnitNumber: 4
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-31-zh"
 ---
 
 Poole gave over his apex suite again. And Asher opened the debate with a grand sweep of her arm.

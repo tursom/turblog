@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 7
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-59-zh"
 ---
 
 Well before that final day, as the Xeelee had sailed towards the last stop line at lunar orbit, Nicola Emry and her Monopole Bandits had gathered on the Moon itself, training incessantly, preparing the technology of war.

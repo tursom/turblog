@@ -12,6 +12,8 @@ groupOrder: 40
 seriesOrder: 9
 language: "en"
 editionLabel: "User-supplied English EPUB text"
+alternateEditionSlug: "xeelee-redemption-zh"
+alternateEditionLabel: "中文试译"
 publishedAt: "2018-01-01"
 summary: "Jophiel Poole and the crew of the Cauchy cross deep time in humanity's continuing struggle with the Xeelee."
 sourceUrl: "https://www.stephen-baxter.com/"

@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 13
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-37-zh"
 ---
 
 Twenty-four hours out from Earth – over twenty million kilometres in distance, still fifty times further out from Earth than the Moon – the Probe’s likely impact was narrowed down to a specific corner of the eastern Atlantic Ocean.

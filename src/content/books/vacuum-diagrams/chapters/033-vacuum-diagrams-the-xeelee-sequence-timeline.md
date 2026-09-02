@@ -8,6 +8,7 @@ volumeNumber: 7
 volumeTitle: "PART 7"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-the-xeelee-sequence-timeline-zh"
 ---
 
 Singularity: Big Bang

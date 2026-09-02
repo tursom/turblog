@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-six-zh"
 ---
 
 With the Xeelee there has never been a possibility of negotiation, diplomacy, compromise. None. In fact there has been no contact at all – other than the brutal collision of conflict. The Xeelee ignore us until we do something that disturbs them – and then they stomp on us hard, striking with devastating force until we are subdued. To them we are vermin. Well, the vermin are fighting back.

@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 12
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-43-zh"
 ---
 
 Poole, Jophiel and Nicola took an elevator down from the apex suite to the floor of the lifedome, where a bewildered crew had already scrambled to fix and secure what was left of their ship. For Jophiel this brought back bad memories of the destruction of the Island at Goober’s star.

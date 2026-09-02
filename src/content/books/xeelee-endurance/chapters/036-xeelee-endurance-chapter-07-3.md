@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "GRAVITY DREAMS"
 volumeUnitNumber: 7
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-07-3-zh"
 ---
 
 ‘My name is Coton. Can you hear me?’

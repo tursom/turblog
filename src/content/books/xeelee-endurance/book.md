@@ -12,6 +12,8 @@ groupOrder: 40
 seriesOrder: 7
 language: "en"
 editionLabel: "User-supplied English EPUB text"
+alternateEditionSlug: "xeelee-endurance-zh"
+alternateEditionLabel: "中文试译"
 publishedAt: "2015-01-01"
 summary: "A collection spanning the Xeelee timeline, from Michael Poole and Titan to humanity in the universe's deep future."
 sourceUrl: "https://www.stephen-baxter.com/"

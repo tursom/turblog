@@ -8,6 +8,7 @@ volumeNumber: 3
 volumeTitle: "THREE"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-three-zh"
 ---
 
 We built this marvellous ship . . . We dreamed of saving the species itself. We launched, towards the stars and the future . . . But, unfortunately, we had to take the contents of our heads with us.

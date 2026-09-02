@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 20
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-65-zh"
 ---
 
 Jophiel felt a great sense of relief to be back aboard the flyer, in the air and over an expansive grassland: a sea of rippling grass broken by scattered rivers and lakes, and small clumps of trees, a few rocky outcrops. A sense of release, he thought, to have been lifted out of the shadows of the trees.

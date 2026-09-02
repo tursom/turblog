@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "PART 5"
 volumeUnitNumber: 3
 unitType: "chapter"
+parallelSlug: "vacuum-diagrams-the-tyranny-of-heaven-zh"
 ---
 
 A.D. 171,257

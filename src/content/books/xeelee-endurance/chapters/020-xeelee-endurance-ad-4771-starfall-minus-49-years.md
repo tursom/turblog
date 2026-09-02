@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "STARFALL"
 volumeUnitNumber: 1
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-ad-4771-starfall-minus-49-years-zh"
 ---
 
 ### Between Alpha Centauri and Sol.

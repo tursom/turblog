@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "GRAVITY DREAMS"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-06-3-zh"
 ---
 
 The man with the sharpened teeth anchored his feet in the tree’s foliage and stood straight. His short hair was shaved into elaborate patterns, Lura saw, and a crude zigzag tattoo had been carved into his belly. He leered in triumph. ‘Take the girl,’ he said, his language coarse and heavily accented but recognisable. ‘She looks worth a hump.’

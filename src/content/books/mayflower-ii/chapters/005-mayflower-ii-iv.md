@@ -5,6 +5,7 @@ slug: "mayflower-ii-iv"
 title: "IV"
 sourcePath: "Mayflower_II_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 08 - Mayflower II_split_004.html"
 unitType: "chapter"
+parallelSlug: "mayflower-ii-iv-zh"
 ---
 
 With the ice exhausted, the Ship’s banks of engines were shut down. From now on a dark matter ramjet would provide a comparatively gentle but enduring thrust.

@@ -5,6 +5,7 @@ slug: "mayflower-ii-viii"
 title: "VIII"
 sourcePath: "Mayflower_II_-_Stephen_Baxter.epub#Stephen Baxter - Xeelee 08 - Mayflower II_split_008.html"
 unitType: "chapter"
+parallelSlug: "mayflower-ii-viii-zh"
 ---
 
 Some time after that, there was a decimating plague.

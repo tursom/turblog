@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "ENDURANCE"
 volumeUnitNumber: 6
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-06-2-zh"
 ---
 
 As with every significant event in the human world – every event approved of by the Qax, at least – the Interface completion ceremony in Jovian orbit was saturated with coverage, with multiple sound feeds and images taken from every conceivable angle.

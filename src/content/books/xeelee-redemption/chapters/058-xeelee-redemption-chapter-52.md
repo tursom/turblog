@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 7
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-52-zh"
 ---
 
 Up close the woman was surprisingly small in stature. Jophiel might have mistaken her for a ten-year-old among the crew. But she was clearly much older than that, lithe, strong-looking, and her hair was a scraped-short frizz of grey curls.

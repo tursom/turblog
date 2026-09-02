@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 11
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-35-zh"
 ---
 
 ‘This is Grantt, of the Cydonia Aboriginal Biology Institute, University of Kahra. Recording my uninformed observations for posterity, I suppose. The date and time . . . well, you’ll have those from the recording stamp.

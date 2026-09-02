@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 10
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-62-zh"
 ---
 
 Earth came through the wormhole with its ocean, atmosphere, cargo of life more or less intact, dragged through by gravity. And through too came craft in the air and near-Earth space at the time, a handful of low-orbit satellites and habitats. At first all was confusion, as these craft – and their controllers on the ground, in the air and in space – tried to figure out where they were.

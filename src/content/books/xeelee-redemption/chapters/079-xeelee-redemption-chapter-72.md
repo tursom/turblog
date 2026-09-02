@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 8
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-72-zh"
 ---
 
 Once he was inside the structure himself – inside a huge blue box, like an abstract cathedral, flooded with sourceless light – Jophiel found his unreal heart beating fast.

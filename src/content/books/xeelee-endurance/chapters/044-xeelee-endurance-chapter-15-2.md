@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "GRAVITY DREAMS"
 volumeUnitNumber: 15
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-15-2-zh"
 ---
 
 Marshal Sand stood before the coffin-box, set on end in the flitter cabin, which would serve as the terminal of the transfer. An armed guard stood by.

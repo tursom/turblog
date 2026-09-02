@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "ONE"
 volumeUnitNumber: 8
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-07-zh"
 ---
 
 A beach, this time.

@@ -8,6 +8,7 @@ volumeNumber: 5
 volumeTitle: "FIVE"
 volumeUnitNumber: 11
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-56-zh"
 ---
 
 On the third day, a rough expedition assembled. It was going to take about a day, they were told, to reach the Library by the Great River.

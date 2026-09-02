@@ -8,6 +8,7 @@ volumeNumber: 6
 volumeTitle: "SIX"
 volumeUnitNumber: 9
 unitType: "chapter"
+parallelSlug: "xeelee-redemption-chapter-73-zh"
 ---
 
 They stepped through, one after another.

@@ -8,6 +8,7 @@ volumeNumber: 2
 volumeTitle: "TWO"
 volumeUnitNumber: 14
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-19-zh"
 ---
 
 Poole took one look out of the faux-transparent hull.

@@ -8,6 +8,7 @@ volumeNumber: 1
 volumeTitle: "RETURN TO TITAN"
 volumeUnitNumber: 13
 unitType: "chapter"
+parallelSlug: "xeelee-endurance-chapter-12-zh"
 ---
 
 Now that the walls were gone from under its limbs I could feel that the spider was swimming, or perhaps somehow jetting, ever deeper into that gloopy sea, while the three of us held on for our lives.

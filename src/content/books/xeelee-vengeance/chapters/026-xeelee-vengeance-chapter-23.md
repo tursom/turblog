@@ -8,6 +8,7 @@ volumeNumber: 3
 volumeTitle: "THREE"
 volumeUnitNumber: 5
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-23-zh"
 ---
 
 In the months that followed, the Cache was cautiously and discreetly tracked as it continued to follow that lazy spiral outward, a twisting groove cut through the plane of the ecliptic, the plane of the planets’ orbits. Its motion was obviously under motive power, but the nature of that power remained a mystery.

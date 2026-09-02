@@ -8,6 +8,7 @@ volumeNumber: 4
 volumeTitle: "FOUR"
 volumeUnitNumber: 15
 unitType: "chapter"
+parallelSlug: "xeelee-vengeance-chapter-39-zh"
 ---
 
 The Probe came down at approximately latitude thirty degrees north, twenty degrees west. This was in the eastern Atlantic, not far west of the Canary Islands. Poole saw it from space: a brilliant spark of light that must have been the hull plate-clad diamond block hitting the sea floor, flash-vaporising ocean-bottom muck and rock as easily as its sibling had scattered Martian dry-ice snow. And he supposed that, even as the consequences of that impact unfolded, the Probe itself survived, embedded deep in the Earth, just as its sibling was now lodged somewhere inside the carcass of Mars.
