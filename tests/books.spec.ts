@@ -170,6 +170,18 @@ test('book shelf groups series and filters books locally', async ({ page }) => {
   await expect(page.getByRole('link', { name: '小叶同人', exact: true })).toHaveCount(1);
   await expect(page.locator('a[href="/posts/go-atomic-generics/"]')).toHaveCount(0);
 
+  const privateBook = page.locator('[data-book-group][aria-labelledby="book-group-wuaa-xiao-ye"]');
+  const privateSummaryPhrase = '纯虚构 OC 沈序';
+  await expect(privateBook).not.toContainText(privateSummaryPhrase);
+  expect(await privateBook.getAttribute('data-search')).not.toContain(privateSummaryPhrase);
+
+  const publicBook = page.locator(
+    '[data-book-group][aria-labelledby="book-group-guns-germs-steel"]',
+  );
+  await expect(publicBook.locator('.book-group-summary')).toHaveText(
+    '关于人类社会差异、农业、技术与历史发展路径的综合历史论述。',
+  );
+
   const textbookSeries = page.locator('[data-book-group]', { hasText: '道德与法治' });
   await expect(textbookSeries.locator('.book-edition-list li')).toHaveCount(6);
 
@@ -191,6 +203,14 @@ test('book shelf groups series and filters books locally', async ({ page }) => {
   ]);
 
   const search = page.getByRole('searchbox', { name: '搜索图书' });
+  await search.fill(privateSummaryPhrase);
+  await expect(page.locator('[data-book-group]:visible')).toHaveCount(0);
+  await expect(page.getByText('没有符合条件的图书。')).toBeVisible();
+
+  await search.fill('人类社会差异');
+  await expect(page.locator('[data-book-group]:visible')).toHaveCount(1);
+  await expect(publicBook).toBeVisible();
+
   await search.fill('德文原文');
   await expect(page.locator('[data-book-group]:visible')).toHaveCount(1);
   await expect(page.getByText('1 组', { exact: true })).toBeVisible();

@@ -28,7 +28,7 @@ const { book } = Astro.props;
     <span class="section-kicker">BOOK</span>
     <h2><a href={bookPath(book)}>{book.data.title}</a></h2>
     {book.data.subtitle && <p class="book-subtitle">{book.data.subtitle}</p>}
-    <p>{book.data.summary}</p>
+    {!book.data.private && <p>{book.data.summary}</p>}
     <div class="book-card-meta">
       <span>{book.data.author}</span>
       <span>{book.data.chapterCount} 个阅读单元</span>

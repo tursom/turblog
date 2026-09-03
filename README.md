@@ -87,7 +87,7 @@ Xeelee 中文版采用保留英文原文的独立书目与逐章双向互链。�
 
 ### 图书访问控制
 
-书架 `/books/` 保持公开。访问规则由书籍自身的 `book.md` 元数据决定：设置 `private: true` 的书籍，其详情页 `/books/<book-slug>/` 和章节页 `/books/<book-slug>/<chapter-slug>/` 均由 Go 服务强制鉴权；未设置或设置为 `false` 的图书页面直接公开。Astro 构建时会根据内容集合自动生成访问清单，Go 服务从同一镜像读取它。当前 13 本中学政治教材已标记为私有。
+书架 `/books/` 保持公开，但私有书籍只展示书名、作者、版本和阅读单元数量，不会把简介渲染到页面或本地搜索索引中。访问规则由书籍自身的 `book.md` 元数据决定：设置 `private: true` 的书籍，其详情页 `/books/<book-slug>/` 和章节页 `/books/<book-slug>/<chapter-slug>/` 均由 Go 服务强制鉴权；未设置或设置为 `false` 的图书页面直接公开。Astro 构建时会根据内容集合自动生成访问清单，Go 服务从同一镜像读取它。当前 13 本中学政治教材已标记为私有。
 
 新增需要保护的书籍时，在对应的 `src/content/books/<book-slug>/book.md` Front Matter 中设置：
 
