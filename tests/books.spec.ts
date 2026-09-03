@@ -32,6 +32,7 @@ const privateBookSlugs = [
   'xeelee-redemption-zh',
   'xeelee-raft',
   'si-ren-jian-1',
+  'wuaa-xiao-ye',
   'daode-yu-fazhi-7-shang',
   'daode-yu-fazhi-7-xia',
   'daode-yu-fazhi-8-shang',
@@ -164,8 +165,9 @@ test('book shelf groups series and filters books locally', async ({ page }) => {
   await page.goto(`${baseUrl}/books/`);
 
   await expect(page.locator('h1')).toHaveText('图书');
-  await expect(page.locator('[data-book-group]')).toHaveCount(8);
+  await expect(page.locator('[data-book-group]')).toHaveCount(10);
   await expect(page.getByRole('link', { name: '枪炮、病菌与钢铁', exact: true })).toHaveCount(1);
+  await expect(page.getByRole('link', { name: '小叶同人', exact: true })).toHaveCount(1);
   await expect(page.locator('a[href="/posts/go-atomic-generics/"]')).toHaveCount(0);
 
   const textbookSeries = page.locator('[data-book-group]', { hasText: '道德与法治' });

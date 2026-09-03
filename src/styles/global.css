@@ -1560,6 +1560,28 @@ img {
   background: var(--surface);
 }
 
+.prose figure {
+  margin: 28px 0;
+}
+
+.prose figure img {
+  margin: 0 auto;
+  max-height: min(72vh, 720px);
+  width: auto;
+  max-width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+.prose figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .prose table {
   width: 100%;
   margin: 28px 0;
