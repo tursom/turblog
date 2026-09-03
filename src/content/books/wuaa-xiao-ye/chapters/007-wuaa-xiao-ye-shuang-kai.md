@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 5
+chapterNumber: 7
 slug: "wuaa-xiao-ye-shuang-kai"
 title: "双开"
 sourcePath: "original"

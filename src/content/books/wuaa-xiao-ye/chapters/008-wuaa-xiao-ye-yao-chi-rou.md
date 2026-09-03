@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 6
+chapterNumber: 8
 slug: "wuaa-xiao-ye-yao-chi-rou"
 title: "要吃肉"
 sourcePath: "original"

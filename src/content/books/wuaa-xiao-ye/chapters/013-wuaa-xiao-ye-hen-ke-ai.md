@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 11
+chapterNumber: 13
 slug: "wuaa-xiao-ye-hen-ke-ai"
 title: "很可爱"
 sourcePath: "original"

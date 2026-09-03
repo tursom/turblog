@@ -12,11 +12,11 @@ seriesOrder: 1
 language: "zh-CN"
 editionLabel: "授权二创"
 publishedAt: "2026-09-03"
-summary: "获 wuaa_小叶 本人授权的二创同人。卷「同人」收人设正典与大纲；卷一《打烊之后》正文八章完：翻车→双开→要吃肉→打烊→侍奉→播放中→配信中→很可爱。双男娘恋爱 · 直白，两个人都成年，按大纲默认值写成。"
+summary: "获 wuaa_小叶 本人授权的二创同人。卷「同人」收人设正典（小叶、tursom、沈序）与大纲（卷一《打烊之后》已完、卷二《沉钩》待写）。卷一正文八章完：翻车→双开→要吃肉→打烊→侍奉→播放中→配信中→很可爱（书章 06–13）。卷二《沉钩》：新增纯虚构 OC 沈序，tursom 线上被钓、自愿雌堕、把小叶交给主人；小叶被强制调教。双男娘 + 男主 · 直白成人，两个人都成年，按大纲默认值写成。"
 sourceUrl: "https://space.bilibili.com/392666548"
 sourceName: "Bilibili wuaa_小叶"
 rightsNotice: "小叶角色形象属于 wuaa_小叶；tursom 人设为站点主人自有。正文为获小叶本人授权的二创同人，仅供站点主人私人阅读，勿公开传播或再分发。"
 cover: "/images/books/wuaa-xiao-ye/cover.jpg"
 volumeCount: 2
-chapterCount: 11
+chapterCount: 13
 ---

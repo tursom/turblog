@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 10
+chapterNumber: 12
 slug: "wuaa-xiao-ye-pei-xin-zhong"
 title: "配信中"
 sourcePath: "original"

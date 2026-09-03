@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 8
+chapterNumber: 10
 slug: "wuaa-xiao-ye-shi-feng"
 title: "侍奉"
 sourcePath: "original"
