@@ -162,16 +162,16 @@ func (s *server) proxyContent(response http.ResponseWriter, request *http.Reques
 		writeError(response, http.StatusServiceUnavailable, "content_unavailable", "content upstream is unavailable")
 		return
 	}
-	if s.isProtectedBookChapter(request.URL.Path) && !s.hasBookAccess(request) {
+	if s.isProtectedBookContent(request.URL.Path) && !s.hasBookAccess(request) {
 		s.serveBookAccess(response)
 		return
 	}
 	s.proxy.ServeHTTP(response, request)
 }
 
-func (s *server) isProtectedBookChapter(path string) bool {
-	bookSlug, isBookChapter := catalog.BookSlugFromChapterPath(path)
-	if !isBookChapter {
+func (s *server) isProtectedBookContent(path string) bool {
+	bookSlug, isBookContent := catalog.BookSlugFromContentPath(path)
+	if !isBookContent {
 		return false
 	}
 	_, protected := s.privateBookSlugs[bookSlug]
@@ -183,7 +183,7 @@ func (s *server) recordArticleView(upstreamResponse *http.Response) error {
 	if strings.HasPrefix(request.URL.Path, "/posts/") || strings.HasPrefix(request.URL.Path, "/books/") {
 		upstreamResponse.Header.Set("Cache-Control", "private, no-cache, must-revalidate")
 	}
-	if s.isProtectedBookChapter(request.URL.Path) {
+	if s.isProtectedBookContent(request.URL.Path) {
 		upstreamResponse.Header.Set("Referrer-Policy", "no-referrer")
 		upstreamResponse.Header.Add("Vary", "Cookie")
 	}

@@ -13,6 +13,8 @@ import (
 	"net/http"
 	"strings"
 	"time"
+
+	"github.com/tursom/turblog/server/internal/catalog"
 )
 
 const (
@@ -202,11 +204,11 @@ func (s *server) grantBookAccess(response http.ResponseWriter, request *http.Req
 		writeError(response, http.StatusBadRequest, "invalid_request", "request body must contain one valid JSON object")
 		return
 	}
-	if !s.isProtectedBookChapter(access.Path) {
+	if !s.isProtectedBookContent(access.Path) {
 		writeError(response, http.StatusBadRequest, "book_access_not_required", "book does not require access authorization")
 		return
 	}
-	if _, ok := s.catalog.BookChapterIDFromPath(access.Path); !ok {
+	if !s.catalog.ContainsBookContentPath(access.Path) {
 		writeError(response, http.StatusForbidden, "invalid_book_access", "book access token is invalid")
 		return
 	}
@@ -274,12 +276,12 @@ func (s *server) createBookShareToken(response http.ResponseWriter, request *htt
 		writeError(response, http.StatusBadRequest, "invalid_request", "request body must contain one valid JSON object")
 		return
 	}
-	if !s.isProtectedBookChapter(share.Path) {
+	if !s.isProtectedBookContent(share.Path) {
 		writeError(response, http.StatusBadRequest, "book_access_not_required", "book does not require access authorization")
 		return
 	}
-	if _, ok := s.catalog.BookChapterIDFromPath(share.Path); !ok {
-		writeError(response, http.StatusBadRequest, "invalid_book_path", "book chapter path is invalid")
+	if !s.catalog.ContainsBookContentPath(share.Path) {
+		writeError(response, http.StatusBadRequest, "invalid_book_path", "book content path is invalid")
 		return
 	}
 	response.Header().Set("Cache-Control", "no-store")
@@ -294,8 +296,20 @@ func (s *server) hasBookAccess(request *http.Request) bool {
 	if s.hasBookOwnerAccess(request) {
 		return true
 	}
-	cookie, err := request.Cookie(bookAccessCookieName)
-	return err == nil && s.validBookAccessToken(request.URL.Path, cookie.Value)
+	bookSlug, isBookContent := catalog.BookSlugFromContentPath(request.URL.Path)
+	if !isBookContent {
+		return false
+	}
+	bookPath := "/books/" + bookSlug + "/"
+	for _, cookie := range request.Cookies() {
+		if cookie.Name != bookAccessCookieName {
+			continue
+		}
+		if s.validBookAccessToken(request.URL.Path, cookie.Value) || s.validBookAccessToken(bookPath, cookie.Value) {
+			return true
+		}
+	}
+	return false
 }
 
 func (s *server) hasBookOwnerAccess(request *http.Request) bool {

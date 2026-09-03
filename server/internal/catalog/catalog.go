@@ -14,6 +14,7 @@ import (
 
 var articlePathPattern = regexp.MustCompile(`^/posts/([a-z0-9]+(?:-[a-z0-9]+)*)/$`)
 var bookSlugPattern = regexp.MustCompile(`^[a-z0-9]+(?:-[a-z0-9]+)*$`)
+var bookDetailPathPattern = regexp.MustCompile(`^/books/([a-z0-9]+(?:-[a-z0-9]+)*)/$`)
 var bookChapterPathPattern = regexp.MustCompile(`^/books/([a-z0-9]+(?:-[a-z0-9]+)*)/([a-z0-9]+(?:-[a-z0-9]+)*)/$`)
 
 type sitemap struct {
@@ -61,13 +62,18 @@ func Load(path string) (*Catalog, error) {
 			articles.slugs[matches[1]] = struct{}{}
 			continue
 		}
-		bookMatches := bookChapterPathPattern.FindStringSubmatch(location.EscapedPath())
-		if len(bookMatches) == 3 {
-			articles.bookSlugs[bookMatches[1]] = struct{}{}
-			articles.bookChapters[bookMatches[1]+"/"+bookMatches[2]] = struct{}{}
+		bookDetailMatches := bookDetailPathPattern.FindStringSubmatch(location.EscapedPath())
+		if len(bookDetailMatches) == 2 {
+			articles.bookSlugs[bookDetailMatches[1]] = struct{}{}
+			continue
+		}
+		bookChapterMatches := bookChapterPathPattern.FindStringSubmatch(location.EscapedPath())
+		if len(bookChapterMatches) == 3 {
+			articles.bookSlugs[bookChapterMatches[1]] = struct{}{}
+			articles.bookChapters[bookChapterMatches[1]+"/"+bookChapterMatches[2]] = struct{}{}
 		}
 	}
-	if len(articles.slugs) == 0 && len(articles.bookChapters) == 0 {
+	if len(articles.slugs) == 0 && len(articles.bookSlugs) == 0 && len(articles.bookChapters) == 0 {
 		return nil, errors.New("sitemap contains no absolute content URLs")
 	}
 	return articles, nil
@@ -122,12 +128,22 @@ func ensureJSONEnd(decoder *json.Decoder) error {
 	return nil
 }
 
-func BookSlugFromChapterPath(path string) (string, bool) {
-	matches := bookChapterPathPattern.FindStringSubmatch(path)
-	if len(matches) != 3 {
-		return "", false
+func BookSlugFromContentPath(path string) (string, bool) {
+	if matches := bookDetailPathPattern.FindStringSubmatch(path); len(matches) == 2 {
+		return matches[1], true
 	}
-	return matches[1], true
+	if matches := bookChapterPathPattern.FindStringSubmatch(path); len(matches) == 3 {
+		return matches[1], true
+	}
+	return "", false
+}
+
+func (c *Catalog) ContainsBookContentPath(path string) bool {
+	if matches := bookDetailPathPattern.FindStringSubmatch(path); len(matches) == 2 {
+		return c.ContainsBook(matches[1])
+	}
+	_, ok := c.BookChapterIDFromPath(path)
+	return ok
 }
 
 func (c *Catalog) BookChapterIDFromPath(path string) (string, bool) {

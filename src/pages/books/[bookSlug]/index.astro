@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import SiteLayout from '@/layouts/SiteLayout.astro';
+import BookShareButton from '@/components/BookShareButton.astro';
 import BookToc from '@/components/BookToc.astro';
 import { getBookChapters, type Book } from '@/lib/books';
 
@@ -92,6 +93,7 @@ const { book, chapters } = Astro.props;
           rel="noreferrer">{book.data.sourceName} ↗</a
         >
       </p>
+      {book.data.private && <BookShareButton label="复制全书分享链接" />}
     </div>
   </section>
   <section class="book-outline" aria-labelledby="book-outline-heading">

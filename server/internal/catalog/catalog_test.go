@@ -50,7 +50,9 @@ func TestLoadExtractsOnlyCanonicalArticleSlugs(t *testing.T) {
   <url><loc>https://blog.tursom.dev/</loc></url>
   <url><loc>https://blog.tursom.dev/posts/go-atomic-generics/</loc></url>
   <url><loc>https://blog.tursom.dev/posts/row-linked-list/</loc></url>
+  <url><loc>https://blog.tursom.dev/books/guns-germs-steel/</loc></url>
   <url><loc>https://blog.tursom.dev/books/guns-germs-steel/chapter-01/</loc></url>
+  <url><loc>https://blog.tursom.dev/books/detail-only/</loc></url>
   <url><loc>https://blog.tursom.dev/posts/nested/not-an-article/</loc></url>
   <url><loc>https://blog.tursom.dev/tags/go/</loc></url>
 </urlset>`
@@ -68,8 +70,20 @@ func TestLoadExtractsOnlyCanonicalArticleSlugs(t *testing.T) {
 	if articles.Contains("nested/not-an-article") {
 		t.Fatal("catalog accepted a nested non-canonical article path")
 	}
-	if !articles.ContainsBook("guns-germs-steel") || articles.ContainsBook("missing-book") {
+	if !articles.ContainsBook("guns-germs-steel") || !articles.ContainsBook("detail-only") || articles.ContainsBook("missing-book") {
 		t.Fatalf("book membership is incorrect")
+	}
+	if slug, ok := catalog.BookSlugFromContentPath("/books/guns-germs-steel/"); !ok || slug != "guns-germs-steel" {
+		t.Fatalf("book detail slug = %q, ok=%v", slug, ok)
+	}
+	if slug, ok := catalog.BookSlugFromContentPath("/books/guns-germs-steel/chapter-01/"); !ok || slug != "guns-germs-steel" {
+		t.Fatalf("book chapter slug = %q, ok=%v", slug, ok)
+	}
+	if !articles.ContainsBookContentPath("/books/guns-germs-steel/") || !articles.ContainsBookContentPath("/books/guns-germs-steel/chapter-01/") {
+		t.Fatal("catalog does not contain expected book content paths")
+	}
+	if articles.ContainsBookContentPath("/books/guns-germs-steel/chapter-02/") || articles.ContainsBookContentPath("/books/missing-book/") {
+		t.Fatal("catalog accepted an unknown book content path")
 	}
 	if id, ok := articles.BookChapterIDFromPath("/books/guns-germs-steel/chapter-01/"); !ok || id != "guns-germs-steel/chapter-01" {
 		t.Fatalf("book chapter id = %q, ok=%v", id, ok)

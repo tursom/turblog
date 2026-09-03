@@ -85,9 +85,9 @@ Xeelee 中文版采用保留英文原文的独立书目与逐章双向互链。�
 
 中学政治课本由专用导入器 `pnpm import:textbooks` 生成：初中《道德与法治》六三制各册与高中《思想政治》必修/选择性必修各册，正文来自国家中小学智慧教育平台（basic.smartedu.cn）官方电子教材 PDF 的文本层，按「单元 / 课 / 框」结构整理成书籍与章节 Markdown，封面取 PDF 首页。官方电子教材版权页及每页均标注“仅供个人学习使用，未经授权不得另做他用”，本仓库整理版本同样仅限本地个人学习使用，请勿公开部署或传播；正文插图未收录。个别册次（如最新修订版下册）在平台上仅存于需登录鉴权的存储桶，导入器会跳过并在结束时报告，届时请更换为公开的册次或以其他方式获取。
 
-### 图书章节访问控制
+### 图书访问控制
 
-书架 `/books/`、每本书的资料页和目录页保持公开。章节访问由书籍自身的 `book.md` 元数据决定：设置 `private: true` 的书籍，其 `/books/<book-slug>/<chapter-slug>/` 页面由 Go 服务强制鉴权；未设置或设置为 `false` 的图书章节直接公开。Astro 构建时会根据内容集合自动生成访问清单，Go 服务从同一镜像读取它。当前 13 本中学政治教材已标记为私有。
+书架 `/books/` 保持公开。访问规则由书籍自身的 `book.md` 元数据决定：设置 `private: true` 的书籍，其详情页 `/books/<book-slug>/` 和章节页 `/books/<book-slug>/<chapter-slug>/` 均由 Go 服务强制鉴权；未设置或设置为 `false` 的图书页面直接公开。Astro 构建时会根据内容集合自动生成访问清单，Go 服务从同一镜像读取它。当前 13 本中学政治教材已标记为私有。
 
 新增需要保护的书籍时，在对应的 `src/content/books/<book-slug>/book.md` Front Matter 中设置：
 
@@ -95,17 +95,18 @@ Xeelee 中文版采用保留英文原文的独立书目与逐章双向互链。�
 private: true
 ```
 
-受保护章节先使用 60 万轮 `PBKDF2-HMAC-SHA-256` 从 `TURBLOG_BOOK_ACCESS_PASSWORD` 派生签名密钥，再以 `HMAC-SHA-256(派生密钥, 章节规范路径)` 生成章节令牌，因此一个分享令牌只能打开一个精确路径。慢速派生能提高离线猜测分享令牌的成本，但不能弥补过弱的口令。
+受保护页面先使用 60 万轮 `PBKDF2-HMAC-SHA-256` 从 `TURBLOG_BOOK_ACCESS_PASSWORD` 派生签名密钥，再以 `HMAC-SHA-256(派生密钥, 页面规范路径)` 生成页面令牌。详情页令牌授予同一本书的详情和全部章节访问权，适合分享整本书；章节页令牌仍只允许打开对应章节。慢速派生能提高离线猜测分享令牌的成本，但不能弥补过弱的口令。
 
-在锁定页直接输入主口令会换取作用于 `/books/`、持续 30 天的 HttpOnly 主人 Cookie，浏览器在此期间可以连续阅读所有受保护章节。首次解锁后，当前地址栏会保留精确到本章的 `#access=...` 分享令牌；以后可在任意受保护章节点击“复制本章分享链接”，由主人 Cookie 为当前路径签发令牌并写入地址栏。分享链接的 fragment 不会发送给 Nginx、Cloudflare 或外部站点，并且只能换取当前章节路径的 HttpOnly Cookie。通过他人分享链接进入时，页面会在完成授权后清除 fragment。
+在锁定页直接输入主口令会换取作用于 `/books/`、持续 30 天的 HttpOnly 主人 Cookie，浏览器在此期间可以连续阅读所有受保护的图书详情和章节。私有图书详情页提供“复制全书分享链接”，朋友打开后可阅读该书详情和所有章节；章节页的“复制本章分享链接”只授予当前章节权限。分享链接的 fragment 不会发送给 Nginx、Cloudflare 或外部站点，并会在完成授权后从地址栏清除。
 
 在 `.env` 中配置至少 8 个字符的可记忆口令，建议使用由多个无关词组成的长短语，而不是常见单词、生日或连续数字。修改书籍的 `private` 元数据后重新构建并部署镜像即可，不需要修改环境变量。可从锁定页输入口令并复制分享链接，也可在项目目录生成：
 
 ```bash
+pnpm book:share /books/daode-yu-fazhi-7-shang/
 pnpm book:share /books/daode-yu-fazhi-7-shang/daode-yu-fazhi-7-shang-lesson-01/
 ```
 
-`book:share` 从对应书籍的 `book.md` 读取 `private` 标记，并从 `.env` 读取 `TURBLOG_BOOK_ACCESS_PASSWORD` 和 `PUBLIC_SITE_URL`；它会拒绝为公开书籍生成分享链接。轮换主密码会立即使所有受保护章节的旧分享链接和 Cookie 失效。生产环境必须使用 HTTPS，否则浏览器的 Web Crypto 和安全传输边界无法成立。
+`book:share` 从对应书籍的 `book.md` 读取 `private` 标记，并从 `.env` 读取 `TURBLOG_BOOK_ACCESS_PASSWORD` 和 `PUBLIC_SITE_URL`；它会拒绝为公开书籍生成分享链接。轮换主密码会立即使所有受保护图书页面的旧分享链接和 Cookie 失效。生产环境必须使用 HTTPS，否则浏览器的 Web Crypto 和安全传输边界无法成立。
 
 这是一层线上访问控制，不会加密 Git 历史、Markdown 源文件、Docker 镜像或 `public/images/books/` 下可直接访问的图片。当前图书文件已被 Git 跟踪，公开仓库或公开 GHCR 镜像仍会泄露正文；真正的私人数据必须移出公开 Git 历史并使用私有镜像/私有内容存储，图片也需要另行迁入受保护的内容接口。
 
@@ -139,7 +140,7 @@ go test -race ./...
 
 ## 容器部署
 
-Dockerfile 同时构建 Astro 静态站点和 `turblog-server`，并将两者放入同一个 Nginx 运行镜像。Compose 使用该镜像启动 `blog` 和 `server` 两个容器，入口代理把 `/posts/*`、`/books/*` 和 `/api/v1/*` 交给 Go；其他页面和静态资源直达 `blog`。Go 不可用时，普通文章会回退到 `blog`，但 `/books/*` 会失败关闭，避免绕过章节鉴权。
+Dockerfile 同时构建 Astro 静态站点和 `turblog-server`，并将两者放入同一个 Nginx 运行镜像。Compose 使用该镜像启动 `blog` 和 `server` 两个容器，入口代理把 `/posts/*`、`/books/*` 和 `/api/v1/*` 交给 Go；其他页面和静态资源直达 `blog`。Go 不可用时，普通文章会回退到 `blog`，但 `/books/*` 会失败关闭，避免绕过图书鉴权。
 
 本地 Compose 默认监听 `8080`：
 
@@ -171,7 +172,7 @@ TURBLOG_VISITOR_HASH_KEY=replace-with-output-of-openssl-rand-hex-32
 TURBLOG_BOOK_ACCESS_PASSWORD=choose-a-memorable-passphrase
 ```
 
-用 `openssl rand -hex 32` 生成 `TURBLOG_VISITOR_HASH_KEY`；`TURBLOG_BOOK_ACCESS_PASSWORD` 使用至少 8 个字符且便于记忆的长短语。两者都要长期保存且不要提交。书籍 Front Matter 的 `private` 字段是唯一决定哪些书需要鉴权的标记；构建出的访问清单缺失或无效时 Go 服务会拒绝启动。轮换统计密钥会让同一访客在轮换当天可能再次计数；轮换图书口令或令牌派生版本会使全部受保护章节的分享链接失效。然后拉取镜像并同步服务：
+用 `openssl rand -hex 32` 生成 `TURBLOG_VISITOR_HASH_KEY`；`TURBLOG_BOOK_ACCESS_PASSWORD` 使用至少 8 个字符且便于记忆的长短语。两者都要长期保存且不要提交。书籍 Front Matter 的 `private` 字段是唯一决定哪些书需要鉴权的标记；构建出的访问清单缺失或无效时 Go 服务会拒绝启动。轮换统计密钥会让同一访客在轮换当天可能再次计数；轮换图书口令或令牌派生版本会使全部受保护图书页面的分享链接失效。然后拉取镜像并同步服务：
 
 ```bash
 docker compose pull
@@ -189,7 +190,7 @@ docker compose ps
 
 ### Cloudflare 缓存
 
-在 Cloudflare Cache Rules 中增加一条规则：当 URI Path 以 `/posts/` 或 `/books/` 开头时，将 Cache eligibility 设为 **Bypass cache**。Go 和入口 Nginx 也会为文章、图书章节响应设置 `private, no-cache, must-revalidate`，但 Cloudflare 规则仍是确保每次内容访问到达源站的必要配置。其他静态资源继续使用现有缓存策略。
+在 Cloudflare Cache Rules 中增加一条规则：当 URI Path 以 `/posts/` 或 `/books/` 开头时，将 Cache eligibility 设为 **Bypass cache**。Go 和入口 Nginx 也会为文章和图书内容响应设置 `private, no-cache, must-revalidate`，但 Cloudflare 规则仍是确保每次内容访问到达源站的必要配置。其他静态资源继续使用现有缓存策略。
 
 入口 Nginx 只接受 Cloudflare 官方 IP 网段发来的 `CF-Connecting-IP`，直接访问源站时会忽略调用者伪造的客户端 IP 头。Cloudflare 更新 [IP ranges](https://www.cloudflare.com/ips/) 后应同步更新 Compose 中的 `set_real_ip_from` 列表；生产防火墙仍建议只允许 Cloudflare 和运维来源访问源站端口。
 

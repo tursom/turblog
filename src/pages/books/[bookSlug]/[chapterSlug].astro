@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import SiteLayout from '@/layouts/SiteLayout.astro';
 import BookChapterViewCounts from '@/components/BookChapterViewCounts.astro';
 import BookReaderNav from '@/components/BookReaderNav.astro';
+import BookShareButton from '@/components/BookShareButton.astro';
 import BookToc from '@/components/BookToc.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
 import {
@@ -119,16 +120,7 @@ const pageTitle = `${chapter.data.title} · ${book.data.title}`;
             </p>
           )
         }
-        {
-          book.data.private && (
-            <div class="book-share-actions">
-              <button class="button-link secondary" type="button" data-book-share>
-                复制本章分享链接
-              </button>
-              <span class="book-share-status" data-book-share-status aria-live="polite" />
-            </div>
-          )
-        }
+        {book.data.private && <BookShareButton label="复制本章分享链接" />}
       </header>
       <details class="mobile-toc">
         <summary>本书目录</summary>
@@ -178,43 +170,5 @@ const pageTitle = `${chapter.data.title} · ${book.data.title}`;
         );
       } catch {}
     }
-
-    const shareButton = document.querySelector<HTMLButtonElement>('[data-book-share]');
-    const shareStatus = document.querySelector<HTMLElement>('[data-book-share-status]');
-
-    async function copyShareText(text: string) {
-      if (!navigator.clipboard?.writeText) throw new Error('clipboard unavailable');
-      await navigator.clipboard.writeText(text);
-    }
-
-    shareButton?.addEventListener('click', async () => {
-      let linkInAddressBar = false;
-      shareButton.disabled = true;
-      if (shareStatus) shareStatus.textContent = '正在生成…';
-      try {
-        const response = await fetch('/books/_access/share', {
-          method: 'POST',
-          credentials: 'same-origin',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ path: location.pathname }),
-        });
-        if (!response.ok) throw new Error('share access denied');
-        const payload = (await response.json()) as { token?: string };
-        if (!payload.token) throw new Error('share token missing');
-        const fragment = `#access=${payload.token}`;
-        const link = `${location.origin}${location.pathname}${fragment}`;
-        history.replaceState(null, '', `${location.pathname}${location.search}${fragment}`);
-        linkInAddressBar = true;
-        await copyShareText(link);
-        if (shareStatus) shareStatus.textContent = '链接已复制';
-      } catch {
-        if (shareStatus)
-          shareStatus.textContent = linkInAddressBar
-            ? '链接已写入地址栏，请手动复制'
-            : '请使用主密码登录后重试';
-      } finally {
-        shareButton.disabled = false;
-      }
-    });
   </script>
 </SiteLayout>

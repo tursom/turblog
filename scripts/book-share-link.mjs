@@ -9,24 +9,26 @@ if (existsSync('.env')) process.loadEnvFile('.env');
 
 const input = process.argv[2];
 if (!input) {
-  console.error('Usage: pnpm book:share /books/<book-slug>/<chapter-slug>/');
+  console.error('Usage: pnpm book:share /books/<book-slug>/[<chapter-slug>/]');
   process.exit(1);
 }
 
-let chapterPath;
+let contentPath;
 try {
-  chapterPath = new URL(input, 'https://turblog.local').pathname;
+  contentPath = new URL(input, 'https://turblog.local').pathname;
 } catch {
-  console.error(`Invalid chapter path: ${input}`);
+  console.error(`Invalid book content path: ${input}`);
   process.exit(1);
 }
 
-if (!/^\/books\/[a-z0-9]+(?:-[a-z0-9]+)*\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/.test(chapterPath)) {
-  console.error('Chapter path must match /books/<book-slug>/<chapter-slug>/ and end with a slash.');
+if (!/^\/books\/[a-z0-9]+(?:-[a-z0-9]+)*\/(?:[a-z0-9]+(?:-[a-z0-9]+)*\/)?$/.test(contentPath)) {
+  console.error(
+    'Book content path must match /books/<book-slug>/ or /books/<book-slug>/<chapter-slug>/ and end with a slash.',
+  );
   process.exit(1);
 }
 
-const bookSlug = chapterPath.split('/')[2];
+const bookSlug = contentPath.split('/')[2];
 let metadata;
 try {
   const source = await readFile(resolve('src/content/books', bookSlug, 'book.md'), 'utf8');
@@ -48,6 +50,6 @@ if (Array.from(password).length < 8) {
 }
 
 const key = pbkdf2Sync(password, 'turblog-book-access-v2', 600_000, 32, 'sha256');
-const token = createHmac('sha256', key).update(chapterPath).digest('base64url');
+const token = createHmac('sha256', key).update(contentPath).digest('base64url');
 const siteURL = (process.env.PUBLIC_SITE_URL || 'http://localhost:4321').replace(/\/+$/, '');
-console.log(`${siteURL}${chapterPath}#access=${token}`);
+console.log(`${siteURL}${contentPath}#access=${token}`);
