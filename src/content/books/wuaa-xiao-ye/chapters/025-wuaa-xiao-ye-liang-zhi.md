@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 24
+chapterNumber: 25
 slug: "wuaa-xiao-ye-liang-zhi"
 title: "两只"
 sourcePath: "original"

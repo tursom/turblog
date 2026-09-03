@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 23
+chapterNumber: 24
 slug: "wuaa-xiao-ye-xue-guai"
 title: "学乖"
 sourcePath: "original"

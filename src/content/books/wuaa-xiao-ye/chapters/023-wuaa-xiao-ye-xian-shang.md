@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 22
+chapterNumber: 23
 slug: "wuaa-xiao-ye-xian-shang"
 title: "献上"
 sourcePath: "original"

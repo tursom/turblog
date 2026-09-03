@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 14
+chapterNumber: 15
 slug: "wuaa-xiao-ye-zi-xi-shi"
 title: "自习室"
 sourcePath: "original"

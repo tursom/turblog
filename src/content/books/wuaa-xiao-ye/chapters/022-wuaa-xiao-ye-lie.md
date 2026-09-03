@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 21
+chapterNumber: 22
 slug: "wuaa-xiao-ye-lie"
 title: "裂"
 sourcePath: "original"

@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 17
+chapterNumber: 18
 slug: "wuaa-xiao-ye-ta-lai"
 title: "他来"
 sourcePath: "original"

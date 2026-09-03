@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 19
+chapterNumber: 20
 slug: "wuaa-xiao-ye-xiang-yao-de"
 title: "想要的"
 sourcePath: "original"

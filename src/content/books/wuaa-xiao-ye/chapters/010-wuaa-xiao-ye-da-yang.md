@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 9
+chapterNumber: 10
 slug: "wuaa-xiao-ye-da-yang"
 title: "打烊"
 sourcePath: "original"

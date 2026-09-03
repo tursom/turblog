@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 18
+chapterNumber: 19
 slug: "wuaa-xiao-ye-gui-ju"
 title: "规矩"
 sourcePath: "original"

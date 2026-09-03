@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 6
+chapterNumber: 7
 slug: "wuaa-xiao-ye-fan-che"
 title: "翻车"
 sourcePath: "original"

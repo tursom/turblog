@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 20
+chapterNumber: 21
 slug: "wuaa-xiao-ye-zhuang-po"
 title: "撞破"
 sourcePath: "original"

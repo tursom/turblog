@@ -1,6 +1,6 @@
 ---
 bookSlug: "wuaa-xiao-ye"
-chapterNumber: 11
+chapterNumber: 12
 slug: "wuaa-xiao-ye-bo-fang-zhong"
 title: "播放中"
 sourcePath: "original"
