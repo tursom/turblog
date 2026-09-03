@@ -17,6 +17,6 @@ sourceUrl: "https://github.com/tursom/turblog"
 sourceName: "Tursom Log 原稿"
 rightsNotice: "正文及河狸角色为原创未发表稿；小触虚拟形象经本人授权用于本作，授权情况由站点主人确认；《明日方舟》及其角色、世界观与视觉资产版权归原权利人所有，本作为非商业同人创作。全书仅供站点主人私人阅读，勿公开传播或再分发"
 cover: null
-volumeCount: 1
-chapterCount: 2
+volumeCount: 2
+chapterCount: 5
 ---
