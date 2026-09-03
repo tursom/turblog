@@ -2,7 +2,7 @@
 bookSlug: "wuaa-xiao-ye"
 chapterNumber: 1
 slug: "chapter-01"
-title: "人设"
+title: "人设 · 小叶"
 sourcePath: "original"
 volumeNumber: 1
 volumeTitle: "同人"
@@ -259,7 +259,7 @@ unitType: "chapter"
 5. **3 月 29 日。** 生日和出道叠一天，周年回就是生日会，省得另造节日。
 6. **猫咖。** 粉丝空间叫猫咖，不是应援刀或舰队编制。
 
-若要把她放进别的世界观，先单独开章写「同人偏移」，不要改这一章正典。
+若要把她放进别的世界观，先单独开章写「同人偏移」，不要改这一章正典。恋爱文另一侧（tursom）见[第二章](/books/wuaa-xiao-ye/chapter-02/)。本篇正文的偏移（小叶亦为男娘）见[第三章 大纲](/books/wuaa-xiao-ye/chapter-03/)。
 
 ## 来源
 
