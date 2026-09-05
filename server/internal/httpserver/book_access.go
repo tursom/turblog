@@ -9,6 +9,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"html/template"
+	"io"
 	"mime"
 	"net/http"
 	"strings"
@@ -32,7 +33,7 @@ var bookAccessPage = template.Must(template.New("book-access").Parse(`<!doctype 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>图书内容已锁定 · Tursom Log</title>
+  <title>{{if .Login}}主人登录{{else}}404 · 页面未找到{{end}} · Tursom Log</title>
   <style nonce="{{.Nonce}}">
     :root { color-scheme: light; --bg: #f5f6f4; --panel: #fff; --text: #171918; --muted: #686d69; --line: #d7dbd7; --accent: #1b6547; --danger: #9f342e; }
     @media (prefers-color-scheme: dark) { :root { color-scheme: dark; --bg: #171918; --panel: #202321; --text: #f1f3f1; --muted: #a8aea9; --line: #3b403c; --accent: #79cfa8; --danger: #ff9288; } }
@@ -60,25 +61,30 @@ var bookAccessPage = template.Must(template.New("book-access").Parse(`<!doctype 
   </style>
 </head>
 <body>
-  <header><div><a href="/">Tursom Log</a><span>PRIVATE READING</span></div></header>
+  <header><div><a href="/">Tursom Log</a></div></header>
   <main>
-    <p class="kicker">BOOK ACCESS</p>
-    <h1>图书内容已锁定</h1>
-    <p class="lead">输入站点主密码以阅读本页，或打开主人分享的完整链接。</p>
+    {{if .Login}}
+    <p class="kicker">OWNER LOGIN</p>
+    <h1>主人登录</h1>
+    <p class="lead">输入站点主密码。</p>
     <form id="access-form">
       <label for="password">站点主密码</label>
       <input id="password" name="password" type="password" autocomplete="current-password" minlength="8" required autofocus>
       <div class="actions">
-        <button type="submit">解锁并阅读</button>
-        <button id="copy-link" type="button">复制本页分享链接</button>
+        <button type="submit">登录</button>
       </div>
       <p id="status" role="status" aria-live="polite"></p>
     </form>
+    {{else}}
+    <p class="kicker">404</p>
+    <h1>页面未找到</h1>
+    <p class="lead">请求的页面不存在。</p>
+    {{end}}
   </main>
   <script nonce="{{.Nonce}}">
+    {{if .Login}}
     const form = document.querySelector('#access-form');
     const passwordInput = document.querySelector('#password');
-    const copyButton = document.querySelector('#copy-link');
     const status = document.querySelector('#status');
     const buttons = Array.from(document.querySelectorAll('button'));
 
@@ -123,16 +129,25 @@ var bookAccessPage = template.Must(template.New("book-access").Parse(`<!doctype 
       return base64url(new Uint8Array(token));
     }
 
-    async function unlock(credentials, fragment = '') {
+    const defaultDestination = location.pathname.startsWith('/books/') ? '/books/' : '/';
+    const requestedDestination = new URLSearchParams(location.search).get('return_to');
+    let destination = defaultDestination;
+    if (requestedDestination && requestedDestination.startsWith('/') && !requestedDestination.startsWith('//')) {
+      const target = new URL(requestedDestination, location.origin);
+      if (target.origin === location.origin && (
+        target.pathname === '/' || /^\/(?:books|posts|archive|tags)\//.test(target.pathname)
+      )) destination = target.pathname;
+    }
+
+    async function unlock(credentials) {
       const response = await fetch('/api/v1/books/access', {
         method: 'POST',
         credentials: 'same-origin',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ path: location.pathname, ...credentials }),
+        body: JSON.stringify({ path: destination, ...credentials }),
       });
       if (!response.ok) throw new Error('access denied');
-      history.replaceState(null, '', location.pathname + location.search + fragment);
-      location.reload();
+      location.assign(destination);
     }
 
     form.addEventListener('submit', async (event) => {
@@ -141,11 +156,8 @@ var bookAccessPage = template.Must(template.New("book-access").Parse(`<!doctype 
       setStatus('正在验证…');
       try {
         const signingKey = await signingKeyFor(passwordInput.value);
-        const [ownerToken, chapterToken] = await Promise.all([
-          tokenFor(signingKey, 'turblog-book-owner-v1'),
-          tokenFor(signingKey, location.pathname),
-        ]);
-        await unlock({ owner_token: ownerToken }, '#access=' + chapterToken);
+        const ownerToken = await tokenFor(signingKey, 'turblog-book-owner-v1');
+        await unlock({ owner_token: ownerToken });
       } catch {
         setBusy(false);
         setStatus('密码不正确。', true);
@@ -153,34 +165,21 @@ var bookAccessPage = template.Must(template.New("book-access").Parse(`<!doctype 
       }
     });
 
-    copyButton.addEventListener('click', async () => {
-      if (!passwordInput.reportValidity()) return;
-      setBusy(true);
-      try {
-        const signingKey = await signingKeyFor(passwordInput.value);
-        const token = await tokenFor(signingKey, location.pathname);
-        const fragment = '#access=' + token;
-        const link = location.origin + location.pathname + fragment;
-        history.replaceState(null, '', location.pathname + location.search + fragment);
-        await navigator.clipboard.writeText(link);
-        setStatus('本页分享链接已复制。');
-      } catch {
-        setStatus('无法复制链接，请确认浏览器允许剪贴板访问。', true);
-      } finally {
-        setBusy(false);
-      }
-    });
-
+    {{else}}
     const sharedToken = new URLSearchParams(location.hash.slice(1)).get('access');
     if (sharedToken) {
-      setBusy(true);
-      setStatus('正在验证分享链接…');
-      unlock({ token: sharedToken }).catch(() => {
-        history.replaceState(null, '', location.pathname + location.search);
-        setBusy(false);
-        setStatus('分享链接无效，或站点主密码已经更换。', true);
-      });
+      history.replaceState(null, '', location.pathname + location.search);
+      const path = location.pathname.replace(/index\.html$/, '').replace(/\/?$/, '/');
+      fetch('/api/v1/books/access', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path, token: sharedToken }),
+      }).then((response) => {
+        if (response.ok) location.reload();
+      }).catch(() => {});
     }
+    {{end}}
   </script>
 </body>
 </html>`))
@@ -192,6 +191,7 @@ type bookAccessRequest struct {
 }
 
 func (s *server) grantBookAccess(response http.ResponseWriter, request *http.Request) {
+	bookPrivacyHeaders(response.Header())
 	if mediaType, _, err := mime.ParseMediaType(request.Header.Get("Content-Type")); err != nil || mediaType != "application/json" {
 		writeError(response, http.StatusUnsupportedMediaType, "unsupported_media_type", "Content-Type must be application/json")
 		return
@@ -202,14 +202,6 @@ func (s *server) grantBookAccess(response http.ResponseWriter, request *http.Req
 	var access bookAccessRequest
 	if err := decoder.Decode(&access); err != nil || ensureJSONEnd(decoder) != nil {
 		writeError(response, http.StatusBadRequest, "invalid_request", "request body must contain one valid JSON object")
-		return
-	}
-	if !s.isProtectedBookContent(access.Path) {
-		writeError(response, http.StatusBadRequest, "book_access_not_required", "book does not require access authorization")
-		return
-	}
-	if !s.catalog.ContainsBookContentPath(access.Path) {
-		writeError(response, http.StatusForbidden, "invalid_book_access", "book access token is invalid")
 		return
 	}
 	if (access.Token == "") == (access.OwnerToken == "") {
@@ -224,31 +216,74 @@ func (s *server) grantBookAccess(response http.ResponseWriter, request *http.Req
 		http.SetCookie(response, &http.Cookie{
 			Name:     bookOwnerCookieName,
 			Value:    access.OwnerToken,
-			Path:     "/books/",
+			Path:     "/",
 			MaxAge:   bookOwnerCookieMaxAge,
 			Expires:  s.now().Add(time.Duration(bookOwnerCookieMaxAge) * time.Second),
 			HttpOnly: true,
 			Secure:   s.secureBookCookie(request),
 			SameSite: http.SameSiteLaxMode,
 		})
-		response.Header().Set("Cache-Control", "no-store")
+		if access.Path == "/books/" || access.Path == "/" {
+			http.Redirect(response, request, access.Path, http.StatusSeeOther)
+			return
+		}
 		response.WriteHeader(http.StatusNoContent)
 		return
 	}
-	if !s.validBookAccessToken(access.Path, access.Token) {
+	// Authenticate the unchanged canonical-path token before consulting the catalog.
+	if !s.validBookAccessToken(access.Path, access.Token) || !s.isProtectedContent(access.Path) ||
+		!s.containsContentPath(access.Path) {
 		writeError(response, http.StatusForbidden, "invalid_book_access", "book access token is invalid")
 		return
 	}
-	http.SetCookie(response, &http.Cookie{
+	// Keep legacy path cookies, and retain each share independently at the root so
+	// the same credentials reach images and the metrics API without widening scope.
+	cookie := &http.Cookie{
 		Name:     bookAccessCookieName,
 		Value:    access.Token,
 		Path:     access.Path,
 		HttpOnly: true,
 		Secure:   s.secureBookCookie(request),
 		SameSite: http.SameSiteLaxMode,
-	})
+	}
+	http.SetCookie(response, cookie)
+	s.setBookRootShareCookie(response, request, access.Path, access.Token)
 	response.Header().Set("Cache-Control", "no-store")
 	response.WriteHeader(http.StatusNoContent)
+}
+
+func (s *server) setBookRootShareCookie(response http.ResponseWriter, request *http.Request, path, token string) {
+	pathHash := sha256.Sum256([]byte(path))
+	name := bookAccessCookieName + "_" + base64.RawURLEncoding.EncodeToString(pathHash[:])
+	for _, cookie := range request.Cookies() {
+		if cookie.Name == name && cookie.Value == token {
+			return
+		}
+	}
+	http.SetCookie(response, &http.Cookie{
+		Name: name, Value: token, Path: "/", HttpOnly: true,
+		Secure: s.secureBookCookie(request), SameSite: http.SameSiteLaxMode,
+	})
+}
+
+// Promote existing path-scoped shares when their page is visited, without
+// converting chapter grants into whole-book grants or replacing other shares.
+func (s *server) promoteLegacyBookShares(response http.ResponseWriter, request *http.Request, path string) {
+	slug, ok := catalog.BookSlugFromContentPath(path)
+	if !ok {
+		return
+	}
+	for _, cookie := range request.Cookies() {
+		if cookie.Name != bookAccessCookieName {
+			continue
+		}
+		for _, scope := range []string{path, "/books/" + slug + "/"} {
+			if s.validBookAccessToken(scope, cookie.Value) {
+				s.setBookRootShareCookie(response, request, scope, cookie.Value)
+				break
+			}
+		}
+	}
 }
 
 type bookShareRequest struct {
@@ -260,6 +295,7 @@ type bookShareResponse struct {
 }
 
 func (s *server) createBookShareToken(response http.ResponseWriter, request *http.Request) {
+	bookPrivacyHeaders(response.Header())
 	if !s.hasBookOwnerAccess(request) {
 		writeError(response, http.StatusForbidden, "owner_access_required", "owner access is required")
 		return
@@ -276,11 +312,11 @@ func (s *server) createBookShareToken(response http.ResponseWriter, request *htt
 		writeError(response, http.StatusBadRequest, "invalid_request", "request body must contain one valid JSON object")
 		return
 	}
-	if !s.isProtectedBookContent(share.Path) {
+	if !s.isProtectedContent(share.Path) {
 		writeError(response, http.StatusBadRequest, "book_access_not_required", "book does not require access authorization")
 		return
 	}
-	if !s.catalog.ContainsBookContentPath(share.Path) {
+	if !s.containsContentPath(share.Path) {
 		writeError(response, http.StatusBadRequest, "invalid_book_path", "book content path is invalid")
 		return
 	}
@@ -292,20 +328,24 @@ func (s *server) secureBookCookie(request *http.Request) bool {
 	return request.TLS != nil || (s.trustProxyHeaders && strings.EqualFold(request.Header.Get("X-Forwarded-Proto"), "https"))
 }
 
-func (s *server) hasBookAccess(request *http.Request) bool {
+func isBookShareCookie(cookie *http.Cookie) bool {
+	return cookie.Name == bookAccessCookieName || strings.HasPrefix(cookie.Name, bookAccessCookieName+"_")
+}
+
+func (s *server) hasBookPathAccess(request *http.Request, path string) bool {
 	if s.hasBookOwnerAccess(request) {
 		return true
 	}
-	bookSlug, isBookContent := catalog.BookSlugFromContentPath(request.URL.Path)
-	if !isBookContent {
+	bookSlug, isBookContent := catalog.BookSlugFromContentPath(path)
+	if !isBookContent && !s.isProtectedPostContent(path) {
 		return false
 	}
 	bookPath := "/books/" + bookSlug + "/"
 	for _, cookie := range request.Cookies() {
-		if cookie.Name != bookAccessCookieName {
+		if !isBookShareCookie(cookie) {
 			continue
 		}
-		if s.validBookAccessToken(request.URL.Path, cookie.Value) || s.validBookAccessToken(bookPath, cookie.Value) {
+		if s.validBookAccessToken(path, cookie.Value) || isBookContent && s.validBookAccessToken(bookPath, cookie.Value) {
 			return true
 		}
 	}
@@ -313,8 +353,12 @@ func (s *server) hasBookAccess(request *http.Request) bool {
 }
 
 func (s *server) hasBookOwnerAccess(request *http.Request) bool {
-	ownerCookie, err := request.Cookie(bookOwnerCookieName)
-	return err == nil && s.validBookOwnerToken(ownerCookie.Value)
+	for _, cookie := range request.Cookies() {
+		if cookie.Name == bookOwnerCookieName && s.validBookOwnerToken(cookie.Value) {
+			return true
+		}
+	}
+	return false
 }
 
 func deriveBookAccessKey(password []byte) []byte {
@@ -366,24 +410,47 @@ func (s *server) validBookAccessToken(path, encodedToken string) bool {
 	return hmac.Equal(provided, mac.Sum(nil))
 }
 
-func (s *server) serveBookAccess(response http.ResponseWriter) {
+func (s *server) serveBookAccess(response http.ResponseWriter, login bool) {
+	page, err := s.bookAccessResponse(login)
+	if err != nil {
+		writeError(response, http.StatusInternalServerError, "internal_error", "unable to render page")
+		return
+	}
+	for name, values := range page.Header {
+		response.Header()[name] = values
+	}
+	response.WriteHeader(page.StatusCode)
+	_, _ = io.Copy(response, page.Body)
+}
+
+func (s *server) bookAccessResponse(login bool) (*http.Response, error) {
 	nonceBytes := make([]byte, 18)
 	if _, err := rand.Read(nonceBytes); err != nil {
-		writeError(response, http.StatusInternalServerError, "internal_error", "unable to render book access page")
-		return
+		return nil, err
 	}
-	data := struct{ Nonce string }{Nonce: base64.RawURLEncoding.EncodeToString(nonceBytes)}
+	data := struct {
+		Nonce string
+		Login bool
+	}{Nonce: base64.RawURLEncoding.EncodeToString(nonceBytes), Login: login}
 	var page bytes.Buffer
 	if err := bookAccessPage.Execute(&page, data); err != nil {
-		writeError(response, http.StatusInternalServerError, "internal_error", "unable to render book access page")
-		return
+		return nil, err
 	}
-	response.Header().Set("Cache-Control", "no-store")
-	response.Header().Set("Content-Security-Policy", "default-src 'none'; script-src 'nonce-"+data.Nonce+"'; style-src 'nonce-"+data.Nonce+"'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'")
-	response.Header().Set("Content-Type", "text/html; charset=utf-8")
-	response.Header().Set("Referrer-Policy", "no-referrer")
-	response.Header().Set("X-Content-Type-Options", "nosniff")
-	response.Header().Set("X-Robots-Tag", "noindex, noarchive")
-	response.WriteHeader(http.StatusUnauthorized)
-	_, _ = response.Write(page.Bytes())
+	header := make(http.Header)
+	bookPrivacyHeaders(header)
+	header.Set("Content-Security-Policy", "default-src 'none'; script-src 'nonce-"+data.Nonce+"'; style-src 'nonce-"+data.Nonce+"'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'")
+	header.Set("Content-Type", "text/html; charset=utf-8")
+	header.Set("Referrer-Policy", "no-referrer")
+	header.Set("X-Content-Type-Options", "nosniff")
+	header.Set("X-Robots-Tag", "noindex, noarchive")
+	status := http.StatusNotFound
+	if login {
+		status = http.StatusOK
+	}
+	return &http.Response{
+		StatusCode:    status,
+		Header:        header,
+		Body:          io.NopCloser(&page),
+		ContentLength: int64(page.Len()),
+	}, nil
 }

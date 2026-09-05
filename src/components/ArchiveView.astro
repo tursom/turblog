@@ -1,0 +1,46 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import PostList from '@/components/PostList.astro';
+import Pagination from '@/components/Pagination.astro';
+import type { PostPage } from '@/lib/posts';
+
+interface Props {
+  page: PostPage;
+  total: number;
+  owner?: boolean;
+}
+
+const { page, total, owner = false } = Astro.props;
+const firstPage = page.currentPage === 1;
+---
+
+<SiteLayout
+  title={firstPage ? '归档' : `归档 · 第 ${page.currentPage} 页`}
+  description="Tursom Log 的全部技术文章。"
+  canonicalPath={firstPage ? '/archive/' : `/archive/${page.currentPage}/`}
+  noindex={owner}
+>
+  <div class="breadcrumbs">
+    <a href="/">~/log</a><span aria-hidden="true">/</span>
+    {
+      firstPage ? (
+        <strong>archive</strong>
+      ) : (
+        <>
+          <>
+            <a href="/archive/">archive</a>
+            <span aria-hidden="true">/</span>
+          </>
+          <strong>{page.currentPage}</strong>
+        </>
+      )
+    }
+  </div>
+  <section class="page-intro compact-intro">
+    <span class="eyebrow">ARCHIVE</span>
+    <h1>文章归档</h1>
+    <p>按发布时间浏览全部文章，共 {total} 篇。</p>
+  </section>
+  <PostList posts={page.items} />
+  <Pagination currentPage={page.currentPage} totalPages={page.totalPages} basePath="/archive" />
+</SiteLayout>

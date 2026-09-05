@@ -128,8 +128,109 @@ configs:
           proxy_set_header X-Forwarded-Proto $$scheme;
           proxy_intercept_errors on;
           error_page 502 503 504 = @blog_fallback;
+        }
+
+        location = /_content { return 404; }
+        location ^~ /_content/ { return 404; }
+        location = /_owner { return 404; }
+        location ^~ /_owner/ { return 404; }
+        location = /books/_owner { return 404; }
+        location ^~ /books/_owner/ { return 404; }
+        location = /post-access-manifest.json { return 404; }
+
+        location = / {
+          proxy_pass $$server_upstream;
+          proxy_http_version 1.1;
+          proxy_set_header Host $$host;
+          proxy_set_header X-Real-IP $$remote_addr;
+          proxy_set_header X-Forwarded-For $$remote_addr;
+          proxy_set_header X-Forwarded-Proto $$scheme;
           proxy_hide_header Cache-Control;
-          add_header Cache-Control "private, no-cache, must-revalidate" always;
+          add_header Cache-Control "no-store" always;
+        }
+
+        location = /index.html {
+          proxy_pass $$server_upstream;
+          proxy_http_version 1.1;
+          proxy_set_header Host $$host;
+          proxy_set_header X-Real-IP $$remote_addr;
+          proxy_set_header X-Forwarded-For $$remote_addr;
+          proxy_set_header X-Forwarded-Proto $$scheme;
+          proxy_hide_header Cache-Control;
+          add_header Cache-Control "no-store" always;
+        }
+
+        location ~ ^/(?:archive|tags|_access)(?:/|$) {
+          proxy_pass $$server_upstream;
+          proxy_http_version 1.1;
+          proxy_set_header Host $$host;
+          proxy_set_header X-Real-IP $$remote_addr;
+          proxy_set_header X-Forwarded-For $$remote_addr;
+          proxy_set_header X-Forwarded-Proto $$scheme;
+          proxy_hide_header Cache-Control;
+          add_header Cache-Control "no-store" always;
+        }
+
+        location ^~ /_astro/ {
+          proxy_pass $$server_upstream;
+          proxy_http_version 1.1;
+          proxy_set_header Host $$host;
+          proxy_set_header X-Real-IP $$remote_addr;
+          proxy_set_header X-Forwarded-For $$remote_addr;
+          proxy_set_header X-Forwarded-Proto $$scheme;
+        }
+
+        location ^~ /images/ {
+          proxy_pass $$server_upstream;
+          proxy_http_version 1.1;
+          proxy_set_header Host $$host;
+          proxy_set_header X-Real-IP $$remote_addr;
+          proxy_set_header X-Forwarded-For $$remote_addr;
+          proxy_set_header X-Forwarded-Proto $$scheme;
+        }
+
+        location = /favicon.svg {
+          proxy_pass $$blog_upstream;
+        }
+
+        # Local attachments and media outside the conventional asset directories
+        # must also pass Go's manifest checks. Preserve upstream cache headers.
+        location ~* \.(?:avif|gif|ico|jpe?g|png|svg|webp|mp4|webm|mp3|ogg|wav|pdf|zip|gz|txt|csv|epub)$ {
+          proxy_pass $$server_upstream;
+          proxy_http_version 1.1;
+          proxy_set_header Host $$host;
+          proxy_set_header X-Real-IP $$remote_addr;
+          proxy_set_header X-Forwarded-For $$remote_addr;
+          proxy_set_header X-Forwarded-Proto $$scheme;
+        }
+
+        location = /_internal {
+          return 404;
+        }
+
+        location ^~ /_internal/ {
+          return 404;
+        }
+
+        location = /book-access-manifest.json {
+          return 404;
+        }
+
+        location = /books {
+          absolute_redirect off;
+          add_header Cache-Control "no-store" always;
+          return 301 /books/;
+        }
+
+        location ^~ /images/books/ {
+          proxy_pass $$server_upstream;
+          proxy_http_version 1.1;
+          proxy_set_header Host $$host;
+          proxy_set_header X-Real-IP $$remote_addr;
+          proxy_set_header X-Forwarded-For $$remote_addr;
+          proxy_set_header X-Forwarded-Proto $$scheme;
+          proxy_hide_header Cache-Control;
+          add_header Cache-Control "no-store" always;
         }
 
         location ^~ /books/ {
@@ -140,7 +241,7 @@ configs:
           proxy_set_header X-Forwarded-For $$remote_addr;
           proxy_set_header X-Forwarded-Proto $$scheme;
           proxy_hide_header Cache-Control;
-          add_header Cache-Control "private, no-cache, must-revalidate" always;
+          add_header Cache-Control "no-store" always;
         }
 
         location @blog_fallback {

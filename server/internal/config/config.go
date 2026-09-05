@@ -14,6 +14,7 @@ type Values struct {
 	DatabasePath           string
 	SitemapPath            string
 	BookAccessManifestPath string
+	PostAccessManifestPath string
 	ContentUpstream        *url.URL
 	BookAccessPassword     []byte
 	HashKey                []byte
@@ -51,8 +52,9 @@ func Load(getenv func(string) string) (Values, error) {
 	return Values{
 		ListenAddress:          valueOrDefault(getenv("TURBLOG_LISTEN_ADDR"), ":8080"),
 		DatabasePath:           valueOrDefault(getenv("TURBLOG_DB_PATH"), "/var/lib/turblog/server.sqlite"),
-		SitemapPath:            valueOrDefault(getenv("TURBLOG_SITEMAP_PATH"), "/usr/share/nginx/html/sitemap-0.xml"),
+		SitemapPath:            valueOrDefault(getenv("TURBLOG_SITEMAP_PATH"), "/usr/share/nginx/html/_internal/content-catalog.xml"),
 		BookAccessManifestPath: "/usr/share/nginx/html/book-access-manifest.json",
+		PostAccessManifestPath: valueOrDefault(getenv("TURBLOG_POST_ACCESS_MANIFEST_PATH"), "/usr/share/nginx/html/post-access-manifest.json"),
 		ContentUpstream:        upstream,
 		BookAccessPassword:     bookAccessPassword,
 		HashKey:                hashKey,

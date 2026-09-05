@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url';
+import { buildContentCatalog } from './scripts/build-content-catalog.mjs';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
@@ -12,7 +14,32 @@ export default defineConfig({
     enabled: false,
   },
   integrations: [
-    sitemap({ filter: (page) => !page.endsWith('/book-access-manifest.json') }),
+    {
+      name: 'owner-bookshelf',
+      hooks: {
+        'astro:config:setup': ({ injectRoute }) => {
+          injectRoute({
+            pattern: '/_owner/[...page]',
+            entrypoint: './src/pages/_owner/[...page].astro',
+            prerender: true,
+          });
+          injectRoute({
+            pattern: '/books/_owner/',
+            entrypoint: './src/pages/books/_owner/index.astro',
+            prerender: true,
+          });
+        },
+      },
+    },
+    sitemap({ filter: (page) => !/\/(?:book|post)-access-manifest\.json$/.test(page) }),
+    {
+      name: 'content-catalog-privacy',
+      hooks: {
+        'astro:build:done': async ({ dir }) => {
+          await buildContentCatalog(fileURLToPath(dir));
+        },
+      },
+    },
   ],
   markdown: {
     syntaxHighlight: {

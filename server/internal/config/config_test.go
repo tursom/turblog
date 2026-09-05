@@ -23,11 +23,14 @@ func TestLoadUsesProductionDefaultsAndRequiresHashKey(t *testing.T) {
 	if loaded.DatabasePath != "/var/lib/turblog/server.sqlite" {
 		t.Fatalf("database path = %q", loaded.DatabasePath)
 	}
-	if loaded.SitemapPath != "/usr/share/nginx/html/sitemap-0.xml" {
+	if loaded.SitemapPath != "/usr/share/nginx/html/_internal/content-catalog.xml" {
 		t.Fatalf("sitemap path = %q", loaded.SitemapPath)
 	}
 	if loaded.BookAccessManifestPath != "/usr/share/nginx/html/book-access-manifest.json" {
 		t.Fatalf("book access manifest path = %q", loaded.BookAccessManifestPath)
+	}
+	if loaded.PostAccessManifestPath != "/usr/share/nginx/html/post-access-manifest.json" {
+		t.Fatalf("post access manifest path = %q", loaded.PostAccessManifestPath)
 	}
 	if loaded.ContentUpstream.String() != "http://blog:8080" {
 		t.Fatalf("content upstream = %q", loaded.ContentUpstream)
@@ -40,6 +43,18 @@ func TestLoadUsesProductionDefaultsAndRequiresHashKey(t *testing.T) {
 	}
 	if loaded.TrustProxyHeaders {
 		t.Fatal("proxy headers are trusted by default")
+	}
+
+	values["TURBLOG_SITEMAP_PATH"] = "/tmp/custom-catalog.xml"
+	loaded, err = config.Load(func(name string) string { return values[name] })
+	if err != nil || loaded.SitemapPath != values["TURBLOG_SITEMAP_PATH"] {
+		t.Fatalf("sitemap override = %q, error = %v", loaded.SitemapPath, err)
+	}
+
+	values["TURBLOG_POST_ACCESS_MANIFEST_PATH"] = "/tmp/post-manifest.json"
+	loaded, err = config.Load(func(name string) string { return values[name] })
+	if err != nil || loaded.PostAccessManifestPath != values["TURBLOG_POST_ACCESS_MANIFEST_PATH"] {
+		t.Fatalf("post manifest override = %q, error = %v", loaded.PostAccessManifestPath, err)
 	}
 
 	values["TURBLOG_TRUST_PROXY_HEADERS"] = "true"

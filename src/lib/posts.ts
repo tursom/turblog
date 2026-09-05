@@ -3,8 +3,8 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 export const PAGE_SIZE = 10;
 export type Post = CollectionEntry<'posts'>;
 
-export async function getPosts(): Promise<Post[]> {
-  const posts = await getCollection('posts');
+export async function getPosts(includePrivate = false): Promise<Post[]> {
+  const posts = await getCollection('posts', ({ data }) => includePrivate || !data.private);
   return posts.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 }
 
@@ -53,6 +53,8 @@ export function paginate<T>(items: T[], page: number, pageSize = PAGE_SIZE) {
     totalPages,
   };
 }
+
+export type PostPage = ReturnType<typeof paginate<Post>>;
 
 export function allTags(posts: Post[]): Array<{ name: string; count: number }> {
   const counts = new Map<string, number>();

@@ -13,6 +13,7 @@ const posts = defineCollection({
       updatedAt: z.coerce.date().optional(),
       tags: z.array(z.string().min(1)).min(1),
       aiAssisted: z.boolean().default(false),
+      private: z.boolean().default(false),
       cover: image().nullable().optional(),
     }),
 });
@@ -51,7 +52,11 @@ const books = defineCollection({
 });
 
 const bookChapters = defineCollection({
-  loader: glob({ pattern: '*/chapters/*.md', base: './src/content/books' }),
+  loader: glob({
+    pattern: '*/chapters/*.md',
+    base: './src/content/books',
+    generateId: ({ data }) => `${data.bookSlug}/${data.slug}`,
+  }),
   schema: z.object({
     bookSlug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
     chapterNumber: z.number().int().positive(),

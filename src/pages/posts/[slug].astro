@@ -1,13 +1,14 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
 import SiteLayout from '@/layouts/SiteLayout.astro';
 import PostMeta from '@/components/PostMeta.astro';
 import TagLinks from '@/components/TagLinks.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
-import type { Post } from '@/lib/posts';
+import BookShareButton from '@/components/BookShareButton.astro';
+import { getPosts, type Post } from '@/lib/posts';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
+  const posts = await getPosts(true);
   return posts.map((post) => ({ params: { slug: post.data.slug }, props: { post } }));
 }
 
@@ -24,6 +25,7 @@ const { Content, headings } = await render(post);
   description={post.data.summary}
   ogImage={post.data.cover ?? undefined}
   pageType="article"
+  noindex={post.data.private}
 >
   <div class="breadcrumbs">
     <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/archive/">posts</a><span
@@ -37,6 +39,7 @@ const { Content, headings } = await render(post);
         <h1>{post.data.title}</h1>
         <p class="article-summary">{post.data.summary}</p>
         <TagLinks tags={post.data.tags} />
+        {post.data.private && <BookShareButton label="复制本文分享链接" />}
       </header>
       <details class="mobile-toc">
         <summary>本页目录</summary>
@@ -45,11 +48,17 @@ const { Content, headings } = await render(post);
       <div class="prose"><Content /></div>
       <footer class="article-footer">
         <a href="/archive/">← 返回归档</a>
-        <a
-          href={`https://github.com/tursom/turblog/issues/new?title=${encodeURIComponent(`勘误：${post.data.title}`)}`}
-          target="_blank"
-          rel="noreferrer">提交勘误 ↗</a
-        >
+        {
+          !post.data.private && (
+            <a
+              href={`https://github.com/tursom/turblog/issues/new?title=${encodeURIComponent(`勘误：${post.data.title}`)}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              提交勘误 ↗
+            </a>
+          )
+        }
       </footer>
     </article>
     <aside class="article-aside"><TableOfContents headings={headings} /></aside>

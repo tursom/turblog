@@ -27,6 +27,7 @@ const { book, chapters } = Astro.props;
   title={book.data.title}
   description={book.data.summary}
   ogImageUrl={book.data.cover ?? undefined}
+  noindex={book.data.private}
 >
   <div class="breadcrumbs">
     <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/books/">books</a><span

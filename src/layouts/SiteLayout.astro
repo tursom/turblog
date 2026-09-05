@@ -13,6 +13,8 @@ interface Props {
   ogImage?: ImageMetadata;
   ogImageUrl?: string;
   pageType?: 'website' | 'article';
+  canonicalPath?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -21,9 +23,11 @@ const {
   ogImage,
   ogImageUrl,
   pageType = 'website',
+  canonicalPath = Astro.url.pathname,
+  noindex = false,
 } = Astro.props;
 const fullTitle = title === 'Tursom Log' ? title : `${title} · Tursom Log`;
-const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+const canonical = new URL(canonicalPath, Astro.site ?? Astro.url);
 const imageUrl = ogImage
   ? new URL(ogImage.src, Astro.site ?? Astro.url).href
   : ogImageUrl
@@ -39,6 +43,7 @@ const apiBasePath = (import.meta.env.PUBLIC_API_BASE_PATH || '/api/v1').replace(
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, noarchive" />}
     <link rel="canonical" href={canonical} />
     <link rel="alternate" type="application/rss+xml" title="Tursom Log RSS" href="/rss.xml" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

@@ -225,7 +225,7 @@ func TestPublicBookChapterProxyRecordsSuccessfulHTMLGet(t *testing.T) {
 	if response.Code != http.StatusOK || response.Body.String() != "<article>chapter</article>" {
 		t.Fatalf("proxy response = %d %q", response.Code, response.Body.String())
 	}
-	if response.Header().Get("Cache-Control") != "private, no-cache, must-revalidate" {
+	if response.Header().Get("Cache-Control") != "no-store" {
 		t.Fatalf("cache control = %q", response.Header().Get("Cache-Control"))
 	}
 	counts, err := tracker.BookChapterViewCounts(context.Background(), []string{"guns-germs-steel/chapter-01"})
@@ -264,7 +264,7 @@ func TestPrivateBookContentAccessIsRequiredAndShareTokensHaveExpectedScope(t *te
 	lockedRequest := httptest.NewRequest(http.MethodGet, "/books/guns-germs-steel/chapter-01/", nil)
 	lockedResponse := httptest.NewRecorder()
 	handler.ServeHTTP(lockedResponse, lockedRequest)
-	if lockedResponse.Code != http.StatusUnauthorized {
+	if lockedResponse.Code != http.StatusNotFound {
 		t.Fatalf("locked response status = %d", lockedResponse.Code)
 	}
 	if strings.Contains(lockedResponse.Body.String(), "<article>") {
@@ -277,7 +277,7 @@ func TestPrivateBookContentAccessIsRequiredAndShareTokensHaveExpectedScope(t *te
 	lockedDetailRequest := httptest.NewRequest(http.MethodGet, "/books/guns-germs-steel/", nil)
 	lockedDetailResponse := httptest.NewRecorder()
 	handler.ServeHTTP(lockedDetailResponse, lockedDetailRequest)
-	if lockedDetailResponse.Code != http.StatusUnauthorized {
+	if lockedDetailResponse.Code != http.StatusNotFound {
 		t.Fatalf("locked detail response status = %d", lockedDetailResponse.Code)
 	}
 	if strings.Contains(lockedDetailResponse.Body.String(), "<article>") {
@@ -308,7 +308,7 @@ func TestPrivateBookContentAccessIsRequiredAndShareTokensHaveExpectedScope(t *te
 	publicAccessRequest.Header.Set("Content-Type", "application/json")
 	publicAccessResponse := httptest.NewRecorder()
 	handler.ServeHTTP(publicAccessResponse, publicAccessRequest)
-	if publicAccessResponse.Code != http.StatusBadRequest {
+	if publicAccessResponse.Code != http.StatusForbidden {
 		t.Fatalf("public book access response = %d %q", publicAccessResponse.Code, publicAccessResponse.Body.String())
 	}
 
@@ -327,7 +327,7 @@ func TestPrivateBookContentAccessIsRequiredAndShareTokensHaveExpectedScope(t *te
 		t.Fatalf("valid token response = %d %q", validResponse.Code, validResponse.Body.String())
 	}
 	cookies := validResponse.Result().Cookies()
-	if len(cookies) != 1 || cookies[0].Path != chapterPath || !cookies[0].HttpOnly || !cookies[0].Secure {
+	if len(cookies) != 2 || cookies[0].Path != chapterPath || cookies[1].Path != "/" || !cookies[0].HttpOnly || !cookies[0].Secure {
 		t.Fatalf("access cookie = %#v", cookies)
 	}
 
@@ -346,7 +346,7 @@ func TestPrivateBookContentAccessIsRequiredAndShareTokensHaveExpectedScope(t *te
 	otherRequest.AddCookie(cookies[0])
 	otherResponse := httptest.NewRecorder()
 	handler.ServeHTTP(otherResponse, otherRequest)
-	if otherResponse.Code != http.StatusUnauthorized || strings.Contains(otherResponse.Body.String(), "<article>") {
+	if otherResponse.Code != http.StatusNotFound || strings.Contains(otherResponse.Body.String(), "<article>") {
 		t.Fatalf("other chapter response = %d %q", otherResponse.Code, otherResponse.Body.String())
 	}
 
@@ -364,7 +364,7 @@ func TestPrivateBookContentAccessIsRequiredAndShareTokensHaveExpectedScope(t *te
 		t.Fatalf("detail token response = %d %q", detailAccessResponse.Code, detailAccessResponse.Body.String())
 	}
 	detailCookies := detailAccessResponse.Result().Cookies()
-	if len(detailCookies) != 1 || detailCookies[0].Path != detailPath || !detailCookies[0].HttpOnly {
+	if len(detailCookies) != 2 || detailCookies[0].Path != detailPath || detailCookies[1].Path != "/" || !detailCookies[0].HttpOnly {
 		t.Fatalf("detail access cookie = %#v", detailCookies)
 	}
 
@@ -416,7 +416,7 @@ func TestPrivateBookContentAccessIsRequiredAndShareTokensHaveExpectedScope(t *te
 		t.Fatalf("owner token response = %d %q", ownerResponse.Code, ownerResponse.Body.String())
 	}
 	ownerCookies := ownerResponse.Result().Cookies()
-	if len(ownerCookies) != 1 || ownerCookies[0].Path != "/books/" || ownerCookies[0].MaxAge != 30*24*60*60 || !ownerCookies[0].HttpOnly || !ownerCookies[0].Secure || ownerCookies[0].SameSite != http.SameSiteLaxMode {
+	if len(ownerCookies) != 1 || ownerCookies[0].Path != "/" || ownerCookies[0].MaxAge != 30*24*60*60 || !ownerCookies[0].HttpOnly || !ownerCookies[0].Secure || ownerCookies[0].SameSite != http.SameSiteLaxMode {
 		t.Fatalf("owner access cookie = %#v", ownerCookies)
 	}
 
@@ -455,7 +455,7 @@ func TestPrivateBookContentAccessIsRequiredAndShareTokensHaveExpectedScope(t *te
 	unknownRequest := httptest.NewRequest(http.MethodGet, "/books/guns-germs-steel/not-in-sitemap/", nil)
 	unknownResponse := httptest.NewRecorder()
 	handler.ServeHTTP(unknownResponse, unknownRequest)
-	if unknownResponse.Code != http.StatusUnauthorized {
+	if unknownResponse.Code != http.StatusNotFound {
 		t.Fatalf("unknown chapter-shaped path response = %d", unknownResponse.Code)
 	}
 }
@@ -638,6 +638,7 @@ func newBackend(t *testing.T, articleSlugs []string) (*analytics.Tracker, *catal
 	sitemap += `<url><loc>https://blog.tursom.dev/books/guns-germs-steel/</loc></url>`
 	sitemap += `<url><loc>https://blog.tursom.dev/books/guns-germs-steel/chapter-01/</loc></url>`
 	sitemap += `<url><loc>https://blog.tursom.dev/books/guns-germs-steel/chapter-02/</loc></url>`
+	sitemap += `<url><loc>https://blog.tursom.dev/books/another-private/chapter-01/</loc></url>`
 	sitemap += `<url><loc>https://blog.tursom.dev/books/public-book/chapter-01/</loc></url>`
 	sitemap += `</urlset>`
 	if err := os.WriteFile(sitemapPath, []byte(sitemap), 0o600); err != nil {

@@ -60,6 +60,7 @@ const pageTitle = `${chapter.data.title} · ${book.data.title}`;
   description={book.data.summary}
   ogImageUrl={book.data.cover ?? undefined}
   pageType="article"
+  noindex={book.data.private}
 >
   <div class="breadcrumbs">
     <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/books/">books</a><span

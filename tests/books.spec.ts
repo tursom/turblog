@@ -1,6 +1,6 @@
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { resolve, sep } from 'node:path';
-import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import { createMarkdownProcessor, parseFrontmatter } from '@astrojs/markdown-remark';
 import { expect, test, type Page } from 'playwright/test';
 import rehypeLegacyFootnoteAnchors from '../src/lib/rehype-legacy-footnote-anchors.mjs';
 
@@ -8,47 +8,22 @@ const baseUrl = 'http://turblog.test';
 const distDirectory = resolve('dist');
 const apiPath = '/api/v1/analytics/metrics/query';
 
-const privateBookSlugs = [
-  'three-body',
-  'three-body-dark-forest',
-  'three-body-deaths-end',
-  'raft',
-  'raft-zh',
-  'timelike-infinity',
-  'timelike-infinity-zh',
-  'flux',
-  'flux-zh',
-  'ring',
-  'ring-zh',
-  'vacuum-diagrams',
-  'vacuum-diagrams-zh',
-  'mayflower-ii',
-  'mayflower-ii-zh',
-  'xeelee-endurance',
-  'xeelee-endurance-zh',
-  'xeelee-vengeance',
-  'xeelee-vengeance-zh',
-  'xeelee-redemption',
-  'xeelee-redemption-zh',
-  'xeelee-raft',
-  'si-ren-jian-1',
-  'wuaa-xiao-ye',
-  'daode-yu-fazhi-7-shang',
-  'daode-yu-fazhi-7-xia',
-  'daode-yu-fazhi-8-shang',
-  'daode-yu-fazhi-8-xia',
-  'daode-yu-fazhi-9-shang',
-  'daode-yu-fazhi-9-xia',
-  'sixiang-zhengzhi-bixiu-1',
-  'sixiang-zhengzhi-bixiu-2',
-  'sixiang-zhengzhi-bixiu-3',
-  'sixiang-zhengzhi-bixiu-4',
-  'sixiang-zhengzhi-xuanzexing-bixiu-1',
-  'sixiang-zhengzhi-xuanzexing-bixiu-2',
-  'sixiang-zhengzhi-xuanzexing-bixiu-3',
-];
+const booksDirectory = resolve('src/content/books');
+const bookMetadata = await Promise.all(
+  (await readdir(booksDirectory, { withFileTypes: true }))
+    .filter((entry) => entry.isDirectory())
+    .map(
+      async (entry) =>
+        parseFrontmatter(await readFile(resolve(booksDirectory, entry.name, 'book.md'), 'utf8'))
+          .frontmatter,
+    ),
+);
+const privateBookSlugs = bookMetadata
+  .filter((book) => book.private === true)
+  .map((book) => String(book.slug));
+const ownerGroupCount = new Set(bookMetadata.map((book) => book.groupSlug)).size;
 
-async function serveBuiltSite(page: Page) {
+async function serveBuiltSite(page: Page, owner = false) {
   const requests: Array<{ metric: string; subjectType: string; subjectIds: string[] }> = [];
   await page.route(`${baseUrl}/**`, async (route) => {
     const url = new URL(route.request().url());
@@ -74,7 +49,8 @@ async function serveBuiltSite(page: Page) {
       });
       return;
     }
-    const pathname = decodeURIComponent(url.pathname);
+    const pathname =
+      owner && url.pathname === '/books/' ? '/books/_owner/' : decodeURIComponent(url.pathname);
     const relativePath = pathname.endsWith('/') ? `${pathname}index.html` : pathname;
     const filePath = resolve(distDirectory, `.${relativePath}`);
     if (filePath !== distDirectory && !filePath.startsWith(`${distDirectory}${sep}`)) {
@@ -101,6 +77,29 @@ test('book access manifest is generated from private book metadata', async () =>
 
   const sitemap = await readFile(resolve(distDirectory, 'sitemap-0.xml'), 'utf8');
   expect(sitemap).not.toContain('book-access-manifest.json');
+  expect(sitemap).not.toContain('/_owner/');
+  expect(sitemap).not.toContain('/_internal/');
+  for (const slug of privateBookSlugs) {
+    expect(sitemap).not.toContain(`/books/${slug}/`);
+  }
+  expect(sitemap).toContain('/books/guns-germs-steel/');
+
+  const catalog = await readFile(resolve(distDirectory, '_internal/content-catalog.xml'), 'utf8');
+  for (const slug of privateBookSlugs) {
+    expect(catalog).toContain(`/books/${slug}/`);
+  }
+  for (const file of await readdir(resolve(distDirectory, '_astro'))) {
+    if (!/\.(?:js|css|json|map)$/.test(file)) continue;
+    const contents = await readFile(resolve(distDirectory, '_astro', file), 'utf8');
+    for (const slug of privateBookSlugs) {
+      expect(contents, `${file} must not embed private catalog links`).not.toContain(
+        `/books/${slug}/`,
+      );
+      expect(contents, `${file} must not embed private image URLs`).not.toContain(
+        `/images/books/${slug}/`,
+      );
+    }
+  }
 });
 
 test('private book owner can copy book-wide and chapter-specific share links', async ({ page }) => {
@@ -160,12 +159,12 @@ test('private book owner can copy book-wide and chapter-specific share links', a
   await expect(page.getByRole('button', { name: '复制本章分享链接' })).toHaveCount(0);
 });
 
-test('book shelf groups series and filters books locally', async ({ page }) => {
-  await serveBuiltSite(page);
+test('unlocked book shelf groups series and filters books locally', async ({ page }) => {
+  await serveBuiltSite(page, true);
   await page.goto(`${baseUrl}/books/`);
 
   await expect(page.locator('h1')).toHaveText('图书');
-  await expect(page.locator('[data-book-group]')).toHaveCount(10);
+  await expect(page.locator('[data-book-group]')).toHaveCount(ownerGroupCount);
   await expect(page.getByRole('link', { name: '枪炮、病菌与钢铁', exact: true })).toHaveCount(1);
   await expect(page.getByRole('link', { name: '小叶同人', exact: true })).toHaveCount(1);
   await expect(page.locator('a[href="/posts/go-atomic-generics/"]')).toHaveCount(0);
@@ -220,6 +219,54 @@ test('book shelf groups series and filters books locally', async ({ page }) => {
   await page.getByRole('button', { name: '教材', exact: true }).click();
   await expect(page.locator('[data-book-group]:visible')).toHaveCount(2);
   await expect(page.getByText('2 组', { exact: true })).toBeVisible();
+});
+
+test('public shelf has no private metadata, search results, or saved reading entries', async ({
+  page,
+}) => {
+  await serveBuiltSite(page);
+  await page.addInitScript(() => {
+    localStorage.setItem(
+      'tursom-book-progress-v1',
+      JSON.stringify([
+        {
+          bookSlug: 'raft',
+          bookTitle: 'Raft',
+          chapterTitle: 'Private chapter',
+          path: '/books/raft/raft-chapter-01/',
+          updatedAt: 2,
+        },
+        {
+          bookSlug: 'guns-germs-steel',
+          bookTitle: '枪炮、病菌与钢铁',
+          chapterTitle: '序言',
+          path: '/books/guns-germs-steel/chapter-01/',
+          updatedAt: 1,
+        },
+      ]),
+    );
+  });
+  await page.goto(`${baseUrl}/books/`);
+
+  await expect(page.locator('[data-book-group]')).toHaveCount(3);
+  await expect(page.locator('.page-intro')).toContainText('共 3 组、4 册');
+  await expect(page.locator('.page-intro').getByRole('link', { name: '输入密钥' })).toHaveAttribute(
+    'href',
+    '/books/_access/',
+  );
+  const html = await readFile(resolve(distDirectory, 'books/index.html'), 'utf8');
+  for (const slug of privateBookSlugs) {
+    expect(html).not.toContain(`/books/${slug}/`);
+    expect(html).not.toContain(`/images/books/${slug}/`);
+  }
+  for (const title of ['小叶同人', '道德与法治', 'Xeelee', '三体']) {
+    expect(html).not.toContain(title);
+  }
+  await expect(page.locator('[data-continue-reading]')).not.toContainText('Raft');
+  await expect(page.locator('[data-continue-reading] a')).toHaveCount(1);
+  await page.getByRole('searchbox', { name: '搜索图书' }).fill('Raft');
+  await expect(page.locator('[data-book-group]:visible')).toHaveCount(0);
+  await expect(page.getByText('没有符合条件的图书。')).toBeVisible();
 });
 
 test('book contents can collapse volumes and filter chapter titles', async ({ page }) => {
@@ -534,7 +581,7 @@ test('remaining Xeelee books offer complete bidirectional Chinese editions', asy
 test('Three-Body trilogy shelves as one series with volume-grouped chapter TOCs', async ({
   page,
 }) => {
-  await serveBuiltSite(page);
+  await serveBuiltSite(page, true);
   await page.goto(`${baseUrl}/books/`);
 
   const series = page.locator('[data-book-group]', { hasText: '三体三部曲' });

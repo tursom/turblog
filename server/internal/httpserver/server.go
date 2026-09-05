@@ -11,6 +11,7 @@ import (
 	"net/http"
 	"net/http/httputil"
 	"net/url"
+	"sort"
 	"strings"
 	"time"
 
@@ -27,6 +28,8 @@ const (
 type Config struct {
 	Analytics          *analytics.Tracker
 	PrivateBookSlugs   []string
+	PrivatePostSlugs   []string
+	PrivatePostAssets  map[string][]string
 	BookAccessPassword []byte
 	Catalog            *catalog.Catalog
 	ContentUpstream    *url.URL
@@ -38,6 +41,8 @@ type Config struct {
 type server struct {
 	analytics         *analytics.Tracker
 	privateBookSlugs  map[string]struct{}
+	privatePostSlugs  map[string]struct{}
+	privatePostAssets map[string][]string
 	bookAccessKey     []byte
 	catalog           *catalog.Catalog
 	logger            *slog.Logger
@@ -56,6 +61,8 @@ func New(config Config) http.Handler {
 	application := &server{
 		analytics:         config.Analytics,
 		privateBookSlugs:  make(map[string]struct{}, len(config.PrivateBookSlugs)),
+		privatePostSlugs:  make(map[string]struct{}, len(config.PrivatePostSlugs)),
+		privatePostAssets: config.PrivatePostAssets,
 		bookAccessKey:     deriveBookAccessKey(config.BookAccessPassword),
 		catalog:           config.Catalog,
 		logger:            config.Logger,
@@ -64,6 +71,9 @@ func New(config Config) http.Handler {
 	}
 	for _, slug := range config.PrivateBookSlugs {
 		application.privateBookSlugs[slug] = struct{}{}
+	}
+	for _, slug := range config.PrivatePostSlugs {
+		application.privatePostSlugs[slug] = struct{}{}
 	}
 	if config.ContentUpstream != nil {
 		application.proxy = httputil.NewSingleHostReverseProxy(config.ContentUpstream)
@@ -81,7 +91,7 @@ func New(config Config) http.Handler {
 	mux.HandleFunc("POST /books/_access/share", application.createBookShareToken)
 	mux.HandleFunc("/api/v1/", notFound)
 	mux.HandleFunc("/", application.proxyContent)
-	return mux
+	return application.privacyGuard(mux)
 }
 
 func (s *server) health(response http.ResponseWriter, request *http.Request) {
@@ -108,6 +118,7 @@ type metricResponse struct {
 }
 
 func (s *server) queryMetrics(response http.ResponseWriter, request *http.Request) {
+	bookPrivacyHeaders(response.Header())
 	if mediaType, _, err := mime.ParseMediaType(request.Header.Get("Content-Type")); err != nil || mediaType != "application/json" {
 		writeError(response, http.StatusUnsupportedMediaType, "unsupported_media_type", "Content-Type must be application/json")
 		return
@@ -141,9 +152,41 @@ func (s *server) queryMetrics(response http.ResponseWriter, request *http.Reques
 	var counts analytics.CountResult
 	var err error
 	if query.SubjectType == analytics.ArticleSubjectType {
-		counts, err = s.analytics.ArticleViewCounts(request.Context(), query.SubjectIDs)
+		allowed := make([]string, 0, len(query.SubjectIDs))
+		hidden := make(map[string]struct{})
+		for _, id := range query.SubjectIDs {
+			path := "/posts/" + id + "/"
+			if s.isProtectedPostContent(path) && !s.hasBookPathAccess(request, path) {
+				hidden[id] = struct{}{}
+				continue
+			}
+			allowed = append(allowed, id)
+		}
+		counts, err = s.analytics.ArticleViewCounts(request.Context(), allowed)
+		for id := range hidden {
+			counts.Unknown = append(counts.Unknown, id)
+		}
+		sort.Strings(counts.Unknown)
 	} else {
-		counts, err = s.analytics.BookChapterViewCounts(request.Context(), query.SubjectIDs)
+		allowed := make([]string, 0, len(query.SubjectIDs))
+		hidden := make(map[string]struct{})
+		for _, id := range query.SubjectIDs {
+			path := "/books/" + id + "/"
+			known := false
+			if s.catalog != nil {
+				_, known = s.catalog.BookChapterIDFromPath(path)
+			}
+			if !known || (s.isProtectedBookContent(path) && !s.hasBookPathAccess(request, path)) {
+				hidden[id] = struct{}{}
+				continue
+			}
+			allowed = append(allowed, id)
+		}
+		counts, err = s.analytics.BookChapterViewCounts(request.Context(), allowed)
+		for id := range hidden {
+			counts.Unknown = append(counts.Unknown, id)
+		}
+		sort.Strings(counts.Unknown)
 	}
 	if err != nil {
 		s.logger.Error("query content view counts", "subject_type", query.SubjectType, "error", err)
@@ -158,12 +201,18 @@ func (s *server) queryMetrics(response http.ResponseWriter, request *http.Reques
 }
 
 func (s *server) proxyContent(response http.ResponseWriter, request *http.Request) {
-	if s.proxy == nil {
-		writeError(response, http.StatusServiceUnavailable, "content_unavailable", "content upstream is unavailable")
+	var allowed bool
+	request, allowed = s.preparePostContent(response, request)
+	if !allowed {
 		return
 	}
-	if s.isProtectedBookContent(request.URL.Path) && !s.hasBookAccess(request) {
-		s.serveBookAccess(response)
+	request, allowed = s.prepareBookContent(response, request)
+	if !allowed {
+		return
+	}
+	if s.proxy == nil {
+		bookPrivacyHeaders(response.Header())
+		writeError(response, http.StatusServiceUnavailable, "content_unavailable", "content upstream is unavailable")
 		return
 	}
 	s.proxy.ServeHTTP(response, request)
@@ -180,12 +229,35 @@ func (s *server) isProtectedBookContent(path string) bool {
 
 func (s *server) recordArticleView(upstreamResponse *http.Response) error {
 	request := upstreamResponse.Request
-	if strings.HasPrefix(request.URL.Path, "/posts/") || strings.HasPrefix(request.URL.Path, "/books/") {
+	canonicalPath := request.URL.Path
+	routing, routed := request.Context().Value(postRoutingKey{}).(postRouting)
+	if routed {
+		canonicalPath = routing.path
+	}
+	if strings.HasPrefix(canonicalPath, "/posts/") {
 		upstreamResponse.Header.Set("Cache-Control", "private, no-cache, must-revalidate")
 	}
-	if s.isProtectedBookContent(request.URL.Path) {
+	if bookResponsePath(canonicalPath) || routed && (routing.private || postIndexPath(canonicalPath)) {
+		bookPrivacyHeaders(upstreamResponse.Header)
+	}
+	if upstreamResponse.StatusCode == http.StatusNotFound {
+		page, err := s.bookAccessResponse(false)
+		if err != nil {
+			return err
+		}
+		_ = upstreamResponse.Body.Close()
+		upstreamResponse.Header = page.Header
+		upstreamResponse.Body = page.Body
+		upstreamResponse.ContentLength = page.ContentLength
+	}
+	private := s.isProtectedBookContent(canonicalPath) || canonicalPath == "/books/_owner/" || routing.private
+	if strings.HasPrefix(request.URL.Path, "/images/books/") {
+		slug := strings.Split(strings.TrimPrefix(request.URL.Path, "/images/books/"), "/")[0]
+		_, private = s.privateBookSlugs[slug]
+	}
+	if private {
 		upstreamResponse.Header.Set("Referrer-Policy", "no-referrer")
-		upstreamResponse.Header.Add("Vary", "Cookie")
+		upstreamResponse.Header.Set("X-Robots-Tag", "noindex, noarchive")
 	}
 	if request.Method != http.MethodGet || upstreamResponse.StatusCode != http.StatusOK {
 		return nil
@@ -194,8 +266,8 @@ func (s *server) recordArticleView(upstreamResponse *http.Response) error {
 	if err != nil || mediaType != "text/html" {
 		return nil
 	}
-	slug, isArticle := s.catalog.SlugFromPath(request.URL.Path)
-	bookChapterID, isBookChapter := s.catalog.BookChapterIDFromPath(request.URL.Path)
+	slug, isArticle := s.catalog.SlugFromPath(canonicalPath)
+	bookChapterID, isBookChapter := s.catalog.BookChapterIDFromPath(canonicalPath)
 	if !isArticle && !isBookChapter {
 		return nil
 	}
@@ -227,6 +299,7 @@ func (s *server) recordArticleView(upstreamResponse *http.Response) error {
 }
 
 func (s *server) proxyError(response http.ResponseWriter, _ *http.Request, err error) {
+	bookPrivacyHeaders(response.Header())
 	s.logger.Error("proxy article", "error", err)
 	writeError(response, http.StatusBadGateway, "content_upstream_error", "content upstream request failed")
 }

@@ -1,0 +1,43 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import { tagPath } from '@/lib/posts';
+
+interface Props {
+  tags: Array<{ name: string; count: number }>;
+  owner?: boolean;
+}
+
+const { tags, owner = false } = Astro.props;
+---
+
+<SiteLayout
+  title="标签索引"
+  description="按标签浏览 Tursom Log 的技术文章。"
+  canonicalPath="/tags/"
+  noindex={owner}
+>
+  <div class="breadcrumbs">
+    <a href="/">~/log</a><span aria-hidden="true">/</span><strong>tags</strong>
+  </div>
+  <section class="page-intro compact-intro">
+    <span class="eyebrow">INDEX</span>
+    <h1>标签索引</h1>
+    <p>从一个问题出发，沿着标签继续阅读。</p>
+  </section>
+  <div class="tag-index">
+    {
+      tags.length === 0 ? (
+        <p class="empty-state">还没有可用标签。</p>
+      ) : (
+        tags.map((tag) => (
+          <a href={tagPath(tag.name)}>
+            <>
+              <span>#{tag.name}</span>
+              <small>{tag.count} 篇</small>
+            </>
+          </a>
+        ))
+      )
+    }
+  </div>
+</SiteLayout>

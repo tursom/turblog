@@ -1,0 +1,49 @@
+---
+import HomeView from '@/components/HomeView.astro';
+import ArchiveView from '@/components/ArchiveView.astro';
+import TagIndexView from '@/components/TagIndexView.astro';
+import TagView from '@/components/TagView.astro';
+import { allTags, getPosts, paginate, tagSlug, type Post, type PostPage } from '@/lib/posts';
+
+type Props =
+  | { view: 'home'; posts: Post[] }
+  | { view: 'archive'; page: PostPage; total: number }
+  | { view: 'tags'; tags: ReturnType<typeof allTags> }
+  | { view: 'tag'; tag: string; page: PostPage };
+
+export async function getStaticPaths() {
+  const posts = await getPosts(true);
+  const tags = allTags(posts);
+  const routes: Array<{ params: { page: string | undefined }; props: Props }> = [
+    { params: { page: undefined }, props: { view: 'home', posts } },
+    { params: { page: 'tags' }, props: { view: 'tags', tags } },
+  ];
+
+  for (let pageNumber = 1; pageNumber <= paginate(posts, 1).totalPages; pageNumber++) {
+    routes.push({
+      params: { page: pageNumber === 1 ? 'archive' : `archive/${pageNumber}` },
+      props: { view: 'archive', page: paginate(posts, pageNumber), total: posts.length },
+    });
+  }
+
+  for (const { name } of tags) {
+    const tagged = posts.filter((post) => post.data.tags.includes(name));
+    for (let pageNumber = 1; pageNumber <= paginate(tagged, 1).totalPages; pageNumber++) {
+      const basePath = `tags/${tagSlug(name)}`;
+      routes.push({
+        params: { page: pageNumber === 1 ? basePath : `${basePath}/${pageNumber}` },
+        props: { view: 'tag', tag: name, page: paginate(tagged, pageNumber) },
+      });
+    }
+  }
+
+  return routes;
+}
+
+const props = Astro.props;
+---
+
+{props.view === 'home' && <HomeView posts={props.posts} owner />}
+{props.view === 'archive' && <ArchiveView page={props.page} total={props.total} owner />}
+{props.view === 'tags' && <TagIndexView tags={props.tags} owner />}
+{props.view === 'tag' && <TagView tag={props.tag} page={props.page} owner />}

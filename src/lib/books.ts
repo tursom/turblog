@@ -29,10 +29,11 @@ export async function getBooks(): Promise<Book[]> {
   );
 }
 
-export async function getBookGroups(): Promise<BookGroup[]> {
+export async function getBookGroups(includePrivate = false): Promise<BookGroup[]> {
   const groups = new Map<string, BookGroup>();
 
   for (const book of await getBooks()) {
+    if (book.data.private && !includePrivate) continue;
     const existing = groups.get(book.data.groupSlug);
     if (existing) {
       if (

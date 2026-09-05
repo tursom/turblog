@@ -48,6 +48,8 @@ cover: null
 
 由 AI 承担主要执笔工作的文章必须设置 `aiAssisted: true`，站点会在文章列表和详情页显示“AI 辅助创作”标记。未设置时默认为 `false`。
 
+私有文章设置 `private: true`（默认 `false`）。匿名访问时，文章不会出现在首页、归档、标签、RSS 或站点地图中；输入站点密钥后可以在完整列表中阅读。生产构建把私有正文移入受保护的内部目录，必须经过 Go 鉴权入口访问，不能直接公开 Astro 开发服务器或静态构建目录。已上线文章改为私有后，还需重新构建部署并清除旧页面及订阅等缓存。具体规则见“私有资源访问控制”。
+
 草稿使用 `draft/*` 分支；合并到 `master` 才会进入正式构建。Mermaid 使用 `mermaid` fenced code block，构建阶段生成静态 SVG。
 
 ## 导入图书
@@ -85,9 +87,19 @@ Xeelee 中文版采用保留英文原文的独立书目与逐章双向互链。�
 
 中学政治课本由专用导入器 `pnpm import:textbooks` 生成：初中《道德与法治》六三制各册与高中《思想政治》必修/选择性必修各册，正文来自国家中小学智慧教育平台（basic.smartedu.cn）官方电子教材 PDF 的文本层，按「单元 / 课 / 框」结构整理成书籍与章节 Markdown，封面取 PDF 首页。官方电子教材版权页及每页均标注“仅供个人学习使用，未经授权不得另做他用”，本仓库整理版本同样仅限本地个人学习使用，请勿公开部署或传播；正文插图未收录。个别册次（如最新修订版下册）在平台上仅存于需登录鉴权的存储桶，导入器会跳过并在结束时报告，届时请更换为公开的册次或以其他方式获取。
 
+### 私有资源访问控制
+
+博客和图书共用同一把访问密钥，继续使用 `TURBLOG_BOOK_ACCESS_PASSWORD` 环境变量及原有签名算法，不需要另设博客密码。博客 Front Matter 的 `private: true` 现在表示“仅授权访问”，而不是永远不生成：匿名首页、归档、标签页、RSS 和 sitemap 不包含该文章的标题、简介、标签或数量；直接访问私有博客与不存在的文章返回同样的通用 404。输入密钥后，首页、归档和标签页显示包含私有文章的完整列表，书架也同时解锁。
+
+全站“输入密钥”入口为 `/_access/`；原有 `/books/_access/` 仍可使用。私有博客提供“复制本文分享链接”，链接只授予该文章及关联私有图片的访问权，不开放完整列表、其他文章或图书。书籍整本及单章分享的格式和范围保持不变。
+
+构建出的私有博客正文保存在 `_internal/posts/`，私有专用媒体保存在 `_internal/assets/`，普通静态路径下不保留副本。Go 根据独立的 `post-access-manifest.json` 鉴权后通过内部内容入口读取。共用的公开媒体仍公开；私人素材不应同时被公开文章引用，也不应放在公开 Git 或公开镜像中。
+
 ### 图书访问控制
 
-书架 `/books/` 保持公开，但私有书籍只展示书名、作者、版本和阅读单元数量，不会把简介渲染到页面或本地搜索索引中。访问规则由书籍自身的 `book.md` 元数据决定：设置 `private: true` 的书籍，其详情页 `/books/<book-slug>/` 和章节页 `/books/<book-slug>/<chapter-slug>/` 均由 Go 服务强制鉴权；未设置或设置为 `false` 的图书页面直接公开。Astro 构建时会根据内容集合自动生成访问清单，Go 服务从同一镜像读取它。当前 13 本中学政治教材已标记为私有。
+书架 `/books/` 默认只展示公开书籍。私有书籍的书名、作者、版本、数量、链接和简介均不进入公开书架 HTML、本地搜索或公开 sitemap；分组和总数只根据当前可见书籍计算，未解锁时也不会显示本地保存的私有阅读记录。点击书架上的“输入密钥”，验证后直接返回包含所有书籍的完整书架。
+
+访问规则由书籍自身的 `book.md` 元数据决定：设置 `private: true` 的书籍，其详情页 `/books/<book-slug>/`、章节页 `/books/<book-slug>/<chapter-slug>/` 和 `/images/books/<book-slug>/` 下的图片均由 Go 服务强制鉴权。未授权的私有页面与不存在的图书地址返回相同的通用 404，不再以“已锁定”暴露资源存在。未设置或设置为 `false` 的图书仍直接公开。Astro 构建时会生成内部完整内容目录和访问清单，Go 从同一镜像读取它们；内部目录不能通过 HTTP 读取。
 
 新增需要保护的书籍时，在对应的 `src/content/books/<book-slug>/book.md` Front Matter 中设置：
 
@@ -97,9 +109,9 @@ private: true
 
 受保护页面先使用 60 万轮 `PBKDF2-HMAC-SHA-256` 从 `TURBLOG_BOOK_ACCESS_PASSWORD` 派生签名密钥，再以 `HMAC-SHA-256(派生密钥, 页面规范路径)` 生成页面令牌。详情页令牌授予同一本书的详情和全部章节访问权，适合分享整本书；章节页令牌仍只允许打开对应章节。慢速派生能提高离线猜测分享令牌的成本，但不能弥补过弱的口令。
 
-在锁定页直接输入主口令会换取作用于 `/books/`、持续 30 天的 HttpOnly 主人 Cookie，浏览器在此期间可以连续阅读所有受保护的图书详情和章节。私有图书详情页提供“复制全书分享链接”，朋友打开后可阅读该书详情和所有章节；章节页的“复制本章分享链接”只授予当前章节权限。分享链接的 fragment 不会发送给 Nginx、Cloudflare 或外部站点，并会在完成授权后从地址栏清除。
+在 `/books/_access/` 输入密钥会换取持续 30 天的 HttpOnly 主人 Cookie，一次解锁完整书架及所有受保护的图书内容。私有图书详情页提供“复制全书分享链接”，朋友打开后可阅读该书详情和所有章节；章节页的“复制本章分享链接”只授予当前章节权限，不会解锁完整书架或其他书籍。令牌算法保持不变，已有分享链接继续有效。分享链接的 fragment 不会发送给 Nginx、Cloudflare 或外部站点，并会在完成授权后从地址栏清除。
 
-在 `.env` 中配置至少 8 个字符的可记忆口令，建议使用由多个无关词组成的长短语，而不是常见单词、生日或连续数字。修改书籍的 `private` 元数据后重新构建并部署镜像即可，不需要修改环境变量。可从锁定页输入口令并复制分享链接，也可在项目目录生成：
+在 `.env` 中配置至少 8 个字符的可记忆口令，建议使用由多个无关词组成的长短语，而不是常见单词、生日或连续数字。修改书籍的 `private` 元数据后重新构建并部署镜像即可，不需要修改环境变量。可从书架输入密钥后打开图书或章节并复制分享链接，也可在项目目录生成：
 
 ```bash
 pnpm book:share /books/daode-yu-fazhi-7-shang/
@@ -108,7 +120,17 @@ pnpm book:share /books/daode-yu-fazhi-7-shang/daode-yu-fazhi-7-shang-lesson-01/
 
 `book:share` 从对应书籍的 `book.md` 读取 `private` 标记，并从 `.env` 读取 `TURBLOG_BOOK_ACCESS_PASSWORD` 和 `PUBLIC_SITE_URL`；它会拒绝为公开书籍生成分享链接。轮换主密码会立即使所有受保护图书页面的旧分享链接和 Cookie 失效。生产环境必须使用 HTTPS，否则浏览器的 Web Crypto 和安全传输边界无法成立。
 
-这是一层线上访问控制，不会加密 Git 历史、Markdown 源文件、Docker 镜像或 `public/images/books/` 下可直接访问的图片。当前图书文件已被 Git 跟踪，公开仓库或公开 GHCR 镜像仍会泄露正文；真正的私人数据必须移出公开 Git 历史并使用私有镜像/私有内容存储，图片也需要另行迁入受保护的内容接口。
+这是一层线上访问控制，不会加密 Git 历史、Markdown 源文件、Docker 镜像或图片源文件。当前图书文件已被 Git 跟踪，公开仓库或公开 GHCR 镜像仍会泄露资源清单和正文；真正的私人数据必须移出公开 Git 历史并使用私有镜像或私有内容存储。已经被爬虫收录、缓存或经分享链接公开的资料也无法通过本次改版撤回。不要把 Astro 开发服务器、`dist/` 静态目录或内部 `blog` 容器直接暴露到公网，线上必须经过 Go 鉴权入口。
+
+公开 sitemap 仅用于搜索引擎；Go 默认读取 `_internal/content-catalog.xml` 完整目录。修改 `private` 标记后必须重新构建，不能只替换公开 sitemap。升级后若旧浏览器 Cookie 无法加载图片，重新输入一次密钥或重新打开原分享链接即可换取覆盖图片和统计接口的新 Cookie。
+
+真实浏览器权限回归需要先启动 Go/Nginx 服务，再运行：
+
+```bash
+TURBLOG_ACCESS_TEST_URL=http://127.0.0.1:8080 \
+TURBLOG_ACCESS_TEST_PASSWORD='your-test-password' \
+pnpm exec playwright test tests/book-access-live.spec.ts tests/post-access-live.spec.ts
+```
 
 ## 访问统计后端
 
@@ -127,7 +149,7 @@ Content-Type: application/json
 
 一次最多查询 100 个 slug。响应中的 `values` 包含已知文章的总访问量（包括浏览器、爬虫、脚本和未知客户端），`unknown` 返回 sitemap 中不存在的 slug。公开页面每页只发一次批量请求。
 
-图书章节使用同一个接口，但 subject type 和 metric 独立：`book_chapter` / `book_chapter_unique_views`，subject id 为 `<book-slug>/<chapter-slug>`。文章和图书章节的统计不会相互混淆。
+图书章节使用同一个接口，但 subject type 和 metric 独立：`book_chapter` / `book_chapter_unique_views`，subject id 为 `<book-slug>/<chapter-slug>`。文章和图书章节的统计不会相互混淆。未授权的私有文章和私有章节均列入 `unknown`，不会泄露资源存在或访问量；主人与有效分享链接持有者可以查询各自有权访问的资源。
 
 Go 服务代理 `/posts/*`，只在 sitemap 中的文章收到成功的 `GET 200 text/html` 响应后计数。`HEAD`、重定向、404 和非 HTML 响应不会计数。同一 IP 和 User-Agent 对同一文章每天最多计数一次；日期桶使用 `Asia/Shanghai`，事件时间使用 UTC。原始 IP 和完整 User-Agent 不会写入数据库。生产 Compose 显式允许 Go 信任入口代理写入的 `X-Real-IP`；本地直连模式默认忽略客户端提供的代理头。
 
@@ -140,7 +162,7 @@ go test -race ./...
 
 ## 容器部署
 
-Dockerfile 同时构建 Astro 静态站点和 `turblog-server`，并将两者放入同一个 Nginx 运行镜像。Compose 使用该镜像启动 `blog` 和 `server` 两个容器，入口代理把 `/posts/*`、`/books/*` 和 `/api/v1/*` 交给 Go；其他页面和静态资源直达 `blog`。Go 不可用时，普通文章会回退到 `blog`，但 `/books/*` 会失败关闭，避免绕过图书鉴权。
+Dockerfile 同时构建 Astro 静态站点和 `turblog-server`，并将两者放入同一个 Nginx 运行镜像。Compose 使用该镜像启动 `blog` 和 `server` 两个容器；首页、归档、标签、登录、文章、图书、图片和附件经过 Go，后端按 Cookie 决定可见内容与缓存策略。普通公开文章在 Go 不可用时仍可回退到 `blog`，私有博客正文已从普通静态路径移除，因此不会被回退公开；个性化列表、图书和受保护媒体不做静态回退。
 
 本地 Compose 默认监听 `8080`：
 
@@ -190,7 +212,7 @@ docker compose ps
 
 ### Cloudflare 缓存
 
-在 Cloudflare Cache Rules 中增加一条规则：当 URI Path 以 `/posts/` 或 `/books/` 开头时，将 Cache eligibility 设为 **Bypass cache**。Go 和入口 Nginx 也会为文章和图书内容响应设置 `private, no-cache, must-revalidate`，但 Cloudflare 规则仍是确保每次内容访问到达源站的必要配置。其他静态资源继续使用现有缓存策略。
+在 Cloudflare Cache Rules 中为首页 `/`、`/index.html` 及 `/archive`、`/tags`、`/_access`、`/posts/`、`/books/` 路径设置 **Bypass cache**。首页、归档、标签、私有正文和私有媒体响应使用 `no-store`；普通公开文章保持 `private, no-cache, must-revalidate`。`/images/`、`/_astro/` 及其他私有附件所在路径也必须绕过 CDN 缓存，或严格遵循源站 `no-store`，不能使用覆盖源站指令的 Cache Everything 规则。部署本次改版时需要清除全部既有 CDN 缓存，包括旧文章、首页、标签、书架、RSS、sitemap 和媒体，避免保留以前的公开副本。
 
 入口 Nginx 只接受 Cloudflare 官方 IP 网段发来的 `CF-Connecting-IP`，直接访问源站时会忽略调用者伪造的客户端 IP 头。Cloudflare 更新 [IP ranges](https://www.cloudflare.com/ips/) 后应同步更新 Compose 中的 `set_real_ip_from` 列表；生产防火墙仍建议只允许 Cloudflare 和运维来源访问源站端口。
 

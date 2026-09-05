@@ -1,0 +1,58 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import PostList from '@/components/PostList.astro';
+import Pagination from '@/components/Pagination.astro';
+import { tagPath, type PostPage } from '@/lib/posts';
+
+interface Props {
+  tag: string;
+  page: PostPage;
+  owner?: boolean;
+}
+
+const { tag, page, owner = false } = Astro.props;
+const firstPage = page.currentPage === 1;
+---
+
+<SiteLayout
+  title={firstPage ? `#${tag}` : `#${tag} · 第 ${page.currentPage} 页`}
+  description={`浏览 Tursom Log 中标记为 ${tag} 的文章。`}
+  canonicalPath={firstPage ? tagPath(tag) : `${tagPath(tag)}${page.currentPage}/`}
+  noindex={owner}
+>
+  <div class="breadcrumbs">
+    <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/tags/">tags</a><span
+      aria-hidden="true">/</span
+    >
+    {
+      firstPage ? (
+        <strong>{tag}</strong>
+      ) : (
+        <>
+          <>
+            <a href={tagPath(tag)}>{tag}</a>
+            <span aria-hidden="true">/</span>
+          </>
+          <strong>{page.currentPage}</strong>
+        </>
+      )
+    }
+  </div>
+  <section class="page-intro compact-intro">
+    <span class="eyebrow">TAG</span>
+    <h1>#{tag}</h1>
+    {
+      firstPage ? (
+        <p>这个标签下共有 {page.totalPages === 1 ? page.items.length : '多'} 篇文章。</p>
+      ) : (
+        <p>按发布时间浏览这个标签下的文章。</p>
+      )
+    }
+  </section>
+  <PostList posts={page.items} />
+  <Pagination
+    currentPage={page.currentPage}
+    totalPages={page.totalPages}
+    basePath={tagPath(tag).replace(/\/$/, '')}
+  />
+</SiteLayout>

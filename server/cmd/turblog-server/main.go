@@ -47,6 +47,15 @@ func run(ctx context.Context, logger *slog.Logger) error {
 			return fmt.Errorf("book access manifest contains unknown book slug %q", slug)
 		}
 	}
+	postAccess, err := catalog.LoadPostAccessManifest(settings.PostAccessManifestPath)
+	if err != nil {
+		return err
+	}
+	for _, slug := range postAccess.PrivatePosts {
+		if !articles.Contains(slug) {
+			return fmt.Errorf("post access manifest contains unknown post slug %q", slug)
+		}
+	}
 	tracker, err := analytics.Open(ctx, analytics.Config{
 		DatabasePath:   settings.DatabasePath,
 		HashKey:        settings.HashKey,
@@ -62,6 +71,8 @@ func run(ctx context.Context, logger *slog.Logger) error {
 	handler := httpserver.New(httpserver.Config{
 		Analytics:          tracker,
 		PrivateBookSlugs:   privateBookSlugs,
+		PrivatePostSlugs:   postAccess.PrivatePosts,
+		PrivatePostAssets:  postAccess.PrivateAssets,
 		BookAccessPassword: settings.BookAccessPassword,
 		Catalog:            articles,
 		ContentUpstream:    settings.ContentUpstream,

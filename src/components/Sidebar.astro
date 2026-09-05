@@ -1,7 +1,7 @@
 ---
 import { navigationLinks } from '@/lib/navigation';
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/^\/_owner(?=\/|$)/, '') || '/';
 ---
 
 <aside class="site-sidebar" id="site-sidebar">
@@ -36,6 +36,10 @@ const currentPath = Astro.url.pathname;
   </nav>
 
   <div class="sidebar-footer">
+    <a class="nav-link" href="/_access/?return_to=/" aria-label="输入密钥">
+      <span class="nav-icon" aria-hidden="true">↪</span>
+      <span class="sidebar-label">输入密钥</span>
+    </a>
     <a class="nav-link" href="/rss.xml" aria-label="RSS 订阅">
       <span class="nav-icon" aria-hidden="true">↗</span>
       <span class="sidebar-label">RSS 订阅</span>

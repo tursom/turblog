@@ -1,22 +1,9 @@
 ---
-import SiteLayout from '@/layouts/SiteLayout.astro';
-import PostList from '@/components/PostList.astro';
-import Pagination from '@/components/Pagination.astro';
+import ArchiveView from '@/components/ArchiveView.astro';
 import { getPosts, paginate } from '@/lib/posts';
 
 const posts = await getPosts();
 const page = paginate(posts, 1);
 ---
 
-<SiteLayout title="归档" description="Tursom Log 的全部技术文章。">
-  <div class="breadcrumbs">
-    <a href="/">~/log</a><span aria-hidden="true">/</span><strong>archive</strong>
-  </div>
-  <section class="page-intro compact-intro">
-    <span class="eyebrow">ARCHIVE</span>
-    <h1>文章归档</h1>
-    <p>按发布时间浏览全部文章，共 {posts.length} 篇。</p>
-  </section>
-  <PostList posts={page.items} />
-  <Pagination currentPage={page.currentPage} totalPages={page.totalPages} basePath="/archive" />
-</SiteLayout>
+<ArchiveView page={page} total={posts.length} />
