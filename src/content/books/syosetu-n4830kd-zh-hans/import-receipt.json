@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "generator": "syosetu-private-translation",
+  "slug": "syosetu-n4830kd-zh-hans",
+  "sourceUrl": "https://novel18.syosetu.com/n4830kd/",
+  "language": "zh-hans",
+  "importedAt": "2026-09-06T06:18:13.445Z",
+  "files": {
+    "chapters/0001-episode-1.md": "9684a0d2670a6f703a1a60f87ea89414076792b1eb09ad2d786eb6215579b3e4",
+    "chapters/0002-episode-2.md": "973d768644f780c7579686bae1d046bd342b855ddc44cf169dcc61eb7fcec62b",
+    "chapters/0003-episode-3.md": "8415db0b4d16abdf44baf82d95ba06fb70899ce587fd8566cb50dadc9cea841a",
+    "chapters/0004-episode-4.md": "ee73a932246f1c2af0946e19b011feb4d5e0ba4bab477fa17e95bce73026761c",
+    "chapters/0005-episode-5.md": "b1ead5e0035d1f500185603b4f59a866cd6212241282c8104679272393fce5de",
+    "chapters/0006-episode-6.md": "98a3d0f1a24e8a4ca7f5532f8847d8e25b88d4647c09b36d85de57c58f68f6bd",
+    "book.md": "dafdbf31f01d7867fb0ac535772e2f6371449a200280db60c9ca8da499bc3632"
+  }
+}

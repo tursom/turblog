@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "generator": "syosetu-private-translation",
+  "slug": "syosetu-n8994ml-zh-hans",
+  "sourceUrl": "https://novel18.syosetu.com/n8994ml/",
+  "language": "zh-hans",
+  "importedAt": "2026-09-06T06:38:14.108Z",
+  "files": {
+    "chapters/0001-episode-1.md": "725f85c898aa222c38185d1ee0e8f320eb5638fdec847eb1170d1e3813b9da19",
+    "chapters/0002-episode-2.md": "a39de2d19d2f392713271b05b4c2c954d161c1c2218697cbfa5defde42867e7a",
+    "chapters/0003-episode-3.md": "c11c6fba6c55e2b06f1eb606c4c3dd2bcb28912c85a83b004f9f288e110292ff",
+    "book.md": "1435310c95bb8f8b8961445773e680de33838cbff20b45c69b2ba8d3db009320"
+  }
+}

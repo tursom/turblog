@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "generator": "syosetu-private-translation",
+  "slug": "syosetu-n9968mm-zh-hans",
+  "sourceUrl": "https://novel18.syosetu.com/n9968mm/",
+  "language": "zh-hans",
+  "importedAt": "2026-09-06T07:20:26.449Z",
+  "files": {
+    "chapters/0001-episode-1.md": "07cd05e1964c2ceaeffc64c7ded8eeb13d9def76f964d3c333eaad199898d2fa",
+    "chapters/0002-episode-2.md": "08a9de9b3ff9a14dd18e2262d3b745536dba5c48e21def019ddee037f4a5b779",
+    "chapters/0003-episode-3.md": "f42ea6d104f0eef8bd3e0fdec32546362e730481234a09eba9aad778c82dcb64",
+    "chapters/0004-episode-4.md": "2046aad745aab3beaa69a73ddced4bd9b675d18799e00d186e56e1ccfa632b4c",
+    "chapters/0005-episode-5.md": "d81c8beddad5dd53d897d1a6207852fddc17d5e62a0ee879a624fc92d7f0b19c",
+    "book.md": "c82ef84e140dc06d7fe49bf67f4cb6b7308c406ad49766e65d92b5bef2ed12f8"
+  }
+}

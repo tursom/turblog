@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "generator": "syosetu-private-translation",
+  "slug": "syosetu-n9444mp-zh-hans",
+  "sourceUrl": "https://novel18.syosetu.com/n9444mp/",
+  "language": "zh-hans",
+  "importedAt": "2026-09-06T06:51:03.300Z",
+  "files": {
+    "chapters/0001-episode-1.md": "476e963e4f82e0412a27107d53b5f3a5fe48c3cfab3a2af5b6ecb94a9eb035c1",
+    "chapters/0002-episode-2.md": "905435da4b1bea22a62f2994e97693daa725c6e2d3dc46ea106183449702171b",
+    "chapters/0003-episode-3.md": "28a5f34841cf5e5904cf4eb44ca47b02683c2dbe1a58ef08dd53bfdf0b15028a",
+    "chapters/0004-episode-4.md": "fb845a3f1313f2b98927fe641cca3fdd0d392a716dd5de42699c06567f5451a9",
+    "book.md": "c6117e4f6b89d257adf718896a18d70120f07c5843ec7ae85b2b076229b850b1"
+  }
+}

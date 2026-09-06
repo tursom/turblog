@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "generator": "syosetu-private-translation",
+  "slug": "syosetu-n9384kl-zh-hans",
+  "sourceUrl": "https://novel18.syosetu.com/n9384kl/",
+  "language": "zh-hans",
+  "importedAt": "2026-09-06T06:50:41.395Z",
+  "files": {
+    "chapters/0001-episode-1.md": "e2921dd798bde3d0bfbc39e50e4ca0efababeaaada0eeb2912fa26ae0e3bd57f",
+    "chapters/0002-episode-2.md": "0fd6ce509c0e0fc4790fac372fce732237dbeb6ec820954c71c2600066fd4f4d",
+    "chapters/0003-episode-3.md": "2d362030e904c02a26927bcec9c8b0aca676c353b2f9904b4b6c0ab4d5678c59",
+    "chapters/0004-episode-4.md": "6b2a3d5eb8592d53b041703ed3291e10e708ff1920a737cb4443b338a84826fd",
+    "chapters/0005-episode-5.md": "bf2b9b5497af91a4974d8bed35c45f2ce6dd69cac1267fdcda713a09a2ae8dc7",
+    "chapters/0006-episode-6.md": "a5931c2447f369a3d8cb8ecac800b4345c991aeebfbd9f56318e5c1f84f98001",
+    "chapters/0007-episode-7.md": "0fe3bc3e07a331cc2b6ea929a29a6cf06997db2731a1fa746539bc501ef85d90",
+    "chapters/0008-episode-8.md": "9b573dfde9a156c4029a666d013571865103aeeb1871f3650b7b8ea51d4ec098",
+    "chapters/0009-episode-9.md": "15ae4e99ebd1ab1dc6037172bbe260b8a355862056144ded60533b0cca850ca0",
+    "chapters/0010-episode-10.md": "2588fc79a620d21dbdb35306daadc266a2ba02caadede436508b3f2121c39267",
+    "book.md": "89323e0e5c6b1186cc203b050a6f75c7fff195c627556de3558653ca9168cffc"
+  }
+}
