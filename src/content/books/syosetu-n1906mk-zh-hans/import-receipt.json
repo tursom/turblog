@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "generator": "syosetu-private-translation",
+  "slug": "syosetu-n1906mk-zh-hans",
+  "sourceUrl": "https://novel18.syosetu.com/n1906mk/",
+  "language": "zh-hans",
+  "importedAt": "2026-09-06T04:27:22.724Z",
+  "files": {
+    "chapters/0001-oneshot.md": "a374479dbcd06570673877fbb2666175c5f72b94575a31107926887fec7905a6",
+    "book.md": "01f8f1dc809436e6900afd8600f5df2ee60f097b40665ef4b3931f86ec91d9f3"
+  }
+}

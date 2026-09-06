@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "generator": "syosetu-private-translation",
+  "slug": "syosetu-n1994li-zh-hans",
+  "sourceUrl": "https://novel18.syosetu.com/n1994li/",
+  "language": "zh-hans",
+  "importedAt": "2026-09-06T04:42:19.757Z",
+  "files": {
+    "chapters/0001-episode-1.md": "163bb8a0e2c6bfa7181993fdf8da5b93a17d6e2729f8408acadb29b13031228a",
+    "chapters/0002-episode-2.md": "5c64b069f0f0f6e41a2dd8a94a143c93af19ac07a92ab6704a6c5187c409d4b4",
+    "chapters/0003-episode-3.md": "602d4079749f5983311e433a23032d58ea581367f3ae34b2f37a286ed27440d7",
+    "chapters/0004-episode-4.md": "f2fb8d8b7efab95e1f179b7dd86f2549f00c2e29052782a04418d5cb69028712",
+    "chapters/0005-episode-5.md": "eb50fb0abe2e52f86e3a9b06865c700842f6a42e136c5b64e1d2ba9c95251588",
+    "chapters/0006-episode-6.md": "11875eef7769bc1d322eefee6f9d9d7458794bb925efb5da6b6fbc6f934338bd",
+    "chapters/0007-episode-7.md": "db3e643b85d9cd385459642723120829074e12f6b04424307942c76abb0982dd",
+    "chapters/0008-episode-8.md": "6d40d7bd642921c900b986d64e43cdbc258a6a9e4457847cffebaaf0dde9c9cc",
+    "chapters/0009-episode-9.md": "684526c207ef528576151a177f5f2c8c25efad6a2b82a7d38bb44ce87c4743ae",
+    "chapters/0010-episode-10.md": "2942ed04b48e4e8e8acc169633d3d70bc4843c1048a0063a48e22e60cae23a40",
+    "chapters/0011-episode-11.md": "cc635abaca6ebf8aa52edf191a0a38d65a667d041f85e5fd790b671e5394b293",
+    "chapters/0012-episode-12.md": "af4cbb42b3c5789b84f7ba0a9c3d36eca1a2124d97aefeec0c46051e816af961",
+    "chapters/0013-episode-13.md": "55041822b5520e692d646463b615ae401978ec63fb9e789e9fca128b8e0c33a2",
+    "chapters/0014-episode-14.md": "bb328a01ecf449bb4933c4be9bac91b855fe1e8ab374155b4bdc38519cf16dc6",
+    "chapters/0015-episode-15.md": "28f53c750e2676fafe45d4048b23c5d8f67ab4efc5e647dd841d84a7de0fa8e9",
+    "chapters/0016-episode-16.md": "a8f46c1705c6795c5b54753fd18127d728d33f9374590197e1d54e56e50af2c9",
+    "chapters/0017-episode-17.md": "3d620245eda0f7e012eafe6bc7226e63af7c23fe760834d8e50a7d655913adb5",
+    "chapters/0018-episode-18.md": "e14238606f583330bf4bffc09783d1f42a9b6a8929e9144ba44507a3f18008e0",
+    "chapters/0019-episode-19.md": "69de7bb6c4332bc5e303e48e7200d1cd44558d1ee4046c4ac6a99edd3a96a256",
+    "chapters/0020-episode-20.md": "a25215fde615977aed01b45275e8dc291568e452ad2ca8b237a36ebd25e80ceb",
+    "book.md": "6e03bc0a7f2a16843abde8bfcd9a3e1d505983493561fad61fe458000a5c8949"
+  }
+}

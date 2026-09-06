@@ -911,6 +911,116 @@ for (const failure of ['throw', 'empty']) {
   });
 }
 
+test('Venice execution policies preserve existing cache identity and credential-free CLI plans', async (t) => {
+  const f = await japaneseFixture(t);
+  const identity = {
+    provider: 'openai',
+    endpoint: 'https://api.venice.ai/api/v1/chat/completions',
+    model: 'olafangensan-glm-4.7-flash-heretic',
+    source: 'ja',
+    target: 'zh-Hans',
+    maxOutputTokens: 4096,
+    promptVersion: '2',
+  };
+  await seedBook(f, identity);
+  await cp(f.output, join(f.source, 'translations', 'zh-Hans'), { recursive: true });
+  const scanRoot = join(f.root, 'batch');
+  await cp(f.source, join(scanRoot, 'book'), { recursive: true });
+  const before = await snapshot(f.root);
+  const translators = [];
+  // Child processes do not inherit node:test mocks; block fetch before importing the CLI.
+  const noNetwork = `data:text/javascript,${encodeURIComponent(
+    'globalThis.fetch = () => { throw new Error("Network forbidden in dry run"); };',
+  )}`;
+  for (const options of [
+    {},
+    { veniceThinking: 'off', maxOutputTokensLimit: 4096 },
+    { veniceThinking: 'default', maxOutputTokensLimit: 65536 },
+  ]) {
+    const translator = offlineProvider({
+      baseUrl: 'https://api.venice.ai/api/v1',
+      apiKey: 'synthetic-test-key',
+      model: identity.model,
+      ...options,
+    });
+    translators.push(translator);
+    assert.deepEqual(translator.identity, identity, 'execution policy must not enter cache keys');
+    const plan = await f.run({ translator, dryRun: true });
+    assert.equal(plan.cachedChunks, 7);
+    assert.equal(plan.pendingRequests, 0);
+    assert.deepEqual(await snapshot(f.root), before);
+    const flags = [
+      ...(options.veniceThinking ? ['--venice-thinking', options.veniceThinking] : []),
+      ...(options.maxOutputTokensLimit
+        ? ['--max-output-tokens-limit', String(options.maxOutputTokensLimit)]
+        : []),
+    ];
+    for (const input of [
+      [f.source, '--output', f.output],
+      ['--scan-root', scanRoot],
+    ]) {
+      const result = spawnSync(
+        process.execPath,
+        [
+          '--import',
+          noNetwork,
+          new URL('./translate-syosetu.mjs', import.meta.url).pathname,
+          ...input,
+          '--provider',
+          'openai',
+          '--base-url',
+          'https://api.venice.ai/api/v1',
+          '--model',
+          identity.model,
+          '--dry-run',
+          ...flags,
+        ],
+        { env: {}, encoding: 'utf8', timeout: 10000 },
+      );
+      assert.ifError(result.error);
+      assert.equal(result.status, 0, result.stderr);
+      assert.match(result.stdout, /0 pending requests, 0 source characters, 7 cached chunks/);
+      assert.deepEqual(await snapshot(f.root), before);
+    }
+  }
+  const cacheBefore = await snapshot(join(f.output, 'cache'));
+  for (const translator of translators) {
+    assert.equal((await f.run({ translator })).pendingRequests, 0);
+    assert.deepEqual(await snapshot(join(f.output, 'cache')), cacheBefore);
+  }
+});
+
+test('CLI rejects invalid Venice modes for every provider before reads, including batch and dry runs', async (t) => {
+  const f = await fixture(t);
+  const missing = join(f.root, 'nonexistent');
+  const original = await snapshot(f.root);
+  for (const provider of ['openai', 'deepl', 'libretranslate']) {
+    for (const value of ['', 'OFF', 'on', ' default ']) {
+      for (const input of [[missing], ['--scan-root', missing]]) {
+        for (const flags of [[], ['--dry-run']]) {
+          const result = spawnSync(
+            process.execPath,
+            [
+              new URL('./translate-syosetu.mjs', import.meta.url).pathname,
+              ...input,
+              '--provider',
+              provider,
+              `--venice-thinking=${value}`,
+              ...flags,
+            ],
+            { env: {}, encoding: 'utf8', timeout: 10000 },
+          );
+          assert.ifError(result.error);
+          assert.equal(result.status, 1);
+          assert.match(result.stderr, /--venice-thinking must be off or default/);
+          assert.doesNotMatch(result.stderr, /ENOENT|API key|model is required/);
+        }
+      }
+    }
+  }
+  assert.deepEqual(await snapshot(f.root), original);
+});
+
 test('CLI rejects invalid retry settings before dry-run input reads or batch scanning', async (t) => {
   const f = await fixture(t);
   const missing = join(f.root, 'nonexistent');
@@ -1001,6 +1111,11 @@ test('CLI accepts output budget boundaries and ignores output settings for non-L
     ['--max-output-tokens', '1', '--max-output-tokens-limit', '1'],
     ['--max-output-tokens', '8192', '--max-output-tokens-limit', '16384'],
     ['--max-output-tokens', '65536'],
+    ['--venice-thinking', 'off'],
+    ['--venice-thinking', 'default'],
+    ...['deepl', 'libretranslate'].flatMap((provider) =>
+      ['off', 'default'].map((mode) => ['--provider', provider, '--venice-thinking', mode]),
+    ),
     ['--max-output-tokens', '9007199254740991', '--max-output-tokens-limit', '9007199254740991'],
     ...['deepl', 'libretranslate'].flatMap((provider) =>
       ['0', 'NaN'].map((value) => [
@@ -1036,7 +1151,10 @@ test('CLI accepts output budget boundaries and ignores output settings for non-L
   assert.equal(help.status, 0);
   assert.match(help.stdout, /Initial per-chunk LLM output budget \(default: 4096\)/);
   assert.match(help.stdout, /--max-output-tokens-limit N/);
-  assert.match(help.stdout, /max\(initial budget, 32768\)/);
+  assert.match(help.stdout, /Venice max\(initial budget, 8192\)/);
+  assert.match(help.stdout, /others max\(initial budget, 32768\)/);
+  assert.match(help.stdout, /--venice-thinking MODE\s+off \(default\) or default/);
+  assert.match(help.stdout, /exact hostname api\.venice\.ai; ignored elsewhere/);
   assert.deepEqual(await snapshot(f.root), original);
 });
 
@@ -1144,6 +1262,8 @@ test(
         const buffers = [];
         for await (const buffer of request) buffers.push(buffer);
         const payload = JSON.parse(Buffer.concat(buffers).toString('utf8'));
+        assert.equal(Object.hasOwn(payload, 'reasoning'), false);
+        assert.equal(Object.hasOwn(payload, 'venice_parameters'), false);
         const text = payload.messages[1].content;
         calls.push({ text, budget: payload.max_tokens });
         const config = (await f.json('manifest.json')).config;

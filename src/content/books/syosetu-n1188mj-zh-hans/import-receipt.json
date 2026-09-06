@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "generator": "syosetu-private-translation",
+  "slug": "syosetu-n1188mj-zh-hans",
+  "sourceUrl": "https://novel18.syosetu.com/n1188mj/",
+  "language": "zh-hans",
+  "importedAt": "2026-09-06T05:07:40.679Z",
+  "files": {
+    "chapters/0001-episode-1.md": "b24f9776e4eed5c4e362af7f9b225f56a4557ebb4960a9c39113bed78584fc54",
+    "chapters/0002-episode-2.md": "77e945c5ce598660e89c958771fe135a75178515b5b44c884acfb4201d3db32a",
+    "chapters/0003-episode-3.md": "599ce982820d373723251a2fad77c22e17749df9a27f6bf346a0dbb5b861511f",
+    "chapters/0004-episode-4.md": "047c87399a5cfcb8ba6f2633ac1c2ce0e76ce6d117999936ca80363e1c8ad486",
+    "chapters/0005-episode-5.md": "732b0c98927bf872624af56987d050ca46c60d36fa2de6581bde97c8d5806428",
+    "chapters/0006-episode-6.md": "9a8c3f12b632559ec4b203231d5c31bff5e6be72c921c7ab81e284cbf2df6c9a",
+    "book.md": "1f21975a5c53644999582960f5c5da9124005d236f95f54e67c7d4cb73823035"
+  }
+}

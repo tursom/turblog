@@ -466,6 +466,7 @@ async function main() {
       'chunk-chars': { type: 'string', default: '2000' },
       'max-output-tokens': { type: 'string', default: '4096' },
       'max-output-tokens-limit': { type: 'string' },
+      'venice-thinking': { type: 'string', default: 'off' },
       interval: { type: 'string', default: '1000' },
       retries: { type: 'string', default: '5' },
       'retry-delay': { type: 'string', default: '1000' },
@@ -497,8 +498,11 @@ async function main() {
   --chunk-chars N          Max Unicode characters per request (default: 2000)
   --max-output-tokens N    Initial per-chunk LLM output budget (default: 4096)
   --max-output-tokens-limit N
-                           Length-retry ceiling (default: max(initial budget, 32768));
-                           must be >= initial budget. Only length retries grow the budget.
+                           Length-retry ceiling: Venice max(initial budget, 8192),
+                           others max(initial budget, 32768) by default.
+                           Explicit ceiling must be >= initial budget; only length retries grow it.
+  --venice-thinking MODE   off (default) or default (restore server default).
+                           Only openai at exact hostname api.venice.ai; ignored elsewhere.
   --interval MS            Request spacing (default: 1000)
   --retries N              Extra attempts per chunk (default: 5, range: 0-20)
   --retry-delay MS         Initial retry backoff (default: 1000, range: 1-60000)
@@ -519,6 +523,9 @@ Only translate content you are authorized to process. Source files stay unchange
     throw new Error(
       'Provide one crawler output directory, or use --scan-root DIR to translate a directory of books in batch. Use --help for usage.',
     );
+  const veniceThinking = values['venice-thinking'];
+  if (!['off', 'default'].includes(veniceThinking))
+    throw new Error('--venice-thinking must be off or default.');
   const retries = Number(values.retries);
   if (!values.retries.trim() || !Number.isSafeInteger(retries) || retries < 0 || retries > 20)
     throw new Error('--retries must be an integer between 0 and 20.');
@@ -563,6 +570,7 @@ Only translate content you are authorized to process. Source files stay unchange
       retryDelay,
       maxOutputTokens,
       maxOutputTokensLimit,
+      veniceThinking,
     });
   const concurrency = Number(values.concurrency);
   validateConcurrency(concurrency);

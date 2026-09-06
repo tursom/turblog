@@ -249,6 +249,182 @@ test('the prompt names Traditional Chinese without changing submitted source tex
   assert.deepEqual(h.calls[0].payload.messages[1], { role: 'user', content: INPUT });
 });
 
+test('Venice disables thinking on the first translation attempt instead of paying for truncation retries', async () => {
+  const h = harness({ baseUrl: 'https://api.venice.ai/api/v1' }, [
+    (request) => {
+      const payload = JSON.parse(request.body);
+      const disabled =
+        payload.reasoning?.enabled === false &&
+        payload.venice_parameters?.disable_thinking === true;
+      return json(
+        success(disabled ? OUTPUT : 'partial', { finish_reason: disabled ? 'stop' : 'length' }),
+      );
+    },
+  ]);
+  assert.equal(await h.translate(INPUT), OUTPUT);
+  assert.equal(h.calls.length, 1);
+  assert.equal(h.calls[0].payload.max_tokens, 4096);
+});
+
+test('Venice default ceiling stops repeated truncation at 8192 tokens', async () => {
+  const h = harness({ baseUrl: 'https://api.venice.ai/api/v1', retries: undefined }, [
+    () => json(success('partial', { finish_reason: 'length' })),
+  ]);
+  await assert.rejects(h.translate(INPUT), /ceiling 8192 after 2 attempts/);
+  assert.deepEqual(
+    h.calls.map(({ payload }) => payload.max_tokens),
+    [4096, 8192],
+  );
+  assert.deepEqual(h.delays, [1000]);
+});
+
+test('Venice thinking controls survive network, truncation and quality retries without changing cache identity', async () => {
+  const options = { baseUrl: 'https://api.venice.ai/api/v1', maxOutputTokensLimit: 16384 };
+  const h = harness(options, [
+    () => json({}, 503),
+    () => json(success('partial', { finish_reason: 'length' })),
+    () => json(success('')),
+    () => json(success()),
+  ]);
+  assert.equal(await h.translate(INPUT), OUTPUT);
+  assert.deepEqual(
+    h.calls.map(({ payload }) => payload.max_tokens),
+    [4096, 4096, 8192, 8192],
+  );
+  for (const { payload } of h.calls) {
+    assert.deepEqual(payload.reasoning, { enabled: false });
+    assert.deepEqual(payload.venice_parameters, { disable_thinking: true });
+    assert.deepEqual(payload.messages, h.calls[0].payload.messages);
+  }
+  assert.deepEqual(
+    h.identity,
+    harness({ ...options, veniceThinking: 'default', maxOutputTokensLimit: 32768 }).identity,
+  );
+  assert.deepEqual(h.identity, {
+    provider: 'openai',
+    endpoint: 'https://api.venice.ai/api/v1/chat/completions',
+    model: 'test-model',
+    source: 'ja',
+    target: 'zh-Hans',
+    maxOutputTokens: 4096,
+    promptVersion: '2',
+  });
+});
+
+test('Venice service-default thinking sends no reasoning controls', async () => {
+  const h = harness({ baseUrl: 'https://api.venice.ai/api/v1', veniceThinking: 'default' });
+  await h.translate(INPUT);
+  assert.equal(Object.hasOwn(h.calls[0].payload, 'reasoning'), false);
+  assert.equal(Object.hasOwn(h.calls[0].payload, 'venice_parameters'), false);
+});
+
+for (const [options, budgets] of [
+  [{ maxOutputTokensLimit: 16384 }, [4096, 8192, 16384]],
+  [{ maxOutputTokens: 16384 }, [16384]],
+  [{ maxOutputTokensLimit: 4096 }, [4096]],
+  [{ veniceThinking: 'default' }, [4096, 8192]],
+]) {
+  test(`Venice respects explicit budgets and derives a ceiling no smaller than initial: ${JSON.stringify(options)}`, async () => {
+    const h = harness({ baseUrl: 'https://api.venice.ai/api/v1', retries: 5, ...options }, [
+      () => json(success('partial', { finish_reason: 'length' })),
+    ]);
+    await assert.rejects(h.translate(INPUT), /output-token ceiling/);
+    assert.deepEqual(
+      h.calls.map(({ payload }) => payload.max_tokens),
+      budgets,
+    );
+  });
+}
+
+for (const baseUrl of [
+  'https://api.openai.com/v1',
+  'https://api.venice.ai.other.test/api/v1',
+  'https://proxy.api.venice.ai/v1',
+  'https://other.test/api.venice.ai',
+  'http://127.0.0.1:12345/v1',
+]) {
+  test(`Venice settings cannot affect other hosts: ${baseUrl}`, async () => {
+    const h = harness({ baseUrl, model: 'venice-uncensored-1-2', retries: 5 }, [
+      () => json(success('partial', { finish_reason: 'length' })),
+    ]);
+    await assert.rejects(h.translate(INPUT), /ceiling 32768/);
+    assert.deepEqual(
+      h.calls.map(({ payload }) => payload.max_tokens),
+      [4096, 8192, 16384, 32768],
+    );
+    for (const { payload } of h.calls) {
+      assert.equal(Object.hasOwn(payload, 'reasoning'), false);
+      assert.equal(Object.hasOwn(payload, 'venice_parameters'), false);
+    }
+  });
+}
+
+for (const veniceThinking of ['on', '', null, false, {}, 0]) {
+  test(`invalid Venice thinking policy is rejected: ${JSON.stringify(veniceThinking)}`, () => {
+    assert.throws(() => harness({ veniceThinking }), /veniceThinking must be off or default/);
+  });
+}
+
+test('unsupported Venice thinking parameters do not cause an automatic paid fallback', async () => {
+  const h = harness({ baseUrl: 'https://api.venice.ai/api/v1' }, [
+    () => json({ error: SECRET }, 400),
+    () => json(success()),
+  ]);
+  await assert.rejects(h.translate(INPUT), /HTTP 400/);
+  assert.equal(h.calls.length, 1);
+});
+
+test('truncation reports numeric usage and Unicode character counts without exposing reasoning', async () => {
+  const events = [];
+  const reasoning = `${SECRET} ${INPUT}`;
+  const h = harness({ baseUrl: 'https://api.venice.ai/api/v1', retries: 5 }, [
+    (request) => {
+      const tokens = JSON.parse(request.body).max_tokens;
+      return json({
+        ...success('译🚀', {
+          finish_reason: 'length',
+          message: { role: 'assistant', content: '译🚀', reasoning_content: reasoning },
+        }),
+        usage: {
+          completion_tokens: tokens,
+          completion_tokens_details: { reasoning_tokens: tokens - 2 },
+        },
+      });
+    },
+  ]);
+  await assert.rejects(h.translate(INPUT, { onRetry: (event) => events.push(event) }), (error) => {
+    assert.match(error.message, /ceiling 8192 after 2 attempts/);
+    assert.match(error.message, /completion_tokens=8192, reasoning_tokens=8190, visible_chars=2/);
+    assert.ok(error.message.includes(`reasoning_chars=${Array.from(reasoning).length}`));
+    return redacted(error);
+  });
+  assert.match(events[0].reason, /completion_tokens=4096, reasoning_tokens=4094, visible_chars=2/);
+  assert.ok(!JSON.stringify(events).includes(SECRET));
+  assert.ok(!JSON.stringify(events).includes(INPUT));
+  assert.ok(!JSON.stringify(events).includes('译🚀'));
+});
+
+for (const count of [SECRET, -1, 1.5, null, false, {}, Number.MAX_SAFE_INTEGER + 1]) {
+  test(`invalid usage values are omitted from diagnostics: ${JSON.stringify(count)}`, async () => {
+    const h = harness({ retries: 0 }, [
+      () =>
+        json({
+          ...success('partial', { finish_reason: 'length' }),
+          usage: {
+            completion_tokens: count,
+            completion_tokens_details: { reasoning_tokens: count },
+          },
+        }),
+    ]);
+    await assert.rejects(h.translate(INPUT), (error) => {
+      assert.ok(!error.message.includes('completion_tokens='));
+      assert.ok(!error.message.includes('reasoning_tokens='));
+      assert.match(error.message, /visible_chars=7/);
+      return redacted(error);
+    });
+  });
+}
+
 test('OpenAI default endpoint, payload, prompt, text preservation and identity', async () => {
   const h = harness();
   assert.equal(await h.translate(INPUT), OUTPUT);

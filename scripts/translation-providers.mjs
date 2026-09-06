@@ -12,7 +12,14 @@ const LOOPBACK = new Set(['localhost', '127.0.0.1', '[::1]']);
 
 class TranslationError extends Error {}
 class RetryableTranslationError extends TranslationError {}
-class TruncatedTranslationError extends RetryableTranslationError {}
+class TruncatedTranslationError extends RetryableTranslationError {
+  constructor(usageSummary) {
+    super(
+      `Translation output was truncated (finish_reason=length).${usageSummary} Reduce --chunk-chars or increase the output token budget.`,
+    );
+    this.usageSummary = usageSummary;
+  }
+}
 const fail = (message) => new TranslationError(message);
 const retryableResponse = (message) => new RetryableTranslationError(message);
 
@@ -170,6 +177,28 @@ function responseFieldDescription(value, known = []) {
   return typeof value === 'string' ? 'unrecognized string' : typeof value;
 }
 
+function outputUsageSummary(data, choice) {
+  const fields = [
+    ['completion_tokens', data?.usage?.completion_tokens],
+    ['reasoning_tokens', data?.usage?.completion_tokens_details?.reasoning_tokens],
+    [
+      'visible_chars',
+      typeof choice?.message?.content === 'string'
+        ? Array.from(choice.message.content).length
+        : undefined,
+    ],
+    [
+      'reasoning_chars',
+      typeof choice?.message?.reasoning_content === 'string'
+        ? Array.from(choice.message.reasoning_content).length
+        : undefined,
+    ],
+  ].filter(([, value]) => Number.isSafeInteger(value) && value >= 0);
+  return fields.length
+    ? ` Usage: ${fields.map(([name, value]) => `${name}=${value}`).join(', ')}.`
+    : '';
+}
+
 function translatedText(data, provider, sourceText, languages) {
   let text;
   if (provider === 'openai') {
@@ -181,9 +210,7 @@ function translatedText(data, provider, sourceText, languages) {
       throw fail('Translation explicitly refused by provider; not retried.');
     }
     if (choice?.finish_reason === 'length') {
-      throw new TruncatedTranslationError(
-        'Translation output was truncated (finish_reason=length). Reduce --chunk-chars or increase the output token budget.',
-      );
+      throw new TruncatedTranslationError(outputUsageSummary(data, choice));
     }
     const malformed = (detail) => retryableResponse(`Malformed translation response: ${detail}.`);
     if (!Array.isArray(data?.choices)) {
@@ -271,7 +298,9 @@ function retryWait(value, attempt, now, baseDelay) {
  * explicit refusals are terminal. translate(text, { onRetry }) reports safe retry events.
  * identity contains effective wire language codes and no credentials or timing.
  * maxOutputTokens is the initial max_tokens budget. Only truncation retries grow it,
- * up to maxOutputTokensLimit. This retry ceiling does not invalidate completed caches.
+ * up to maxOutputTokensLimit (Venice defaults to 8192, others 32768, at least initial).
+ * Venice defaults to requesting thinking off; 'default' leaves it to the service.
+ * Reasoning controls and retry ceilings do not invalidate completed translation caches.
  * promptVersion versions the fixed request/prompt policy for all providers.
  */
 export function createTranslationProvider({
@@ -285,6 +314,7 @@ export function createTranslationProvider({
   timeout = 120_000,
   maxOutputTokens = 4096,
   maxOutputTokensLimit,
+  veniceThinking = 'off',
   retries = 5,
   retryDelay = 1000,
   log = console.warn,
@@ -304,6 +334,10 @@ export function createTranslationProvider({
       ? 'https://api-free.deepl.com/v2/translate'
       : DEFAULT_URLS[provider];
   const url = endpointFor(provider, baseUrl === undefined ? defaultUrl : baseUrl);
+  const isVenice = provider === 'openai' && url.hostname === 'api.venice.ai';
+  if (!['off', 'default'].includes(veniceThinking)) {
+    throw fail('veniceThinking must be off or default.');
+  }
   if ((provider === 'deepl' || (provider === 'openai' && !LOOPBACK.has(url.hostname))) && !key) {
     throw fail('A translation API key is required.');
   }
@@ -322,7 +356,9 @@ export function createTranslationProvider({
     if (!Number.isSafeInteger(maxOutputTokens) || maxOutputTokens < 1) {
       throw fail('Invalid translation output token limit.');
     }
-    if (maxOutputTokensLimit === undefined) maxOutputTokensLimit = Math.max(maxOutputTokens, 32768);
+    if (maxOutputTokensLimit === undefined) {
+      maxOutputTokensLimit = Math.max(maxOutputTokens, isVenice ? 8192 : 32768);
+    }
     if (!Number.isSafeInteger(maxOutputTokensLimit) || maxOutputTokensLimit < maxOutputTokens) {
       throw fail(
         'maxOutputTokensLimit must be a safe integer at least as large as maxOutputTokens.',
@@ -372,6 +408,12 @@ export function createTranslationProvider({
       return {
         model: identity.model,
         max_tokens: maxOutputTokens,
+        ...(isVenice && veniceThinking === 'off'
+          ? {
+              reasoning: { enabled: false },
+              venice_parameters: { disable_thinking: true },
+            }
+          : {}),
         messages: [
           {
             role: 'system',
@@ -520,14 +562,14 @@ export function createTranslationProvider({
         if (error instanceof TruncatedTranslationError && attempt < retries) {
           if (outputTokens >= maxOutputTokensLimit) {
             throw fail(
-              `Translation output was truncated (finish_reason=length) at output-token ceiling ${maxOutputTokensLimit} after ${attempt + 1} attempts. Reduce --chunk-chars or increase --max-output-tokens-limit within the model's supported limit.`,
+              `Translation output was truncated (finish_reason=length) at output-token ceiling ${maxOutputTokensLimit} after ${attempt + 1} attempts.${error.usageSummary} Reduce --chunk-chars or increase --max-output-tokens-limit within the model's supported limit.`,
             );
           }
           const previous = outputTokens;
           outputTokens = Math.min(outputTokens * 2, maxOutputTokensLimit);
           body = JSON.stringify({ ...payload(text), max_tokens: outputTokens });
           error = retryableResponse(
-            `Translation output was truncated (finish_reason=length). Increasing output budget ${previous} -> ${outputTokens} tokens (limit ${maxOutputTokensLimit}).`,
+            `Translation output was truncated (finish_reason=length). Increasing output budget ${previous} -> ${outputTokens} tokens (limit ${maxOutputTokensLimit}).${error.usageSummary}`,
           );
         }
         readyAt = retry(attempt, error, nextRetryTime(attempt));
