@@ -15,3 +15,6 @@ test-results/
 .santi-import-*
 .textbook-import-*
 /tmp
+
+# Private machine-translated books and importer staging/locks
+/src/content/books/.syosetu-*/

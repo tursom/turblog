@@ -87,6 +87,18 @@ Xeelee 中文版采用保留英文原文的独立书目与逐章双向互链。�
 
 中学政治课本由专用导入器 `pnpm import:textbooks` 生成：初中《道德与法治》六三制各册与高中《思想政治》必修/选择性必修各册，正文来自国家中小学智慧教育平台（basic.smartedu.cn）官方电子教材 PDF 的文本层，按「单元 / 课 / 框」结构整理成书籍与章节 Markdown，封面取 PDF 首页。官方电子教材版权页及每页均标注“仅供个人学习使用，未经授权不得另做他用”，本仓库整理版本同样仅限本地个人学习使用，请勿公开部署或传播；正文插图未收录。个别册次（如最新修订版下册）在平台上仅存于需登录鉴权的存储桶，导入器会跳过并在结束时报告，届时请更换为公开的册次或以其他方式获取。
 
+### Syosetu 小说下载
+
+`pnpm crawl:syosetu <作品链接或N-code> --adult` 可按单本作品下载 `novel18.syosetu.com` 小说到 Git 忽略的 `tmp/syosetu/`，支持目录分页、断点续抓，以及 TXT / Markdown / JSON 输出，不自动导入或发布到博客。仅限年满 18 岁且符合访问条件的用户下载有权获取的作品；工具遵守 `robots.txt`、限制请求频率，不绕过登录或验证码。参数、限制与测试见 [抓取器使用说明](docs/syosetu-crawler.md)。
+
+### 已抓取数据翻译
+
+`pnpm translate:syosetu tmp/syosetu/<ncode> --provider openai --model <模型ID>` 可将已抓取小说翻译为中文，支持 OpenAI 兼容 LLM、DeepL 和 LibreTranslate。密钥使用 `TRANSLATE_API_KEY` 环境变量，先加 `--dry-run` 查看待翻译量。译文默认单独写入抓取目录的 `translations/zh-Hans/`，支持按分块续译，原文不变；远程翻译会发送原文并可能计费。
+
+加 `--scan-root tmp/syosetu` 可批量翻译整个抓取目录：扫描每个子目录、自动跳过未完成的书、逐本翻译，某本失败后先等待该书已提交任务结束，再继续其余书籍，最终汇总；`--dry-run` 模式下无需配置 model/密钥即可先估算全库待翻译量。`--concurrency N` 现在控制**单本书内的分块并发**（默认 4，范围 1—32，单本和批量均适用），不同书籍始终串行。所有分块及重试共用请求启动间隔，分块可乱序完成但仍按原目录导出；改变并发数不影响已有译文缓存。不要同时启动多个命令写同一本书。
+
+加 `--import-blog` 可在翻译完成后自动导入为博客私有图书；已有译文可运行 `pnpm import:translation tmp/syosetu/<ncode>/translations/zh-Hans`，无需再调用翻译服务。导入强制 `private: true`，复用现有访问密钥，匿名书架与 sitemap 不展示。生成的 `src/content/books/syosetu-*/` 默认被 Git 忽略，只有在包含这些文件的私人工作区构建并通过 Go 鉴权入口部署后才会上线，不能依靠公开 Git/GHCR 分发私有正文。配置、更新保护及部署边界见 [翻译器说明](docs/syosetu-translator.md)。
+
 ### 私有资源访问控制
 
 博客和图书共用同一把访问密钥，继续使用 `TURBLOG_BOOK_ACCESS_PASSWORD` 环境变量及原有签名算法，不需要另设博客密码。博客 Front Matter 的 `private: true` 现在表示“仅授权访问”，而不是永远不生成：匿名首页、归档、标签页、RSS 和 sitemap 不包含该文章的标题、简介、标签或数量；直接访问私有博客与不存在的文章返回同样的通用 404。输入密钥后，首页、归档和标签页显示包含私有文章的完整列表，书架也同时解锁。

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "generator": "syosetu-private-translation",
+  "slug": "syosetu-n0197lf-zh-hans",
+  "sourceUrl": "https://novel18.syosetu.com/n0197lf/",
+  "language": "zh-hans",
+  "importedAt": "2026-09-06T03:02:32.119Z",
+  "files": {
+    "chapters/0001-episode-1.md": "e081877f76a86349e18769e30ae913b32340fbcdb1157b0004667ad34fdd27a5",
+    "chapters/0002-episode-2.md": "b4ce28b8168efa75beaf20248111400ed6360c21854c5877690dfd6e92411f62",
+    "chapters/0003-episode-3.md": "58bfcdfe95261f07ca35dea14f329535984ebfd8e2bcbe87c03b58e6759b8bef",
+    "chapters/0004-episode-4.md": "3108aa9e67388e13ad6f0c843935b6b2c9e90fde8ac08a7c2ef746475d925e41",
+    "chapters/0005-episode-5.md": "ac8851a93b67e221f6b0e236a1d5953b79f498dc00bcb75c65863870b59c0ecc",
+    "chapters/0006-episode-6.md": "88f6c733e26926e64105cb5f66e276ec698349fd706102f3c2b0c5cb54dab7f6",
+    "chapters/0007-episode-7.md": "7ab1566c37c27e5d9ac3a5056fce13ed2ac4381727e1a61218ca120edb85a118",
+    "book.md": "8c827f8715599034cff0663dccd2edba7f2540924b368f7cd359a3ea20276030"
+  }
+}
