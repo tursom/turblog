@@ -24,6 +24,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Docker Buildx
+        id: buildx
         uses: docker/setup-buildx-action@v3
 
       - name: Log in to GHCR
@@ -38,9 +39,60 @@ jobs:
           PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL }}
         run: test -n "$PUBLIC_SITE_URL"
 
+      # Cache-dance injects mounts, not source files. Keep its inputs and scratch
+      # directories outside the build context so they cannot invalidate COPY.
+      - name: Cache Astro build data
+        id: astro-cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/turblog-astro-cache
+          key: ${{ runner.os }}-${{ runner.arch }}-astro-v1-${{ hashFiles('Dockerfile', 'package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml', 'astro.config.mjs', 'src/content.config.ts', 'src/lib/rehype-*.mjs') }}-${{ hashFiles('src/**', 'public/**', 'tsconfig.json', 'scripts/build-content-catalog.mjs') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ runner.arch }}-astro-v1-${{ hashFiles('Dockerfile', 'package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml', 'astro.config.mjs', 'src/content.config.ts', 'src/lib/rehype-*.mjs') }}-
+
+      - name: Restore Astro cache mount
+        uses: reproducible-containers/buildkit-cache-dance@v3
+        with:
+          builder: ${{ steps.buildx.outputs.name }}
+          cache-map: |
+            {
+              "${{ runner.temp }}/turblog-astro-cache": {
+                "target": "/app/node_modules/.astro",
+                "id": "turblog-astro",
+                "sharing": "locked"
+              }
+            }
+          scratch-dir: ${{ runner.temp }}/turblog-astro-dance
+          skip-extraction: ${{ steps.astro-cache.outputs.cache-hit == 'true' }}
+
+      - name: Cache Go build data
+        id: go-cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/turblog-go-cache
+          key: ${{ runner.os }}-${{ runner.arch }}-go-build-v1-${{ hashFiles('Dockerfile', 'server/go.mod', 'server/go.sum') }}-${{ hashFiles('server/**') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ runner.arch }}-go-build-v1-${{ hashFiles('Dockerfile', 'server/go.mod', 'server/go.sum') }}-
+
+      - name: Restore Go cache mount
+        uses: reproducible-containers/buildkit-cache-dance@v3
+        with:
+          builder: ${{ steps.buildx.outputs.name }}
+          cache-map: |
+            {
+              "${{ runner.temp }}/turblog-go-cache": {
+                "target": "/root/.cache/go-build",
+                "id": "turblog-go-build",
+                "sharing": "locked"
+              }
+            }
+          scratch-dir: ${{ runner.temp }}/turblog-go-dance
+          skip-extraction: ${{ steps.go-cache.outputs.cache-hit == 'true' }}
+
       - name: Build and push image
         uses: docker/build-push-action@v6
         with:
+          builder: ${{ steps.buildx.outputs.name }}
           context: .
           push: true
           build-args: |

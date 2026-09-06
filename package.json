@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
+    "build:full": "astro check && astro build --force",
+    "test:build-cache": "node --test scripts/build-cache.test.mjs scripts/incremental-build.test.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "import:book": "node scripts/import-book.mjs",

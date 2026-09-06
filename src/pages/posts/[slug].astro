@@ -6,10 +6,15 @@ import TagLinks from '@/components/TagLinks.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
 import BookShareButton from '@/components/BookShareButton.astro';
 import { getPosts, type Post } from '@/lib/posts';
+import { pageCacheKey } from '@/lib/build-cache.mjs';
 
 export async function getStaticPaths() {
   const posts = await getPosts(true);
-  return posts.map((post) => ({ params: { slug: post.data.slug }, props: { post } }));
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+    cacheKey: pageCacheKey(post.data, post.body),
+  }));
 }
 
 interface Props {

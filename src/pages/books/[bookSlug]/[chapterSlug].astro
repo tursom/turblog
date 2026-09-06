@@ -14,6 +14,7 @@ import {
   type BookChapter,
 } from '@/lib/books';
 import { readingMinutes } from '@/lib/posts';
+import { bookCacheKey, pageCacheKey } from '@/lib/build-cache.mjs';
 
 export async function getStaticPaths() {
   const books = await getCollection('books');
@@ -21,7 +22,9 @@ export async function getStaticPaths() {
     await Promise.all(
       books.map(async (book) => {
         const bookChapters = await getBookChapters(book.data.slug);
+        const bookKey = bookCacheKey(book, bookChapters);
         return bookChapters.map((chapter, index) => ({
+          cacheKey: pageCacheKey(bookKey, chapter.data, chapter.body),
           params: { bookSlug: book.data.slug, chapterSlug: chapter.data.slug },
           props: {
             book,

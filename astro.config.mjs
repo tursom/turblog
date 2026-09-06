@@ -10,6 +10,9 @@ const siteUrl = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
 
 export default defineConfig({
   site: siteUrl,
+  experimental: {
+    incrementalBuild: true,
+  },
   devToolbar: {
     enabled: false,
   },

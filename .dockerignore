@@ -1,7 +1,37 @@
-.git
-.github
-.astro
-dist
-node_modules
+# Only build inputs enter the context. This excludes root tmp/data, docs,
+# CI cache-dance files, local tooling and unrelated scripts by default.
+**
+!package.json
+!pnpm-lock.yaml
+!pnpm-workspace.yaml
+!astro.config.mjs
+!tsconfig.json
+!nginx.conf
+!scripts/
+scripts/**
+!scripts/build-content-catalog.mjs
+!src/
+!src/**
+!public/
+!public/**
+!server/
+!server/**
+
+# Keep private books in src/content/books; exclude credentials and generated
+# files even when they are nested inside an allowed source directory.
+**/.git
+**/.env
+**/.env.*
+**/.npmrc
+**/.ssh
+**/.aws
+**/secrets
+**/*.pem
+**/*.key
+**/node_modules
+**/.astro
+**/dist
+**/tmp
+**/*.tmp
+**/tmp-*.png
 public/images/*.psd
-tmp-*.png

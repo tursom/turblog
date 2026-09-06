@@ -4,14 +4,19 @@ import SiteLayout from '@/layouts/SiteLayout.astro';
 import BookShareButton from '@/components/BookShareButton.astro';
 import BookToc from '@/components/BookToc.astro';
 import { getBookChapters, type Book } from '@/lib/books';
+import { bookCacheKey } from '@/lib/build-cache.mjs';
 
 export async function getStaticPaths() {
   const books = await getCollection('books');
   return Promise.all(
-    books.map(async (book) => ({
-      params: { bookSlug: book.data.slug },
-      props: { book, chapters: await getBookChapters(book.data.slug) },
-    })),
+    books.map(async (book) => {
+      const chapters = await getBookChapters(book.data.slug);
+      return {
+        params: { bookSlug: book.data.slug },
+        props: { book, chapters },
+        cacheKey: bookCacheKey(book, chapters),
+      };
+    }),
   );
 }
 

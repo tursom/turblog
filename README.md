@@ -194,6 +194,23 @@ GitHub Actions 在 `master` 推送时构建并推送 GHCR 镜像。需要 VPS �
 
 部署所需的 Actions Variable：`PUBLIC_SITE_URL`。它用于生成 canonical、RSS 和 sitemap；本地开发未设置时使用 `http://localhost:4321`。页面统一从 `/api/v1` 查询后端；镜像构建参数 `PUBLIC_API_BASE_PATH` 可在需要时覆盖该前缀。
 
+### 增量构建与缓存
+
+`pnpm build` 保留类型检查，并启用 Astro 7 的实验性增量静态构建。文章、图书详情和章节页提供内容缓存键：正文修改只刷新对应文章或章节；章节标题、顺序、增删及书籍元数据修改会刷新该书相关页面，避免目录和上下章链接过期。模板依赖变化由 Astro 检测，页脚年份和 API 前缀也参与页面缓存键。首页、归档、标签、书架、RSS、sitemap、访问清单和构建后隐私处理仍然每次执行。
+
+Docker 只复制各构建阶段实际需要的输入，因此 Go、文档、测试或无关导入脚本的修改不会使前端构建层失效。Actions 同时保存 Docker 层缓存，以及通过 `buildkit-cache-dance` 导出/恢复的 Astro 和 Go 编译缓存；仅使用 `cache-to: type=gha` 不会保存 Docker cache mount。Astro 的生产内容、图片与页面缓存保存在 `node_modules/.astro/`，`.astro/` 类型等生成文件会重新生成。首次运行或缓存被淘汰时自动退回完整构建，不影响发布正确性。
+
+缓存仍包含 Markdown、私有页面及图片等明文，必须按私有内容管理，不能把 GitHub Actions 缓存当作鉴权或加密存储。在公开仓库中，不应构建或缓存真正的私人内容。最终镜像只复制本次经过隐私处理的 `dist/`，不会复制整个构建缓存。
+
+强制重新处理内容和页面，以及运行增量一致性回归：
+
+```bash
+pnpm build:full
+pnpm test:build-cache
+```
+
+回归在临时站点中使用实际页面模板，检查缓存命中、依赖失效、过期页面清理和隐私切换，并比较增量与完整构建产物。升级 Astro 或修改 Markdown 处理插件后应运行这些检查，并在本地执行 `pnpm build:full`。Actions 的缓存恢复范围包含依赖锁文件、Astro 配置、集合定义和本地 rehype 插件的指纹，这些输入变化时不会恢复旧的内容缓存。排查 Actions 缓存时，可删除对应缓存或递增 Workflow 中的缓存版本；本地 `pnpm build:full` 不依赖旧内容或页面缓存。
+
 ### 首次启用后端
 
 生产环境第一次启用统计前，先把新版 `docker-compose.yml` 和 `.env.example` 同步到 VPS。旧 Compose 不认识 `server` 服务，仅触发 Watchtower Webhook 不会创建它。

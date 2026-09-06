@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 FROM node:22-bookworm-slim AS build
 
 ENV ASTRO_TELEMETRY_DISABLED=1
@@ -10,12 +12,17 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN pnpm install --frozen-lockfile
 RUN pnpm exec playwright install --with-deps --only-shell chromium
 
-COPY . .
+COPY src/ ./src/
+COPY public/ ./public/
+COPY astro.config.mjs tsconfig.json ./
+COPY scripts/build-content-catalog.mjs ./scripts/build-content-catalog.mjs
 ARG PUBLIC_SITE_URL=http://localhost:4321
 ARG PUBLIC_API_BASE_PATH=/api/v1
 ENV PUBLIC_SITE_URL=${PUBLIC_SITE_URL}
 ENV PUBLIC_API_BASE_PATH=${PUBLIC_API_BASE_PATH}
-RUN pnpm build
+# Production content, assets and incremental output live here; .astro is regenerated.
+RUN --mount=type=cache,id=turblog-astro,target=/app/node_modules/.astro,sharing=locked \
+    pnpm build
 
 FROM golang:1.25-alpine AS server-build
 
@@ -23,7 +30,8 @@ WORKDIR /src
 COPY server/go.mod server/go.sum ./
 RUN go mod download
 COPY server/ ./
-RUN CGO_ENABLED=0 go build -trimpath -ldflags='-s -w' -o /out/turblog-server ./cmd/turblog-server
+RUN --mount=type=cache,id=turblog-go-build,target=/root/.cache/go-build,sharing=locked \
+    CGO_ENABLED=0 go build -trimpath -ldflags='-s -w' -o /out/turblog-server ./cmd/turblog-server
 
 FROM nginx:1.29-alpine AS runtime
 
