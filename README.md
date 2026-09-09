@@ -200,6 +200,8 @@ GitHub Actions 在 `master` 推送时构建并推送 GHCR 镜像。需要 VPS �
 
 Docker 只复制各构建阶段实际需要的输入，因此 Go、文档、测试或无关导入脚本的修改不会使前端构建层失效。Actions 同时保存 Docker 层缓存，以及通过 `buildkit-cache-dance` 导出/恢复的 Astro 和 Go 编译缓存；仅使用 `cache-to: type=gha` 不会保存 Docker cache mount。Astro 的生产内容、图片与页面缓存保存在 `node_modules/.astro/`，`.astro/` 类型等生成文件会重新生成。首次运行或缓存被淘汰时自动退回完整构建，不影响发布正确性。
 
+构建后隐私处理会把每页 HTML 的资源引用摘要保存在 Astro `cacheDir` 下的 `content-catalog-references.json`，默认随现有 `node_modules/.astro/` 缓存一起持久化。未改动页面可跳过 DOM 解析，但每次仍会检查资源是否存在、重新判断公开共享引用、计算资源副本与派生图归属，并生成本次访问清单。HTML、站点 origin、页面隐私状态或 owner 页的私有文章集合变化时，对应摘要失效；处理脚本和依赖锁文件变化时全部摘要失效。缺失、损坏或不可写的缓存会退回解析，不影响输出正确性。日志中的 `parsed`、`reused` 以及各阶段毫秒耗时可用于观察实际收益。
+
 缓存仍包含 Markdown、私有页面及图片等明文，必须按私有内容管理，不能把 GitHub Actions 缓存当作鉴权或加密存储。在公开仓库中，不应构建或缓存真正的私人内容。最终镜像只复制本次经过隐私处理的 `dist/`，不会复制整个构建缓存。
 
 强制重新处理内容和页面，以及运行增量一致性回归：
@@ -209,7 +211,7 @@ pnpm build:full
 pnpm test:build-cache
 ```
 
-回归在临时站点中使用实际页面模板，检查缓存命中、依赖失效、过期页面清理和隐私切换，并比较增量与完整构建产物。升级 Astro 或修改 Markdown 处理插件后应运行这些检查，并在本地执行 `pnpm build:full`。Actions 的缓存恢复范围包含依赖锁文件、Astro 配置、集合定义和本地 rehype 插件的指纹，这些输入变化时不会恢复旧的内容缓存。排查 Actions 缓存时，可删除对应缓存或递增 Workflow 中的缓存版本；本地 `pnpm build:full` 不依赖旧内容或页面缓存。
+回归在临时站点中使用实际页面模板，检查缓存命中、依赖失效、过期页面清理和隐私切换，并比较增量与完整构建产物；同时覆盖引用缓存损坏、共享图片变化和缺失私有资源的拒绝行为。升级 Astro 或修改 Markdown 处理插件后应运行这些检查，并在本地执行 `pnpm build:full`。Actions 的缓存恢复范围包含依赖锁文件、Astro 配置、集合定义和本地 rehype 插件的指纹，这些输入变化时不会恢复旧的内容缓存。排查 Actions 缓存时，可删除对应缓存或递增 Workflow 中的缓存版本；本地 `pnpm build:full` 不依赖旧内容、页面或资源引用缓存。单独比较隐私处理缓存时，使用 `TURBLOG_CATALOG_CACHE=0 pnpm build`，保留 Astro 增量构建但关闭引用缓存。直接执行 `astro build --force` 只控制 Astro 自身的缓存；完整重建应使用 `pnpm build:full`。
 
 ### 首次启用后端
 

@@ -101,6 +101,7 @@ test(
       'astro.config.mjs',
       'tsconfig.json',
       'package.json',
+      'pnpm-lock.yaml',
       'scripts/build-content-catalog.mjs',
     ]) {
       await mkdir(dirname(join(root, path)), { recursive: true });
@@ -218,6 +219,7 @@ export default {
               NO_COLOR: '1',
               FORCE_COLOR: '0',
               TZ: 'UTC',
+              TURBLOG_CATALOG_CACHE: force ? '0' : '1',
             },
             timeout: 45_000,
             maxBuffer: 4 * 1024 * 1024,
@@ -245,6 +247,10 @@ export default {
     const initial = await snapshot(dist);
     await t.test('no-op reuses detail routes and produces identical output', async () => {
       const log = await build('no-op');
+      assert.match(log, /reference cache: parsed=0 reused=[1-9]\d* pages=/);
+      assert.ok(
+        (await readFile(join(root, '.fixture-cache/content-catalog-references.json'))).length,
+      );
       for (const path of detailPaths) routeStatus(log, path, 'cached');
       sameOutput(await snapshot(dist), initial, 'no-op');
       for (const path of [
@@ -267,6 +273,19 @@ export default {
         privateAssets: {},
       });
       assert.deepEqual(await readFile(join(dist, 'images/incremental-private.png')), image);
+    });
+
+    await t.test('forced builds bypass a warm reference cache without rewriting it', async () => {
+      const cachePath = join(root, '.fixture-cache/content-catalog-references.json');
+      const before = await readFile(cachePath);
+      const log = await build('force with warm reference cache', true);
+      const match = /reference cache: parsed=(\d+) reused=(\d+) pages=(\d+)/.exec(log);
+      assert.ok(match, 'privacy hook must report cache usage');
+      assert.ok(Number(match[1]) > 0);
+      assert.equal(match[1], match[3]);
+      assert.equal(match[2], '0');
+      assert.deepEqual(await readFile(cachePath), before);
+      sameOutput(await snapshot(dist), initial, 'forced warm reference cache');
     });
 
     await t.test('body edits refresh only the affected post and chapter', async () => {

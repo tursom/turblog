@@ -67,7 +67,11 @@ import secret from '../../assets/private.png';
       sitemap(),
       {
         name: 'test-content-privacy',
-        hooks: { 'astro:build:done': async ({ dir }) => buildContentCatalog(fileURLToPath(dir)) },
+        hooks: {
+          'astro:build:done': async ({ dir }) => {
+            await buildContentCatalog(fileURLToPath(dir));
+          },
+        },
       },
     ],
   });

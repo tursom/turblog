@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
-    "build:full": "astro check && astro build --force",
-    "test:build-cache": "node --test scripts/build-cache.test.mjs scripts/incremental-build.test.mjs",
+    "build:full": "astro check && TURBLOG_CATALOG_CACHE=0 astro build --force",
+    "test:build-cache": "node --test scripts/build-cache.test.mjs scripts/build-content-catalog-cache.test.mjs scripts/build-content-catalog.test.mjs scripts/build-content-catalog.astro.test.mjs scripts/incremental-build.test.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "import:book": "node scripts/import-book.mjs",

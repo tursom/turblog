@@ -7,6 +7,8 @@ import rehypeMermaid from 'rehype-mermaid';
 import rehypeLegacyFootnoteAnchors from './src/lib/rehype-legacy-footnote-anchors.mjs';
 
 const siteUrl = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
+/** @type {string | undefined} */
+let catalogCacheDir;
 
 export default defineConfig({
   site: siteUrl,
@@ -38,8 +40,20 @@ export default defineConfig({
     {
       name: 'content-catalog-privacy',
       hooks: {
-        'astro:build:done': async ({ dir }) => {
-          await buildContentCatalog(fileURLToPath(dir));
+        'astro:config:done': ({ config }) => {
+          catalogCacheDir = fileURLToPath(config.cacheDir);
+        },
+        'astro:build:done': async ({ dir, logger }) => {
+          const metrics = await buildContentCatalog(fileURLToPath(dir), {
+            cacheDir: process.env.TURBLOG_CATALOG_CACHE === '0' ? undefined : catalogCacheDir,
+          });
+          for (const warning of metrics.cacheWarnings) logger.warn(warning);
+          logger.info(
+            `reference cache: parsed=${metrics.parsedPages} reused=${metrics.reusedPages} pages=${metrics.htmlFiles}; ` +
+              Object.entries(metrics.timings)
+                .map(([phase, ms]) => `${phase}=${Math.round(ms)}ms`)
+                .join(' '),
+          );
         },
       },
     },
