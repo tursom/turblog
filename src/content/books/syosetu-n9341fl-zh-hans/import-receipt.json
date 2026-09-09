@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "generator": "syosetu-private-translation",
+  "slug": "syosetu-n9341fl-zh-hans",
+  "sourceUrl": "https://novel18.syosetu.com/n9341fl/",
+  "language": "zh-hans",
+  "importedAt": "2026-09-06T09:28:05.328Z",
+  "files": {
+    "chapters/0001-episode-1.md": "a179079be58a5be5886675640969d2185a848659ab4f4c6e2eeb3bc648c8c675",
+    "chapters/0002-episode-2.md": "6daf71979d28643afbf5d99348da5f2769564c4e709e3bae3e2e63aa3ed59855",
+    "chapters/0003-episode-3.md": "bed4a88fa1ceb47ca86a143397ebdbf77ca18abd1621874c16106fe4289d403d",
+    "chapters/0004-episode-4.md": "7e3bb6609ef0202b7cd242c9a4bfee82473b68c2b36893bd4e7d1344951701bb",
+    "chapters/0005-episode-5.md": "1aad87b242a8e6e926dd7161d60030285fd15a5ff4cee6b11709c4382131d63c",
+    "book.md": "59c7525e95af6de3d643d93ad564c5546d74bb1d6fc4c082cb1964c6f56ea3c0"
+  }
+}
