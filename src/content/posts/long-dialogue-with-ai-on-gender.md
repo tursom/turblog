@@ -3,7 +3,7 @@ title: 与 AI 的长对话：从共产主义到"那台机器"
 slug: long-dialogue-with-ai-on-gender
 summary: 记录与 AI 从共产主义到性别议题的长对话，并重新审视原先的收敛：共同的结构解释，不能掩盖对男性受害的不对称举证要求与责任追究。
 publishedAt: 2026-08-31
-pricate: true
+private: true
 tags:
   - 思考
   - 性别
