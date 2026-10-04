@@ -1,6 +1,6 @@
 # 编程农场脚本
 
-《The Farmer Was Replaced》（编程农场）的游戏脚本、本地模拟和实验记录。网站入口为 `/farm/`，按综合种植、仙人掌、恐龙、迷宫分组，每个主要游戏脚本都有说明、源码与下载。
+《The Farmer Was Replaced》（编程农场）的游戏脚本、本地模拟和实验记录，收录在网站“脚本”分类下。集合入口为 `/scripts/farm/`，按综合种植、仙人掌、恐龙、迷宫分组，每个主要游戏脚本都有说明、源码与下载。
 
 这些文件从仓库根目录集中归档，保留原文件名与同目录依赖。整理时未修改算法或重新生成历史结果。说明由 AI 辅助整理。
 
@@ -41,7 +41,7 @@ maze_reuse.run_maze_batch(100000)
 本地工具使用 CPython 3.9+ 和标准库。克隆仓库后从本目录运行，保持全部文件同目录；迷宫测试及部分成本模型会按**当前工作目录**读取其他文件。
 
 ```bash
-cd public/farm/code
+cd public/scripts/farm/code
 python -B -m unittest -v dinosaur_tick_model_test dinosaur_tick_benchmark_test dinosaur_shortcut_experiment_test
 python -B maze_reuse_runtime_test.py
 ```

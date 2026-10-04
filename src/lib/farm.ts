@@ -198,7 +198,7 @@ export const farmScripts: FarmScript[] = [
   },
 ];
 
-const codeDirectory = resolve('public/farm/code');
+const codeDirectory = resolve('public/scripts/farm/code');
 const nativeTools: Record<string, string> = {
   'dinosaur_tick_benchmark.py': '游戏内 A/B 计时：会清场并消耗真实材料；比较旧基线与完整回路',
   'dinosaur_simulate_benchmark.py': '游戏原生模拟入口：先创建 dinosaur_sim_worker 窗口',

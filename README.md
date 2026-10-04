@@ -52,11 +52,13 @@ cover: null
 
 草稿使用 `draft/*` 分支；合并到 `master` 才会进入正式构建。Mermaid 使用 `mermaid` fenced code block，构建阶段生成静态 SVG。
 
-## 编程农场脚本
+## 脚本
 
-《编程农场》（The Farmer Was Replaced）使用独立入口 `/farm/`，与文章和图书并列。页面按综合种植、仙人掌、恐龙、迷宫分组，提供游戏脚本说明、完整源码、复制与下载，以及本地模拟、测试和历史结果文件。
+“脚本”使用独立入口 `/scripts/`，与文章和图书并列，按用途或项目组织脚本集合。每个集合有自己的说明、源码和下载文件；新增集合时，在 `src/pages/scripts/index.astro` 的 `collections` 中添加条目，页面放在 `src/pages/scripts/<集合>/`，下载文件放在 `public/scripts/<集合>/`。
 
-所有原始文件集中在 `public/farm/code/`，保留同目录模块依赖。游戏脚本需要在游戏代码窗口中运行，本地测试和基准使用 CPython；使用与复跑方法见 [脚本目录说明](public/farm/code/README.md)。新增游戏脚本时，在 `src/lib/farm.ts` 中填写分组、用途、版本和前提，详情页会直接读取原文件。辅助文件按主题前缀归入目录。
+《编程农场》（The Farmer Was Replaced）是其中一个集合，入口为 `/scripts/farm/`。页面按综合种植、仙人掌、恐龙、迷宫分组，提供游戏脚本说明、完整源码、复制与下载，以及本地模拟、测试和历史结果文件。
+
+农场原始文件集中在 `public/scripts/farm/code/`，保留同目录模块依赖。游戏脚本需要在游戏代码窗口中运行，本地测试和基准使用 CPython；使用与复跑方法见 [脚本目录说明](public/scripts/farm/code/README.md)。新增农场脚本时，在 `src/lib/farm.ts` 中填写分组、用途、版本和前提，详情页会直接读取原文件。辅助文件按主题前缀归入目录。生产 Nginx 会将原 `/farm/` 页面和下载地址永久重定向到 `/scripts/farm/` 下的对应路径。
 
 ## 导入图书
 

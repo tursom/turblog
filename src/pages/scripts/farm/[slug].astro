@@ -17,9 +17,10 @@ const source = await readFarmSource(script);
 
 <SiteLayout title={script.title} description={script.summary}>
   <div class="breadcrumbs">
-    <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/farm/">farm</a><span
+    <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/scripts/">scripts</a><span
       aria-hidden="true">/</span
-    ><strong>{script.slug}</strong>
+    ><a href="/scripts/farm/">farm</a><span aria-hidden="true">/</span><strong>{script.slug}</strong
+    >
   </div>
   <article class="article-page">
     <header class="article-header">
@@ -27,9 +28,8 @@ const source = await readFarmSource(script);
       <h1>{script.title}</h1>
       <p class="article-summary">{script.summary}</p>
       <div class="script-actions">
-        <a href={`/farm/code/${script.file}`} download={script.file}>下载 {script.file}</a><a
-          href="#source">跳到源码 ↓</a
-        >
+        <a href={`/scripts/farm/code/${script.file}`} download={script.file}>下载 {script.file}</a
+        ><a href="#source">跳到源码 ↓</a>
       </div>
     </header>
     <div class="prose">
@@ -38,7 +38,7 @@ const source = await readFarmSource(script);
       {
         script.slug === 'all-in-one' && (
           <p>
-            依赖模块：<a href="/farm/maze-reuse/">maze_reuse.py</a>，需要一同复制到游戏。
+            依赖模块：<a href="/scripts/farm/maze-reuse/">maze_reuse.py</a>，需要一同复制到游戏。
           </p>
         )
       }
@@ -62,7 +62,7 @@ const source = await readFarmSource(script);
       {group.notes.map((note) => <p>{note}</p>)}
       <p>
         运行环境：游戏内代码窗口。说明由 AI 辅助整理；更多对照版本、测试和记录见<a
-          href={`/farm/#${group.id}`}>{group.title}目录</a
+          href={`/scripts/farm/#${group.id}`}>{group.title}目录</a
         >。
       </p>
       <h2 id="source">完整源码</h2>
@@ -78,8 +78,8 @@ const source = await readFarmSource(script);
       />
     </div>
     <footer class="article-footer">
-      <a href={`/farm/#${group.id}`}>← 返回{group.title}</a><a
-        href={`/farm/code/${script.file}`}
+      <a href={`/scripts/farm/#${group.id}`}>← 返回{group.title}</a><a
+        href={`/scripts/farm/code/${script.file}`}
         download={script.file}>下载源码</a
       >
     </footer>

@@ -8,7 +8,9 @@ import { farmGroups, farmScripts, getSupportingFiles } from '@/lib/farm';
   description="《编程农场》的种植、仙人掌、恐龙与迷宫脚本，附使用说明、源码和实验记录。"
 >
   <div class="breadcrumbs">
-    <a href="/">~/log</a><span aria-hidden="true">/</span><strong>farm</strong>
+    <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/scripts/">scripts</a><span
+      aria-hidden="true">/</span
+    ><strong>farm</strong>
   </div>
   <header class="page-intro compact-intro">
     <span class="eyebrow">THE FARMER WAS REPLACED</span>
@@ -25,8 +27,8 @@ import { farmGroups, farmScripts, getSupportingFiles } from '@/lib/farm';
       CPython；各自的运行环境已在下方标注。说明由 AI 辅助整理。
     </p>
     <p>
-      <a href="/farm/code/README.md" download="README.md">下载完整目录说明</a> · <a
-        href="https://github.com/tursom/turblog/tree/master/public/farm/code/"
+      <a href="/scripts/farm/code/README.md" download="README.md">下载完整目录说明</a> · <a
+        href="https://github.com/tursom/turblog/tree/master/public/scripts/farm/code/"
         target="_blank"
         rel="noreferrer">在 GitHub 浏览全部文件 ↗</a
       >
@@ -60,14 +62,14 @@ import { farmGroups, farmScripts, getSupportingFiles } from '@/lib/farm';
               <li>
                 <div class="farm-script-heading">
                   <h3>
-                    <a href={`/farm/${script.slug}/`}>{script.title}</a>
+                    <a href={`/scripts/farm/${script.slug}/`}>{script.title}</a>
                   </h3>
                   <span class="farm-version">{script.version}</span>
                 </div>
                 <p>{script.summary}</p>
                 <div class="farm-file-links">
-                  <a href={`/farm/${script.slug}/`}>阅读源码</a>
-                  <a href={`/farm/code/${script.file}`} download={script.file}>
+                  <a href={`/scripts/farm/${script.slug}/`}>阅读源码</a>
+                  <a href={`/scripts/farm/code/${script.file}`} download={script.file}>
                     下载 {script.file}
                   </a>
                 </div>
@@ -83,7 +85,7 @@ import { farmGroups, farmScripts, getSupportingFiles } from '@/lib/farm';
               <ul>
                 {supportingFiles.map(({ file, description }) => (
                   <li>
-                    <a href={`/farm/code/${file}`} download={file}>
+                    <a href={`/scripts/farm/code/${file}`} download={file}>
                       {file}
                     </a>
                     <span>{description}</span>
