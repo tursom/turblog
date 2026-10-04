@@ -1,0 +1,1572 @@
+{
+  "notes": [
+    "Steps count successful moves, not game ticks.",
+    "Source-line events proxy CPython interpreter work, NOT game ticks or timing.",
+    "Tracing excludes simulator/validation; route construction is reported separately.",
+    "Same seeds may yield different apples because free cells depend on strategy.",
+    "Baseline failures are limitations and do not fail the new algorithm.",
+    "dinosaur_once game API integration is outside this benchmark's scope."
+  ],
+  "seeds": 5,
+  "sizes": [
+    2,
+    4,
+    6,
+    8,
+    32
+  ],
+  "sources": {
+    "old": {
+      "path": "/root/dev/turblog/farm_32_all_in_one.py",
+      "sha256": "afb2cba8d83c04536074cdf37c198735528a6ea5d58d60ab86f7ba9bdfd0a8a3"
+    },
+    "new": {
+      "path": "/root/dev/turblog/dinosaur_32_full_cycle_experiment.py",
+      "sha256": "94c4918f661c20bf38b5d199f0febb0cb14e8fd0d10d07d06c012c8e901bbf8c",
+      "original_path_at_run": "/root/dev/turblog/dinosaur_32.py"
+    }
+  },
+  "routes": [
+    {
+      "valid": true,
+      "unique_cells": 4,
+      "closed": true,
+      "size": 2,
+      "build_source_line_events": null
+    },
+    {
+      "valid": true,
+      "unique_cells": 16,
+      "closed": true,
+      "size": 4,
+      "build_source_line_events": null
+    },
+    {
+      "valid": true,
+      "unique_cells": 36,
+      "closed": true,
+      "size": 6,
+      "build_source_line_events": null
+    },
+    {
+      "valid": true,
+      "unique_cells": 64,
+      "closed": true,
+      "size": 8,
+      "build_source_line_events": null
+    },
+    {
+      "valid": true,
+      "unique_cells": 1024,
+      "closed": true,
+      "size": 32,
+      "build_source_line_events": null
+    }
+  ],
+  "games": [
+    {
+      "algorithm": "old",
+      "size": 2,
+      "seed": 0,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": false,
+      "error": "AssertionError: movement returned failure: head=2, target=3",
+      "steps": 1,
+      "completed_apples": 1,
+      "required_apples": 3,
+      "occupied_cells": 2,
+      "seconds_including_validation": 6.6e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 2,
+      "seed": 1,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 4,
+      "completed_apples": 3,
+      "required_apples": 3,
+      "occupied_cells": 4,
+      "seconds_including_validation": 4.9e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 2,
+      "seed": 2,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 4,
+      "completed_apples": 3,
+      "required_apples": 3,
+      "occupied_cells": 4,
+      "seconds_including_validation": 3.2e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 2,
+      "seed": 3,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 4,
+      "completed_apples": 3,
+      "required_apples": 3,
+      "occupied_cells": 4,
+      "seconds_including_validation": 2.6e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 2,
+      "seed": 4,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 3,
+      "completed_apples": 3,
+      "required_apples": 3,
+      "occupied_cells": 4,
+      "seconds_including_validation": 2.2e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 2,
+      "seed": 0,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 6,
+      "completed_apples": 3,
+      "required_apples": 3,
+      "occupied_cells": 4,
+      "seconds_including_validation": 3e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 2,
+      "seed": 1,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 4,
+      "completed_apples": 3,
+      "required_apples": 3,
+      "occupied_cells": 4,
+      "seconds_including_validation": 1.7e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 2,
+      "seed": 2,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 4,
+      "completed_apples": 3,
+      "required_apples": 3,
+      "occupied_cells": 4,
+      "seconds_including_validation": 1.4e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 2,
+      "seed": 3,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 4,
+      "completed_apples": 3,
+      "required_apples": 3,
+      "occupied_cells": 4,
+      "seconds_including_validation": 1.3e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 2,
+      "seed": 4,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 3,
+      "completed_apples": 3,
+      "required_apples": 3,
+      "occupied_cells": 4,
+      "seconds_including_validation": 1.1e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 4,
+      "seed": 0,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": false,
+      "error": "AssertionError: movement returned failure: head=15, target=5",
+      "steps": 52,
+      "completed_apples": 13,
+      "required_apples": 15,
+      "occupied_cells": 14,
+      "seconds_including_validation": 0.000243,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 4,
+      "seed": 1,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 57,
+      "completed_apples": 15,
+      "required_apples": 15,
+      "occupied_cells": 16,
+      "seconds_including_validation": 0.000219,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 4,
+      "seed": 2,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 65,
+      "completed_apples": 15,
+      "required_apples": 15,
+      "occupied_cells": 16,
+      "seconds_including_validation": 0.000249,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 4,
+      "seed": 3,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": false,
+      "error": "AssertionError: movement returned failure: head=4, target=11",
+      "steps": 1,
+      "completed_apples": 1,
+      "required_apples": 15,
+      "occupied_cells": 2,
+      "seconds_including_validation": 1.9e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 4,
+      "seed": 4,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": false,
+      "error": "AssertionError: movement returned failure: head=4, target=6",
+      "steps": 1,
+      "completed_apples": 1,
+      "required_apples": 15,
+      "occupied_cells": 2,
+      "seconds_including_validation": 1.6e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 4,
+      "seed": 0,
+      "case": "two_apple_counterexample",
+      "forced_apple_prefix": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "success": false,
+      "error": "AssertionError: movement returned failure: head=4, target=1",
+      "steps": 1,
+      "completed_apples": 1,
+      "required_apples": 15,
+      "occupied_cells": 2,
+      "seconds_including_validation": 1.5e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 4,
+      "seed": 0,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 77,
+      "completed_apples": 15,
+      "required_apples": 15,
+      "occupied_cells": 16,
+      "seconds_including_validation": 0.00012,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 4,
+      "seed": 1,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 51,
+      "completed_apples": 15,
+      "required_apples": 15,
+      "occupied_cells": 16,
+      "seconds_including_validation": 8.5e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 4,
+      "seed": 2,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 54,
+      "completed_apples": 15,
+      "required_apples": 15,
+      "occupied_cells": 16,
+      "seconds_including_validation": 9.2e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 4,
+      "seed": 3,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 65,
+      "completed_apples": 15,
+      "required_apples": 15,
+      "occupied_cells": 16,
+      "seconds_including_validation": 9e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 4,
+      "seed": 4,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 82,
+      "completed_apples": 15,
+      "required_apples": 15,
+      "occupied_cells": 16,
+      "seconds_including_validation": 0.000102,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 4,
+      "seed": 0,
+      "case": "two_apple_counterexample",
+      "forced_apple_prefix": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "success": true,
+      "error": null,
+      "steps": 61,
+      "completed_apples": 15,
+      "required_apples": 15,
+      "occupied_cells": 16,
+      "seconds_including_validation": 8.3e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 6,
+      "seed": 0,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 266,
+      "completed_apples": 35,
+      "required_apples": 35,
+      "occupied_cells": 36,
+      "seconds_including_validation": 0.001008,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 6,
+      "seed": 1,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 300,
+      "completed_apples": 35,
+      "required_apples": 35,
+      "occupied_cells": 36,
+      "seconds_including_validation": 0.001055,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 6,
+      "seed": 2,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 280,
+      "completed_apples": 35,
+      "required_apples": 35,
+      "occupied_cells": 36,
+      "seconds_including_validation": 0.000973,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 6,
+      "seed": 3,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 287,
+      "completed_apples": 35,
+      "required_apples": 35,
+      "occupied_cells": 36,
+      "seconds_including_validation": 0.000997,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 6,
+      "seed": 4,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 234,
+      "completed_apples": 35,
+      "required_apples": 35,
+      "occupied_cells": 36,
+      "seconds_including_validation": 0.000818,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 6,
+      "seed": 0,
+      "case": "two_apple_counterexample",
+      "forced_apple_prefix": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "success": false,
+      "error": "AssertionError: movement returned failure: head=6, target=1",
+      "steps": 1,
+      "completed_apples": 1,
+      "required_apples": 35,
+      "occupied_cells": 2,
+      "seconds_including_validation": 2e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 6,
+      "seed": 0,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 323,
+      "completed_apples": 35,
+      "required_apples": 35,
+      "occupied_cells": 36,
+      "seconds_including_validation": 0.000395,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 6,
+      "seed": 1,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 307,
+      "completed_apples": 35,
+      "required_apples": 35,
+      "occupied_cells": 36,
+      "seconds_including_validation": 0.000379,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 6,
+      "seed": 2,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 333,
+      "completed_apples": 35,
+      "required_apples": 35,
+      "occupied_cells": 36,
+      "seconds_including_validation": 0.000385,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 6,
+      "seed": 3,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 351,
+      "completed_apples": 35,
+      "required_apples": 35,
+      "occupied_cells": 36,
+      "seconds_including_validation": 0.000393,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 6,
+      "seed": 4,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 316,
+      "completed_apples": 35,
+      "required_apples": 35,
+      "occupied_cells": 36,
+      "seconds_including_validation": 0.000371,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 6,
+      "seed": 0,
+      "case": "two_apple_counterexample",
+      "forced_apple_prefix": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "success": true,
+      "error": null,
+      "steps": 308,
+      "completed_apples": 35,
+      "required_apples": 35,
+      "occupied_cells": 36,
+      "seconds_including_validation": 0.000356,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 8,
+      "seed": 0,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": false,
+      "error": "AssertionError: movement returned failure: head=60, target=7",
+      "steps": 647,
+      "completed_apples": 53,
+      "required_apples": 63,
+      "occupied_cells": 54,
+      "seconds_including_validation": 0.002586,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 8,
+      "seed": 1,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 900,
+      "completed_apples": 63,
+      "required_apples": 63,
+      "occupied_cells": 64,
+      "seconds_including_validation": 0.003386,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 8,
+      "seed": 2,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": false,
+      "error": "AssertionError: movement returned failure: head=27, target=15",
+      "steps": 804,
+      "completed_apples": 61,
+      "required_apples": 63,
+      "occupied_cells": 62,
+      "seconds_including_validation": 0.003015,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 8,
+      "seed": 3,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": false,
+      "error": "AssertionError: movement returned failure: head=43, target=17",
+      "steps": 764,
+      "completed_apples": 61,
+      "required_apples": 63,
+      "occupied_cells": 62,
+      "seconds_including_validation": 0.002916,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 8,
+      "seed": 4,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 1127,
+      "completed_apples": 63,
+      "required_apples": 63,
+      "occupied_cells": 64,
+      "seconds_including_validation": 0.004131,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 8,
+      "seed": 0,
+      "case": "two_apple_counterexample",
+      "forced_apple_prefix": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "success": false,
+      "error": "AssertionError: movement returned failure: head=8, target=1",
+      "steps": 1,
+      "completed_apples": 1,
+      "required_apples": 63,
+      "occupied_cells": 2,
+      "seconds_including_validation": 2e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 8,
+      "seed": 0,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 1055,
+      "completed_apples": 63,
+      "required_apples": 63,
+      "occupied_cells": 64,
+      "seconds_including_validation": 0.001214,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 8,
+      "seed": 1,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 994,
+      "completed_apples": 63,
+      "required_apples": 63,
+      "occupied_cells": 64,
+      "seconds_including_validation": 0.001125,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 8,
+      "seed": 2,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 1083,
+      "completed_apples": 63,
+      "required_apples": 63,
+      "occupied_cells": 64,
+      "seconds_including_validation": 0.00125,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 8,
+      "seed": 3,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 1101,
+      "completed_apples": 63,
+      "required_apples": 63,
+      "occupied_cells": 64,
+      "seconds_including_validation": 0.001179,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 8,
+      "seed": 4,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 1100,
+      "completed_apples": 63,
+      "required_apples": 63,
+      "occupied_cells": 64,
+      "seconds_including_validation": 0.001275,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 8,
+      "seed": 0,
+      "case": "two_apple_counterexample",
+      "forced_apple_prefix": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "success": true,
+      "error": null,
+      "steps": 1005,
+      "completed_apples": 63,
+      "required_apples": 63,
+      "occupied_cells": 64,
+      "seconds_including_validation": 0.001153,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 32,
+      "seed": 0,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 132948,
+      "completed_apples": 1023,
+      "required_apples": 1023,
+      "occupied_cells": 1024,
+      "seconds_including_validation": 2.757273,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 32,
+      "seed": 1,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 140099,
+      "completed_apples": 1023,
+      "required_apples": 1023,
+      "occupied_cells": 1024,
+      "seconds_including_validation": 2.868092,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 32,
+      "seed": 2,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 135024,
+      "completed_apples": 1023,
+      "required_apples": 1023,
+      "occupied_cells": 1024,
+      "seconds_including_validation": 2.82474,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 32,
+      "seed": 3,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 132733,
+      "completed_apples": 1023,
+      "required_apples": 1023,
+      "occupied_cells": 1024,
+      "seconds_including_validation": 2.749744,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 32,
+      "seed": 4,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 131384,
+      "completed_apples": 1023,
+      "required_apples": 1023,
+      "occupied_cells": 1024,
+      "seconds_including_validation": 2.745928,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "old",
+      "size": 32,
+      "seed": 0,
+      "case": "two_apple_counterexample",
+      "forced_apple_prefix": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "success": false,
+      "error": "AssertionError: movement returned failure: head=32, target=1",
+      "steps": 1,
+      "completed_apples": 1,
+      "required_apples": 1023,
+      "occupied_cells": 2,
+      "seconds_including_validation": 4e-05,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 32,
+      "seed": 0,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 256372,
+      "completed_apples": 1023,
+      "required_apples": 1023,
+      "occupied_cells": 1024,
+      "seconds_including_validation": 0.27288,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 32,
+      "seed": 1,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 267361,
+      "completed_apples": 1023,
+      "required_apples": 1023,
+      "occupied_cells": 1024,
+      "seconds_including_validation": 0.290129,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 32,
+      "seed": 2,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 256822,
+      "completed_apples": 1023,
+      "required_apples": 1023,
+      "occupied_cells": 1024,
+      "seconds_including_validation": 0.278269,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 32,
+      "seed": 3,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 262965,
+      "completed_apples": 1023,
+      "required_apples": 1023,
+      "occupied_cells": 1024,
+      "seconds_including_validation": 0.283811,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 32,
+      "seed": 4,
+      "case": "random",
+      "forced_apple_prefix": [],
+      "success": true,
+      "error": null,
+      "steps": 259390,
+      "completed_apples": 1023,
+      "required_apples": 1023,
+      "occupied_cells": 1024,
+      "seconds_including_validation": 0.273876,
+      "source_line_events": null,
+      "total_source_line_events": null
+    },
+    {
+      "algorithm": "new",
+      "size": 32,
+      "seed": 0,
+      "case": "two_apple_counterexample",
+      "forced_apple_prefix": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "success": true,
+      "error": null,
+      "steps": 254993,
+      "completed_apples": 1023,
+      "required_apples": 1023,
+      "occupied_cells": 1024,
+      "seconds_including_validation": 0.263621,
+      "source_line_events": null,
+      "total_source_line_events": null
+    }
+  ],
+  "new_failures": [],
+  "baseline_counterexample_reproduced": true,
+  "summary": {
+    "old": {
+      "games": 29,
+      "completed_games": 18,
+      "steps_including_partial_games": 677993
+    },
+    "new": {
+      "games": 29,
+      "completed_games": 29,
+      "steps_including_partial_games": 1566590
+    }
+  },
+  "success": true,
+  "line_trace": {
+    "notes": [
+      "Steps count successful moves, not game ticks.",
+      "Source-line events proxy CPython interpreter work, NOT game ticks or timing.",
+      "Tracing excludes simulator/validation; route construction is reported separately.",
+      "Same seeds may yield different apples because free cells depend on strategy.",
+      "Baseline failures are limitations and do not fail the new algorithm.",
+      "dinosaur_once game API integration is outside this benchmark's scope."
+    ],
+    "seeds": 1,
+    "sizes": [
+      2,
+      4,
+      6,
+      8,
+      32
+    ],
+    "sources": {
+      "old": {
+        "path": "/root/dev/turblog/farm_32_all_in_one.py",
+        "sha256": "afb2cba8d83c04536074cdf37c198735528a6ea5d58d60ab86f7ba9bdfd0a8a3"
+      },
+      "new": {
+        "path": "/root/dev/turblog/dinosaur_32_full_cycle_experiment.py",
+        "sha256": "94c4918f661c20bf38b5d199f0febb0cb14e8fd0d10d07d06c012c8e901bbf8c",
+        "original_path_at_run": "/root/dev/turblog/dinosaur_32.py"
+      }
+    },
+    "routes": [
+      {
+        "valid": true,
+        "unique_cells": 4,
+        "closed": true,
+        "size": 2,
+        "build_source_line_events": {
+          "build_dino_route": 16
+        }
+      },
+      {
+        "valid": true,
+        "unique_cells": 16,
+        "closed": true,
+        "size": 4,
+        "build_source_line_events": {
+          "build_dino_route": 47
+        }
+      },
+      {
+        "valid": true,
+        "unique_cells": 36,
+        "closed": true,
+        "size": 6,
+        "build_source_line_events": {
+          "build_dino_route": 94
+        }
+      },
+      {
+        "valid": true,
+        "unique_cells": 64,
+        "closed": true,
+        "size": 8,
+        "build_source_line_events": {
+          "build_dino_route": 157
+        }
+      },
+      {
+        "valid": true,
+        "unique_cells": 1024,
+        "closed": true,
+        "size": 32,
+        "build_source_line_events": {
+          "build_dino_route": 2161
+        }
+      }
+    ],
+    "games": [
+      {
+        "algorithm": "old",
+        "size": 2,
+        "seed": 0,
+        "case": "random",
+        "forced_apple_prefix": [],
+        "success": false,
+        "error": "AssertionError: movement returned failure: head=2, target=3",
+        "steps": 1,
+        "completed_apples": 1,
+        "required_apples": 3,
+        "occupied_cells": 2,
+        "seconds_including_validation": 0.001048,
+        "source_line_events": {
+          "move_dinosaur_to": 17,
+          "choose_dino_move": 99,
+          "dino_cycle_index": 23
+        },
+        "total_source_line_events": 139
+      },
+      {
+        "algorithm": "new",
+        "size": 2,
+        "seed": 0,
+        "case": "random",
+        "forced_apple_prefix": [],
+        "success": true,
+        "error": null,
+        "steps": 6,
+        "completed_apples": 3,
+        "required_apples": 3,
+        "occupied_cells": 4,
+        "seconds_including_validation": 0.000152,
+        "source_line_events": {
+          "dino_cycle_index": 16,
+          "follow_dino_route": 23
+        },
+        "total_source_line_events": 39
+      },
+      {
+        "algorithm": "old",
+        "size": 4,
+        "seed": 0,
+        "case": "random",
+        "forced_apple_prefix": [],
+        "success": false,
+        "error": "AssertionError: movement returned failure: head=15, target=5",
+        "steps": 52,
+        "completed_apples": 13,
+        "required_apples": 15,
+        "occupied_cells": 14,
+        "seconds_including_validation": 0.005236,
+        "source_line_events": {
+          "move_dinosaur_to": 590,
+          "choose_dino_move": 2978,
+          "dino_cycle_index": 875
+        },
+        "total_source_line_events": 4443
+      },
+      {
+        "algorithm": "old",
+        "size": 4,
+        "seed": 0,
+        "case": "two_apple_counterexample",
+        "forced_apple_prefix": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "success": false,
+        "error": "AssertionError: movement returned failure: head=4, target=1",
+        "steps": 1,
+        "completed_apples": 1,
+        "required_apples": 15,
+        "occupied_cells": 2,
+        "seconds_including_validation": 4.7e-05,
+        "source_line_events": null,
+        "total_source_line_events": null
+      },
+      {
+        "algorithm": "new",
+        "size": 4,
+        "seed": 0,
+        "case": "random",
+        "forced_apple_prefix": [],
+        "success": true,
+        "error": null,
+        "steps": 77,
+        "completed_apples": 15,
+        "required_apples": 15,
+        "occupied_cells": 16,
+        "seconds_including_validation": 0.000656,
+        "source_line_events": {
+          "dino_cycle_index": 107,
+          "follow_dino_route": 207
+        },
+        "total_source_line_events": 314
+      },
+      {
+        "algorithm": "new",
+        "size": 4,
+        "seed": 0,
+        "case": "two_apple_counterexample",
+        "forced_apple_prefix": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "success": true,
+        "error": null,
+        "steps": 61,
+        "completed_apples": 15,
+        "required_apples": 15,
+        "occupied_cells": 16,
+        "seconds_including_validation": 0.000113,
+        "source_line_events": null,
+        "total_source_line_events": null
+      },
+      {
+        "algorithm": "old",
+        "size": 6,
+        "seed": 0,
+        "case": "random",
+        "forced_apple_prefix": [],
+        "success": true,
+        "error": null,
+        "steps": 266,
+        "completed_apples": 35,
+        "required_apples": 35,
+        "occupied_cells": 36,
+        "seconds_including_validation": 0.027284,
+        "source_line_events": {
+          "move_dinosaur_to": 2961,
+          "choose_dino_move": 15423,
+          "dino_cycle_index": 4627
+        },
+        "total_source_line_events": 23011
+      },
+      {
+        "algorithm": "old",
+        "size": 6,
+        "seed": 0,
+        "case": "two_apple_counterexample",
+        "forced_apple_prefix": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "success": false,
+        "error": "AssertionError: movement returned failure: head=6, target=1",
+        "steps": 1,
+        "completed_apples": 1,
+        "required_apples": 35,
+        "occupied_cells": 2,
+        "seconds_including_validation": 6.3e-05,
+        "source_line_events": null,
+        "total_source_line_events": null
+      },
+      {
+        "algorithm": "new",
+        "size": 6,
+        "seed": 0,
+        "case": "random",
+        "forced_apple_prefix": [],
+        "success": true,
+        "error": null,
+        "steps": 323,
+        "completed_apples": 35,
+        "required_apples": 35,
+        "occupied_cells": 36,
+        "seconds_including_validation": 0.002242,
+        "source_line_events": {
+          "dino_cycle_index": 255,
+          "follow_dino_route": 767
+        },
+        "total_source_line_events": 1022
+      },
+      {
+        "algorithm": "new",
+        "size": 6,
+        "seed": 0,
+        "case": "two_apple_counterexample",
+        "forced_apple_prefix": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "success": true,
+        "error": null,
+        "steps": 308,
+        "completed_apples": 35,
+        "required_apples": 35,
+        "occupied_cells": 36,
+        "seconds_including_validation": 0.000425,
+        "source_line_events": null,
+        "total_source_line_events": null
+      },
+      {
+        "algorithm": "old",
+        "size": 8,
+        "seed": 0,
+        "case": "random",
+        "forced_apple_prefix": [],
+        "success": false,
+        "error": "AssertionError: movement returned failure: head=60, target=7",
+        "steps": 647,
+        "completed_apples": 53,
+        "required_apples": 63,
+        "occupied_cells": 54,
+        "seconds_including_validation": 0.066994,
+        "source_line_events": {
+          "move_dinosaur_to": 7175,
+          "choose_dino_move": 38199,
+          "dino_cycle_index": 11691
+        },
+        "total_source_line_events": 57065
+      },
+      {
+        "algorithm": "old",
+        "size": 8,
+        "seed": 0,
+        "case": "two_apple_counterexample",
+        "forced_apple_prefix": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "success": false,
+        "error": "AssertionError: movement returned failure: head=8, target=1",
+        "steps": 1,
+        "completed_apples": 1,
+        "required_apples": 63,
+        "occupied_cells": 2,
+        "seconds_including_validation": 6.6e-05,
+        "source_line_events": null,
+        "total_source_line_events": null
+      },
+      {
+        "algorithm": "new",
+        "size": 8,
+        "seed": 0,
+        "case": "random",
+        "forced_apple_prefix": [],
+        "success": true,
+        "error": null,
+        "steps": 1055,
+        "completed_apples": 63,
+        "required_apples": 63,
+        "occupied_cells": 64,
+        "seconds_including_validation": 0.006718,
+        "source_line_events": {
+          "dino_cycle_index": 462,
+          "follow_dino_route": 2331
+        },
+        "total_source_line_events": 2793
+      },
+      {
+        "algorithm": "new",
+        "size": 8,
+        "seed": 0,
+        "case": "two_apple_counterexample",
+        "forced_apple_prefix": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "success": true,
+        "error": null,
+        "steps": 1005,
+        "completed_apples": 63,
+        "required_apples": 63,
+        "occupied_cells": 64,
+        "seconds_including_validation": 0.001197,
+        "source_line_events": null,
+        "total_source_line_events": null
+      },
+      {
+        "algorithm": "old",
+        "size": 32,
+        "seed": 0,
+        "case": "random",
+        "forced_apple_prefix": [],
+        "success": true,
+        "error": null,
+        "steps": 132948,
+        "completed_apples": 1023,
+        "required_apples": 1023,
+        "occupied_cells": 1024,
+        "seconds_including_validation": 16.36245,
+        "source_line_events": {
+          "move_dinosaur_to": 1463451,
+          "choose_dino_move": 8152851,
+          "dino_cycle_index": 2558492
+        },
+        "total_source_line_events": 12174794
+      },
+      {
+        "algorithm": "old",
+        "size": 32,
+        "seed": 0,
+        "case": "two_apple_counterexample",
+        "forced_apple_prefix": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "success": false,
+        "error": "AssertionError: movement returned failure: head=32, target=1",
+        "steps": 1,
+        "completed_apples": 1,
+        "required_apples": 1023,
+        "occupied_cells": 2,
+        "seconds_including_validation": 8.4e-05,
+        "source_line_events": null,
+        "total_source_line_events": null
+      },
+      {
+        "algorithm": "new",
+        "size": 32,
+        "seed": 0,
+        "case": "random",
+        "forced_apple_prefix": [],
+        "success": true,
+        "error": null,
+        "steps": 256372,
+        "completed_apples": 1023,
+        "required_apples": 1023,
+        "occupied_cells": 1024,
+        "seconds_including_validation": 1.394782,
+        "source_line_events": {
+          "dino_cycle_index": 7996,
+          "follow_dino_route": 516313
+        },
+        "total_source_line_events": 524309
+      },
+      {
+        "algorithm": "new",
+        "size": 32,
+        "seed": 0,
+        "case": "two_apple_counterexample",
+        "forced_apple_prefix": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "success": true,
+        "error": null,
+        "steps": 254993,
+        "completed_apples": 1023,
+        "required_apples": 1023,
+        "occupied_cells": 1024,
+        "seconds_including_validation": 0.268499,
+        "source_line_events": null,
+        "total_source_line_events": null
+      }
+    ],
+    "new_failures": [],
+    "baseline_counterexample_reproduced": true,
+    "summary": {
+      "old": {
+        "games": 9,
+        "completed_games": 2,
+        "steps_including_partial_games": 133918
+      },
+      "new": {
+        "games": 9,
+        "completed_games": 9,
+        "steps_including_partial_games": 514200
+      }
+    },
+    "success": true
+  },
+  "candidate_status": "Experimental only; standalone main restored to extracted baseline. Game tick improvement is unverified."
+}

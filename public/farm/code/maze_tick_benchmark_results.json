@@ -1,0 +1,249 @@
+{
+  "api_costs": {
+    "move_success": 200,
+    "can_move": 1,
+    "measure": 1
+  },
+  "profiles": {
+    "lean": {
+      "edge_checks": 4,
+      "queue_pops": 6,
+      "frontier_scores": 8,
+      "path_checks": 4,
+      "wall_probes": 4,
+      "moves": 208,
+      "bfs": 8,
+      "incremental": 8,
+      "shortcuts": 2
+    },
+    "central": {
+      "edge_checks": 12,
+      "queue_pops": 12,
+      "frontier_scores": 16,
+      "path_checks": 8,
+      "wall_probes": 8,
+      "moves": 216,
+      "bfs": 16,
+      "incremental": 16,
+      "shortcuts": 4
+    },
+    "heavy": {
+      "edge_checks": 24,
+      "queue_pops": 24,
+      "frontier_scores": 32,
+      "path_checks": 16,
+      "wall_probes": 16,
+      "moves": 232,
+      "bfs": 32,
+      "incremental": 32,
+      "shortcuts": 8
+    }
+  },
+  "common_api_ticks": 61101,
+  "results": [
+    {
+      "removed_per_relocation": 0,
+      "profiles": {
+        "lean": {
+          "ticks": {
+            "full": 16726052.75,
+            "lazy_dfs": 17054775.5,
+            "frontier": 27589389.0,
+            "local_frontier": 17837083.75
+          },
+          "wins": {
+            "full": 8,
+            "lazy_dfs": 0,
+            "frontier": 0,
+            "local_frontier": 0
+          },
+          "winner": "full"
+        },
+        "central": {
+          "ticks": {
+            "full": 24412897.0,
+            "lazy_dfs": 24607912.0,
+            "frontier": 54267104.5,
+            "local_frontier": 27784442.5
+          },
+          "wins": {
+            "full": 6,
+            "lazy_dfs": 2,
+            "frontier": 0,
+            "local_frontier": 0
+          },
+          "winner": "full"
+        },
+        "heavy": {
+          "ticks": {
+            "full": 37302743.0,
+            "lazy_dfs": 37284573.0,
+            "frontier": 97199458.0,
+            "local_frontier": 44235984.0
+          },
+          "wins": {
+            "full": 3,
+            "lazy_dfs": 5,
+            "frontier": 0,
+            "local_frontier": 0
+          },
+          "winner": "lazy_dfs"
+        }
+      },
+      "local_vs_full_edge_break_even": 0.7928421138217314
+    },
+    {
+      "removed_per_relocation": 1,
+      "profiles": {
+        "lean": {
+          "ticks": {
+            "full": 8771094.0,
+            "lazy_dfs": 8868533.5,
+            "frontier": 19563847.25,
+            "local_frontier": 9954028.75
+          },
+          "wins": {
+            "full": 4,
+            "lazy_dfs": 4,
+            "frontier": 0,
+            "local_frontier": 0
+          },
+          "winner": "full"
+        },
+        "central": {
+          "ticks": {
+            "full": 17241341.5,
+            "lazy_dfs": 16928510.5,
+            "frontier": 46863978.5,
+            "local_frontier": 20703103.5
+          },
+          "wins": {
+            "full": 1,
+            "lazy_dfs": 7,
+            "frontier": 0,
+            "local_frontier": 0
+          },
+          "winner": "lazy_dfs"
+        },
+        "heavy": {
+          "ticks": {
+            "full": 31101332.0,
+            "lazy_dfs": 30124870.0,
+            "frontier": 90508256.0,
+            "local_frontier": 38155606.0
+          },
+          "wins": {
+            "full": 1,
+            "lazy_dfs": 7,
+            "frontier": 0,
+            "local_frontier": 0
+          },
+          "winner": "lazy_dfs"
+        }
+      },
+      "local_vs_full_edge_break_even": 0.5418888920548002
+    },
+    {
+      "removed_per_relocation": 4,
+      "profiles": {
+        "lean": {
+          "ticks": {
+            "full": 7409459.75,
+            "lazy_dfs": 6938466.75,
+            "frontier": 17842266.25,
+            "local_frontier": 8360479.5
+          },
+          "wins": {
+            "full": 0,
+            "lazy_dfs": 8,
+            "frontier": 0,
+            "local_frontier": 0
+          },
+          "winner": "lazy_dfs"
+        },
+        "central": {
+          "ticks": {
+            "full": 15588291.5,
+            "lazy_dfs": 14337494.5,
+            "frontier": 44251332.5,
+            "local_frontier": 18528669.5
+          },
+          "wins": {
+            "full": 0,
+            "lazy_dfs": 8,
+            "frontier": 0,
+            "local_frontier": 0
+          },
+          "winner": "lazy_dfs"
+        },
+        "heavy": {
+          "ticks": {
+            "full": 28823482.0,
+            "lazy_dfs": 26304138.0,
+            "frontier": 86319614.0,
+            "local_frontier": 34887538.0
+          },
+          "wins": {
+            "full": 0,
+            "lazy_dfs": 8,
+            "frontier": 0,
+            "local_frontier": 0
+          },
+          "winner": "lazy_dfs"
+        }
+      },
+      "local_vs_full_edge_break_even": 0.8575052468397621
+    },
+    {
+      "removed_per_relocation": 16,
+      "profiles": {
+        "lean": {
+          "ticks": {
+            "full": 4866330.0,
+            "lazy_dfs": 3998830.5,
+            "frontier": 14477599.0,
+            "local_frontier": 5449350.25
+          },
+          "wins": {
+            "full": 0,
+            "lazy_dfs": 8,
+            "frontier": 0,
+            "local_frontier": 0
+          },
+          "winner": "lazy_dfs"
+        },
+        "central": {
+          "ticks": {
+            "full": 9518401.5,
+            "lazy_dfs": 7405420.0,
+            "frontier": 36048832.0,
+            "local_frontier": 11556340.0
+          },
+          "wins": {
+            "full": 0,
+            "lazy_dfs": 8,
+            "frontier": 0,
+            "local_frontier": 0
+          },
+          "winner": "lazy_dfs"
+        },
+        "heavy": {
+          "ticks": {
+            "full": 17044402.0,
+            "lazy_dfs": 12915389.0,
+            "frontier": 70338813.0,
+            "local_frontier": 21348429.0
+          },
+          "wins": {
+            "full": 0,
+            "lazy_dfs": 8,
+            "frontier": 0,
+            "local_frontier": 0
+          },
+          "winner": "lazy_dfs"
+        }
+      },
+      "local_vs_full_edge_break_even": 1.4176354722655449
+    }
+  ]
+}

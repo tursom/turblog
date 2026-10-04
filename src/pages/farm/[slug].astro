@@ -1,0 +1,105 @@
+---
+import { Code } from 'astro:components';
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import { farmGroups, farmScripts, readFarmSource, type FarmScript } from '@/lib/farm';
+
+export function getStaticPaths() {
+  return farmScripts.map((script) => ({ params: { slug: script.slug }, props: { script } }));
+}
+
+interface Props {
+  script: FarmScript;
+}
+const { script } = Astro.props;
+const group = farmGroups.find((group) => group.id === script.group)!;
+const source = await readFarmSource(script);
+---
+
+<SiteLayout title={script.title} description={script.summary}>
+  <div class="breadcrumbs">
+    <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/farm/">farm</a><span
+      aria-hidden="true">/</span
+    ><strong>{script.slug}</strong>
+  </div>
+  <article class="article-page">
+    <header class="article-header">
+      <span class="eyebrow">{group.title} · {script.version}</span>
+      <h1>{script.title}</h1>
+      <p class="article-summary">{script.summary}</p>
+      <div class="script-actions">
+        <a href={`/farm/code/${script.file}`} download={script.file}>下载 {script.file}</a><a
+          href="#source">跳到源码 ↓</a
+        >
+      </div>
+    </header>
+    <div class="prose">
+      <h2>使用说明</h2>
+      <ol>{script.usage.map((step) => <li>{step}</li>)}</ol>
+      {
+        script.slug === 'all-in-one' && (
+          <p>
+            依赖模块：<a href="/farm/maze-reuse/">maze_reuse.py</a>，需要一同复制到游戏。
+          </p>
+        )
+      }
+      {
+        script.group === 'maze' && (
+          <>
+            <p>
+              先将所选版本保存为 <code>maze_reuse</code>
+              ，再在另一个游戏窗口执行，例如把金币总库存补到 100,000：
+            </p>
+            <Code
+              code={'import maze_reuse\nmaze_reuse.run_maze_batch(100000)'}
+              lang="python"
+              themes={{ light: 'github-light-default', dark: 'github-dark-default' }}
+              defaultColor={false}
+            />
+          </>
+        )
+      }
+      <h2>运行前提与限制</h2>
+      {group.notes.map((note) => <p>{note}</p>)}
+      <p>
+        运行环境：游戏内代码窗口。说明由 AI 辅助整理；更多对照版本、测试和记录见<a
+          href={`/farm/#${group.id}`}>{group.title}目录</a
+        >。
+      </p>
+      <h2 id="source">完整源码</h2>
+      <p>
+        <code>{script.file}</code> · {source.trimEnd().split('\n').length} 行。代码块右上角可复制完整代码。
+      </p>
+      <Code
+        code={source}
+        lang="python"
+        themes={{ light: 'github-light-default', dark: 'github-dark-default' }}
+        defaultColor={false}
+        wrap={true}
+      />
+    </div>
+    <footer class="article-footer">
+      <a href={`/farm/#${group.id}`}>← 返回{group.title}</a><a
+        href={`/farm/code/${script.file}`}
+        download={script.file}>下载源码</a
+      >
+    </footer>
+  </article>
+</SiteLayout>
+
+<style>
+  .script-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    color: var(--accent-strong);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+  }
+  .script-actions a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  #source {
+    scroll-margin-top: 24px;
+  }
+</style>

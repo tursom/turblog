@@ -1,0 +1,98 @@
+[
+  {
+    "walls_removed_per_relocation": 0,
+    "seeds": 5,
+    "baseline": {
+      "moves": 285837,
+      "edge_checks": 3079230,
+      "queue_pops": 1541120,
+      "bfs": 1505,
+      "incremental": 0,
+      "shortcuts": 0,
+      "wall_probes": 521377,
+      "path_checks": 0
+    },
+    "optimized": {
+      "moves": 285837,
+      "edge_checks": 3069000,
+      "queue_pops": 1536000,
+      "bfs": 1500,
+      "incremental": 0,
+      "shortcuts": 5,
+      "wall_probes": 521377,
+      "path_checks": 5594
+    }
+  },
+  {
+    "walls_removed_per_relocation": 1,
+    "seeds": 5,
+    "baseline": {
+      "moves": 73843,
+      "edge_checks": 5965386,
+      "queue_pops": 2680832,
+      "bfs": 2618,
+      "incremental": 0,
+      "shortcuts": 0,
+      "wall_probes": 115241,
+      "path_checks": 0
+    },
+    "optimized": {
+      "moves": 73843,
+      "edge_checks": 3808873,
+      "queue_pops": 1720346,
+      "bfs": 1492,
+      "incremental": 1113,
+      "shortcuts": 13,
+      "wall_probes": 115241,
+      "path_checks": 6666
+    }
+  },
+  {
+    "walls_removed_per_relocation": 4,
+    "seeds": 5,
+    "baseline": {
+      "moves": 47529,
+      "edge_checks": 15547270,
+      "queue_pops": 5439488,
+      "bfs": 5312,
+      "incremental": 0,
+      "shortcuts": 0,
+      "wall_probes": 49640,
+      "path_checks": 0
+    },
+    "optimized": {
+      "moves": 47535,
+      "edge_checks": 3872024,
+      "queue_pops": 1473782,
+      "bfs": 1199,
+      "incremental": 3501,
+      "shortcuts": 306,
+      "wall_probes": 49569,
+      "path_checks": 16520
+    }
+  },
+  {
+    "walls_removed_per_relocation": 16,
+    "seeds": 5,
+    "baseline": {
+      "moves": 38307,
+      "edge_checks": 16472290,
+      "queue_pops": 5394432,
+      "bfs": 5268,
+      "incremental": 0,
+      "shortcuts": 0,
+      "wall_probes": 19359,
+      "path_checks": 0
+    },
+    "optimized": {
+      "moves": 38327,
+      "edge_checks": 2190362,
+      "queue_pops": 803624,
+      "bfs": 537,
+      "incremental": 3411,
+      "shortcuts": 968,
+      "wall_probes": 19315,
+      "path_checks": 28030
+    }
+  }
+]

@@ -1,0 +1,191 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import { farmGroups, farmScripts, getSupportingFiles } from '@/lib/farm';
+---
+
+<SiteLayout
+  title="编程农场"
+  description="《编程农场》的种植、仙人掌、恐龙与迷宫脚本，附使用说明、源码和实验记录。"
+>
+  <div class="breadcrumbs">
+    <a href="/">~/log</a><span aria-hidden="true">/</span><strong>farm</strong>
+  </div>
+  <header class="page-intro compact-intro">
+    <span class="eyebrow">THE FARMER WAS REPLACED</span>
+    <h1>编程农场</h1>
+    <p>从自动种植到路径规划，收录游戏脚本、算法对照与模拟记录。</p>
+  </header>
+
+  <div class="prose farm-intro">
+    <p>
+      首次使用可以从综合农场开始；只缺某种资源时，选择对应的独立脚本。每个脚本页都提供完整源码、复制和下载，文件名保留游戏中的模块命名。
+    </p>
+    <p>
+      游戏脚本使用游戏内置 API，需放进游戏代码窗口运行。辅助文件中的本地模型与测试使用
+      CPython；各自的运行环境已在下方标注。说明由 AI 辅助整理。
+    </p>
+    <p>
+      <a href="/farm/code/README.md" download="README.md">下载完整目录说明</a> · <a
+        href="https://github.com/tursom/turblog/tree/master/public/farm/code/"
+        target="_blank"
+        rel="noreferrer">在 GitHub 浏览全部文件 ↗</a
+      >
+    </p>
+  </div>
+
+  <nav class="farm-topics" aria-label="脚本主题">
+    {farmGroups.map((group) => <a href={`#${group.id}`}>{group.title}</a>)}
+  </nav>
+
+  {
+    farmGroups.map((group) => {
+      const scripts = farmScripts.filter((script) => script.group === group.id);
+      const supportingFiles = getSupportingFiles(group.id);
+      return (
+        <section class="section-block farm-group" id={group.id}>
+          <div class="section-heading">
+            <>
+              <h2>{group.title}</h2>
+              <span>{scripts.length} 个脚本</span>
+            </>
+          </div>
+          <div class="prose farm-notes">
+            <p>{group.summary}</p>
+            {group.notes.map((note) => (
+              <p>{note}</p>
+            ))}
+          </div>
+          <ul class="farm-script-list">
+            {scripts.map((script) => (
+              <li>
+                <div class="farm-script-heading">
+                  <h3>
+                    <a href={`/farm/${script.slug}/`}>{script.title}</a>
+                  </h3>
+                  <span class="farm-version">{script.version}</span>
+                </div>
+                <p>{script.summary}</p>
+                <div class="farm-file-links">
+                  <a href={`/farm/${script.slug}/`}>阅读源码</a>
+                  <a href={`/farm/code/${script.file}`} download={script.file}>
+                    下载 {script.file}
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
+          {supportingFiles.length > 0 && (
+            <details class="farm-support">
+              <summary>说明、测试与实验文件（{supportingFiles.length}）</summary>
+              <p>
+                以下链接下载原文件。运行本地测试时，先进入完整文件目录，保留文件名和同目录依赖。
+              </p>
+              <ul>
+                {supportingFiles.map(({ file, description }) => (
+                  <li>
+                    <a href={`/farm/code/${file}`} download={file}>
+                      {file}
+                    </a>
+                    <span>{description}</span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+        </section>
+      );
+    })
+  }
+</SiteLayout>
+
+<style>
+  .farm-intro {
+    padding-top: 0;
+  }
+  .farm-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin: 28px 0;
+    color: var(--accent-strong);
+    font-weight: 700;
+  }
+  .farm-group {
+    margin-top: 42px;
+    scroll-margin-top: 24px;
+  }
+  .section-heading > span {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .farm-notes {
+    padding-top: 20px;
+    font-size: 14px;
+  }
+  .farm-script-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .farm-script-list > li {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .farm-script-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px 16px;
+  }
+  h3 {
+    margin: 0;
+    font-size: 19px;
+  }
+  h3 a:hover,
+  .farm-file-links a:hover,
+  .farm-topics a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .farm-version {
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .farm-script-list p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .farm-file-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    color: var(--accent-strong);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+  .farm-support {
+    margin-top: 22px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .farm-support summary {
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .farm-support p,
+  .farm-support span {
+    color: var(--muted);
+  }
+  .farm-support ul {
+    padding-left: 20px;
+  }
+  .farm-support li {
+    margin: 12px 0;
+    overflow-wrap: anywhere;
+  }
+  .farm-support a {
+    display: block;
+    color: var(--accent-strong);
+  }
+</style>
