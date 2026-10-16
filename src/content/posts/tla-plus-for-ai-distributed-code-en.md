@@ -9,6 +9,7 @@ tags:
   - 形式化验证
   - TLA+
 aiAssisted: true
+lang: en-US
 cover: null
 ---
 
@@ -30,7 +31,7 @@ What I wanted was something precise and strongly constrained, something an AI ca
 > make test   # replay TLC's counterexamples against real PostgreSQL
 > ```
 >
-> You need Go, Java, the TLA+ tools and Docker. Comments and docs in the repository are in Chinese; code snippets in this post have their comments translated.
+> You need Go, Java, the TLA+ tools and Docker. The repository has an [English README](https://github.com/tursom/pgqueue-tla/blob/master/README.en.md); code comments and the requirements document are in Chinese, and the code snippets in this post have their comments translated.
 
 ## Why TLA+
 

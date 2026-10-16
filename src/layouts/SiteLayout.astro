@@ -15,6 +15,7 @@ interface Props {
   pageType?: 'website' | 'article';
   canonicalPath?: string;
   noindex?: boolean;
+  lang?: string;
 }
 
 const {
@@ -25,6 +26,7 @@ const {
   pageType = 'website',
   canonicalPath = Astro.url.pathname,
   noindex = false,
+  lang = 'zh-CN',
 } = Astro.props;
 const fullTitle = title === 'Tursom Log' ? title : `${title} · Tursom Log`;
 const canonical = new URL(canonicalPath, Astro.site ?? Astro.url);
@@ -37,7 +39,7 @@ const apiBasePath = (import.meta.env.PUBLIC_API_BASE_PATH || '/api/v1').replace(
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -48,7 +50,7 @@ const apiBasePath = (import.meta.env.PUBLIC_API_BASE_PATH || '/api/v1').replace(
     <link rel="alternate" type="application/rss+xml" title="Tursom Log RSS" href="/rss.xml" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:site_name" content="Tursom Log" />
-    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale" content={lang.replace('-', '_')} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={pageType} />

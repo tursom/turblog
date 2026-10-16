@@ -14,6 +14,7 @@ const posts = defineCollection({
       tags: z.array(z.string().min(1)).min(1),
       aiAssisted: z.boolean().default(false),
       private: z.boolean().default(false),
+      lang: z.string().default('zh-CN'),
       cover: image().nullable().optional(),
     }),
 });

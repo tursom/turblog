@@ -31,6 +31,7 @@ const { Content, headings } = await render(post);
   ogImage={post.data.cover ?? undefined}
   pageType="article"
   noindex={post.data.private}
+  lang={post.data.lang}
 >
   <div class="breadcrumbs">
     <a href="/">~/log</a><span aria-hidden="true">/</span><a href="/archive/">posts</a><span
