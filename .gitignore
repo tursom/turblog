@@ -18,3 +18,5 @@ test-results/
 
 # Private machine-translated books and importer staging/locks
 /src/content/books/.syosetu-*/
+
+.pi-web
