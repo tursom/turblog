@@ -52,6 +52,17 @@ cover: null
 
 草稿使用 `draft/*` 分支；合并到 `master` 才会进入正式构建。Mermaid 使用 `mermaid` fenced code block，构建阶段生成静态 SVG。
 
+TLA+ 代码块使用 `tla`、`tla+` 或 `tlaplus` 语言标记，支持完整模块和省略模块头的片段，并随站点切换明暗高亮主题：
+
+```tla
+VARIABLE x
+Init == x = 0
+Next == x' = x + 1
+Spec == Init /\ [][Next]_x
+```
+
+语法高亮回归检查：`pnpm test:syntax-highlight`。
+
 ## 脚本
 
 “脚本”使用独立入口 `/scripts/`，与文章和图书并列，按用途或项目组织脚本集合。每个集合有自己的说明、源码和下载文件；新增集合时，在 `src/pages/scripts/index.astro` 的 `collections` 中添加条目，页面放在 `src/pages/scripts/<集合>/`，下载文件放在 `public/scripts/<集合>/`。

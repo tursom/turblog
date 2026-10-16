@@ -25,6 +25,7 @@
     "book:share": "node scripts/book-share-link.mjs",
     "test:e2e": "playwright test",
     "test:code-contrast": "pnpm build && playwright test tests/code-block-contrast.spec.ts",
+    "test:syntax-highlight": "node --test scripts/syntax-highlight.test.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {

@@ -5,6 +5,7 @@ import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
 import rehypeMermaid from 'rehype-mermaid';
 import rehypeLegacyFootnoteAnchors from './src/lib/rehype-legacy-footnote-anchors.mjs';
+import tlaplusLanguages from './src/lib/tlaplus.mjs';
 
 const siteUrl = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
 /** @type {string | undefined} */
@@ -64,6 +65,7 @@ export default defineConfig({
       excludeLangs: ['mermaid'],
     },
     shikiConfig: {
+      langs: tlaplusLanguages,
       themes: {
         light: 'github-light-default',
         dark: 'github-dark-default',
